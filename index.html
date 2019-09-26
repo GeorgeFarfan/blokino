@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Blokino - Entorno web para programar objetos físicos </title>
+  <link rel="stylesheet" href="./style/app.css">
+  <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+  <script src="./src/components/section.component.js"></script>
+  <script src="./resources/libs/font-awesome/js/fontawesome.min.js"></script>
+
+</head>
+
+<body>
+  <div id="root"></div>
+  <div class="welcome">
+
+    <div class="container">
+
+      <div class="row" id="blokino-welcome">
+
+        <div class="col col-lg-5 col-sm-12 col-md-12 right-dots">
+          <img class="rounded mx-auto d-block" data-src="./src/images/blokino-logo.svg"
+            src="./src/images/blokino-logo.svg" alt="Blokino ..." width="400" height="400">
+          <h1 class="display-4 font-weight-bold mt-3 mb-1 text-center  blink"> Aprende a programar hardware
+            con
+            Blokino
+          </h1>
+        </div>
+
+        <div class="col-lg-7 col-sm-12 col-md-12 pt-5">
+
+          <section-block path_style="./style/app.css" title="Programemos"
+            description="Crea tus propios programas con el modo libre de <strong>Blokino</strong>."></section-block>
+
+          <section-block path_style="./style/app.css" title="Desafíos" description="Antes de usar la plataforma de modo libre, se recomienda hacer los desafíos, que indican como se
+              debe usar <strong>Blokino</strong> y sus bloques funcionales."></section-block>
+          <section-block path_style="./style/app.css" title="Robots"
+            description="Conoce a los robots de <strong>Blokino</strong> y sus distintas versiones.">
+          </section-block>
+
+          <section-block path_style="./style/app.css" title="La web de Blokino"
+            description="Si necesitas mirar la documentación o las actualizaciones que se van agregando a la plataforma, accede a la <strong>web de Blokino</strong>.">
+          </section-block>
+
+          <div class="pb-1">
+            <button class="btn btn-lg btn-open-editor" id="option-open-blokino">
+              <i class="far fa-code icon-link"></i>Programemos</button>
+            <button class="btn btn-lg btn-open-challenges" id="option-challenges">
+              <i class="far fa-envelope-open icon-link"></i>
+              Desafíos</button>
+            <button class="btn btn-lg btn-open-robots" id="open-projects">
+              <i class="far fa-robot icon-link"></i>
+              Robots</button>
+            <button class="btn btn-lg btn-open-web" id="open-doc">
+              <i class="far fa-ethernet icon-link"></i>
+              Web</button>
+          </div>
+
+          <div>
+            <i class="devicons devicons-debian icon-blokino-medium"></i>
+            <i class="devicons devicons-windows icon-blokino-medium"></i>
+          </div>
+          <div>
+            <i class="devicons devicons-html5 icon-blokino-medium"></i>
+            <i class="devicons devicons-javascript_badge icon-blokino-medium"></i>
+            <i class="devicons devicons-css3 icon-blokino-medium"></i>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <script src="./index.js">
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+.container-ide {
+    max-width: 1500px !important;
+}
+
+#toolbox {
+    display: none;
+}
+
+.ide-info {
+    line-height: 30px;
+    color: #504e4e;
+}
+
+#block-editor {
+    background-color: #f3f3f3;
+    border: 3px solid #bdbaba;
+    border-radius: 14px;
+}
+
+#blokinoIDE {
+    border-radius: 10px;
+    border: 5px solid #282a36;
+}
+
+.blocklyTreeLabel {
+    font-size: 1.7em !important;
+}
+
+.blocklyToolboxDiv {
+    color: whitesmoke;
+    background-color: #202020 !important;
+}
+
+.blocklyFlyout {
+    background-color: #626262b8 !important;
+}
+
+.blocklyTreeRow {
+    padding-top: 1em !important;
+    padding-bottom: 2.5em !important;
+    cursor: pointer !important;
+}
+
+.blocklyFlyoutBackground {
+    fill: #1e1e1e !important;
+}
+
+.blocklyTreeRow:hover {
+    color: #202020 !important;
+}
+
+.block-editor {
+    height: 100vh;
+    width: 100%;
+}
+
+.current-code {
+    border: 3px solid antiquewhite;
+}

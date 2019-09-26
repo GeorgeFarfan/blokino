@@ -1,0 +1,45 @@
+@import url("../resources/libs/font-awesome/css/all.min.css");
+@import url("../resources/libs/hoverCss/css/hover-min.css");
+@import url("../node_modules/codemirror/lib/codemirror.css");
+@import url("../node_modules/codemirror/theme/material.css");
+@import url("../node_modules/codemirror/theme/monokai.css");
+@import url("../node_modules/codemirror/theme/twilight.css");
+@import url("../node_modules/codemirror/theme/seti.css");
+@import url("../node_modules/codemirror/theme/dracula.css");
+@import url("../resources/libs/bootstrap/css/bootstrap.min.css");
+
+@import url("blockly.css");
+@import url("animation.css");
+@import url("button.css");
+@import url("carousel.css");
+@import url("challenges.css");
+@import url("code-mirror.css");
+@import url("editor.css");
+@import url("modals.css");
+@import url("spinner.css");
+@import url("components.css");
+@import url("help.css");
+@import url("./icons/css/devicons.min.css");
+@import url("./icons.css");
+@import url("./utils.css");
+
+body {
+    background: white;
+    font-display: monospace !important;
+    animation: fadeIn 0.4s linear;
+}
+
+.body-main {
+    background: #282a36;
+    background: linear-gradient(to bottom, #282a36 0%, #552d55 100%);
+    animation: fadeIn 0.4s linear;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media (max-width: 1200px) {
+    .right-dots {
+        border-right: none;
+    }
+}

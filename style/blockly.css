@@ -1,0 +1,35 @@
+.blocklyWorkspace {
+    font-weight: bold !important;
+    font-family: monospace !important;
+}
+
+.blocklyBlockCanvas {
+    font-weight: bold !important;
+    font-family: monospace !important;
+}
+
+.blocklyTreeLabel {
+    cursor: pointer;
+    font-family: monospace;
+    padding: 0 3px;
+    font-size: 1.5em;
+    vertical-align: middle;
+}
+
+.blocklyToolboxDiv {
+    font-weight: bold;
+}
+
+.blocklySvg {
+    background-color: #ffffff00 !important;
+}
+
+.blocklyTrash {
+    opacity: 1 !important;
+}
+
+.blocklyZoom > image,
+.blocklyZoom > svg > image {
+    opacity: 1 !important;
+    cursor: pointer;
+}

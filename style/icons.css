@@ -1,0 +1,36 @@
+.icon-link {
+    font-size: 25px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.icon-large {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.icon-blokino {
+    font-size: 1.5em;
+    color: rgb(105, 99, 99);
+    vertical-align: middle;
+}
+
+.icon-blokino-medium {
+    font-size: 3em;
+    color: rgb(105, 99, 99);
+    vertical-align: middle;
+}
+
+.icon-challenge {
+    font-size: 30px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.icon-modal {
+    font-size: 6em;
+    padding: 0.5em;
+    font-weight: bold;
+    animation: fade 1000ms infinite;
+    -webkit-animation: fade 1000ms infinite;
+}
