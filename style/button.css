@@ -207,7 +207,7 @@
 }
 
 .btn-success {
-    padding: 0.8em
+    padding: 0.8em;
 }
 
 .btn-success-custom {
@@ -519,14 +519,6 @@
 
 #open-frietzing {
     background-image: url("../src/images/logos/fritzing-logo.png");
-    background-size: 100%;
-    width: 10%;
-    background-repeat: no-repeat;
-    padding-bottom: 7em;
-}
-
-#open-documentation {
-    background-image: url("../src/images/logos/documentation.png");
     background-size: 100%;
     width: 10%;
     background-repeat: no-repeat;
