@@ -306,9 +306,8 @@ function modalExpert(state) {
         case "Exito":
             $("#stopProgram").prop("disabled", false);
             utils.setModalSuccessAllTest(
-                `Ya armaste el programa de Blokino, el programa se va a ejecutar en el dispositivo Arduino <strong>${localStorage.getItem(
-                    "device"
-                )}</strong>.`
+                `<div><span>El programa se armó correctamente y se va a ejecutar en la placa Arduino que seleccionaste.</span></div>
+                 <div class="mt-3"><span class="badge-alert p-2"><strong><i class="far fa-info-circle icon-link"></i></strong> Revisar que el circuito este correctamente armado.</span></div>`
             );
             break;
         case "Error":

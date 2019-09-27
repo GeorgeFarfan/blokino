@@ -15,6 +15,13 @@
     padding: 0.2em;
     font-weight: bold;
 }
+.badge-alert {
+    background-color: #cd3350;
+    border-radius: 5px;
+    line-height: 45px;
+    color: white;
+    font-weight: bold;
+}
 
 .badge-2 {
     padding: 0.2em;
