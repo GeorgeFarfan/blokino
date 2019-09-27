@@ -9,9 +9,13 @@ require("codemirror/mode/javascript/javascript.js");
 require("codemirror/mode/css/css.js");
 require("popper.js");
 require("bootstrap");
-const { clipboard } = require("electron");
+const {
+    clipboard
+} = require("electron");
 const $ = require("jquery"),
-    { ipcRenderer } = require("electron"),
+    {
+        ipcRenderer
+    } = require("electron"),
     esprima = require("esprima"),
     chalk = require("chalk"),
     log = console.log,
@@ -51,7 +55,7 @@ function changeCurrentCode(event) {
 // Limpia la pantalla
 Config.cleanWorkspace(Blockly, workspace);
 
-$("#open-doc").click(function(event) {
+$("#open-doc").click(function (event) {
     event.preventDefault();
     utils.openURL("documentation");
 });
@@ -84,11 +88,18 @@ $("#copy-code-preview").click(() => {
 function getCodeJS() {
     return beautify(
         Blockly.JavaScript.workspaceToCode(workspace)
-            .replace(/(\r\n|\n|\r)/gm, "")
-            .replace(/var/gm, "let"),
+        //.replace(/(\r\n|\n|\r)/gm, "")
+        .replace(/var/gm, "let"),
         Config.beautify()
     );
 }
+
+function getCode(code) {
+    return beautify(code.replace(/var/gm, "let"),
+        Config.beautify()
+    );
+}
+
 
 function removeJumpLines(code) {
     return code.replace("\n", "");
@@ -204,14 +215,14 @@ $("#openModalResistenceCalculator").on("click", () => {
 });
 
 // Modal que se abre cuando se quiere crear una variables
-Blockly.prompt = function(message, defaultValue, callback) {
+Blockly.prompt = function (message, defaultValue, callback) {
     currentCallback = callback;
     $("#new-variable").val("");
     $("#newVariableModal").modal();
 };
 
 // Modal para eliminar variables.
-Blockly.confirm = function(message, callback) {
+Blockly.confirm = function (message, callback) {
     currentCallback = callback;
     $("#modal-variable-remove").modal();
     $("#removeVariableTitle").html(message);

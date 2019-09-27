@@ -42,7 +42,7 @@ $("#newVariableModal").on("hidden.bs.modal", () => {
 });
 
 $("#executeCode").click(() => {
-    let code = utils.formatExecuteCode(Blockly.JavaScript.workspaceToCode(workspace));
+    let code = getCode(Blockly.JavaScript.workspaceToCode(workspace));
     let device = $("input:radio[name=radios]:checked").val();
     if (device !== undefined) {
         utils.openModalWaiting("Verificando el programa ...");
@@ -76,6 +76,7 @@ $("#copy-code-preview").click(() => {
 });
 
 $("#open-modal-code-preview").click(() => {
+    let current_code = localStorage.getItem("code");
     let code = removeCustomElements(beautify(localStorage.getItem("code")), Config.beautify());
     localStorage.setItem("code", code);
     setTimeout(() => {

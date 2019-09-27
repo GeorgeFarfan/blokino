@@ -7,9 +7,13 @@
 
 const shell = require("electron").shell,
     info = require("../../resources/libs/config/device-config"),
-    { spawn } = require("child_process"),
+    {
+        spawn
+    } = require("child_process"),
     esprima = require("esprima"),
-    { dialog } = require("electron").remote,
+    {
+        dialog
+    } = require("electron").remote,
     fs = require("fs"),
     internetAvailable = require("internet-available"),
     CryptoJS = require("crypto-js"),
@@ -192,7 +196,7 @@ let utilFunctions = {
         $("#errorModalBtn").html(btn);
     },
     createRowDevice: (devices, document) => {
-        setTimeout(function() {
+        setTimeout(function () {
             document.getElementById("renderList").innerHTML = "";
             let ul = document.createElement("ul");
             ul.setAttribute("id", "proList");
@@ -235,7 +239,7 @@ let utilFunctions = {
     },
 
     createSetupDevices: (devices, document) => {
-        setTimeout(function() {
+        setTimeout(function () {
             document.getElementById("listDevices").innerHTML = "";
             let ul = document.createElement("ul");
             ul.setAttribute("id", "devicesList");
@@ -273,10 +277,6 @@ let utilFunctions = {
                 );
             }
         }, 500);
-    },
-
-    createShowCode: code => {
-        return code.replace(/(\r\n|\n|\r)/gm, "").replace(/var/gi, "let");
     },
     formatExecuteCode: code => {
         return code.replace(/(\r\n|\n|\r)/gm, "").replace(/  /gi, "");
@@ -348,7 +348,7 @@ let utilFunctions = {
                 .then(() => {
                     log(chalk.gray.bgGreen.bold("Blokino esta conectado a la red."));
                     utilFunctions.setupDevice(ipcRenderer);
-                    setTimeout(function() {
+                    setTimeout(function () {
                         utilFunctions.successMsgrSetupDevice(document);
                     }, 10000);
                 })
@@ -371,7 +371,7 @@ let utilFunctions = {
                 .then(() => {
                     log(chalk.gray.bgGreen.bold("Blokino esta conectado a la red."));
                     utilFunctions.setupDevice(ipcRenderer);
-                    setTimeout(function() {
+                    setTimeout(function () {
                         utilFunctions.successMsgrSetupDevice(document);
                     }, 10000);
                 })
