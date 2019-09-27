@@ -95,7 +95,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 );
                 return statements_variables_code;
             };
-            Blockly.JavaScript["block_message"] = function(block) {
+            Blockly.JavaScript["block_message"] = block => {
                 let message = block.getFieldValue("message");
                 let type = block.getFieldValue("dropdown");
                 let code = `process.send(

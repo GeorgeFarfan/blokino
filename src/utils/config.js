@@ -230,7 +230,7 @@ let settingFunctions = {
             });
         }
     },
-    beautify: function(code) {
+    beautify: code => {
         return {
             indent_size: 4,
             space_in_empty_paren: true,
@@ -238,7 +238,7 @@ let settingFunctions = {
             preserve_newlines: false
         };
     },
-    codeMirror: function(code) {
+    codeMirror: code => {
         return {
             value: code,
             mode: "javascript",
@@ -248,16 +248,16 @@ let settingFunctions = {
             theme: "dracula"
         };
     },
-    blockly: function(Blockly, typeToolBar) {
+    blockly: (Blockly, typeToolBar) => {
         // Defino configuraciones globales para Blockly
         Blockly.FieldColour.COLOURS = COLOURS;
         Blockly.FieldColour.COLUMNS = 3;
-        Blockly.HSV_SATURATION = 0.8;
-        Blockly.HSV_VALUE = 0.8;
+        Blockly.HSV_SATURATION = 0.5;
+        Blockly.HSV_VALUE = 0.7;
 
         return settingFunctions.selectToolBox(typeToolBar);
     },
-    selectToolBox: function(typeToolBar) {
+    selectToolBox: typeToolBar => {
         switch (typeToolBar) {
             case "Expert":
                 return {
@@ -386,7 +386,7 @@ let settingFunctions = {
                 break;
         }
     },
-    challenges: function(Blockly, test, challengeType) {
+    challenges: (Blockly, test, challengeType) => {
         Blockly.FieldColour.COLOURS = COLOURS;
         Blockly.FieldColour.COLUMNS = 3;
         Blockly.HSV_SATURATION = 0.8;
@@ -812,12 +812,12 @@ let settingFunctions = {
                 break;
         }
     },
-    cleanWorkspace: function(Blockly, workspace) {
+    cleanWorkspace: (Blockly, workspace) => {
         let xml = Blockly.Xml.textToDom(ProgramCodeBase.application().program);
         Blockly.mainWorkspace.clear();
         Blockly.Xml.domToWorkspace(xml, workspace);
     },
-    loadComponents: function(Blockly) {
+    loadComponents: Blockly => {
         // Componentes cargados
         functionsComponent.block(Blockly);
         functionsComponent.code(Blockly);
