@@ -1,95 +1,72 @@
-let $ = require("jquery"),
-    utils = require("../utils/functions");
+let utils = require("../utils/functions");
 
-$("#challenge-leds").click(() => {
+document.getElementById("challenge-leds").addEventListener("click",function(event){
     window.location.href = "./beginners/challenge-led.html";
 });
 
-$("#challenge-lcd").click(() => {
+document.getElementById("challenge-lcd").addEventListener("click",function(event){
     window.location.href = "./beginners/challenge-lcd.html";
 });
 
-$("#challenge-leds-rgb").click(() => {
+document.getElementById("challenge-leds-rgb").addEventListener("click",function(event){
     window.location.href = "./beginners/challenge-led-rgb.html";
 });
-
-$("#challenge-buttons").click(() => {
+ 
+document.getElementById("challenge-buttons").addEventListener("click",function(event){
     window.location.href = "./beginners/challenge-button.html";
 });
-
-$("#challenge-beginner-1").click(() => {
-    window.location.href = "./beginners/challenge-number-1.html";
-});
-
-$("#challenge-potentiometer").click(() => {
+ 
+document.getElementById("challenge-potentiometer").addEventListener("click",function(event){
     window.location.href = "./intermediate/challenge-potentiometer.html";
 });
-
-$("#challenge-joystick").click(() => {
+  
+document.getElementById("challenge-joystick").addEventListener("click",function(event){
     window.location.href = "./intermediate/challenge-joystick.html";
 });
-
-$("#challenge-buzzer").click(() => {
+  
+document.getElementById("challenge-buzzer").addEventListener("click",function(event){
     window.location.href = "./intermediate/challenge-buzzer.html";
 });
-
-$("#challenge-structure-control").click(() => {
-    window.location.href = "./intermediate/challenge-structure-control.html";
-});
-
-$("#challenge-functions").click(() => {
-    window.location.href = "./intermediate/challenge-functions.html";
-});
-
-$("#challenge-functions").click(() => {
-    window.location.href = "./advanced/challenge-functions.html";
-});
-
-$("#challenge-screen-matrix").click(() => {
-    window.location.href = "./advanced/challenge-screen-matrix.html";
-});
-
-$("#challenge-structure-control").click(() => {
-    window.location.href = "./advanced/challenge-structure-control.html";
-});
-$("#challenge-servo").click(() => {
-    window.location.href = "./advanced/challenge-servo.html";
-});
-
-$("#challenge-servo").click(() => {
-    window.location.href = "./advanced/challenge-servo.html";
-});
-
-$("#challenge-keypad").click(() => {
-    window.location.href = "./advanced/challenge-keypad.html";
-});
-
-$("#challenge-sensor-prox").click(() => {
-    window.location.href = "./advanced/challenge-sensor-prox.html";
-});
-
-$("#challenge-sensor-movement").click(() => {
-    window.location.href = "./advanced/challenge-sensor-mov.html";
-});
-
-$("#challenge-expert").click(() => {
-    window.location.href = "./expert/expert.html";
-});
-
-$("#challenge-motors").click(() => {
+ 
+document.getElementById("challenge-motors").addEventListener("click",function(event){
     window.location.href = "./advanced/challenge-motors.html";
 });
-
-$("#back-button").click(() => {
-    window.history.back();
+ 
+document.getElementById("challenge-screen-matrix").addEventListener("click",function(event){
+    window.location.href = "./advanced/challenge-screen-matrix.html";
 });
+  
+document.getElementById("challenge-servo").addEventListener("click",function(event){
+    window.location.href = "./advanced/challenge-servo.html";
+});
+ 
+document.getElementById("challenge-keypad").addEventListener("click",function(event){
+    window.location.href = "./advanced/challenge-keypad.html";
+});
+  
+document.getElementById("challenge-sensor-prox").addEventListener("click",function(event){
+    window.location.href = "./advanced/challenge-sensor-prox.html";
+});
+ 
+document.getElementById("challenge-sensor-movement").addEventListener("click",function(event){
+    window.location.href = "./advanced/challenge-sensor-mov.html";
+}); 
 
-$("#open-frietzing").on("click", event => {
+document.getElementById("challenge-expert").addEventListener("click",function(event){
+    window.location.href = "./expert/expert.html";
+}); 
+
+document.getElementById("back-button").addEventListener("click",function(event){
+    window.history.back();
+}); 
+
+document.getElementById("open-frietzing").addEventListener("click",function(event){
     event.preventDefault();
     utils.openURL("frietzing");
-});
+}); 
 
-$("#open-doc").click(event => {
+document.getElementById("open-doc").addEventListener("click",function(event){
     event.preventDefault();
     utils.openURL("main");
-});
+}); 
+ 

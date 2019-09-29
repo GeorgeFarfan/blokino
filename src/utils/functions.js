@@ -32,6 +32,7 @@ let utilFunctions = {
             Blockly.Xml.domToWorkspace(xml, workspace);
         }, 500);
     },
+
     uploadCode: (Blockly, workspace) => {
         dialog.showOpenDialog(fileNames => {
             if (fileNames === undefined) {
@@ -62,6 +63,7 @@ let utilFunctions = {
             });
         });
     },
+
     downloadCode: (Blockly, workspace) => {
         dialog.showSaveDialog(fileName => {
             if (fileName === undefined) {
@@ -111,13 +113,16 @@ let utilFunctions = {
     openModalErrorExecuteProgram: message => {
         utilFunctions.setModalError("", message, "Volvelo a intentar");
     },
+
     openModalWaiting: message => {
         $("#modal-waiting").modal();
         $("#modal-waiting-message").html(message);
     },
+
     closeModalWaiting: () => {
         $("#modal-waiting").modal("toggle");
     },
+
     esprimaValidation: code => {
         let res = null;
         try {
@@ -390,6 +395,7 @@ let utilFunctions = {
         );
         $("#modal-title-device").css("margin-bottom", "5em");
     },
+
     successMsgrSetupDevice: document => {
         $("#loader-setup-device").css("display", "none");
         $("#container-waiting-device").css("display", "block");
@@ -401,6 +407,7 @@ let utilFunctions = {
         $("#modal-title-device").css("margin-bottom", "1em");
         utilFunctions.clearListDevices(document);
     },
+
     errorMsgrSetupDevice: document => {
         $("#loader-setup-device").css("display", "none");
         $("#container-waiting-device").css("display", "block");
@@ -410,6 +417,7 @@ let utilFunctions = {
         $("#modal-title-device").css("margin-bottom", "1em");
         utilFunctions.clearListDevices(document);
     },
+
     challengeComplete: tests => {
         for (let i = 1; i <= tests; i++) {
             $("#test" + i + "_title")
@@ -418,6 +426,7 @@ let utilFunctions = {
                 .addClass("challenge-badge-complete");
         }
     },
+
     validateModal: (current_test, tests, complete_challenge) => {
         if (complete_challenge) {
             utilFunctions.challengeComplete(tests);

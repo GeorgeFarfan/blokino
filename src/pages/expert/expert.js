@@ -7,7 +7,6 @@
 
 let variables = [],
     currentCallback = null;
-
 $("#newVariableModal").on("hidden.bs.modal", () => {
     let new_variable = $("#new-variable")
         .val()
@@ -41,7 +40,7 @@ $("#newVariableModal").on("hidden.bs.modal", () => {
     }
 });
 
-$("#executeCode").click(() => {
+document.getElementById("executeCode").addEventListener("click", function(event) {
     let code = getCode(Blockly.JavaScript.workspaceToCode(workspace));
     let device = $("input:radio[name=radios]:checked").val();
     if (device !== undefined) {
@@ -70,12 +69,12 @@ $("#executeCode").click(() => {
     }
 });
 
-$("#copy-code-preview").click(() => {
+document.getElementById("copy-code-preview").addEventListener("click", function(event) {
     let code = removeCustomElements(beautify(localStorage.getItem("code")), Config.beautify());
     clipboard.writeText(code);
 });
 
-$("#open-modal-code-preview").click(() => {
+document.getElementById("open-modal-code-preview").addEventListener("click", function(event) {
     let code = removeCustomElements(beautify(localStorage.getItem("code")), Config.beautify());
     localStorage.setItem("code", code);
     setTimeout(() => {
@@ -87,7 +86,7 @@ $("#open-modal-code-preview").click(() => {
     }, 300);
 });
 
-$("#openModalExecuteCode").click(() => {
+document.getElementById("openModalExecuteCode").addEventListener("click", function(event) {
     let code = utils.formatExecuteCode(Blockly.JavaScript.workspaceToCode(workspace));
     let result = utils.esprimaValidation(code);
     if (result !== "Error") {

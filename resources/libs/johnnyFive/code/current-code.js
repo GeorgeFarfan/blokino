@@ -6,6 +6,6 @@ led_1 = (new five.Led({
         blink: 0
     }
 }));
-led_1.blink(1000);
-led_1.custom.blink = 1000;
+led_1.blink(100);
+led_1.custom.blink = 100;
 process.send(JSON.stringify({type:'Exito', description:'El programa se ejecutó correctamente', code: jc.decycle()}))} catch(error){process.send(JSON.stringify({type:'Error', description:error.toString()}))}});board.on('error', function(err) {process.send(JSON.stringify({ type: 'ErrorJ5', description: err.class}));});board.on('exit', function(event) {log(chalk.black.bgRed.bold('EXIT - Arduino device was disconnected...')); });board.on('message', function (event) {log(chalk.black.bgYellow.bold('MESSAGE - you receive a message: ', event.type, event.class, event.message));});board.on('info', function (event) {log(chalk.black.bgYellow.bold('INFORMATION - you receive a information message: ', event.class, event.message));});board.on('fail', function(event) {log(chalk.black.bgYellow.bold('ERROR - you receive a fail message: ', event.class, event.message));});board.on('warn', function(event) {log(chalk.black.bgYellow.bold('WARNING - you receive a warn message: ', event.class, event.message));});} catch (error) {process.send(JSON.stringify({ type: 'Error', description: error.toString() }));}
