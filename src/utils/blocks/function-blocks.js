@@ -111,7 +111,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                         time = parseInt(timer_value) * 60000;
                         break;
                 }
-                let code = `setTimeout(function(){${timer_code}},${time});\n`;
+                let code = `setTimeout(() => {${timer_code}},${time});\n`;
                 return code;
             };
             Blockly.JavaScript["interval_time"] = block => {

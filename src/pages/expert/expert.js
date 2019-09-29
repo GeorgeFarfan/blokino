@@ -76,7 +76,6 @@ $("#copy-code-preview").click(() => {
 });
 
 $("#open-modal-code-preview").click(() => {
-    let current_code = localStorage.getItem("code");
     let code = removeCustomElements(beautify(localStorage.getItem("code")), Config.beautify());
     localStorage.setItem("code", code);
     setTimeout(() => {

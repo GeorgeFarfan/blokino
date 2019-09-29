@@ -39,7 +39,7 @@ const programComponent = require("./blocks/app-blocks"),
     MotorMenu = require("../utils/menu/motor-menu"),
     ProgramCodeBase = require("../utils/program/blokino-program"),
     { spawn } = require("child_process"),
-    info = require("../../resources/libs/config/device-config"),
+    platform = require("../../resources/libs/config/platform"),
     { BrowserWindow } = require("electron"),
     shell = require("electron").shell,
     path = require("path");
@@ -182,7 +182,7 @@ let settingFunctions = {
                     {
                         label: "Página web",
                         click() {
-                            if (info.arch().includes("win")) {
+                            if (platform.arch().includes("win")) {
                                 shell.openExternal(PAGES.blokino);
                             } else {
                                 spawn("chromium-browser", ["--no-sandbox", PAGES.blokino]);
@@ -192,7 +192,7 @@ let settingFunctions = {
                     {
                         label: "Node-Bots",
                         click() {
-                            if (info.arch().includes("win")) {
+                            if (platform.arch().includes("win")) {
                                 shell.openExternal(PAGES.nodebot);
                             } else {
                                 spawn("chromium-browser", ["--no-sandbox", PAGES.nodebot]);
@@ -202,7 +202,7 @@ let settingFunctions = {
                     {
                         label: "Frietzing",
                         click() {
-                            if (info.arch().includes("win")) {
+                            if (platform.arch().includes("win")) {
                                 shell.openExternal(PAGES.frietzing);
                             } else {
                                 spawn("chromium-browser", ["--no-sandbox", PAGES.frietzing]);

@@ -1,5 +1,5 @@
 const serialportCommand = require("../../devices/serialport-commands"),
-    configDevice = require("../../../config/device-config"),
+    platform = require("../../../config/platform"),
     chalk = require("chalk"),
     log = console.log,
     fs = require("fs"),
@@ -27,7 +27,7 @@ let gortFunctions = {
     },
     gort: function() {
         let config_gort = this.linux().gort;
-        let info = configDevice.infoPc();
+        let info = platform.infoOS();
         if (info.short_name_os === "Lin" || info.short_name_os === "mac") {
             switch (info.arch) {
                 case "x86":
@@ -43,7 +43,7 @@ let gortFunctions = {
     },
     devices: async function(callback) {
         let devices = serialportCommand.listDevices();
-        let os_arch = configDevice.arch();
+        let os_arch = platform.arch();
         let devices_gort = [];
         let promise = null;
         switch (os_arch) {
@@ -190,7 +190,7 @@ let gortFunctions = {
     },
     gortSetup: function(device) {
         let lib = "",
-            os_arch = configDevice.arch();
+            os_arch = platform.arch();
         let options = {
             name: "Electron"
         };
