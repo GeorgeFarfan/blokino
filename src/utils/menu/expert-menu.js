@@ -373,6 +373,7 @@ let menuFunctions = {
                                             <block type="matrix_paint"></block>
                                             <block type="matrix_leds_paint"></block>
                                             <block type="matrix_emoticon"></block>
+                                            <block type="matrix_caracter"></block>
                                         </category>
                                         <sep gap="32"></sep>
                                         <category name="Acciones" colour="15">

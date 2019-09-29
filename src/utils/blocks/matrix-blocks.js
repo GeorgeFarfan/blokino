@@ -482,6 +482,20 @@ let screenMarixFunctions = {
                 this.setHelpUrl("");
             }
         };
+        Blockly.Blocks["matrix_caracter"] = {
+            init: function() {
+                this.appendDummyInput()
+                    .appendField("Posicion")
+                    .appendField(new Blockly.FieldNumber(1, 1, 20, 1), "position");
+                this.appendValueInput("caracter")
+                    .setCheck("String")
+                    .appendField("Caracter");
+                this.setOutput(true, null);
+                this.setColour(15);
+                this.setTooltip("");
+                this.setHelpUrl("");
+            }
+        };
     },
     code: Blockly => {
         Blockly.JavaScript["matrix"] = block => {
@@ -984,6 +998,17 @@ let screenMarixFunctions = {
                          checkbox_led_8_8}"`
                  ]}]}`;
 
+            return [code, Blockly.JavaScript.ORDER_NONE];
+        };
+        Blockly.JavaScript["matrix_caracter"] = function(block) {
+            let position = block.getFieldValue("position") - 1;
+            let caracter = Blockly.JavaScript.valueToCode(
+                block,
+                "caracter",
+                Blockly.JavaScript.ORDER_ATOMIC
+            );
+
+            let code = `{position:${position},matrix_code:${caracter}}`;
             return [code, Blockly.JavaScript.ORDER_NONE];
         };
     }
