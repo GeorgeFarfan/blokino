@@ -5,11 +5,7 @@
  * @description Este archivo contiene la configuracion del desafio de la MATRIX-LEDS.
  */
 
-let validate_result_code = [
-        [],
-        [],
-        []
-    ],
+let validate_result_code = [[], [], []],
     current_test = "test_1",
     variables = [],
     conditions = {
@@ -61,7 +57,7 @@ $("#newVariableModal").on("hidden.bs.modal", () => {
     }
 });
 
-$("#executeCode").click(() => {
+document.getElementById("executeCode").addEventListener("click", function(event) {
     let code = utils.formatExecuteCode(Blockly.JavaScript.workspaceToCode(workspace));
     let device = $("input:radio[name=radios]:checked").val();
     if (device !== undefined) {
@@ -71,8 +67,8 @@ $("#executeCode").click(() => {
                 validate_result_code = validator.matrix(validate_code.body, validate_result_code);
                 let validate_result = validate_result_code.filter(
                     led_filter =>
-                    led_filter["type"] === "SCREEN-MATRIX" &&
-                    led_filter["name"] === "MATRIX_LEDS"
+                        led_filter["type"] === "SCREEN-MATRIX" &&
+                        led_filter["name"] === "MATRIX_LEDS"
                 );
                 if (validate_result.length == 1) {
                     conditions[current_test] = true;
@@ -144,8 +140,8 @@ $("#executeCode").click(() => {
                 validate_result_code = validator.matrix(validate_code.body, validate_result_code);
                 let validate_result = validate_result_code.filter(
                     led_filter =>
-                    led_filter["type"] === "SCREEN-MATRIX" &&
-                    led_filter["name"] === "MATRIX_LEDS"
+                        led_filter["type"] === "SCREEN-MATRIX" &&
+                        led_filter["name"] === "MATRIX_LEDS"
                 );
                 if (validate_result.length == 1) {
                     conditions[current_test] = true;
@@ -217,8 +213,8 @@ $("#executeCode").click(() => {
                 validate_result_code = validator.matrix(validate_code.body, validate_result_code);
                 let validate_result = validate_result_code.filter(
                     led_filter =>
-                    led_filter["type"] === "SCREEN-MATRIX" &&
-                    led_filter["name"] === "MATRIX_LEDS"
+                        led_filter["type"] === "SCREEN-MATRIX" &&
+                        led_filter["name"] === "MATRIX_LEDS"
                 );
                 if (validate_result.length == 1) {
                     conditions[current_test] = true;
@@ -247,7 +243,7 @@ $("#executeCode").click(() => {
                             let data = JSON.parse(result_data);
                             if (
                                 data.variables_status.custom.code.toString() ===
-                                "00000000,01100000,01101000,00001110,00001110,01101000,01100000,00000000" &&
+                                    "00000000,01100000,01101000,00001110,00001110,01101000,01100000,00000000" &&
                                 data.variables_status.pins.clock == 4 &&
                                 data.variables_status.pins.cs == 3 &&
                                 data.variables_status.pins.data == 2
@@ -291,7 +287,7 @@ $("#executeCode").click(() => {
     }
 });
 
-$("#openModalExecuteCode").click(() => {
+document.getElementById("openModalExecuteCode").addEventListener("click", function(event) {
     let code = utils.formatExecuteCode(Blockly.JavaScript.workspaceToCode(workspace));
     let result = utils.esprimaValidation(code);
     if (result.body.length == 0) {
@@ -330,7 +326,7 @@ $("#openModalExecuteCode").click(() => {
     }
 });
 
-$("#carouselExampleControls").bind("slide.bs.carousel", function (e) {
+$("#carouselExampleControls").bind("slide.bs.carousel", function(e) {
     if (
         e.relatedTarget.dataset.pos === "test_1" ||
         e.relatedTarget.dataset.pos === "test_2" ||

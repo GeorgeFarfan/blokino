@@ -57,7 +57,7 @@ $("#newVariableModal").on("hidden.bs.modal", () => {
     }
 });
 
-$("#executeCode").click(() => {
+document.getElementById("executeCode").addEventListener("click", function(event) {
     let code = utils.formatExecuteCode(Blockly.JavaScript.workspaceToCode(workspace));
     let device = $("input:radio[name=radios]:checked").val();
     if (device !== undefined) {
@@ -275,7 +275,7 @@ $("#executeCode").click(() => {
     }
 });
 
-$("#openModalExecuteCode").click(() => {
+document.getElementById("openModalExecuteCode").addEventListener("click", function(event) {
     let code = utils.formatExecuteCode(Blockly.JavaScript.workspaceToCode(workspace));
     let result = utils.esprimaValidation(code);
     if (result !== "Error") {

@@ -5,11 +5,7 @@
  * @description Este módulo contiene la configuración del bloque funcional BUZZER.
  */
 
-let validate_result_code = [
-        [],
-        [],
-        []
-    ],
+let validate_result_code = [[], [], []],
     current_test = "test_1",
     variables = [],
     conditions = {
@@ -60,7 +56,7 @@ $("#newVariableModal").on("hidden.bs.modal", () => {
     }
 });
 
-$("#executeCode").click(() => {
+document.getElementById("executeCode").addEventListener("click", function(event) {
     let code = utils.formatExecuteCode(Blockly.JavaScript.workspaceToCode(workspace));
     let device = $("input:radio[name=radios]:checked").val();
     if (device !== undefined) {
@@ -125,7 +121,7 @@ $("#executeCode").click(() => {
                 validate_result_code = validator.buzzer(validate_code.body, validate_result_code);
                 let validate_result = validate_result_code.filter(
                     led_filter =>
-                    led_filter["type"] === "BUZZER" && led_filter["name"] === "ZUMBADOR"
+                        led_filter["type"] === "BUZZER" && led_filter["name"] === "ZUMBADOR"
                 );
                 if (validate_result.length == 1) {
                     conditions[current_test] = true;
@@ -153,7 +149,7 @@ $("#executeCode").click(() => {
                                 data.variables_status.custom.type == "BUZZER" &&
                                 data.variables_status.custom.code.status == "playing" &&
                                 data.variables_status.custom.code.notes.toString() ==
-                                "D,3,3,,1,G,5,2,C,3,1,A,2,1" &&
+                                    "D,3,3,,1,G,5,2,C,3,1,A,2,1" &&
                                 data.variables_status.pin == 9
                             ) {
                                 modalChallenges(
@@ -190,7 +186,7 @@ $("#executeCode").click(() => {
     }
 });
 
-$("#openModalExecuteCode").click(() => {
+document.getElementById("openModalExecuteCode").addEventListener("click", function(event) {
     let code = utils.formatExecuteCode(Blockly.JavaScript.workspaceToCode(workspace));
     let result = utils.esprimaValidation(code);
     if (result !== "Error") {
@@ -209,7 +205,7 @@ $("#openModalExecuteCode").click(() => {
     }
 });
 
-$("#carouselExampleControls").bind("slide.bs.carousel", function (e) {
+$("#carouselExampleControls").bind("slide.bs.carousel", function(e) {
     if (e.relatedTarget.dataset.pos === "test_1" || e.relatedTarget.dataset.pos === "test_2") {
         variables = [];
         current_test = e.relatedTarget.dataset.pos;
