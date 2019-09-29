@@ -6,7 +6,7 @@
 
 
 
-#### **Composición**
+### **Composición**
 
 Para el diseño de la plataforma se usaron las siguientes librerías y frameworks:
 
@@ -15,7 +15,7 @@ Para el diseño de la plataforma se usaron las siguientes librerías y framework
 -   NodeJS 12.0
 -   Johnny-Five 1.3.1
 
-#### **Requisitos**
+### **Requisitos**
 
 Entre las dependencias generales:
 
@@ -28,7 +28,7 @@ La versión 1.0 de **Blokino** tiene dependencias dependiendo de la plataforma:
 -   **Windows**: Desde el lado del hardware, la arquitectura soportada es **Windows 10 - 64bits**. Y desde el lado de software se debe instalar los siguientes programas: - [**Arduino IDE for Windows**](h![](https://www.arduino.cc/en/main/software) - **AVR installer ** - Esta incluido en el .zip, que se baja con la plataforma.
 -   **Linux**: Para linux se encuentra una sección, dentro la plataforma para instalar dependencias.
 
-#### **Como usar localmente**
+### **Como usar localmente**
 
 Para poder configurar localemnte Blokino, se deben ejecutar los siguientes scripts:
 
@@ -44,14 +44,15 @@ Para poder configurar localemnte Blokino, se deben ejecutar los siguientes scrip
 
 ![Encendamos un LED](./src/images/code-examples/app.png)
 
-#### **Como generar instaladores locales de Blokino**
+### **Como generar instaladores locales de Blokino**
 
 En el caso que se quiera generar instaladores locales, para ver si algún cambio se realizó correctamente y funciona en la plataforma donde se este usando **Blokino**, se debe ejecutar el siguiente comando:
 **npm run eletron-create-installers**
 o
 **yarn run eletron-create-installers**
 
-#### **Como crear programas con Blokino**
+En el caso de que la consola interprete dispare un error elecutar el siguiente comando para arreglarlo: **npm run electron-fix-dependencies**
+### **Como crear programas con Blokino**
 
 Para poder hacer las aplicaciones Blokino, se deben crear variables y asignarlas a algun bloque funcional con su/s correspondiente/s números de cables dupont. Luego se deben seleccionar las funciones que se quieren realizar con esos componentes electrónicos. Cada bloque funcional hace referencia a componentes electrónicos, funciones, variables declaradas, estructuras de control y mensajes informativos entre otros.
 
