@@ -47,6 +47,7 @@ let menuFunctions = {
                                         <sep gap="32"></sep>
                                         <category name="Texto" colour="135">
                                             <block type="text"></block>
+                                            <block type="text_join"></block>
                                             <block type="text_changeCase">
                                                 <value name="TEXT">
                                                     <shadow type="text">
@@ -329,6 +330,33 @@ let menuFunctions = {
                                                 </value>
                                             </block>
                                         </category>
+                                        
+                                        <category name="Crear Matrix-Leds con Extensiones" colour="15">
+                                            <block type="matrix_with_extensions">
+                                                <value name="pin_cs">
+                                                    <shadow type="math_number">
+                                                        <field name="NUM">2</field>
+                                                    </shadow>
+                                                </value>
+                                                <value name="pin_din">
+                                                    <shadow type="math_number">
+                                                        <field name="NUM">3</field>
+                                                    </shadow>
+                                                </value>
+                                                <value name="pin_clk">
+                                                    <shadow type="math_number">
+                                                        <field name="NUM">4</field>
+                                                    </shadow>
+                                                </value>
+                                                <value name="extensions">
+                                                    <shadow type="math_number">
+                                                        <field name="NUM">1</field>
+                                                    </shadow>
+                                                </value>
+                                            </block>
+                                        </category>
+
+                                        
                                         <sep gap="32"></sep>
                                         <category name="Mensajes" colour="15">
                                             <block type="message_screen">
@@ -343,6 +371,8 @@ let menuFunctions = {
                                         <category name="Gestos" colour="15">
                                             <block type="print_screen"></block>
                                             <block type="matrix_paint"></block>
+                                            <block type="matrix_leds_paint"></block>
+                                            <block type="matrix_emoticon"></block>
                                         </category>
                                         <sep gap="32"></sep>
                                         <category name="Acciones" colour="15">

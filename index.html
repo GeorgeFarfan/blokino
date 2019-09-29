@@ -8,11 +8,12 @@
   <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
   <script src="./src/components/section.component.js"></script>
   <script src="./resources/libs/font-awesome/js/fontawesome.min.js"></script>
-
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="node_modules/popper.js/dist/popper.min.js"></script>
 </head>
 
 <body>
-  <div id="root"></div>
+
   <div class="welcome">
 
     <div class="container">
@@ -44,15 +45,15 @@
           </section-block>
 
           <div class="pb-1">
-            <button class="btn btn-lg btn-open-editor" id="option-open-blokino">
+            <button class="btn btn-lg btn-open-editor" onclick="openEditor()">
               <i class="far fa-code icon-link"></i>Programemos</button>
-            <button class="btn btn-lg btn-open-challenges" id="option-challenges">
+            <button class="btn btn-lg btn-open-challenges" onclick="openChallenges()">
               <i class="far fa-envelope-open icon-link"></i>
               Desafíos</button>
-            <button class="btn btn-lg btn-open-robots" id="open-projects">
+            <button class="btn btn-lg btn-open-robots" onclick="openProjects()">
               <i class="far fa-robot icon-link"></i>
               Robots</button>
-            <button class="btn btn-lg btn-open-web" id="open-doc">
+            <button class="btn btn-lg btn-open-web" onclick="openWebPage()">
               <i class="far fa-ethernet icon-link"></i>
               Web</button>
           </div>
@@ -72,7 +73,27 @@
     </div>
   </div>
   </div>
-  <script src="./index.js">
+  <script>
+
+    let utils = require("./src/utils/functions");
+
+    function openEditor() {
+      window.location.href = "./src/pages/expert/expert.html";
+    }
+
+    function openChallenges() {
+      window.location.href = "./src/pages/challenges.html";
+    }
+
+    function openWebPage() {
+      event.preventDefault();
+      utils.openURL("projects");
+    }
+
+    function openProjects() {
+      window.location.href = "./src/pages/projects/projects.html";
+    }
+
   </script>
 
 </body>

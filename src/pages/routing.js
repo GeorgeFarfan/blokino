@@ -1,5 +1,3 @@
-require("popper.js");
-require("bootstrap");
 let $ = require("jquery"),
     utils = require("../utils/functions");
 

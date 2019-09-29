@@ -4,6 +4,8 @@
 
 **Blokino** es un entorno de programación basado en un paradigma de bloques funcionales. Los bloques funcionales son el concepto principal dentro de Blokino. Como el nombre lo dice, son contenedores de lógica y funcionalidad intuitiva, que con el nombre que las describe se entiende que se quiere realizar. Para generar aplicaciones Blokino, se deben ir agrupando estos bloques. Por el momento solo se tiene soporte para las placas Arduino UNO, MEGA y NANO.
 
+
+
 #### **Composición**
 
 Para el diseño de la plataforma se usaron las siguientes librerías y frameworks:
@@ -13,9 +15,15 @@ Para el diseño de la plataforma se usaron las siguientes librerías y framework
 -   NodeJS 12.0
 -   Johnny-Five 1.3.1
 
-#### **Dependencias**
+#### **Requisitos**
 
-La versión 1.0 tiene dependencias necesarias dependiendo de la plataforma:
+Entre las dependencias generales:
+
+- NodeJS 8 o superiores.
+- Yarn
+- Arduino IDE
+
+La versión 1.0 de **Blokino** tiene dependencias dependiendo de la plataforma:
 
 -   **Windows**: Desde el lado del hardware, la arquitectura soportada es **Windows 10 - 64bits**. Y desde el lado de software se debe instalar los siguientes programas: - [**Arduino IDE for Windows**](h![](https://www.arduino.cc/en/main/software) - **AVR installer ** - Esta incluido en el .zip, que se baja con la plataforma.
 -   **Linux**: Para linux se encuentra una sección, dentro la plataforma para instalar dependencias.
@@ -73,3 +81,19 @@ LED.blink(100);
 ```
 
 #### **Como ejecutar programas en Blokino**
+
+Para poder realizar la ejecución de los programas de **Blokino**, se debe seleccionar el dispositivo Arduino y configurarlo.
+
+![Dispositivos Arduino](./src/images/code-examples/devices.png)
+
+La configuración puede tardar entre 1 o 3 minutos.
+
+![Dispositivos Arduino](./src/images/code-examples/device-setup.png)
+
+Luego de configurarlo se puede ejecutar el programa. El siguiente modal muesta las opciones que se tiene previamente a la eejcución:
+
+![Dispositivos Arduino](./src/images/code-examples/devices-execute.png)
+
+Si todo sale correctamente se debería mostrar el modal de exitó
+
+![Dispositivos Arduino](./src/images/code-examples/code-execute.png)
