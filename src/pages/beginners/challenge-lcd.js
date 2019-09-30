@@ -2,7 +2,7 @@
 
 /**
  * @author Jorge Farfan Coaguila
- * @description Este archivo contiene todo lo relacionado al desafío de las FUNCIONES.
+ * @description Este archivo contiene toda la configuracion, que necesita el desafío del DISPLAY.
  */
 
 let validate_result_code = [[], [], []],

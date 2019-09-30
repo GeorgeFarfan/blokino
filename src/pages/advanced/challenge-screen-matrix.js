@@ -1,8 +1,8 @@
 "use strict";
 
 /**
- * @author Jorge Farfan
- * @description Este archivo contiene la configuracion del desafio de la MATRIX-LEDS.
+ * @author Jorge Farfan Coaguila
+ * @description Este archivo contiene toda la configuracion, que necesita el desafío del MATRIX-LEDS.
  */
 
 let validate_result_code = [[], [], []],

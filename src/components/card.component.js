@@ -1,3 +1,10 @@
+"use strict";
+
+/**
+ * @author jorge Farfan
+ * @description Componente para los CARDS animados de los desafíos.
+ */
+
 window.addEventListener("WebComponentsReady", () => {
     class CardComponent extends HTMLElement {
         constructor() {
@@ -23,8 +30,8 @@ window.addEventListener("WebComponentsReady", () => {
                     break;
             }
             this.attachShadow({
-                    mode: "open"
-                }).innerHTML =
+                mode: "open"
+            }).innerHTML =
                 `   <style>
                 @import url(` +
                 path_style +

@@ -1,4 +1,4 @@
-const serialportCommand = require("../../devices/serialport-commands"),
+const serialportCommand = require("../../serial-port/serialport-commands"),
     platform = require("../../../config/platform"),
     chalk = require("chalk"),
     log = console.log,

@@ -2,7 +2,7 @@
 
 /**
  * @author Jorge Farfan Coaguila
- * @description Este módulo contiene la conf del desafio del bloque funcional POTENTIOMETER.
+ * @description Este archivo contiene toda la configuracion, que necesita el desafío del POTENCIOMETRO.
  */
 
 let validate_result_code = [[], [], []],

@@ -2,7 +2,7 @@
 
 /**
  * @author Jorge Farfan Coaguila
- * @description Este módulo contiene la configuración del bloque funcional BUZZER.
+ * @description Este archivo contiene toda la configuracion, que necesita el desafío del BUZZER(ZUMBADORES).
  */
 
 let validate_result_code = [[], [], []],

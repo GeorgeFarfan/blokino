@@ -2,7 +2,7 @@
 
 /**
  * @author Jorge Farfan Coaguila
- * @description Este archivo contiene toda la configuracion completa que necesita la versión completa de Blokino.
+ * @description Este archivo contiene toda la configuracion, que necesita la versión experta de Blokino.
  */
 
 let variables = [],

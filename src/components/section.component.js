@@ -1,3 +1,10 @@
+"use strict";
+
+/**
+ * @author jorge Farfan
+ * @description Componente para las secciones principales de la aplicación.
+ */
+
 window.addEventListener("WebComponentsReady", () => {
     class SectionComponent extends HTMLElement {
         constructor() {

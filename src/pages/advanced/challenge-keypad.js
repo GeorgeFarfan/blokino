@@ -1,8 +1,8 @@
 "use strict";
 
 /**
- * @author Jorge Farfan
- * @description Este archivo contiene la configuracion del desafio del TECLADO.
+ * @author Jorge Farfan Coaguila
+ * @description Este archivo contiene toda la configuracion, que necesita el desafío del TECLADO.
  */
 
 let validate_result_code = [[], [], []],

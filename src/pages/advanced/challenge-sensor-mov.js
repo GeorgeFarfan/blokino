@@ -1,8 +1,8 @@
 "use strict";
 
 /**
- * @author Jorge Farfan
- * @description Este archivo contiene todo lo relacionado al desafío del Sensor de Movimiento.
+ * @author Jorge Farfan Coaguila
+ * @description Este archivo contiene toda la configuracion, que necesita el desafío del SENSOR DE MOVIMIENTO.
  */
 
 let validate_result_code = [[], [], []],

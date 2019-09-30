@@ -11,17 +11,17 @@ const gortCommand = require("./johnnyFive/firmata/gort/gort-commands"),
     instanceProgram = require("./johnnyFive/instance-program");
 
 let handlerUtils = {
-    gortSetup: function(device) {
+    gortSetup: device => {
         gortCommand.gortSetup(device);
     },
-    devices: async function(callback) {
+    devices: async callback => {
         return gortCommand.devices(callback);
     },
-    execute: function(code) {
+    execute: code => {
         this.clearData();
         instanceProgram.executeProgram(code);
     },
-    clearData: function() {
+    clearData: () => {
         instanceProgram.killChilds();
     }
 };

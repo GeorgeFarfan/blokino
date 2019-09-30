@@ -11,13 +11,13 @@ const path = require("path"),
     supportedBoardsString = supportedBoards.join(", ");
 
 let firmataFunctions = {
-    showHelp: function () {
+    showHelp: () => {
         log(chalk.black.bgYellow.bold("Help: " + helpMsg));
     },
-    showSupported: function () {
+    showSupported: () => {
         log(chalk.black.bgYellow.bold("Dispositivos soportados: \n" + supportedBoardsString));
     },
-    manageDevice: function (board, port) {
+    manageDevice: (board, port) => {
         let options = {
             board: board,
             debug: "--debug",
@@ -25,7 +25,7 @@ let firmataFunctions = {
         };
         log(chalk.black.bgYellow.bold("Configurando placa: " + options.board));
         return new Promise((resolve, reject) => {
-            firmataFunctions.flash(options, function (error) {
+            firmataFunctions.flash(options, error => {
                 if (error) {
                     return resolve("Error");
                 } else {
@@ -34,12 +34,12 @@ let firmataFunctions = {
             });
         });
     },
-    flash: function (options, callback) {
+    flash: (options, callback) => {
         let avrgirl = new Avrgirl(options);
         let avrgirlDir = path.dirname(require.resolve("avrgirl-arduino"));
         let firmataDir = path.resolve(avrgirlDir, "junk", "hex", options.board);
         let firmataPath;
-        fs.readdir(firmataDir, function (err, files) {
+        fs.readdir(firmataDir, (err, files) => {
             if (err) {
                 return log(chalk.white.bgRed.bold("Error: \n" + err));
             }
@@ -54,8 +54,8 @@ let firmataFunctions = {
                 return log(
                     chalk.white.bgRed.bold(
                         "Error: \n" +
-                        "oops! Nose esncontro el Standar Firmata para la placa: " +
-                        options.board
+                            "oops! Nose esncontro el Standard Firmata para la placa: " +
+                            options.board
                     )
                 );
             }

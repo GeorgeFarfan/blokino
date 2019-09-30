@@ -2,7 +2,7 @@
 
 /**
  * @author Jorge Farfan Coaguila
- * @description Este módulo contiene la configuración del bloque funcional JOYSTICK.
+ * @description Este archivo contiene toda la configuracion, que necesita el desafío del JOYSTICK.
  */
 
 let validate_result_code = [[], [], []],

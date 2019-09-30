@@ -2,19 +2,18 @@
 
 /**
  * @author jorge F
- * @description Este modulo contiene el manejo los child
- * process donde se ejecuta Johnny Five.
+ * @description Este modulo contiene el manejo los child process.
  */
 
 const fs = require("fs"),
-    structure = require("./structure/program-j5"),
+    structure = require("./j5/j5-structure"),
     path = require("path"),
     jc = require("json-cycle"),
     path_current_program = "/code/current-code.js";
 
 let nodes = [];
 let instance_utils = {
-    executeProgram: function(code, device, emitMessage, variable, channel) {
+    executeProgram: (code, device, emitMessage, variable, channel) => {
         let file_name = path.join(__dirname, "/code/current-code.js");
         let program_code = structure.program(device, code, variable, channel);
         let codeJ5 = structure.programJ5(device, code);
@@ -57,7 +56,7 @@ let instance_utils = {
             }
         });
     },
-    cleanProgram: function(code, device, emitMessage) {
+    cleanProgram: (code, device, emitMessage) => {
         let file_name = path.join(__dirname, "/code/current-code.js");
         let program_code = structure.program(device, code, [""]);
         // Creo la instancia en un child process
@@ -74,8 +73,8 @@ let instance_utils = {
             }
         });
     },
-    killnodes: function() {
-        nodes.map(function(child) {
+    killnodes: () => {
+        nodes.map(child => {
             child.kill();
         });
         // Se eliminaron todos los child-process que esten instanciados.

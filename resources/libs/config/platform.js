@@ -9,18 +9,18 @@ const os = require("os"),
     os_name = require("os-name");
 
 let configUtils = {
-    infoOS: function() {
+    infoOS: () => {
         return {
             arch: os.arch(),
             os: os_name(),
             short_name_os: os_name().slice(0, 3)
         };
     },
-    arch: function() {
+    arch: () => {
         if (process.platform === "win32" || process.platform === "win64") {
             return process.platform;
         } else {
-            return this.infoOS().short_name_os + this.infoOS().arch;
+            return configUtils.infoOS().short_name_os + configUtils.infoOS().arch;
         }
     }
 };
