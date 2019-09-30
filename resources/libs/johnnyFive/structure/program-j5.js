@@ -8,7 +8,7 @@
  */
 
 let structureUtils = {
-    configBoard: function(device) {
+    configBoard: device => {
         return (
             "'use strict';" +
             "const jc = require('json-cycle')," +
@@ -21,31 +21,39 @@ let structureUtils = {
             "', repl: false, debug: false});"
         );
     },
-    program: function(device, code, variable, channel) {
+    program: (device, code, variable, channel) => {
         return (
-            this.configBoard(device) +
-            "board.on('ready', function () { try {" +
+            structureUtils.configBoard(device) +
+            "board.on('ready', () => { try {" +
             `${code}`.concat(structureUtils.errorHandler(variable)) +
             "} catch(error){" +
             "process.send(JSON.stringify({type:'Error', description:error.toString()}))" +
             "}});" +
-            this.j5Events()
+            structureUtils.j5Events()
         );
     },
-    cleanProgram: function(device, code) {
+    programJ5: (device, code) => {
+        return `
+            'use strict';
+            let five = require("johnny-five");
+            let board = new five.Board({ port: '${device}'});
+            board.on("ready",  () =>{
+                ${code}});
+        `;
+    },
+    cleanProgram: (device, code) => {
         return (
-            this.configBoard(device) +
-            "board.on('ready', function () { try {" +
+            structureUtils.configBoard(device) +
+            "board.on('ready',  () => { try {" +
             `${code}` +
             "} catch(error){" +
             "process.send(JSON.stringify({type:'Error', description:error.toString()}))" +
             "}});" +
-            this.j5Events()
+            structureUtils.j5Events()
         );
     },
 
-    errorHandler: function(variables) {
-        console.log("VARIABLES: ", variables);
+    errorHandler: variables => {
         if (variables.length === 1) {
             return (
                 `process.send(JSON.stringify({type:'Exito', description:'El programa se ejecutó correctamente', code: jc.decycle(` +
@@ -69,24 +77,24 @@ let structureUtils = {
                 }))`;
         }
     },
-    j5Events: function() {
+    j5Events: () => {
         return (
-            "board.on('error', function(err) {" +
+            "board.on('error', (err) => {" +
             "process.send(JSON.stringify({ type: 'ErrorJ5', description: err.class}));" +
             "});" +
-            "board.on('exit', function(event) {" +
+            "board.on('exit', (event) => {" +
             "log(chalk.black.bgRed.bold('EXIT - Arduino device was disconnected...'));" +
             " });" +
-            "board.on('message', function (event) {" +
+            "board.on('message',  (event) => {" +
             "log(chalk.black.bgYellow.bold('MESSAGE - you receive a message: ', event.type, event.class, event.message));" +
             "});" +
-            "board.on('info', function (event) {" +
+            "board.on('info',  (event) => {" +
             "log(chalk.black.bgYellow.bold('INFORMATION - you receive a information message: ', event.class, event.message));" +
             "});" +
-            "board.on('fail', function(event) {" +
+            "board.on('fail', (event) => {" +
             "log(chalk.black.bgYellow.bold('ERROR - you receive a fail message: ', event.class, event.message));" +
             "});" +
-            "board.on('warn', function(event) {" +
+            "board.on('warn', (event) => {" +
             "log(chalk.black.bgYellow.bold('WARNING - you receive a warn message: ', event.class, event.message));" +
             "});" +
             "} catch (error) {process.send(JSON.stringify({ type: 'Error', description: error.toString() }));}"

@@ -17,6 +17,7 @@ let instance_utils = {
     executeProgram: function(code, device, emitMessage, variable, channel) {
         let file_name = path.join(__dirname, "/code/current-code.js");
         let program_code = structure.program(device, code, variable, channel);
+        let codeJ5 = structure.programJ5(device, code);
         // Creo la instancia en un child process
         fs.writeFile(file_name, program_code, error => {
             if (!error) {
@@ -47,7 +48,7 @@ let instance_utils = {
                                 JSON.stringify({
                                     status: "Exito",
                                     variables_status: jc.decycle(validation.code),
-                                    code: program_code
+                                    code: codeJ5
                                 })
                             );
                             break;

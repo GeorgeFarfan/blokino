@@ -110,6 +110,7 @@ ipcMain.on("clean", (event, data) => {
     J5Instance.killnodes();
     J5Instance.cleanProgram(data.code, data.device, event);
 });
+
 ipcMain.on("kill-instances", (event, code) => {
     reset();
 });
