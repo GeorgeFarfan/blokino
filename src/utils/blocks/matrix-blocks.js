@@ -5,7 +5,7 @@
  * @description Este módulo contiene el bloque funcional del MATRIX-LEDS.
  */
 
-let gestures = {
+const gestures = {
         house: [
             '"00000000"',
             '"01100000"',

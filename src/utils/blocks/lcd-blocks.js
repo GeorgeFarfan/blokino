@@ -4,6 +4,7 @@
  * @author Jorge Farfan Coaguila
  * @description Este módulo contiene el bloque funcional del CONSOLA DE MENSAJES.
  */
+
 let url_documentation = "http://167.99.3.232/documentation",
     lcdFunctions = {
         block: Blockly => {
@@ -246,6 +247,41 @@ let url_documentation = "http://167.99.3.232/documentation",
                     this.setColour(60);
                     this.setTooltip("");
                     this.setHelpUrl(url_documentation);
+                }
+            };
+            Blockly.Blocks["lcd_character"] = {
+                init: function() {
+                    this.appendDummyInput()
+                        .appendField("Caracter")
+                        .appendField(
+                            new Blockly.FieldDropdown([
+                                ["Pato", "duck"],
+                                ["Corazon", "heart"],
+                                ["Cuadrado", "square"]
+                            ]),
+                            "character"
+                        );
+                    this.setInputsInline(false);
+                    this.setOutput(true, null);
+                    this.setColour(60);
+                    this.setTooltip("");
+                    this.setHelpUrl("");
+                }
+            };
+            Blockly.Blocks["lcd_load_character"] = {
+                init: function() {
+                    this.appendDummyInput()
+                        .appendField("Asignar al ")
+                        .appendField(new Blockly.FieldVariable("LCD"), "lcd");
+                    this.appendValueInput("character")
+                        .setCheck(null)
+                        .appendField("el caracter");
+                    this.setInputsInline(true);
+                    this.setPreviousStatement(true, null);
+                    this.setNextStatement(true, null);
+                    this.setColour(60);
+                    this.setTooltip("");
+                    this.setHelpUrl("");
                 }
             };
         },
@@ -601,6 +637,24 @@ let url_documentation = "http://167.99.3.232/documentation",
                     ${lcd}.cursor(2,0).print(${third_message}.substr(0,20));
                     ${lcd}.cursor(3,0).print(${fourth_message}.substr(0,20));
                     `;
+                return code;
+            };
+            Blockly.JavaScript["lcd_character"] = function(block) {
+                let character = block.getFieldValue("character");
+                let code = `"${character}"`;
+                return [code, Blockly.JavaScript.ORDER_NONE];
+            };
+            Blockly.JavaScript["lcd_load_character"] = function(block) {
+                let LCD = Blockly.JavaScript.variableDB_.getName(
+                    block.getFieldValue("lcd"),
+                    Blockly.Variables.NAME_TYPE
+                );
+                let character = Blockly.JavaScript.valueToCode(
+                    block,
+                    "character",
+                    Blockly.JavaScript.ORDER_ATOMIC
+                );
+                let code = `${LCD}.useChar${character};\n`;
                 return code;
             };
         }

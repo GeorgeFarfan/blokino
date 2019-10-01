@@ -595,6 +595,8 @@ let menuFunctions = {
                                             <block type="lcd_clean"></block>
                                             <block type="lcd_off"></block>
                                             <block type="lcd_on"></block>
+                                            <block type="lcd_character"></block>
+                                            <block type="lcd_load_character"></block>
                                         </category>
                                     </category>
                                     <sep gap="32"></sep>
