@@ -9,7 +9,7 @@ let url_documentation = "http://167.99.3.232/documentation",
     lcdFunctions = {
         block: Blockly => {
             Blockly.Blocks["lcd_create_two_rows"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput()
                         .appendField(
                             new Blockly.FieldImage(
@@ -28,7 +28,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 }
             };
             Blockly.Blocks["lcd_create_four_rows"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput()
                         .appendField(
                             new Blockly.FieldImage(
@@ -47,7 +47,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 }
             };
             Blockly.Blocks["lcd_two_rows_no_scroll"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput().appendField("Escribir un mensaje");
                     this.appendDummyInput()
                         .appendField("En una consola de 2 Filas")
@@ -67,7 +67,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 }
             };
             Blockly.Blocks["lcd_two_rows_switch"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput().appendField("Escribir un Mensaje segun la fila");
                     this.appendDummyInput()
                         .appendField("En una consola de 2 filas")
@@ -75,7 +75,10 @@ let url_documentation = "http://167.99.3.232/documentation",
                     this.appendDummyInput()
                         .appendField("Posicion")
                         .appendField(
-                            new Blockly.FieldDropdown([["Arriba", "first"], ["Abajo", "second"]]),
+                            new Blockly.FieldDropdown([
+                                ["Arriba", "first"],
+                                ["Abajo", "second"]
+                            ]),
                             "current_row"
                         );
                     this.appendValueInput("message")
@@ -91,7 +94,7 @@ let url_documentation = "http://167.99.3.232/documentation",
             };
 
             Blockly.Blocks["lcd_four_rows_switch"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput().appendField("Escribir un Mensaje segun la fila");
                     this.appendDummyInput()
                         .appendField("En una consola de 4 filas")
@@ -119,7 +122,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 }
             };
             Blockly.Blocks["lcd_two_rows_scroll"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput().appendField("Escribir un Mensaje con Desplazamiento");
                     this.appendDummyInput()
                         .appendField("En una consola de 2 filas")
@@ -149,7 +152,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 }
             };
             Blockly.Blocks["lcd_four_rows_scroll"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput().appendField("Escribir un Mensaje con Desplazamiento");
                     this.appendDummyInput()
                         .appendField("En una consola de 4 filas")
@@ -185,7 +188,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 }
             };
             Blockly.Blocks["lcd_four_rows_no_scroll"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput().appendField("Escribir un mensaje");
                     this.appendDummyInput()
                         .appendField("En una consola de 4 filas")
@@ -211,7 +214,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 }
             };
             Blockly.Blocks["lcd_clean"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput()
                         .appendField("Limpiar Consola")
                         .appendField(new Blockly.FieldVariable("consola"), "current_lcd");
@@ -224,7 +227,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 }
             };
             Blockly.Blocks["lcd_off"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput()
                         .appendField("Apagar consola")
                         .appendField(new Blockly.FieldVariable("consola"), "current_lcd");
@@ -237,7 +240,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 }
             };
             Blockly.Blocks["lcd_on"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput()
                         .appendField("Encender Consola")
                         .appendField(new Blockly.FieldVariable("consola"), "current_lcd");
@@ -250,7 +253,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 }
             };
             Blockly.Blocks["lcd_character"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput()
                         .appendField("Caracter")
                         .appendField(
@@ -331,7 +334,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 }
             };
             Blockly.Blocks["lcd_load_character"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput()
                         .appendField("Asignar al ")
                         .appendField(new Blockly.FieldVariable("LCD"), "lcd");
@@ -342,6 +345,17 @@ let url_documentation = "http://167.99.3.232/documentation",
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);
                     this.setColour(60);
+                    this.setTooltip("");
+                    this.setHelpUrl("");
+                }
+            };
+            Blockly.Blocks['lcd_composite_characters'] = {
+                init: function () {
+                    this.appendValueInput("characters")
+                        .setCheck("Array")
+                        .appendField("Conjunto de caracteres");
+                    this.setOutput(true, null);
+                    this.setColour(30);
                     this.setTooltip("");
                     this.setHelpUrl("");
                 }
@@ -701,12 +715,12 @@ let url_documentation = "http://167.99.3.232/documentation",
                     `;
                 return code;
             };
-            Blockly.JavaScript["lcd_character"] = function(block) {
+            Blockly.JavaScript["lcd_character"] = function (block) {
                 let character = block.getFieldValue("character");
                 let code = `"${character}"`;
                 return [code, Blockly.JavaScript.ORDER_NONE];
             };
-            Blockly.JavaScript["lcd_load_character"] = function(block) {
+            Blockly.JavaScript["lcd_load_character"] = function (block) {
                 let LCD = Blockly.JavaScript.variableDB_.getName(
                     block.getFieldValue("lcd"),
                     Blockly.Variables.NAME_TYPE
@@ -718,6 +732,11 @@ let url_documentation = "http://167.99.3.232/documentation",
                 );
                 let code = `${LCD}.useChar${character};\n`;
                 return code;
+            };
+            Blockly.JavaScript['lcd_composite_characters'] = function (block) {
+                let characters = Blockly.JavaScript.valueToCode(block, 'characters', Blockly.JavaScript.ORDER_ATOMIC);
+                let code = `${characters}.toString().replace(/\,/g, " ")`;
+                return [code, Blockly.JavaScript.ORDER_NONE];
             };
         }
     };
