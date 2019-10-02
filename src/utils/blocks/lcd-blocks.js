@@ -255,9 +255,71 @@ let url_documentation = "http://167.99.3.232/documentation",
                         .appendField("Caracter")
                         .appendField(
                             new Blockly.FieldDropdown([
-                                ["Pato", "duck"],
+                                ["1", "1"],
+                                ["2", "2"],
+                                ["3", "3"],
+                                ["4", "4"],
+                                ["5", "5"],
+                                ["6", "6"],
+                                ["7", "7"],
+                                ["8", "8"],
+                                ["9", "9"],
+                                ["10", "10"],
+                                ["11", "11"],
+                                ["12", "12"],
+                                ["13", "13"],
+                                ["14", "14"],
+                                ["15", "15"],
+                                ["16", "16"],
+                                ["17", "17"],
+                                ["18", "18"],
+                                ["19", "19"],
+
+                                ["Circulo", "circle"],
+                                ["Circulo con un punto", "cdot"],
+                                ["Dona", "donut"],
+
+                                ["Pelota", "ball"],
+                                ["Cuadrado", "square"],
+                                ["Cuadrado con punto", "sdot"],
+
+                                ["Cuadrado lleno", "fbox"],
+                                ["Cuadrado chico", "sbox"],
+                                ["Cuadrado chico lleno", "sfbox"],
+
+                                ["Flecha derecha", "arrowright"],
+                                ["Flecha izquierda", "arrowleft"],
+
+                                ["Euro", "euro"],
+                                ["Centavo", "cent"],
+
+                                ["Altavoz", "speaker"],
+                                ["Sonido", "sound"],
+
+                                ["X", "x"],
+                                ["Objetivo", "target"],
+
+                                ["Puntero derecha", "pointerright"],
+                                ["Puntero arriba", "pointerup"],
+                                ["Puntero izquierda", "pointerleft"],
+                                ["Puntero abajo", "pointerdown"],
+
+                                ["Flecha arriba derecha", "arrowne"],
+                                ["Flecha arriba izquierda", "arrownw"],
+                                ["Flecha abajo izquierda", "arrowsw"],
+                                ["Flecha abajo derecha", "arrowse"],
+
+                                ["Campana", "bell"],
+                                ["Sonrisa", "smile"],
+                                ["Nota", "note"],
+                                ["Reloj", "clock"],
+
                                 ["Corazon", "heart"],
-                                ["Cuadrado", "square"]
+                                ["Pato", "duck"],
+                                ["Checkeado", "check"],
+                                ["Hombre parado", "runningb"],
+
+                                ["Hombre corriendo", "runninga"]
                             ]),
                             "character"
                         );
