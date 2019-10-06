@@ -86,7 +86,7 @@ let settingFunctions = {
     createPageHelp: () => {
         return [
             {
-                role: "window",
+                label: "Archivo",
                 submenu: [
                     {
                         role: "minimize"
@@ -171,7 +171,7 @@ let settingFunctions = {
                 ]
             },
             {
-                role: "help",
+                label: "Ayuda",
                 submenu: [
                     {
                         label: "Acerca de Blokino",
