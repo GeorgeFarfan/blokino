@@ -2,7 +2,7 @@
 
 /**
  * @author Jorge Farfan Coaguila
- * @description Este módulo contiene el componente del potenciometro
+ * @description Este módulo contiene la configuración de los bloques principales.
  */
 
 let url_documentation = "http://167.99.3.232/documentation",

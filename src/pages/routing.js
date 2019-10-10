@@ -1,3 +1,10 @@
+"use strict";
+
+/**
+ * @author Jorge Farfan Coaguila
+ * @description Este archivo contiene el ruteo de archivos.
+ */
+
 let utils = require("../utils/functions");
 
 document.getElementById("challenge-leds").addEventListener("click", event => {

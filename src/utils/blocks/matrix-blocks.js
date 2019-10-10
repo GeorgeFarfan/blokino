@@ -2,7 +2,7 @@
 
 /**
  * @author Jorge Farfan Coaguila
- * @description Este módulo contiene el bloque funcional del MATRIX-LEDS.
+ * @description Este módulo contiene la configuracion del bloque MATRIX-LED.
  */
 
 const gestures = {

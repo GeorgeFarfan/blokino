@@ -14,6 +14,7 @@
         "Electron",
         "Blokino",
         "Javascript",
+        "VanillaJS",
         "Johnny-Five"
     ],
     "author": "Jorge Farfan Coaguila<jorge.farfan1990@gmail.com>",
@@ -32,7 +33,7 @@
         "codemirror": "^5.45.0",
         "crypto-js": "^3.1.9-1",
         "esprima": "^4.0.1",
-        "firmata-party": "^1.5.10", 
+        "firmata-party": "^1.5.10",
         "internet-available": "^1.0.0",
         "johnny-five": "^1.3.1",
         "jquery": "^3.3.1",
@@ -45,7 +46,6 @@
         "popper.js": "^1.14.7",
         "rxjs": "^6.5.2",
         "serialport": "^7.1.4",
-        "sharp": "^0.23.1",
         "sudo-prompt": "^8.2.5",
         "xml-js": "^1.6.11"
     },

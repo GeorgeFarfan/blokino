@@ -2,7 +2,7 @@
 
 /**
  * @author Jorge Farfan Coaguila
- * @description Este módulo contiene el bloque funcional del BOTON.
+ * @description Este módulo contiene la configuracion del bloque del BOTON.
  */
 
 let url_documentation = "http://167.99.3.232/documentation",

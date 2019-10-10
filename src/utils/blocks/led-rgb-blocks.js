@@ -2,10 +2,9 @@
 
 /**
  * @author Jorge Farfan Coaguila
- * @description Este módulo contiene los bloques funcionales del LED-RGB.
+ * @description Este módulo contiene la configuracion del bloque LED-RGB.
  */
 
-"use strict";
 let url_documentation = "http://167.99.3.232/documentation",
     ledRgbFunctions = {
         block: Blockly => {

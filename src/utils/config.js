@@ -2,7 +2,7 @@
 
 /**
  * @author jorge Farfan Coaguila
- * @description Este módulo tiene la inyección de los bloques funcionales y configuraciones que va a usar Blokino.
+ * @description Este módulo contiene datos de configuración.
  */
 
 const programComponent = require("./blocks/app-blocks"),

@@ -2,8 +2,9 @@
 
 /**
  * @author Jorge Farfan Coaguila
- * @description Este módulo contiene el bloque funcional del JOYSTICK.
+ * @description Este módulo contiene la configuracion del bloque JOYSTICK.
  */
+
 let url_documentation = "http://167.99.3.232/documentation",
     joystickFunctions = {
         block: Blockly => {

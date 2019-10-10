@@ -1,3 +1,10 @@
+"use strict";
+
+/**
+ * @author Jorge Farfan Coaguila
+ * @description Este archivo contiene las funcionalidades de la sección de Robots.
+ */
+
 require("popper.js");
 require("bootstrap");
 const $ = require("jquery"),

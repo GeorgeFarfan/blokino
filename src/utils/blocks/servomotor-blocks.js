@@ -2,8 +2,9 @@
 
 /**
  * @author Jorge Farfan Coaguila
- * @description Este módulo contiene los bloques funcionales del SERVOMOTOR.
+ * @description Este módulo contiene la configuracion del bloque SERVOMOTOR.
  */
+
 let url_documentation = "http://167.99.3.232/documentation",
     servomotorFunctions = {
         block: Blockly => {

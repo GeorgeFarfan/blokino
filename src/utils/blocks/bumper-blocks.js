@@ -2,7 +2,7 @@
 
 /**
  * @author Jorge Farfan Coaguila
- * @description Este módulo contiene el bloque funcional del PULSADOR.
+ * @description Este módulo contiene la configuracion de los bloques del BUMPER.
  */
 
 let url_documentation = "http://167.99.3.232/documentation",

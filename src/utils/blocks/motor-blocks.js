@@ -2,7 +2,7 @@
 
 /**
  * @author Jorge Farfan Coaguila
- * @description Este módulo contiene el bloque funcional de los MOTORS.
+ * @description Este módulo contiene la configuracion del bloque MOTOR.
  */
 
 let url_documentation = "http://167.99.3.232/documentation",

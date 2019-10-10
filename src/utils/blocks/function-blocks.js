@@ -2,8 +2,9 @@
 
 /**
  * @author Jorge Farfan Coaguila
- * @description Este modulo contiene funciones de programacion adaptado a BlocklyJS
+ * @description Este módulo contiene la configuracion del bloque de funciones útiles.
  */
+
 const moment = require("moment");
 moment.locale("es");
 
