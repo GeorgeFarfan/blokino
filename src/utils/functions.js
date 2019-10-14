@@ -394,9 +394,7 @@ let utilFunctions = {
         $("#container-waiting-device").css("display", "none");
         $("#loader-setup-device").css("display", "block");
         $("#modal-title-device").html(
-            `Configurando la placa Arduino <span class="badge badge-secondary">${localStorage.getItem(
-                "device"
-            )}</span> ...`
+            `Configurando la placa <span class="badge badge-secondary">Arduino</span> ...`
         );
         $("#modal-title-device").css("margin-bottom", "5em");
     },
@@ -405,9 +403,7 @@ let utilFunctions = {
         $("#loader-setup-device").css("display", "none");
         $("#container-waiting-device").css("display", "block");
         $("#modal-title-device").html(
-            `Se configuró correctamente la placa Arduino <span class="badge badge-secondary">${localStorage.getItem(
-                "device"
-            )}</span> `
+            `Se configuró correctamente la placa <span class="badge badge-secondary">Arduino</span> ...`
         );
         $("#modal-title-device").css("margin-bottom", "1em");
         utilFunctions.clearListDevices(document);

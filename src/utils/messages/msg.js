@@ -72,7 +72,7 @@ let messageFunctions = {
     help: device => {
         return {
             modal: {
-                reboot_device: `Reiniciando la placa Arduino <span class="badge badge-secondary">${device}</span>`
+                reboot_device: `Reiniciando la placa <span class="badge badge-secondary">Arduino</span> ...`
             }
         };
     },
