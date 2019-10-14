@@ -78,11 +78,20 @@ let COLOURS = [
 
 let PAGES = {
     blokino: "http://167.99.3.232/blokino",
+    documentation: "http://167.99.3.232/get_started",
     frietzing: "http://fritzing.org/download/",
     nodebot: "https://nodebots.io/"
 };
 
-let settingFunctions = {
+let settings = {
+    urls: () => {
+        return {
+            blokino: "http://167.99.3.232/blokino",
+            documentation: "http://167.99.3.232/get_started",
+            frietzing: "http://fritzing.org/download/",
+            nodebot: "https://nodebots.io/"
+        };
+    },
     createPageHelp: () => {
         return [
             {
@@ -176,7 +185,7 @@ let settingFunctions = {
                     {
                         label: "Acerca de Blokino",
                         click() {
-                            settingFunctions.openPageHelp();
+                            settings.openPageHelp();
                         }
                     },
                     {
@@ -255,7 +264,7 @@ let settingFunctions = {
         Blockly.HSV_SATURATION = 0.5;
         Blockly.HSV_VALUE = 0.7;
 
-        return settingFunctions.selectToolBox(typeToolBar);
+        return settings.selectToolBox(typeToolBar);
     },
     selectToolBox: typeToolBar => {
         switch (typeToolBar) {
@@ -855,4 +864,4 @@ let settingFunctions = {
         motorComponent.code(Blockly);
     }
 };
-module.exports = settingFunctions;
+module.exports = settings;

@@ -11,6 +11,12 @@
     color: #504e4e;
 }
 
+#new-variable {
+    border: 2px solid #282a36;
+    font-size: 2.5em;
+    text-align: center;
+}
+
 #block-editor {
     background-color: #f3f3f3;
     border: 3px solid #bdbaba;

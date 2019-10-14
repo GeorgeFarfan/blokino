@@ -15,6 +15,13 @@
     padding: 0.2em;
     font-weight: bold;
 }
+
+.badge-1 {
+    background-color: #c2d5dc;
+    padding: 0.2em;
+    font-weight: bold;
+}
+
 .badge-alert {
     background-color: #cd3350;
     border-radius: 5px;
@@ -27,6 +34,14 @@
     padding: 0.2em;
     font-weight: bold;
     background-color: #d1ece3;
+}
+
+.badge-grey {
+    background-color: #4b4e50;
+    font-weight: bold;
+    padding: 0 0.3em 0 0.4em;
+    color: #ffffff;
+    border-radius: 5px;
 }
 
 .image-tutorial {

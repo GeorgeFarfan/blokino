@@ -5,20 +5,20 @@
  * @description Este modulo contiene muchas funciones utiles que usa toda la aplicacio de Blokino.
  */
 
-const shell = require("electron").shell,
-    plataform = require("../../resources/libs/config/platform"),
+const SHELL = require("electron").shell,
+    PLATFORM = require("../../resources/libs/config/platform"),
     { spawn } = require("child_process"),
-    esprima = require("esprima"),
+    ESPRIMA = require("esprima"),
     { dialog } = require("electron").remote,
-    fs = require("fs"),
-    internetAvailable = require("internet-available"),
-    CryptoJS = require("crypto-js"),
-    pass = "PRgtwNenjWQfwSw9MSsdUYXb3GQxP7uvaJHnFRGjYWhLSqvBGR5uQvQuYbqSk7JZtNYeumBYUVuxrC7J",
-    ProgramCodeBase = require("../utils/program/blokino-program"),
-    firmataCommands = require("../../resources/libs/johnnyFive/firmata/fir-blo"),
-    child_process = require("../../resources/libs/handler-child-process"),
-    chalk = require("chalk"),
-    J5Instances = require("../../resources/libs/johnnyFive/instance-program"),
+    FS = require("fs"),
+    INTERNET_AVAILABLE = require("internet-available"),
+    CRYPTOJS = require("crypto-js"),
+    PASS = "PRgtwNenjWQfwSw9MSsdUYXb3GQxP7uvaJHnFRGjYWhLSqvBGR5uQvQuYbqSk7JZtNYeumBYUVuxrC7J",
+    CODE_BASE = require("../utils/program/blokino-program"),
+    FIRMATA = require("../../resources/libs/johnnyFive/firmata/fir-blo"),
+    CHILD_PROCESS = require("../../resources/libs/handler-child-process"),
+    CHALK = require("chalk"),
+    J5 = require("../../resources/libs/johnnyFive/instance-program"),
     log = console.log;
 
 let utilFunctions = {
@@ -27,7 +27,7 @@ let utilFunctions = {
         $("#loader").css("display", "block");
         setTimeout(() => {
             $("#loader").css("display", "none");
-            let xml = Blockly.Xml.textToDom(ProgramCodeBase.application().program);
+            let xml = Blockly.Xml.textToDom(CODE_BASE.application().program);
             Blockly.mainWorkspace.clear();
             Blockly.Xml.domToWorkspace(xml, workspace);
         }, 500);
@@ -36,17 +36,17 @@ let utilFunctions = {
     uploadCode: (Blockly, workspace) => {
         dialog.showOpenDialog(fileNames => {
             if (fileNames === undefined) {
-                log(chalk.gray.bgRed.bold("No se seleccionó ningún archivo."));
+                log(CHALK.gray.bgRed.bold("No se seleccionó ningún archivo."));
                 return;
             }
-            let readStream = fs.createReadStream(fileNames[0]);
+            let readStream = FS.createReadStream(fileNames[0]);
             readStream.on("error", err => {
                 $("#modal-error-upload-program").modal();
             });
             readStream.on("data", codeEncrypt => {
                 try {
-                    let bytesCode = CryptoJS.AES.decrypt(codeEncrypt.toString(), pass);
-                    let xmlCode = bytesCode.toString(CryptoJS.enc.Utf8);
+                    let bytesCode = CRYPTOJS.AES.decrypt(codeEncrypt.toString(), PASS);
+                    let xmlCode = bytesCode.toString(CRYPTOJS.enc.Utf8);
                     let xmlBlokino = Blockly.Xml.textToDom(xmlCode);
                     Blockly.mainWorkspace.clear();
                     Blockly.Xml.domToWorkspace(xmlBlokino, workspace);
@@ -67,14 +67,14 @@ let utilFunctions = {
     downloadCode: (Blockly, workspace) => {
         dialog.showSaveDialog(fileName => {
             if (fileName === undefined) {
-                log(chalk.gray.bgRed.bold("No se seleccionó ningún archivo."));
+                log(CHALK.gray.bgRed.bold("No se seleccionó ningún archivo."));
                 return;
             }
             let xmlBlokino = Blockly.Xml.workspaceToDom(workspace);
             let xmlPlaneText = Blockly.Xml.domToText(xmlBlokino);
-            let codeEncrypt = CryptoJS.AES.encrypt(xmlPlaneText, pass);
+            let codeEncrypt = CRYPTOJS.AES.encrypt(xmlPlaneText, PASS);
             let name = fileName + ".blokino";
-            fs.writeFile(name, codeEncrypt, err => {
+            FS.writeFile(name, codeEncrypt, err => {
                 if (err) {
                     utilFunctions.setModalError(
                         "",
@@ -90,12 +90,12 @@ let utilFunctions = {
     downloadCodeJS: () => {
         dialog.showSaveDialog(fileName => {
             if (fileName === undefined) {
-                log(chalk.gray.bgRed.bold("No se seleccionó ningún archivo."));
+                log(CHALK.gray.bgRed.bold("No se seleccionó ningún archivo."));
                 return;
             }
             let code = localStorage.getItem("code");
             let name = fileName + ".js";
-            fs.writeFile(name, code, err => {
+            FS.writeFile(name, code, err => {
                 if (err) {
                     utilFunctions.setModalError(
                         "",
@@ -126,7 +126,7 @@ let utilFunctions = {
     esprimaValidation: code => {
         let res = null;
         try {
-            res = esprima.parse(code);
+            res = ESPRIMA.parse(code);
         } catch (error) {
             res = "Error";
         }
@@ -142,26 +142,26 @@ let utilFunctions = {
         if (device) {
             async function Devices() {
                 try {
-                    if ((await firmataCommands.manageDevice("uno", device)) == "Exito") {
-                        log(chalk.gray.bgGreen.bold("Se configuro correctamente la placa: UNO"));
+                    if ((await FIRMATA.manageDevice("uno", device)) == "Exito") {
+                        log(CHALK.gray.bgGreen.bold("Se configuro correctamente la placa: UNO"));
                     } else {
-                        log(chalk.gray.bgRed.bold("No se pudo configurar la placa: UNO"));
+                        log(CHALK.gray.bgRed.bold("No se pudo configurar la placa: UNO"));
                     }
-                    if ((await firmataCommands.manageDevice("mega", device)) == "Exito") {
-                        log(chalk.gray.bgGreen.bold("Se configuro correctamente la placa: MEGA"));
+                    if ((await FIRMATA.manageDevice("mega", device)) == "Exito") {
+                        log(CHALK.gray.bgGreen.bold("Se configuro correctamente la placa: MEGA"));
                     } else {
-                        log(chalk.gray.bgRed.bold("No se pudo configurar la placa: MEGA"));
+                        log(CHALK.gray.bgRed.bold("No se pudo configurar la placa: MEGA"));
                     }
-                    let resNano = await firmataCommands.manageDevice("nano", device);
+                    let resNano = await FIRMATA.manageDevice("nano", device);
                     if (resNano == "Exito") {
-                        log(chalk.gray.bgGreen.bold("Se configuro correctamente la placa: NANO"));
+                        log(CHALK.gray.bgGreen.bold("Se configuro correctamente la placa: NANO"));
                     } else {
                         log(
-                            chalk.gray.bgRed.bold(
+                            CHALK.gray.bgRed.bold(
                                 "No se pudo configurar la placa: NANO, ahora voy a usar GORT"
                             )
                         );
-                        child_process.gortSetup(device);
+                        CHILD_PROCESS.gortSetup(device);
                     }
                 } catch (err) {
                     return err;
@@ -196,6 +196,7 @@ let utilFunctions = {
         $("#modal-error-content-message").html(message);
         $("#errorModalBtn").html(btn);
     },
+
     createRowDevice: (devices, document) => {
         setTimeout(() => {
             document.getElementById("renderList").innerHTML = "";
@@ -279,9 +280,11 @@ let utilFunctions = {
             }
         }, 500);
     },
+
     formatExecuteCode: code => {
         return code.replace(/(\r\n|\n|\r)/gm, "").replace(/  /gi, "");
     },
+
     allLetters: text => {
         let reg_pattern = /^[a-zA-Z_$][0-9a-zA-Z_$]*$/;
         if (text.match(reg_pattern)) {
@@ -290,6 +293,7 @@ let utilFunctions = {
             return false;
         }
     },
+
     openURL: type_url => {
         let url_path = "";
         switch (type_url) {
@@ -333,21 +337,22 @@ let utilFunctions = {
                 url_path = "https://www.tinkercad.com/things/dseP2vjujda";
                 break;
         }
-        if (plataform.arch().includes("win")) {
-            shell.openExternal(url_path);
+        if (PLATFORM.arch().includes("win")) {
+            SHELL.openExternal(url_path);
         } else {
             spawn("chromium-browser", ["--no-sandbox", url_path]);
         }
     },
+
     verifyInternet: (ipcRenderer, document) => {
         let device = $("input:radio[name=radios]:checked").val();
         if (device) {
-            J5Instances.killnodes();
+            J5.killnodes();
             $("#modal-waiting-setup-device").modal();
             utilFunctions.initMsgSetupDevice(document);
-            internetAvailable()
+            INTERNET_AVAILABLE()
                 .then(() => {
-                    log(chalk.gray.bgGreen.bold("Blokino esta conectado a la red."));
+                    log(CHALK.gray.bgGreen.bold("Blokino esta conectado a la red."));
                     utilFunctions.setupDevice(ipcRenderer);
                     setTimeout(() => {
                         utilFunctions.successMsgrSetupDevice(document);
@@ -355,7 +360,7 @@ let utilFunctions = {
                 })
                 .catch(() => {
                     utilFunctions.errorMsgrSetupDevice(document);
-                    log(chalk.gray.bgRed.bold("Blokino no esta conectado a la red."));
+                    log(CHALK.gray.bgRed.bold("Blokino no esta conectado a la red."));
                 });
         } else {
             utilFunctions.clearListDevices(document, "proList");
@@ -365,12 +370,12 @@ let utilFunctions = {
     verifyInternetExecuteCode: (ipcRenderer, document) => {
         let device = $("input:radio[name=radios]:checked").val();
         if (device) {
-            J5Instances.killnodes();
+            J5.killnodes();
             $("#modal-waiting-setup-device").modal();
             utilFunctions.initMsgSetupDevice(document);
-            internetAvailable()
+            INTERNET_AVAILABLE()
                 .then(() => {
-                    log(chalk.gray.bgGreen.bold("Blokino esta conectado a la red."));
+                    log(CHALK.gray.bgGreen.bold("Blokino esta conectado a la red."));
                     utilFunctions.setupDevice(ipcRenderer);
                     setTimeout(() => {
                         utilFunctions.successMsgrSetupDevice(document);
@@ -378,7 +383,7 @@ let utilFunctions = {
                 })
                 .catch(() => {
                     utilFunctions.errorMsgrSetupDevice(document);
-                    log(chalk.gray.bgRed.bold("Blokino no esta conectado a la red."));
+                    log(CHALK.gray.bgRed.bold("Blokino no esta conectado a la red."));
                 });
         } else {
             utilFunctions.clearListDevices(document, "devicesList");

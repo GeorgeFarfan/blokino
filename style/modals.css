@@ -23,7 +23,7 @@
 
 .modal-title {
     font-weight: bold;
-    text-decoration: underline
+    text-decoration: underline;
 }
 
 .modal-body-title {
@@ -35,6 +35,10 @@
 }
 
 .modal-header-warning-code {
+    background-color: #ffc107;
+}
+
+.modal-header-warning {
     background-color: #ffc107;
 }
 

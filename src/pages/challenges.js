@@ -9,8 +9,8 @@ require("codemirror/mode/javascript/javascript.js");
 require("codemirror/mode/css/css.js");
 require("popper.js");
 require("bootstrap");
-const { clipboard } = require("electron");
-const $ = require("jquery"),
+const { clipboard } = require("electron"),
+    $ = require("jquery"),
     { ipcRenderer } = require("electron"),
     esprima = require("esprima"),
     chalk = require("chalk"),
@@ -22,9 +22,7 @@ const $ = require("jquery"),
     CodeMirror = require("codemirror"),
     messages = require("../../utils/messages/msg"),
     logs_msg = require("../../utils/logs/console"),
-    firmataDevice = require("../../../resources/libs/johnnyFive/firmata/fir-blo"),
-    observables = require("../../utils/observables"),
-    J5Instance = require("../../../resources/libs/johnnyFive/instance-program");
+    observables = require("../../utils/observables");
 
 let show_code = false,
     workspace = Blockly.inject("blokinoIDE", Config.blockly(Blockly, typeToolBar));
@@ -48,10 +46,16 @@ function changeCurrentCode(event) {
     }, 500);
 }
 
-// Limpia la pantalla
 Config.cleanWorkspace(Blockly, workspace);
 
-$("#open-doc").click(function(event) {
+// Modal que se abre cuando se quiere crear una variables
+Blockly.prompt = (message, defaultValue, callback) => {
+    currentCallback = callback;
+    $("#new-variable").val("");
+    $("#newVariableModal").modal();
+};
+
+$("#open-doc").click(event => {
     event.preventDefault();
     utils.openURL("documentation");
 });
@@ -71,9 +75,7 @@ $("#show-modal-code-preview").click(() => {
             CodeMirror($("#modal-body-code-preview")[0], Config.codeMirror(code));
         }, 300);
     } else {
-        utils.setModalWarning(
-            "No hay bloques funcionales en tu programa. Agrega algunos y volvelo a intentar."
-        );
+        utils.setModalWarning(messages.errors().modal.empty_block_code);
     }
 });
 
@@ -83,9 +85,7 @@ $("#copy-code-preview").click(() => {
 
 function getCodeJS() {
     return beautify(
-        Blockly.JavaScript.workspaceToCode(workspace)
-            //.replace(/(\r\n|\n|\r)/gm, "")
-            .replace(/var/gm, "let"),
+        Blockly.JavaScript.workspaceToCode(workspace).replace(/var/gm, "let"),
         Config.beautify()
     );
 }
@@ -176,9 +176,7 @@ $("#setupDeviceExecuteCode").on("click", () => {
 $("#cleanCodeBoard").on("click", () => {
     let device = $("input:radio[name=radios]:checked").val();
     if (device && device !== undefined) {
-        utils.openModalWaiting(
-            `Reiniciando la placa Arduino <span class="badge badge-secondary">${device}</span>`
-        );
+        utils.openModalWaiting(messages.help().modal.reboot_device);
         ipcRenderer.send("clean", {
             code: "",
             device: device
@@ -207,24 +205,10 @@ $("#openModalResistenceCalculator").on("click", () => {
     $("#ModalResistanceCalculator").modal();
 });
 
-// Modal que se abre cuando se quiere crear una variables
-Blockly.prompt = function(message, defaultValue, callback) {
-    currentCallback = callback;
-    $("#new-variable").val("");
-    $("#newVariableModal").modal();
-};
-
-// Modal para eliminar variables.
-Blockly.confirm = function(message, callback) {
-    currentCallback = callback;
-    $("#modal-variable-remove").modal();
-    $("#removeVariableTitle").html(message);
-};
-
-$("#cancelRemoveVariable").click(() => {
+$("#cancel-remove-variable").click(() => {
     currentCallback(false);
 });
-$("#acceptRemoveVariable").click(() => {
+$("#accept-remove-variable").click(() => {
     currentCallback(true);
 });
 
@@ -238,7 +222,6 @@ function clearScene(test, challenge_type) {
     workspace = Blockly.inject("blokinoIDE", Config.challenges(Blockly, test, challenge_type));
     workspace.addChangeListener(changeCurrentCode);
     workspace.addChangeListener(Blockly.Events.disableOrphans);
-    // Limpia la pantalla
     Config.cleanWorkspace(Blockly, workspace);
 }
 
@@ -249,21 +232,15 @@ function modalErrorSyntax(state, test, tests, condition) {
             break;
         case "Error":
             ipcRenderer.send("kill-instances", "");
-            utils.openModalErrorExecuteProgram(
-                "El programa tiene algún error.<strong> Consejo: revisar variables, bloques y funciones.</strong>"
-            );
+            utils.openModalErrorExecuteProgram(messages.errors().modal.syntax);
             break;
         case "ErrorCallBack":
             ipcRenderer.send("kill-instances", "");
-            utils.openModalErrorExecuteProgram(
-                "Se agruparon funciones con el mismo nombre. Para poder ejecutar el programa debe solucionar esto."
-            );
+            utils.openModalErrorExecuteProgram(messages.errors().modal.nested_functions);
             break;
         case "ErrorJ5":
             ipcRenderer.send("kill-instances", "");
-            utils.openModalErrorExecuteProgram(
-                "Se produjo un error con el Arduino conectado. <strong> Consejo: desconectar el Arduino y conectarlo en otro puerto. Esperar 5 segundos y volver a ejecutar el programa.</strong>"
-            );
+            utils.openModalErrorExecuteProgram(messages.errors().modal.johnny_five);
             break;
     }
 }
@@ -278,23 +255,17 @@ function modalChallenges(state, test, tests, condition) {
         case "Error":
             ipcRenderer.send("kill-instances", "");
             $("#stopProgram").prop("disabled", true);
-            utils.openModalErrorExecuteProgram(
-                "El programa tiene algún error.<strong> Consejo: revisar variables, bloques y funciones.</strong>"
-            );
+            utils.openModalErrorExecuteProgram(messages.errors().modal.syntax);
             break;
         case "ErrorCallBack":
             ipcRenderer.send("kill-instances", "");
             $("#stopProgram").prop("disabled", true);
-            utils.openModalErrorExecuteProgram(
-                "Se agruparon funciones con el mismo nombre. Para poder ejecutar el programa debe solucionar esto."
-            );
+            utils.openModalErrorExecuteProgram(messages.errors().modal.nested_functions);
             break;
         case "ErrorJ5":
             ipcRenderer.send("kill-instances", "");
             $("#stopProgram").prop("disabled", true);
-            utils.openModalErrorExecuteProgram(
-                "Se produjo un error con el Arduino conectado. <strong> Consejo: desconectar el Arduino y conectarlo en otro puerto. Esperar 5 segundos y volver a ejecutar el programa. Si el error persiste, configure el dispositivo con Blokino.</strong>"
-            );
+            utils.openModalErrorExecuteProgram(messages.errors().modal.johnny_five);
             break;
     }
 }
@@ -309,86 +280,22 @@ function modalExpert(state) {
     switch (state) {
         case "Exito":
             $("#stopProgram").prop("disabled", false);
-            utils.setModalSuccessAllTest(
-                `<div><span>El programa se armó correctamente y se va a ejecutar en la placa Arduino que seleccionaste.</span></div>
-                 <div class="mt-3"><span class="badge-alert p-2"><strong><i class="far fa-info-circle icon-link"></i></strong> Revisar que el circuito este correctamente armado.</span></div>`
-            );
+            utils.setModalSuccessAllTest(messages.success().modal.correct_validation);
             break;
         case "Error":
             ipcRenderer.send("kill-instances", "");
             $("#stopProgram").prop("disabled", true);
-            utils.openModalErrorExecuteProgram(
-                "El programa tiene algún error.<strong> Consejo: revisar variables, bloques y funciones.</strong>"
-            );
+            utils.openModalErrorExecuteProgram(messages.errors().modal.syntax);
             break;
         case "ErrorCallBack":
             ipcRenderer.send("kill-instances", "");
             $("#stopProgram").prop("disabled", true);
-            utils.openModalErrorExecuteProgram(
-                "Se agruparon funciones con el mismo nombre. Para poder ejecutar el programa debe solucionar esto."
-            );
+            utils.openModalErrorExecuteProgram(messages.errors().modal.nested_functions);
             break;
         case "ErrorJ5":
             ipcRenderer.send("kill-instances", "");
             $("#stopProgram").prop("disabled", true);
-            utils.openModalErrorExecuteProgram(
-                "Se produjo un error con el Arduino conectado. <strong> Consejo: desconectar el Arduino y conectarlo en otro puerto. Esperar 5 segundos y volver a ejecutar el programa. Si el error persiste, configure el dispositivo con Blokino.</strong>"
-            );
+            utils.openModalErrorExecuteProgram(messages.errors().modal.johnny_five);
             break;
     }
 }
-
-$(".dropdown-menu li a").click(() => {
-    let band = $(this).attr("data-option");
-    switch ($(this).text()) {
-        case "Negra":
-            $("#" + band).css("background-color", "black");
-            break;
-        case "Marron":
-            $("#" + band).css("background-color", "maroon");
-            break;
-        case "Roja":
-            $("#" + band).css("background-color", "red");
-            break;
-        case "Naranja":
-            $("#" + band).css("background-color", "orange");
-            break;
-        case "Amarilla":
-            $("#" + band).css("background-color", "yellow");
-            break;
-        case "Verde":
-            $("#" + band).css("background-color", "green");
-            break;
-        case "Azul":
-            $("#" + band).css("background-color", "blue");
-            break;
-        case "Violeta":
-            $("#" + band).css("background-color", "violet");
-            break;
-        case "Gris":
-            $("#" + band).css("background-color", "rgba(176, 174, 174, 0.31)");
-            break;
-        case "Blanca":
-            $("#" + band).css("background-color", "white");
-            break;
-        case "Dorado":
-            $("#" + band).css("background-color", "#d3d335");
-            break;
-        case "Plateado":
-            $("#" + band).css("background-color", "#f1f1f1");
-            break;
-    }
-});
-
-$(".dropdown-menu-option li a").click(() => {
-    switch ($(this).text()) {
-        case "4 bandas":
-            $("#rec_5").css("display", "none");
-            $("#option-5").css("display", "none");
-            break;
-        case "5 bandas":
-            $("#rec_5").css("display", "block");
-            $("#option-5").css("display", "block");
-            break;
-    }
-});

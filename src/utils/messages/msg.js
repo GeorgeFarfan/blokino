@@ -8,8 +8,7 @@ let messageFunctions = {
     variable: variable => {
         return {
             empty: {
-                msg:
-                    "No se ingreso ningún nombre para la variable. Las variables deben tener un nombre.",
+                msg: `No se ingreso ningún nombre para la variable. Las variables deben tener un nombre válido, como por ejemplo: <strong><span class="badge badge-warning">mi_primer_led</span></strong>.`,
                 btn: "Volvelo a intentar"
             },
             error_expert: {
@@ -57,6 +56,31 @@ let messageFunctions = {
                 msg:
                     "No hay código para ejecutar. Comienza a usar los bloques de Blokino y vuelve a intentarlo.",
                 btn: "Volvelo a intentar"
+            }
+        };
+    },
+    errors: () => {
+        return {
+            modal: {
+                empty_block_code: `No hay bloques funcionales en tu programa. Agrega algunos y volvelo a intentar.`,
+                syntax: `El programa tiene algún error.<strong> Consejo: revisar variables, bloques y funciones.</strong>`,
+                nested_functions: `Se agruparon funciones con el mismo nombre. Para poder ejecutar el programa debe solucionar esto.`,
+                johnny_five: `Se produjo un error con el Arduino conectado. <strong> Consejo: desconectar el Arduino y conectarlo en otro puerto. Esperar 5 segundos y volver a ejecutar el programa.</strong>`
+            }
+        };
+    },
+    help: device => {
+        return {
+            modal: {
+                reboot_device: `Reiniciando la placa Arduino <span class="badge badge-secondary">${device}</span>`
+            }
+        };
+    },
+    success: () => {
+        return {
+            modal: {
+                correct_validation: `<div><span>El programa se armó correctamente y se va a ejecutar en la placa Arduino que seleccionaste.</span></div>
+                 <div class="mt-3"><span class="badge-alert p-2"><strong><i class="far fa-info-circle icon-link"></i></strong> Revisar que el circuito este correctamente armado.</span></div>`
             }
         };
     }

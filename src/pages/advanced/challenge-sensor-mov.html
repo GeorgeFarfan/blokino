@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Blokino - Tutorial con SENSORES DE MOVIMIENTO</title>
-    <script src="../../../node_modules/blockly/blockly.min.js"></script>
-    <script src="../../../node_modules/blockly/msg/es.js"></script>
-    <script src="../../../node_modules/blockly/javascript.js"></script>
+    <script src="../../../resources/libs/blockly/blockly.min.js"></script>
+    <script src="../../../resources/libs/blockly/msg/es.js"></script>
+    <script src="../../../resources/libs/blockly/javascript.js"></script>
     <link rel="stylesheet" href="../../../style/app.css">
 </head>
 
@@ -324,7 +324,8 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <h3 class="modal-title mt-4 mb-4" id="exampleModalLabel">Nombre de la variable:</h3>
-                        <input type="text" class="form-control" id="new-variable">
+                        <input type="text" placeholder="..." class="form-control" id="new-variable"
+                            class="new_variable">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -457,34 +458,38 @@
         </div>
     </div>
 
-
-
-    <!-- Modal - Eliminar variable -->
+    <!-- Modal Dialog - Eliminar variable -->
     <div class="modal fade" id="modal-variable-remove" tabindex="-1" role="dialog" aria-hidden="true"
         data-keyboard="false" data-backdrop="static">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-                <div class="modal-header modal-header-question">
+                <div class="modal-header modal-header-warning">
                     <div class="container">
                         <div class="row">
                             <div class="col text-center">
-                                <i class="far far fa-question-circle modal-header-question-icon"></i>
+                                <i class="far far fa-check-circle modal-header-question-icon"></i>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body pb-0 pt-0">
                     <div class="form-group">
-                        <h2 id="removeVariableTitle" class="modal-title mt-4 mb-4 text-center"></h2>
+                        <div id="removeVariableTitle" class="mt-4 mb-4 text-center"></div>
                     </div>
                 </div>
-                <div class="container mb-4">
-                    <div class="row">
-                        <div class="col text-center">
-                            <button type="button" class="btn  btn-lg btn-danger" data-dismiss="modal"
-                                id="cancelRemoveVariable">NO</button>
-                            <button type="button" class="btn  btn-lg btn-success" data-dismiss="modal"
-                                id="acceptRemoveVariable">SI</button>
+                <div class="modal-footer pt-0">
+                    <div class="container">
+                        <div class="row justify-content-md-center">
+                            <div class="col col-6 text-right">
+                                <button type="button"
+                                    class="btn btn-lg btn-error btn-custom-lg font-weight-bold pl-4 pr-4"
+                                    data-dismiss="modal" id="cancel-remove-variable">NO</button>
+                            </div>
+                            <div class="col col-6 text-left">
+                                <button type="button" id="accept-remove-variable"
+                                    class="btn btn-lg btn-success btn-custom-lg font-weight-bold pl-4 pr-4"
+                                    data-dismiss="modal">SI</button>
+                            </div>
                         </div>
                     </div>
                 </div>

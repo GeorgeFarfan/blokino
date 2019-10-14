@@ -64,6 +64,16 @@ $("#newVariableModal").on("hidden.bs.modal", () => {
     }
 });
 
+// Modal para eliminar variables.
+Blockly.confirm = (object, callback) => {
+    currentCallback = callback;
+    if (object.type === "delete_variable") {
+        variables = variables.filter(var_blocks => var_blocks !== object.variable);
+        $("#modal-variable-remove").modal();
+        $("#removeVariableTitle").html(`<h2>${object.message}</h2>`);
+    }
+};
+
 document.getElementById("executeCode").addEventListener("click", function(event) {
     let code = utils.formatExecuteCode(Blockly.JavaScript.workspaceToCode(workspace));
     let device = $("input:radio[name=radios]:checked").val();
