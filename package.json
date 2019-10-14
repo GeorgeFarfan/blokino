@@ -26,7 +26,6 @@
     },
     "dependencies": {
         "@webcomponents/webcomponentsjs": "^2.2.10",
-        "blockly": "^2.20190722.1",
         "bootstrap": "^4.3.1",
         "chalk": "^2.4.2",
         "code-mirror-themes": "^1.0.0",
