@@ -106,7 +106,7 @@
 }
 
 .btn-warning {
-    padding: 0.8em;
+    padding: 1em;
     font-weight: bold;
     color: rgb(56, 50, 50);
     background-color: #ffc107;
@@ -114,7 +114,7 @@
 }
 
 .btn-warning:hover {
-    padding: 0.8em;
+    padding: 1em;
     color: rgb(56, 50, 50);
     font-weight: bold;
     background-color: #f1c746;
@@ -122,7 +122,7 @@
 }
 
 .btn-error {
-    padding: 0.8em;
+    padding: 1em;
     font-weight: bold;
     color: #fff;
     background-color: #c82333;
@@ -130,7 +130,7 @@
 }
 
 .btn-error:hover {
-    padding: 0.8em;
+    padding: 1em;
     color: #c82333;
     font-weight: bold;
     background-color: #fff;
@@ -207,7 +207,7 @@
 }
 
 .btn-success {
-    padding: 0.8em;
+    padding: 1em;
 }
 
 .btn-success-custom {
@@ -528,5 +528,9 @@
 .btn-custom-lg {
     padding-left: 1em;
     padding-right: 1em;
+    padding: 1em;
+}
+
+#cancel-remove-variable {
     padding: 1em;
 }

@@ -149,8 +149,10 @@ $("#devices").click(() => {
 $("#btnCheckDevice").on("click", () => {
     let device = $("input:radio[name=radios]:checked").val();
     if (device && device != undefined) {
+        localStorage.setItem("device", device);
         utils.verifyInternet(ipcRenderer, document);
     } else {
+        localStorage.setItem("device", "");
         utils.setModalError(
             "",
             messages.devices().not_found.msg_config,
