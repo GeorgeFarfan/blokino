@@ -70,9 +70,10 @@ let messageFunctions = {
         };
     },
     help: device => {
+        let device_available = device ? device : "Arduino";
         return {
             modal: {
-                reboot_device: `Reiniciando la placa <span class="badge badge-secondary">Arduino</span> ...`
+                reboot_device: `Reiniciando la placa <span class="badge badge-secondary">${device_available}</span> ...`
             }
         };
     },

@@ -391,19 +391,23 @@ let utilFunctions = {
     },
 
     initMsgSetupDevice: () => {
+        let device_available = localStorage.getItem("device");
+        let device = device_available ? device_available : "Arduino";
         $("#container-waiting-device").css("display", "none");
         $("#loader-setup-device").css("display", "block");
         $("#modal-title-device").html(
-            `Configurando la placa <span class="badge badge-secondary">Arduino</span> ...`
+            `Configurando la placa <span class="badge badge-secondary">${device}</span> ...`
         );
         $("#modal-title-device").css("margin-bottom", "5em");
     },
 
     successMsgrSetupDevice: document => {
+        let device_available = localStorage.getItem("device");
+        let device = device_available ? device_available : "Arduino";
         $("#loader-setup-device").css("display", "none");
         $("#container-waiting-device").css("display", "block");
         $("#modal-title-device").html(
-            `Se configuró correctamente la placa <span class="badge badge-secondary">Arduino</span> ...`
+            `Se configuró correctamente la placa <span class="badge badge-secondary">${device}</span> ...`
         );
         $("#modal-title-device").css("margin-bottom", "1em");
         utilFunctions.clearListDevices(document);
