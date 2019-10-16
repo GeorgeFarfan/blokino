@@ -19,6 +19,9 @@ let url_documentation = "http://167.99.3.232/documentation",
                     this.appendStatementInput("code_block").setCheck(null);
                     this.setColour(195);
                     this.setMovable(false);
+                    this.setCommentText(false);
+                    this.setHelpUrl(false);
+                    this.setDeletable(false);
                     this.setTooltip("Define el bloque que contiene a toda la aplicación.");
                     this.setHelpUrl(url_documentation);
                 }

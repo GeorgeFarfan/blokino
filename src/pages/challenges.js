@@ -176,7 +176,7 @@ $("#setupDeviceExecuteCode").on("click", () => {
 $("#cleanCodeBoard").on("click", () => {
     let device = $("input:radio[name=radios]:checked").val();
     if (device && device !== undefined) {
-        utils.openModalWaiting(messages.help().modal.reboot_device);
+        utils.openModalWaiting(messages.help(device).modal.reboot_device);
         ipcRenderer.send("clean", {
             code: "",
             device: device

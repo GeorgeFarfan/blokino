@@ -1,4 +1,4 @@
-'use strict';const jc = require('json-cycle'),chalk = require('chalk'),log = console.log;let five = require('johnny-five');try {let board = new five.Board({ port:'/dev/ttyUSB0', repl: false, debug: false});board.on('ready', () => { try {let led_1;
+'use strict';const jc = require('json-cycle'),chalk = require('chalk'),log = console.log;let five = require('johnny-five');try {let board = new five.Board({ port:'/dev/ttyACM1', repl: false, debug: false});board.on('ready', () => { try {let led_1;
 led_1 = (new five.Led({
     pin: 10,
     custom: {

@@ -70,6 +70,7 @@ let messageFunctions = {
         };
     },
     help: device => {
+        console.log("Device => ", device);
         let device_available = device ? device : "Arduino";
         return {
             modal: {
