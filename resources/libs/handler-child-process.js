@@ -1,10 +1,8 @@
 "use strict";
 
 /**
- * @author jorge F
- * @description Este módulo es el principal para el manejo de
- * ejecución de codigo, instalación de dependencias y manejo
- * de dispositivos. Comando para instalar: gort arduino install
+ * @author jorge Farfan Coaguila
+ * @description Este módulo es el principal para el manejo de ejecución de codigo, instalación de dependencias y manejo de dispositivos.
  */
 
 const gortCommand = require("./johnnyFive/firmata/gort/gort-commands"),

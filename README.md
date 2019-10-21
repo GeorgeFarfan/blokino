@@ -4,7 +4,9 @@
 
 **Blokino** es un entorno de programación basado en un paradigma de bloques funcionales. Los bloques funcionales son el concepto principal dentro de Blokino. Como el nombre lo dice, son contenedores de lógica y funcionalidad intuitiva, que con el nombre que las describe se entiende que se quiere realizar. Para generar aplicaciones Blokino, se deben ir agrupando estos bloques. Por el momento solo se tiene soporte para las placas Arduino UNO, MEGA y NANO.
 
+### Tareas
 
+Las tareas de Blokino estan en el siguiente Trello: https://trello.com/b/4aRccbZj/blokino
 
 ### **Composición**
 
@@ -19,9 +21,9 @@ Para el diseño de la plataforma se usaron las siguientes librerías y framework
 
 Entre las dependencias generales:
 
-- NodeJS 8 o superiores.
-- Yarn
-- Arduino IDE
+-   NodeJS 8 o superiores.
+-   Yarn
+-   Arduino IDE
 
 La versión 1.0 de **Blokino** tiene dependencias dependiendo de la plataforma:
 
@@ -52,6 +54,7 @@ o
 **yarn run eletron-create-installers**
 
 En el caso de que la consola interprete dispare un error elecutar el siguiente comando para arreglarlo: **npm run electron-fix-dependencies**
+
 ### **Como crear programas con Blokino**
 
 Para poder hacer las aplicaciones Blokino, se deben crear variables y asignarlas a algun bloque funcional con su/s correspondiente/s números de cables dupont. Luego se deben seleccionar las funciones que se quieren realizar con esos componentes electrónicos. Cada bloque funcional hace referencia a componentes electrónicos, funciones, variables declaradas, estructuras de control y mensajes informativos entre otros.

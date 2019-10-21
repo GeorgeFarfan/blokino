@@ -1,9 +1,14 @@
 {
     "name": "blokino",
     "version": "1.0.0",
-    "description": "Blokino - Entorno web para programar objetos físicos.",
+    "description": "Blokino - Web environment to program physical objects.",
     "main": "main.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/georgefarfan/blokino"
+    },
     "scripts": {
+        "publish": "git push --tags && npm publish",
         "start": "electron .",
         "electron-rebuild": "electron-rebuild",
         "electron-create-installer": "electron-rebuild && build",
@@ -11,10 +16,9 @@
         "electron-fix-dependencies": "yarn add electron-rebuild --dev && yarn add sharp && electron-rebuild"
     },
     "keywords": [
-        "Electron",
         "Blokino",
-        "Javascript",
-        "VanillaJS",
+        "Electron",
+        "JavaScript",
         "Johnny-Five"
     ],
     "author": "Jorge Farfan Coaguila<jorge.farfan1990@gmail.com>",
@@ -45,6 +49,7 @@
         "popper.js": "^1.14.7",
         "rxjs": "^6.5.2",
         "serialport": "^7.1.4",
+        "sharp": "^0.23.1",
         "sudo-prompt": "^8.2.5",
         "xml-js": "^1.6.11"
     },
@@ -54,6 +59,13 @@
         "linux": {
             "target": [
                 "deb"
+            ],
+            "files": [
+                "!resources/circuits/diagrams/*",
+                "!resources/examples-code/*",
+                "!resources/installers/*",
+                "!resources/notes/*",
+                "!resources/README.md"
             ]
         },
         "dmg": {
@@ -72,7 +84,14 @@
         },
         "win": {
             "target": "NSIS",
-            "icon": "installers/icons/icon.ico"
+            "icon": "installers/icons/icon.ico",
+            "files": [
+                "!resources/circuits/diagrams/*",
+                "!resources/examples-code/*",
+                "!resources/installers/*",
+                "!resources/notes/*",
+                "!resources/README.md"
+            ]
         }
     }
 }

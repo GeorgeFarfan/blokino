@@ -1,8 +1,8 @@
 "use strict";
 
 /**
- * @author jorge F
- * @description Este módulo contiene los libs y comandos necesarios para dejar el entorno listo para conectar dispositivos.
+ * @author jorge Farfan Coaguila
+ * @description Con este módulo se obtiene información de la plataforma, donde este instalado Blokino.
  */
 
 const os = require("os"),

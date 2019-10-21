@@ -1,19 +1,19 @@
+"use strict";
+
+/**
+ * @author jorge Farfan Coaguila
+ * @description Este módulo contiene las funciones para instalar Firmata en las placas Arduino.
+ */
+
 const path = require("path"),
     Avrgirl = require("avrgirl-arduino"),
     chalk = require("chalk"),
     log = console.log,
     fs = require("fs"),
-    helpMsg = `usage:    
-                        fir-blo showSupported # list all supported boards
-                        fir-blo uno --debug # show debug info 
-    `,
     supportedBoards = Avrgirl.listKnownBoards(),
     supportedBoardsString = supportedBoards.join(", ");
 
 let firmataFunctions = {
-    showHelp: () => {
-        log(chalk.black.bgYellow.bold("Help: " + helpMsg));
-    },
     showSupported: () => {
         log(chalk.black.bgYellow.bold("Dispositivos soportados: \n" + supportedBoardsString));
     },
@@ -53,9 +53,7 @@ let firmataFunctions = {
             if (typeof firmataPath === "undefined") {
                 return log(
                     chalk.white.bgRed.bold(
-                        "Error: \n" +
-                            "oops! Nose esncontro el Standard Firmata para la placa: " +
-                            options.board
+                        "Error: No se esncontró el Standard Firmata para la placa: " + options.board
                     )
                 );
             }

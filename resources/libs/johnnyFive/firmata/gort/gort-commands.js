@@ -1,3 +1,10 @@
+"use strict";
+
+/**
+ * @author jorge Farfan Coaguila
+ * @description Este módulo contiene las funciones para instalar Firmata en las placas Arduino, usando GORT.
+ */
+
 const serialportCommand = require("../../serial-port/serialport-commands"),
     platform = require("../../../config/platform"),
     chalk = require("chalk"),
