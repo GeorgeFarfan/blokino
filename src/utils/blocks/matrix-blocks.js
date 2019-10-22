@@ -147,7 +147,7 @@ const gestures = {
             '"11111111"'
         ]
     },
-    url_documentation = "http://167.99.3.232/documentation";
+    url_documentation = "http://167.99.3.232/get_started";
 let screenMarixFunctions = {
     block: Blockly => {
         Blockly.Blocks["matrix"] = {

@@ -5,7 +5,7 @@
  * @description Este módulo contiene la configuracion del bloque MOTOR.
  */
 
-let url_documentation = "http://167.99.3.232/documentation",
+let url_documentation = "http://167.99.3.232/get_started",
     motorFunctions = {
         block: Blockly => {
             Blockly.Blocks["motor_new"] = {

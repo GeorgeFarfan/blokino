@@ -5,7 +5,7 @@
  * @description Este módulo contiene la configuracion del bloque KEYPAD.
  */
 
-let url_documentation = "http://167.99.3.232/documentation",
+let url_documentation = "http://167.99.3.232/get_started",
     keypadFunctions = {
         block: Blockly => {
             Blockly.Blocks["keypad_block"] = {
