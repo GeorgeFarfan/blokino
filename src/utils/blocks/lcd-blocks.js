@@ -5,7 +5,7 @@
  * @description Este módulo contiene la configuracion del bloque LCD.
  */
 
-let url_documentation = "http://167.99.3.232/documentation",
+let url_documentation = "http://167.99.3.232/get_started",
     lcdFunctions = {
         block: Blockly => {
             Blockly.Blocks["lcd_create_two_rows"] = {

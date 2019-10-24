@@ -27,8 +27,8 @@ let menuFunctions = {
                                 </category>
                             </category>
                             <sep gap="32"></sep>
-                            <category name="Procedimientos" colour="100">
-                                <category name="Crear Procedimiento" colour="100" custom="PROCEDURE"></category>
+                            <category name="Procedimientos" colour="270">
+                                <category name="Crear Procedimiento" colour="270" custom="PROCEDURE"></category>
                             </category>
                             <sep gap="32"></sep>
                             <category name="Sensor de proximidad" colour="150">

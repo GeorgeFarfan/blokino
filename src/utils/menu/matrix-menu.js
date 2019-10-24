@@ -65,7 +65,7 @@ let menuFunctions = {
                                 <block type="matrix"/>
                                 <block type="print_screen"/>
                             </category> 
-                            <sep gap="32">< /sep>
+                            <sep gap="32"></sep>
                         </category>
                     </xml>`
             },

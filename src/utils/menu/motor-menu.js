@@ -22,6 +22,11 @@ let menuFunctions = {
                                 </category>
                             </category>
                             <sep gap="32"></sep>
+                            <category name="Procedimientos" colour="270">
+                                <category name="Crear Procedimiento" colour="270" custom="PROCEDURE">
+                                </category>
+                            </category>
+                            <sep gap="32"></sep>
                             <category name="Motores" colour="225">
                                 <block type="motor_new">
                                 </block>

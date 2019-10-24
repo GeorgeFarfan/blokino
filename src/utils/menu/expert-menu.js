@@ -151,7 +151,7 @@ let menuFunctions = {
                                         </category>
                                     </category>
                                     <sep gap="32"></sep>
-                                    <category name="Procedimientos" colour="100">
+                                    <category name="Procedimientos" colour="270">
                                         <category name="Crear Procedimiento" colour="300" custom="PROCEDURE"></category>
                                         <sep gap="32"></sep>
                                         <category name="Procedimientos útiles" colour="345">
