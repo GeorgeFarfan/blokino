@@ -85,6 +85,60 @@ let messageFunctions = {
                  <div class="mt-3"><span class="badge-alert p-2"><strong><i class="far fa-info-circle icon-link"></i></strong> Revisar que el circuito este correctamente armado.</span></div>`
             }
         };
+    },
+    modals: param => {
+        return {
+            challenges: {
+                success: {
+                    all: `Cumpliste con todas las pruebas. El desafío fue completado. Aún quedan muchos desafíos por completar. Antes de cerrar este, siempre revisa las sugerencias que pueden ayudar a mejorar el uso de <strong>Blokino</strong>.`,
+                    test: `Cumpliste con la <strong>${param}</strong>. Continúa con las demás, para terminar el desafío.`
+                }
+            },
+            internet: {
+                errors: {
+                    no_connected: `Para configurar el dispositivo debe estar conectado a internet.`,
+                    blokino_connected: `Blokino está conectado a internet.`
+                },
+                success: { blokino_connected: `Blokino no está conectado a internet.` }
+            },
+            devices: {
+                success: {
+                    config_badge: `Se configuró correctamente la placa <span class="badge badge-secondary">${param}</span> ...`,
+                    configuring: `Configurando la placa <span class="badge badge-secondary">${param}</span> ...`,
+                    config: `Se configuró correctamente la placa => ${param}`
+                },
+                errors: {
+                    config: `No se pudo configurar la placa: ${param}`,
+                    gort: `No se pudo configurar la placa ${param}, ahora se va a usar GORT.`,
+                    found: `No se encontraron dispositivos conectados. Para poder ejecutar un programa en Blokino, se necesita un dispositivo conectado.`,
+                    connect_device: `Conecta algún dispositivo`
+                }
+            },
+            files: {
+                errors: {
+                    upload: `No se seleccionó ningún archivo.`
+                }
+            },
+            proyect: {
+                errors: {
+                    download: `No se pudo descargar el código del programa Blokino.`
+                },
+                download: `Se descargó correctamente el proyecto.`,
+                upload: `Se agregó correctamente el proyecto de bloques.`
+            },
+            javascript: {
+                success: {
+                    download: `Se descargó correctamente el código Javascript del programa de Blokino.`,
+                    upload: ``
+                },
+                errors: {
+                    download: `No se pudo descargar el código Javascript del programa de Blokino.`,
+                    upload: ``
+                }
+            },
+            format: `El formato del archivo no corresponde a un programa Blokino.Volvelo a intentar seleccionado un programa de Blokino.`,
+            try_again: `Volvelo a intentar`
+        };
     }
 };
 
