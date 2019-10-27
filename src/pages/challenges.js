@@ -190,6 +190,7 @@ $("#reset-board").on("click", () => {
             ipcRenderer.send("kill-instances", "");
             utils.closeModalWaiting();
         });
+        utils.addMessage("info", `Se reinicio el dispositivo ${device}`);
     } else {
         utils.setModalError(
             "",
@@ -276,6 +277,7 @@ function modalChallenges(state, test, tests, condition) {
 
 $("#stop-program").click(() => {
     ipcRenderer.send("kill-instances", "");
+    utils.addMessage("info", `Se detuvó la ejecución del programa`);
     $("#stop-program").prop("disabled", true);
 });
 
@@ -305,8 +307,5 @@ function modalExpert(state) {
 }
 
 $("#clean-console").click(() => {
-    $("#blokino-messages").html(`
-           <p class="initial-message m-0"><strong>>> Blokino => esperando mensajes ...</strong>
-            </p>
-    `);
+    utils.clearConsole();
 });

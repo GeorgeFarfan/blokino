@@ -31,6 +31,7 @@ let utilFunctions = {
             let xml = Blockly.Xml.textToDom(CODE_BASE.application().program);
             Blockly.mainWorkspace.clear();
             Blockly.Xml.domToWorkspace(xml, workspace);
+            utilFunctions.addMessage("info", `Se limpió el tablero de bloques`);
         }, 500);
     },
 
@@ -52,6 +53,7 @@ let utilFunctions = {
                     Blockly.mainWorkspace.clear();
                     Blockly.Xml.domToWorkspace(xmlBlokino, workspace);
                     utilFunctions.setModalSuccess(MESSAGES.modals().proyect.upload);
+                    utilFunctions.addMessage("info", `Se abrió correctamente el proyecto`);
                 } catch (error) {
                     utilFunctions.setModalError(
                         "",
@@ -82,6 +84,7 @@ let utilFunctions = {
                     );
                 }
                 utilFunctions.setModalSuccess(MESSAGES.modals().proyect.download);
+                utilFunctions.addMessage("info", `Se descargó correctamente el proyecto`);
             });
         });
     },
@@ -103,6 +106,7 @@ let utilFunctions = {
                     );
                 }
                 utilFunctions.setModalSuccess(MESSAGES.modals().javascript.success.download);
+                utilFunctions.addMessage("info", `Se descargó correctamente el código JavaScript`);
             });
         });
     },
@@ -183,6 +187,19 @@ let utilFunctions = {
         $("#modal-error").modal();
         $("#modal-error-content-message").html(message);
         $("#modal-error-btn-text").html(btn);
+    },
+    addMessage: (type, message) => {
+        $("#blokino-messages").append(`
+                    <p class="${type}-message m-0"><strong>>> ${moment().format(
+            "h:mm:ss"
+        )} - Blokino  => </strong> ${message}</p>
+                `);
+    },
+    clearConsole: () => {
+        $("#blokino-messages").html(`
+           <p class="initial-message m-0"><strong>>> Blokino => esperando mensajes ...</strong>
+            </p>
+    `);
     },
     createRowDevice: (devices, document) => {
         setTimeout(() => {

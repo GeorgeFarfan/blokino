@@ -67,14 +67,9 @@ document.getElementById("executeCode").addEventListener("click", function(event)
         });
         localStorage.setItem("device", device);
         ipcRenderer.on("channel_messages", (event, result) => {
-            console.log("CHANNEL MESSAGES => ", result);
             let data = JSON.parse(result);
             if (data.type && data.type == "message") {
-                $("#blokino-messages").append(`
-                    <p class="${data.message_type}-message m-0"><strong>>> ${moment().format(
-                    "h:mm:ss"
-                )} - Blokino  => </strong> ${data.message}</p>
-                `);
+                utils.addMessage(data.message_type, data.message);
             }
         });
         ipcRenderer.on("channel_expert", (event, result) => {
