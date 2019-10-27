@@ -66,10 +66,11 @@ let url_documentation = "http://167.99.3.232/documentation",
                         .appendField("Tipo")
                         .appendField(
                             new Blockly.FieldDropdown([
-                                ["Informativo", "informative"],
-                                ["Recuerdo", "remember"],
+                                ["Informativo", "info"],
+                                ["Recordar", "remember"],
                                 ["Advertencia", "warning"],
-                                ["Peligro", "danger"]
+                                ["Peligro", "danger"],
+                                ["Error", "error"]
                             ]),
                             "dropdown"
                         );
@@ -133,7 +134,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 let code = `process.send(
                 JSON.stringify(
                     {
-                        type:'message',
+                        type:'blokino-message',
                         message_type: '${type}',
                         message:'${message}'
                 }));\n`;

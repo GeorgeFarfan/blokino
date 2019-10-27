@@ -54,6 +54,7 @@ document.getElementById("executeCode").addEventListener("click", function(event)
     let code = getCode(Blockly.JavaScript.workspaceToCode(workspace));
     let device = $("input:radio[name=radios]:checked").val();
     if (device !== undefined) {
+        ipcRenderer.removeAllListeners("channel_messages");
         utils.openModalWaiting("Verificando el programa ...");
         ipcRenderer.send("execute", {
             code: code,
@@ -61,9 +62,21 @@ document.getElementById("executeCode").addEventListener("click", function(event)
             validate_code: {
                 variable: [``]
             },
-            channel: "channel_expert"
+            channel: "channel_expert",
+            channel_message: "channel_messages"
         });
         localStorage.setItem("device", device);
+        ipcRenderer.on("channel_messages", (event, result) => {
+            console.log("CHANNEL MESSAGES => ", result);
+            let data = JSON.parse(result);
+            if (data.type && data.type == "message") {
+                $("#blokino-messages").append(`
+                    <p class="${data.message_type}-message m-0"><strong>>> ${moment().format(
+                    "h:mm:ss"
+                )} - Blokino  => </strong> ${data.message}</p>
+                `);
+            }
+        });
         ipcRenderer.on("channel_expert", (event, result) => {
             if (result == "ErrorCallBack" || result == "Error" || result == "ErrorJ5") {
                 modalExpert(result);

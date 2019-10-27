@@ -63,3 +63,54 @@
 .current-code {
     border: 3px solid antiquewhite;
 }
+
+#blokino-console-body {
+    height: 12em;
+    overflow: overlay;
+    width: 50em;
+    background: #161616;
+    border: 4px solid #ccc;
+}
+
+#blokino-console-title {
+    text-decoration: underline;
+    color: white;
+    border: 3px solid white;
+    width: fit-content;
+    background: #552d55;
+    padding: 10px;
+}
+
+#blokino-messages {
+    animation: fade 1500ms infinite;
+}
+
+.warning-message {
+    color: #f3d179;
+    font-size: 22px;
+}
+
+.info-message {
+    color: #4a6c78;
+    font-size: 22px;
+}
+
+.error-message {
+    color: #c82333;
+    font-size: 22px;
+}
+
+.remember-message {
+    color: #236ac8;
+    font-size: 22px;
+}
+
+.danger-message {
+    color: #c86d23;
+    font-size: 22px;
+}
+
+.initial-message {
+    color: #997799;
+    font-size: 22px;
+}

@@ -10,6 +10,9 @@ require("codemirror/mode/css/css.js");
 require("popper.js");
 require("bootstrap");
 
+const moment = require("moment");
+moment.locale("es");
+
 const { clipboard } = require("electron"),
     $ = require("jquery"),
     { ipcRenderer } = require("electron"),
@@ -300,3 +303,10 @@ function modalExpert(state) {
             break;
     }
 }
+
+$("#clean-console").click(() => {
+    $("#blokino-messages").html(`
+           <p class="initial-message m-0"><strong>>> Blokino => esperando mensajes ...</strong>
+            </p>
+    `);
+});
