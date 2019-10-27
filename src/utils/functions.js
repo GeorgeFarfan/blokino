@@ -19,7 +19,8 @@ const SHELL = require("electron").shell,
     CHILD_PROCESS = require("../../resources/libs/handler-child-process"),
     CHALK = require("chalk"),
     J5 = require("../../resources/libs/johnnyFive/instance-program"),
-    log = console.log;
+    log = console.log,
+    MESSAGES = require("./messages/msg");
 
 let utilFunctions = {
     cleanCode: (Blockly, document, workspace) => {
@@ -30,13 +31,14 @@ let utilFunctions = {
             let xml = Blockly.Xml.textToDom(CODE_BASE.application().program);
             Blockly.mainWorkspace.clear();
             Blockly.Xml.domToWorkspace(xml, workspace);
+            utilFunctions.addMessage("info", `Se limpió el tablero de bloques`);
         }, 500);
     },
 
     uploadCode: (Blockly, workspace) => {
         dialog.showOpenDialog(fileNames => {
             if (fileNames === undefined) {
-                log(CHALK.gray.bgRed.bold("No se seleccionó ningún archivo."));
+                log(CHALK.gray.bgRed.bold(MESSAGES.modals().files.errors.upload));
                 return;
             }
             let readStream = FS.createReadStream(fileNames[0]);
@@ -50,14 +52,13 @@ let utilFunctions = {
                     let xmlBlokino = Blockly.Xml.textToDom(xmlCode);
                     Blockly.mainWorkspace.clear();
                     Blockly.Xml.domToWorkspace(xmlBlokino, workspace);
-                    utilFunctions.setModalSuccess(
-                        "Se agregó correctamente el proyecto de bloques."
-                    );
+                    utilFunctions.setModalSuccess(MESSAGES.modals().proyect.upload);
+                    utilFunctions.addMessage("info", `Se abrió correctamente el proyecto`);
                 } catch (error) {
                     utilFunctions.setModalError(
                         "",
-                        "El formato del archivo no corresponde a un programa Blokino.Volvelo a intentar seleccionado un programa de Blokino.",
-                        "Volvelo a intentar"
+                        MESSAGES.modals().format,
+                        MESSAGES.modals().try_again
                     );
                 }
             });
@@ -67,7 +68,7 @@ let utilFunctions = {
     downloadCode: (Blockly, workspace) => {
         dialog.showSaveDialog(fileName => {
             if (fileName === undefined) {
-                log(CHALK.gray.bgRed.bold("No se seleccionó ningún archivo."));
+                log(CHALK.gray.bgRed.bold(MESSAGES.modals().files.errors.upload));
                 return;
             }
             let xmlBlokino = Blockly.Xml.workspaceToDom(workspace);
@@ -78,11 +79,12 @@ let utilFunctions = {
                 if (err) {
                     utilFunctions.setModalError(
                         "",
-                        "No se pudo descargar el código del programa Blokino.",
-                        "Volvelo a intentar"
+                        MESSAGES.modals().proyect.errors.download,
+                        MESSAGES.modals().try_again
                     );
                 }
-                utilFunctions.setModalSuccess("Se descargo correctamente el proyecto de bloques.");
+                utilFunctions.setModalSuccess(MESSAGES.modals().proyect.download);
+                utilFunctions.addMessage("info", `Se descargó correctamente el proyecto`);
             });
         });
     },
@@ -90,7 +92,7 @@ let utilFunctions = {
     downloadCodeJS: () => {
         dialog.showSaveDialog(fileName => {
             if (fileName === undefined) {
-                log(CHALK.gray.bgRed.bold("No se seleccionó ningún archivo."));
+                log(CHALK.gray.bgRed.bold(MESSAGES.modals().files.errors.upload));
                 return;
             }
             let code = localStorage.getItem("code");
@@ -99,30 +101,25 @@ let utilFunctions = {
                 if (err) {
                     utilFunctions.setModalError(
                         "",
-                        "No se pudo descargar el código Javascript del programa de Blokino.",
-                        "Volvelo a intentar"
+                        MESSAGES.modals().javascript.errors.download,
+                        MESSAGES.modals().try_again
                     );
                 }
-                utilFunctions.setModalSuccess(
-                    "Se descargó correctamente el código Javascript del programa de Blokino."
-                );
+                utilFunctions.setModalSuccess(MESSAGES.modals().javascript.success.download);
+                utilFunctions.addMessage("info", `Se descargó correctamente el código JavaScript`);
             });
         });
     },
-
     openModalErrorExecuteProgram: message => {
-        utilFunctions.setModalError("", message, "Volvelo a intentar");
+        utilFunctions.setModalError("", message, MESSAGES.modals().try_again);
     },
-
     openModalWaiting: message => {
         $("#modal-waiting").modal();
         $("#modal-waiting-message").html(message);
     },
-
     closeModalWaiting: () => {
         $("#modal-waiting").modal("toggle");
     },
-
     esprimaValidation: code => {
         let res = null;
         try {
@@ -136,31 +133,30 @@ let utilFunctions = {
         let elem = document.getElementById(id);
         elem.parentElement.removeChild(elem);
     },
-
     setupDevice: ipcRenderer => {
         let device = $("input:radio[name=radios]:checked").val();
         if (device) {
             async function Devices() {
                 try {
                     if ((await FIRMATA.manageDevice("uno", device)) == "Exito") {
-                        log(CHALK.gray.bgGreen.bold("Se configuro correctamente la placa: UNO"));
+                        log(CHALK.gray.bgGreen.bold(MESSAGES.modals("UNO").devices.success.config));
                     } else {
-                        log(CHALK.gray.bgRed.bold("No se pudo configurar la placa: UNO"));
+                        log(CHALK.gray.bgRed.bold(MESSAGES.modals("NANO").devices.errors.config));
                     }
                     if ((await FIRMATA.manageDevice("mega", device)) == "Exito") {
-                        log(CHALK.gray.bgGreen.bold("Se configuro correctamente la placa: MEGA"));
+                        log(
+                            CHALK.gray.bgGreen.bold(MESSAGES.modals("MEGA").devices.success.config)
+                        );
                     } else {
-                        log(CHALK.gray.bgRed.bold("No se pudo configurar la placa: MEGA"));
+                        log(CHALK.gray.bgRed.bold(MESSAGES.modals("MEGA").devices.errors.config));
                     }
                     let resNano = await FIRMATA.manageDevice("nano", device);
                     if (resNano == "Exito") {
-                        log(CHALK.gray.bgGreen.bold("Se configuro correctamente la placa: NANO"));
-                    } else {
                         log(
-                            CHALK.gray.bgRed.bold(
-                                "No se pudo configurar la placa: NANO, ahora voy a usar GORT"
-                            )
+                            CHALK.gray.bgGreen.bold(MESSAGES.modals("NANO").devices.success.config)
                         );
+                    } else {
+                        log(CHALK.gray.bgRed.bold(MESSAGES.modals("MEGA").devices.errors.gort));
                         CHILD_PROCESS.gortSetup(device);
                     }
                 } catch (err) {
@@ -170,7 +166,6 @@ let utilFunctions = {
             Devices();
         }
     },
-
     waitingSetupDevice: message => {
         $("#modal-waiting-setup-device").modal();
         $("#waitingSetupDeviceMessage").html(message);
@@ -179,41 +174,49 @@ let utilFunctions = {
         $("#modal-success-all-tests").modal();
         $("#modal-success-all-tests-message").html(message);
     },
-
     setModalSuccess: message => {
         $("#modal-success").modal();
         $("#modal-success-content-message").html(message);
     },
-
     setModalWarning: (message, btn) => {
         $("#modal-warning").modal();
         $("#modal-warning-content-message").html(message);
         $("#modal-warning-btn").html(btn);
     },
-
     setModalError: (title, message, btn) => {
         $("#modal-error").modal();
         $("#modal-error-content-message").html(message);
-        $("#errorModalBtn").html(btn);
+        $("#modal-error-btn-text").html(btn);
     },
-
+    addMessage: (type, message) => {
+        $("#blokino-messages").append(`
+                    <p class="${type}-message m-0"><strong>>> ${moment().format(
+            "h:mm:ss"
+        )} - Blokino  => </strong> ${message}</p>
+                `);
+    },
+    clearConsole: () => {
+        $("#blokino-messages").html(`
+           <p class="initial-message m-0"><strong>>> Blokino => esperando mensajes ...</strong>
+            </p>
+    `);
+    },
     createRowDevice: (devices, document) => {
         setTimeout(() => {
-            document.getElementById("renderList").innerHTML = "";
+            document.getElementById("device-list").innerHTML = "";
             let ul = document.createElement("ul");
-            ul.setAttribute("id", "proList");
-            document.getElementById("renderList").appendChild(ul);
+            ul.setAttribute("id", "devices");
+            document.getElementById("device-list").appendChild(ul);
             if (devices.length > 0) {
                 devices.forEach(renderProductList);
-
                 function renderProductList(element) {
                     let div_container = document.createElement("div");
-                    div_container.setAttribute("id", "device_item");
+                    div_container.setAttribute("id", "device");
                     let li = document.createElement("li");
                     li.setAttribute("class", "item");
                     div_container.innerHTML =
                         "<img src='../../images/devices/icon_device.png' class='avatar'>" +
-                        '<input class="device_bullet" type="radio" id="' +
+                        '<input class="bullet" type="radio" id="' +
                         element.name +
                         " : " +
                         element.port +
@@ -233,30 +236,28 @@ let utilFunctions = {
             } else {
                 utilFunctions.setModalError(
                     "",
-                    "No se encontraron dispositivos conectados. Para poder ejecutar un programa en Blokino, se necesita un dispositivo conectado.",
-                    "Conecta algún dispositivo"
+                    MESSAGES.modals().devices.errors.found,
+                    MESSAGES.modals().devices.errors.connect_device
                 );
             }
         }, 500);
     },
-
     createSetupDevices: (devices, document) => {
         setTimeout(() => {
-            document.getElementById("listDevices").innerHTML = "";
+            document.getElementById("device-list-setup").innerHTML = "";
             let ul = document.createElement("ul");
-            ul.setAttribute("id", "devicesList");
-            document.getElementById("listDevices").appendChild(ul);
+            ul.setAttribute("id", "devices-setup");
+            document.getElementById("device-list-setup").appendChild(ul);
             if (devices.length > 0) {
                 devices.forEach(renderProductList);
-
                 function renderProductList(element) {
                     let li = document.createElement("li");
                     li.setAttribute("class", "item");
-                    li.setAttribute("id", "device_item");
+                    li.setAttribute("id", "device");
                     ul.appendChild(li);
                     li.innerHTML =
                         "<img src='../../images/devices/icon_device.png' class='avatar'>" +
-                        '<input class="device_bullet" type="radio" id="' +
+                        '<input class="bullet" type="radio" id="' +
                         element.name +
                         " : " +
                         element.port +
@@ -274,26 +275,19 @@ let utilFunctions = {
             } else {
                 utilFunctions.setModalError(
                     "",
-                    "No se encontraron dispositivos conectados. Para poder ejecutar un programa en Blokino, se necesita un dipositivo conectado.",
-                    "Conecta algún dispositivo"
+                    MESSAGES.modals().devices.errors.found,
+                    MESSAGES.modals().devices.errors.connect_device
                 );
             }
         }, 500);
     },
-
     formatExecuteCode: code => {
         return code.replace(/(\r\n|\n|\r)/gm, "").replace(/  /gi, "");
     },
-
     allLetters: text => {
         let reg_pattern = /^[a-zA-Z_$][0-9a-zA-Z_$]*$/;
-        if (text.match(reg_pattern)) {
-            return true;
-        } else {
-            return false;
-        }
+        return text.match(reg_pattern);
     },
-
     openURL: type_url => {
         let url_path = "";
         switch (type_url) {
@@ -343,7 +337,6 @@ let utilFunctions = {
             spawn("chromium-browser", ["--no-sandbox", url_path]);
         }
     },
-
     verifyInternet: (ipcRenderer, document) => {
         let device = $("input:radio[name=radios]:checked").val();
         if (device) {
@@ -352,7 +345,11 @@ let utilFunctions = {
             utilFunctions.initMsgSetupDevice(document);
             INTERNET_AVAILABLE()
                 .then(() => {
-                    log(CHALK.gray.bgGreen.bold("Blokino esta conectado a la red."));
+                    log(
+                        CHALK.gray.bgGreen.bold(
+                            MESSAGES.modals().internet.success.blokino_connected
+                        )
+                    );
                     utilFunctions.setupDevice(ipcRenderer);
                     setTimeout(() => {
                         utilFunctions.successMsgrSetupDevice(document);
@@ -360,10 +357,10 @@ let utilFunctions = {
                 })
                 .catch(() => {
                     utilFunctions.errorMsgrSetupDevice(document);
-                    log(CHALK.gray.bgRed.bold("Blokino no esta conectado a la red."));
+                    log(CHALK.gray.bgRed.bold(MESSAGES.modals().internet.errors.blokino_connected));
                 });
         } else {
-            utilFunctions.clearListDevices(document, "proList");
+            utilFunctions.clearListDevices(document, "devices");
         }
     },
 
@@ -375,7 +372,11 @@ let utilFunctions = {
             utilFunctions.initMsgSetupDevice(document);
             INTERNET_AVAILABLE()
                 .then(() => {
-                    log(CHALK.gray.bgGreen.bold("Blokino esta conectado a la red."));
+                    log(
+                        CHALK.gray.bgGreen.bold(
+                            MESSAGES.modals().internet.success.blokino_connected
+                        )
+                    );
                     utilFunctions.setupDevice(ipcRenderer);
                     setTimeout(() => {
                         utilFunctions.successMsgrSetupDevice(document);
@@ -383,46 +384,39 @@ let utilFunctions = {
                 })
                 .catch(() => {
                     utilFunctions.errorMsgrSetupDevice(document);
-                    log(CHALK.gray.bgRed.bold("Blokino no esta conectado a la red."));
+                    log(CHALK.gray.bgRed.bold(MESSAGES.modals().internet.errors.blokino_connected));
                 });
         } else {
-            utilFunctions.clearListDevices(document, "devicesList");
+            utilFunctions.clearListDevices(document, "devices-setup");
         }
     },
-
     initMsgSetupDevice: () => {
         let device_available = localStorage.getItem("device");
         let device = device_available ? device_available : "Arduino";
         $("#container-waiting-device").css("display", "none");
         $("#loader-setup-device").css("display", "block");
-        $("#modal-title-device").html(
-            `Configurando la placa <span class="badge badge-secondary">${device}</span> ...`
-        );
-        $("#modal-title-device").css("margin-bottom", "5em");
+        $("#modal-title-device")
+            .html(MESSAGES.modals(device).devices.success.configuring)
+            .css("margin-bottom", "5em");
     },
-
     successMsgrSetupDevice: document => {
         let device_available = localStorage.getItem("device");
         let device = device_available ? device_available : "Arduino";
         $("#loader-setup-device").css("display", "none");
         $("#container-waiting-device").css("display", "block");
-        $("#modal-title-device").html(
-            `Se configuró correctamente la placa <span class="badge badge-secondary">${device}</span> ...`
-        );
-        $("#modal-title-device").css("margin-bottom", "1em");
+        $("#modal-title-device")
+            .html(MESSAGES.modals(device).devices.success.config_badge)
+            .css("margin-bottom", "1em");
         utilFunctions.clearListDevices(document);
     },
-
     errorMsgrSetupDevice: document => {
         $("#loader-setup-device").css("display", "none");
         $("#container-waiting-device").css("display", "block");
-        $("#modal-title-device").text(
-            "Para configurar el dispositivo debe estar conectado a internet."
-        );
-        $("#modal-title-device").css("margin-bottom", "1em");
+        $("#modal-title-device")
+            .text(MESSAGES.modals(device).internet.errors.no_connected)
+            .css("margin-bottom", "1em");
         utilFunctions.clearListDevices(document);
     },
-
     challengeComplete: tests => {
         for (let i = 1; i <= tests; i++) {
             $("#test" + i + "_title")
@@ -431,48 +425,45 @@ let utilFunctions = {
                 .addClass("challenge-badge-complete");
         }
     },
-
     validateModal: (current_test, tests, complete_challenge) => {
         if (complete_challenge) {
             utilFunctions.challengeComplete(tests);
-            utilFunctions.setModalSuccessAllTest(
-                "Cumpliste con todas las pruebas. El desafío fue completado. Aún quedan muchos desafíos por completar. Antes de cerrar este, siempre revisa las sugerencias que pueden ayudar a mejorar el uso de <strong>Blokino</strong>."
-            );
+            utilFunctions.setModalSuccessAllTest(MESSAGES.modals().challenges.success.all);
         } else {
             switch (current_test) {
                 case "test_1":
                     utilFunctions.setModalSuccess(
-                        "Cumpliste con la <strong>Prueba 1</strong>. Continúa con las demás, para terminar el desafío."
+                        MESSAGES.modals("Prueba 1").challenges.success.test
                     );
-                    $("#test1_title").html("Prueba 1 - Completada");
                     $("#test1_title")
+                        .html("Prueba 1 - Completada")
                         .removeClass("challenge-badge-incomplete")
                         .addClass("challenge-badge-complete");
                     break;
                 case "test_2":
                     utilFunctions.setModalSuccess(
-                        "Cumpliste con la <strong>Prueba 2</strong>. Continúa con las demás, para terminar el desafío."
+                        MESSAGES.modals("Prueba 2").challenges.success.test
                     );
-                    $("#test2_title").html("Prueba 2 - Completada");
                     $("#test2_title")
+                        .html("Prueba 2 - Completada")
                         .removeClass("challenge-badge-incomplete")
                         .addClass("challenge-badge-complete");
                     break;
                 case "test_3":
                     utilFunctions.setModalSuccess(
-                        "Cumpliste con la <strong>Prueba 3</strong>. Continúa con las demás, para terminar el desafío."
+                        MESSAGES.modals("Prueba 3").challenges.success.test
                     );
-                    $("#test3_title").html("Prueba 3 - Completada");
                     $("#test3_title")
+                        .html("Prueba 3 - Completada")
                         .removeClass("challenge-badge-incomplete")
                         .addClass("challenge-badge-complete");
                     break;
                 case "test_4":
                     utilFunctions.setModalSuccess(
-                        "Cumpliste con la <strong>Prueba 4</strong>. Continúa con las demás, para terminar el desafío."
+                        MESSAGES.modals("Prueba 4").challenges.success.test
                     );
-                    $("#test4_title").html("Prueba 4 - Completada");
                     $("#test4_title")
+                        .html("Prueba 4 - Completada")
                         .removeClass("challenge-badge-incomplete")
                         .addClass("challenge-badge-complete");
                     break;

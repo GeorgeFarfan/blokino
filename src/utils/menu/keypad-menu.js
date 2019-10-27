@@ -9,7 +9,7 @@ let menuFunctions = {
         return {
             test_1: {
                 code: `
-                    <xml id="toolbox">
+                    <xml id="blokino-toolbox">
                         <category name="Bloques" colour="270">
                                 <category name="Variables" custom="VARIABLE" colour="210">
                                 </category>
@@ -21,6 +21,11 @@ let menuFunctions = {
                                         </block>
                                     </category>
                                 </category>
+                                <sep gap="32"></sep>
+                                    <category name="Procedimientos" colour="270">
+                                        <category name="Crear Procedimiento" colour="270" custom="PROCEDURE">
+                                        </category>
+                                    </category>
                                 <sep gap="32"></sep>
                                 <category name="LEDs" colour="20">
                                     <block type="led"></block>

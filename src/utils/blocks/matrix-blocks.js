@@ -201,7 +201,7 @@ let screenMarixFunctions = {
             init: function() {
                 this.appendDummyInput()
                     .appendField("Dibujar ")
-                    .appendField(new Blockly.FieldVariable("matrix"), "current_led_matrix")
+                    .appendField(new Blockly.FieldVariable("MATRIX_LEDS"), "current_led_matrix")
                     .appendField(" figura")
                     .appendField(
                         new Blockly.FieldDropdown([
@@ -235,7 +235,7 @@ let screenMarixFunctions = {
                 this.appendStatementInput("blink_screen_code")
                     .setCheck(null)
                     .appendField("Hacer parpadear ")
-                    .appendField(new Blockly.FieldVariable("matrix"), "current_display");
+                    .appendField(new Blockly.FieldVariable("MATRIX_LEDS"), "current_display");
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
                 this.setColour(15);
@@ -247,7 +247,7 @@ let screenMarixFunctions = {
             init: function() {
                 this.appendDummyInput()
                     .appendField("Encender pantalla")
-                    .appendField(new Blockly.FieldVariable("matrix"), "currente_screen");
+                    .appendField(new Blockly.FieldVariable("MATRIX_LEDS"), "currente_screen");
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
                 this.setColour(15);
@@ -259,7 +259,7 @@ let screenMarixFunctions = {
             init: function() {
                 this.appendDummyInput()
                     .appendField("Apagar pantalla")
-                    .appendField(new Blockly.FieldVariable("matrix"), "currente_screen");
+                    .appendField(new Blockly.FieldVariable("MATRIX_LEDS"), "currente_screen");
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
                 this.setColour(15);
@@ -271,7 +271,7 @@ let screenMarixFunctions = {
             init: function() {
                 this.appendDummyInput()
                     .appendField("Limpiar pantalla")
-                    .appendField(new Blockly.FieldVariable("matrix"), "currente_screen");
+                    .appendField(new Blockly.FieldVariable("MATRIX_LEDS"), "currente_screen");
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
                 this.setColour(15);
@@ -283,7 +283,7 @@ let screenMarixFunctions = {
             init: function() {
                 this.appendDummyInput()
                     .appendField("Escribir en ")
-                    .appendField(new Blockly.FieldVariable("matrix"), "current_screen");
+                    .appendField(new Blockly.FieldVariable("MATRIX_LEDS"), "current_screen");
                 this.appendValueInput("current_screen_message")
                     .setCheck("String")
                     .appendField(" mensaje");
@@ -384,7 +384,7 @@ let screenMarixFunctions = {
                 this.appendDummyInput()
                     .setAlign(Blockly.ALIGN_RIGHT)
                     .appendField("Dibujar en la matrix")
-                    .appendField(new Blockly.FieldVariable("MATRIX"), "matrix");
+                    .appendField(new Blockly.FieldVariable("MATRIX_LEDS"), "matrix");
                 this.appendDummyInput()
                     .setAlign(Blockly.ALIGN_RIGHT)
                     .appendField("con tantas pantallas unida")

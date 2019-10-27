@@ -62,8 +62,7 @@
                     <div class="col col-lg-3 col-md-12 col-sm-12 col-sx-12 challenge-content mb-2 ">
                         <h3 class="challenge-title mt-3 text-center">Instrucciones</h3>
                         <hr>
-                        <div id="carouselExampleControls" class="carousel slide mt-3" data-ride="carousel"
-                            data-interval="false">
+                        <div id="carousel-test" class="carousel slide mt-3" data-ride="carousel" data-interval="false">
                             <div class="carousel-inner">
                                 <div class="carousel-item active" data-pos="test_1">
                                     <h5 class="alert challenge-badge-middle-incomplete text-center font-weight-bold mt-3"
@@ -111,8 +110,8 @@
                     <div class="col col-lg-9 col-md-12 col-sm-12 col-sx-12  mb-2">
                         <div id="loader"></div>
                         <div id="block-editor">
-                            <div id="blokinoIDE" class="block-editor"></div>
-                            <xml id="toolbox">
+                            <div id="blokino-workspace" class="block-editor"></div>
+                            <xml id="blokino-toolbox">
                             </xml>
                         </div>
                     </div>
@@ -159,15 +158,14 @@
                 </div>
                 <!-- Botones -->
                 <div class="row  justify-content-md-center code-block mt-1 mb-1">
-                    <button type="button" class="btn btn-lg btn-light   btn-info-device  mr-1" id="devices">
+                    <button type="button" class="btn btn-lg btn-light   btn-info-device  mr-1" id="btn-devices-setup">
                         <i class="far fa-tools icon-link"></i>
                         Configurar
                         dispositivos</button>
-                    <button disabled type="button" class="btn btn-lg btn-danger  btn-red ml-1" id="stopProgram">
+                    <button disabled type="button" class="btn btn-lg btn-danger  btn-red ml-1" id="stop-program">
                         <i class="far fa-stop-circle icon-link"></i>
                         Detener programa</button>
-                    <button type="button" class="btn btn-lg btn-light  btn-execute-code   ml-1"
-                        id="openModalExecuteCode">
+                    <button type="button" class="btn btn-lg btn-light  btn-execute-code   ml-1" id="btn-execute-code">
                         <i class="far fa-running icon-link"></i>
                         Ejecutar</button>
                 </div>
@@ -233,10 +231,10 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div id="renderList"></div>
+                    <div id="device-list"></div>
                 </div>
                 <div class="modal-footer">
-                    <button id="btnCheckDevice" type="button" class="btn btn-lg btn-light btn-device"
+                    <button id="check-device" type="button" class="btn btn-lg btn-light btn-device"
                         data-dismiss="modal">
                         <i class="far fa-play-circle icon-link"></i>Preparar
                         dispositivo</button>
@@ -257,14 +255,13 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div id="listDevices"></div>
+                    <div id="device-list-setup"></div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-lg btn-light   btn-execute-device  mr-1"
-                        id="setupDeviceExecuteCode">
+                    <button type="button" class="btn btn-lg btn-light   btn-execute-device  mr-1" id="btn-setup-device">
                         <i class="far fa-tools icon-link"></i>Configurar
                         dispositivos</button>
-                    <button type="button" class="btn btn-lg btn-light   btn-clean-board  mr-1" id="cleanCodeBoard">
+                    <button type="button" class="btn btn-lg btn-light   btn-clean-board  mr-1" id="reset-board">
                         <i class="far fa-trash-restore icon-link"></i>Reiniciar
                         dispositivo</button>
                     <button id="executeCode" type="button" class="btn btn-lg btn-light btn-execute-code"
@@ -322,7 +319,7 @@
     </div>
 
     <!-- Modal - Para crear una variable -->
-    <div class="modal fade" id="newVariableModal" tabindex="-1" role="dialog" aria-hidden="true" data-keyboard="false"
+    <div class="modal fade" id="modal-new-variable" tabindex="-1" role="dialog" aria-hidden="true" data-keyboard="false"
         data-backdrop="static">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -420,7 +417,7 @@
                             <div class="col col-6 text-left">
                                 <button type="button"
                                     class="btn btn-lg btn-warning  btn-custom-lg  text-center font-weight-bold"
-                                    data-dismiss="modal" id="successChallengesBtn">Volver a los desafíos</button>
+                                    data-dismiss="modal" id="btn-success-challenges">Volver a los desafíos</button>
                             </div>
                         </div>
                     </div>
@@ -456,7 +453,7 @@
                         <div class="row justify-content-md-center">
                             <div class="col col-md-6 text-center ">
                                 <button type="button" class="btn btn-lg btn-error font-weight-bold" data-dismiss="modal"
-                                    id="errorModalBtn">Volvelo a
+                                    id="modal-error-btn-text">Volvelo a
                                     intentar</button>
                             </div>
                         </div>

@@ -57,7 +57,7 @@ let url_documentation = "http://167.99.3.232/get_started",
                     this.appendStatementInput("code_keypad_press")
                         .setCheck(null)
                         .appendField("Presionar tecla")
-                        .appendField(new Blockly.FieldVariable("teclado"), "current_keypad");
+                        .appendField(new Blockly.FieldVariable("TECLADO"), "current_keypad");
                     this.setInputsInline(true);
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);

@@ -27,6 +27,7 @@ let instance_utils = {
                 nodes.push(child);
                 child.on("message", message => {
                     let validation = JSON.parse(message);
+                    console.log("Validacion => ", validation);
                     switch (validation.type) {
                         case "ErrorJ5":
                             emitMessage.sender.send(channel, "ErrorJ5");
@@ -48,6 +49,16 @@ let instance_utils = {
                                     status: "Exito",
                                     variables_status: jc.decycle(validation.code),
                                     code: codeJ5
+                                })
+                            );
+                            break;
+                        case "blokino-message":
+                            emitMessage.sender.send(
+                                "channel_messages",
+                                JSON.stringify({
+                                    type: "message",
+                                    message: validation.message,
+                                    message_type: validation.message_type
                                 })
                             );
                             break;

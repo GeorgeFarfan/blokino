@@ -8,10 +8,11 @@
 
 const SerialPort = require("serialport"),
     deviceType = "Arduino",
+    deviceUSBNanoWin = "wch.cn",
     deviceUSBNano = "1a86";
 
 let serialportFunctions = {
-    listDevices: function() {
+    listDevices: function () {
         let usb_connected = [];
         SerialPort.list()
             .then(ports => {
@@ -20,7 +21,8 @@ let serialportFunctions = {
                         port.manufacturer &&
                         port.manufacturer !== "" &&
                         (port.manufacturer.includes(deviceType) ||
-                            port.manufacturer.includes(deviceUSBNano))
+                            port.manufacturer.includes(deviceUSBNano)) ||
+                        (port.manufacturer.includes(deviceUSBNanoWin))
                     ) {
                         usb_connected.push({
                             type: deviceType,
@@ -37,6 +39,6 @@ let serialportFunctions = {
         return usb_connected;
     }
 };
-    
+
 
 module.exports = serialportFunctions;

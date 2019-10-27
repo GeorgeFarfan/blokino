@@ -7,7 +7,7 @@
 
 let variables = [],
     currentCallback = null;
-$("#newVariableModal").on("hidden.bs.modal", () => {
+$("#modal-new-variable").on("hidden.bs.modal", () => {
     let new_variable = $("#new-variable")
         .val()
         .replace(/\s/g, "");
@@ -54,6 +54,7 @@ document.getElementById("executeCode").addEventListener("click", function(event)
     let code = getCode(Blockly.JavaScript.workspaceToCode(workspace));
     let device = $("input:radio[name=radios]:checked").val();
     if (device !== undefined) {
+        ipcRenderer.removeAllListeners("channel_messages");
         utils.openModalWaiting("Verificando el programa ...");
         ipcRenderer.send("execute", {
             code: code,
@@ -61,9 +62,16 @@ document.getElementById("executeCode").addEventListener("click", function(event)
             validate_code: {
                 variable: [``]
             },
-            channel: "channel_expert"
+            channel: "channel_expert",
+            channel_message: "channel_messages"
         });
         localStorage.setItem("device", device);
+        ipcRenderer.on("channel_messages", (event, result) => {
+            let data = JSON.parse(result);
+            if (data.type && data.type == "message") {
+                utils.addMessage(data.message_type, data.message);
+            }
+        });
         ipcRenderer.on("channel_expert", (event, result) => {
             if (result == "ErrorCallBack" || result == "Error" || result == "ErrorJ5") {
                 modalExpert(result);
@@ -96,7 +104,7 @@ document.getElementById("open-modal-code-preview").addEventListener("click", fun
     }, 300);
 });
 
-document.getElementById("openModalExecuteCode").addEventListener("click", function(event) {
+document.getElementById("btn-execute-code").addEventListener("click", function(event) {
     let code = utils.formatExecuteCode(Blockly.JavaScript.workspaceToCode(workspace));
     let result = utils.esprimaValidation(code);
     if (result !== "Error") {

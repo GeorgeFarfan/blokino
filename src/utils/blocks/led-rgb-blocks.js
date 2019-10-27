@@ -34,7 +34,7 @@ let url_documentation = "http://167.99.3.232/get_started",
                 init: function() {
                     this.appendDummyInput()
                         .appendField("Intensidad LED-RGB")
-                        .appendField(new Blockly.FieldVariable("led_rgb"), "current_led_rgb")
+                        .appendField(new Blockly.FieldVariable("LED_RGB"), "current_led_rgb")
                         .appendField("Rango")
                         .appendField(new Blockly.FieldNumber(0, 0, 100), "current_range_intensity");
                     this.setInputsInline(true);

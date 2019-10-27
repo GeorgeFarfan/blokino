@@ -9,7 +9,7 @@ let menuFunctions = {
         return {
             test_1: {
                 code: `
-                    <xml id="toolbox">
+                    <xml id="blokino-toolbox">
                         <category name="Bloques" colour="270">
                             <category name="Variables" custom="VARIABLE" colour="210">
                             </category>
@@ -22,8 +22,8 @@ let menuFunctions = {
                                 </category>
                             </category>
                             <sep gap="32"></sep>
-                            <category name="Funciones" colour="100">
-                                <category name="Crear Procedimiento" colour="100" custom="PROCEDURE"></category>
+                            <category name="Procedimientos" colour="270">
+                                <category name="Crear Procedimiento" colour="270" custom="PROCEDURE"></category>
                             </category>
                             <sep gap="32"></sep>
                             <category name="Servomotor" colour="180">
@@ -40,7 +40,7 @@ let menuFunctions = {
             },
             test_2: {
                 code: `
-                    <xml id="toolbox">
+                    <xml id="blokino-toolbox">
                         <category name="Bloques" colour="270"> 
                             <category name="Variables" custom="VARIABLE" colour="210"></category>
                             <sep gap="32"></sep> 
@@ -53,8 +53,8 @@ let menuFunctions = {
                                 <sep gap="32"/>
                             </category>
                             <sep gap="32"/> 
-                            <category name="Procedimientos" colour="100">
-                                <category name="Crear Procedimiento" colour="100" custom="PROCEDURE"/>
+                            <category name="Procedimientos" colour="270">
+                                <category name="Crear Procedimiento" colour="270" custom="PROCEDURE"/>
                             </category>
                             <sep gap="32"></sep> 
                             <category name="Servomotor" colour="180">
@@ -66,7 +66,7 @@ let menuFunctions = {
             },
             test_3: {
                 code: `
-                    <xml id="toolbox">
+                    <xml id="blokino-toolbox">
                         <category name="Bloques" colour="270"> 
                             <category name="Variables" custom="VARIABLE" colour="210">
                             </category>
@@ -79,8 +79,8 @@ let menuFunctions = {
                                     <sep gap="32"/>
                                 </category>
                                 <sep gap="32"/> 
-                            <category name="Procedimientos" colour="100">
-                                <category name="Crear Procedimiento" colour="100" custom="PROCEDURE"/>
+                            <category name="Procedimientos" colour="270">
+                                <category name="Crear Procedimiento" colour="270" custom="PROCEDURE"/>
                             </category>
                             <sep gap="32"></sep> 
                             <category name="Servomotor" colour="180">

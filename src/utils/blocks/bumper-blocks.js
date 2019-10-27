@@ -29,7 +29,7 @@ let url_documentation = "http://167.99.3.232/get_started",
                     this.appendStatementInput("code_button_bumper_press")
                         .setCheck(null)
                         .appendField("Pulsar")
-                        .appendField(new Blockly.FieldVariable("pulsador"), "current_bumper");
+                        .appendField(new Blockly.FieldVariable("PULSADOR"), "current_bumper");
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);
                     this.setColour(0);

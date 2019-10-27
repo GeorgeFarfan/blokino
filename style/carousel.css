@@ -30,7 +30,7 @@
     width: 6em;
 }
 
-#carouselExampleControls p {
+#carousel-test p {
     word-wrap: break-word;
     font-size: 17px !important;
 }
@@ -43,7 +43,7 @@
 }
 
 .nav-pills .nav-link.active,
-.nav-pills .show>.nav-link {
+.nav-pills .show > .nav-link {
     color: #fff;
     padding: 20px;
     width: 7em;
