@@ -94,11 +94,10 @@
                         <i class="far fa-tools icon-link"></i>
                         Configurar
                         dispositivos</button>
-                    <button disabled type="button" class="btn btn-lg btn-danger  btn-red ml-1" id="stopProgram">
+                    <button disabled type="button" class="btn btn-lg btn-danger  btn-red ml-1" id="stop-program">
                         <i class="far fa-stop-circle icon-link"></i>
                         Detener programa</button>
-                    <button type="button" class="btn btn-lg btn-light  btn-execute-code   ml-1"
-                        id="openModalExecuteCode">
+                    <button type="button" class="btn btn-lg btn-light  btn-execute-code   ml-1" id="btn-execute-code">
                         <i class="far fa-play-circle icon-link"></i>
                         Ejecutar programa</button>
                 </div>
@@ -118,10 +117,10 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div id="renderList"></div>
+                    <div id="device-list"></div>
                 </div>
                 <div class="modal-footer">
-                    <button id="btnCheckDevice" type="button" class="btn btn-lg btn-light btn-device"
+                    <button id="check-device" type="button" class="btn btn-lg btn-light btn-device"
                         data-dismiss="modal">
                         <i class="far fa-play-circle icon-link"></i>Preparar
                         dispositivo</button>
@@ -142,14 +141,13 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div id="listDevices"></div>
+                    <div id="device-list-setup"></div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-lg btn-light   btn-execute-device  mr-1"
-                        id="setupDeviceExecuteCode">
+                    <button type="button" class="btn btn-lg btn-light   btn-execute-device  mr-1" id="btn-setup-device">
                         <i class="far fa-tools icon-link"></i>Configurar
                         dispositivos</button>
-                    <button type="button" class="btn btn-lg btn-light   btn-clean-board  mr-1" id="cleanCodeBoard">
+                    <button type="button" class="btn btn-lg btn-light   btn-clean-board  mr-1" id="reset-board">
                         <i class="far fa-trash-restore icon-link"></i>Reiniciar
                         dispositivo</button>
                     <button id="executeCode" type="button" class="btn btn-lg btn-light btn-execute-code"
@@ -206,9 +204,8 @@
         </div>
     </div>
 
-
     <!-- Modal Dialog - Para crear una variable -->
-    <div class="modal fade" id="newVariableModal" tabindex="-1" role="dialog" aria-hidden="true" data-keyboard="false"
+    <div class="modal fade" id="modal-new-variable" tabindex="-1" role="dialog" aria-hidden="true" data-keyboard="false"
         data-backdrop="static">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -427,7 +424,7 @@
                         <div class="row justify-content-md-center">
                             <div class="col col-md-6 text-center ">
                                 <button type="button" class="btn btn-lg btn-error font-weight-bold" data-dismiss="modal"
-                                    id="errorModalBtn">Volvelo a
+                                    id="modal-error-btn-text">Volvelo a
                                     intentar</button>
                             </div>
                         </div>

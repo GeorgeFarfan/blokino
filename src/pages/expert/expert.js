@@ -7,7 +7,7 @@
 
 let variables = [],
     currentCallback = null;
-$("#newVariableModal").on("hidden.bs.modal", () => {
+$("#modal-new-variable").on("hidden.bs.modal", () => {
     let new_variable = $("#new-variable")
         .val()
         .replace(/\s/g, "");
@@ -96,7 +96,7 @@ document.getElementById("open-modal-code-preview").addEventListener("click", fun
     }, 300);
 });
 
-document.getElementById("openModalExecuteCode").addEventListener("click", function(event) {
+document.getElementById("btn-execute-code").addEventListener("click", function(event) {
     let code = utils.formatExecuteCode(Blockly.JavaScript.workspaceToCode(workspace));
     let result = utils.esprimaValidation(code);
     if (result !== "Error") {

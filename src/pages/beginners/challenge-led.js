@@ -16,7 +16,7 @@ let validate_result_code = [[], [], []],
     currentCallback = null,
     validator = require("../../utils/validators/led-validator");
 
-$("#newVariableModal").on("hidden.bs.modal", () => {
+$("#modal-new-variable").on("hidden.bs.modal", () => {
     let new_variable = $("#new-variable")
         .val()
         .replace(/\s/g, "");
@@ -67,7 +67,7 @@ Blockly.confirm = (object, callback) => {
     }
 };
 
-document.getElementById("executeCode").addEventListener("click", function(event) {
+document.getElementById("executeCode").addEventListener("click", event => {
     let code = utils.formatExecuteCode(Blockly.JavaScript.workspaceToCode(workspace));
     let device = $("input:radio[name=radios]:checked").val();
     if (device !== undefined) {
@@ -301,7 +301,7 @@ document.getElementById("executeCode").addEventListener("click", function(event)
     }
 });
 
-document.getElementById("openModalExecuteCode").addEventListener("click", function(event) {
+document.getElementById("btn-execute-code").addEventListener("click", event => {
     let code = utils.formatExecuteCode(Blockly.JavaScript.workspaceToCode(workspace));
     let result = utils.esprimaValidation(code);
     if (result !== "Error") {
@@ -325,14 +325,14 @@ document.getElementById("openModalExecuteCode").addEventListener("click", functi
     }
 });
 
-$("#carouselExampleControls").bind("slide.bs.carousel", function(e) {
+$("#carousel-test").bind("slide.bs.carousel", event => {
     if (
-        e.relatedTarget.dataset.pos === "test_1" ||
-        e.relatedTarget.dataset.pos === "test_2" ||
-        e.relatedTarget.dataset.pos === "test_3"
+        event.relatedTarget.dataset.pos === "test_1" ||
+        event.relatedTarget.dataset.pos === "test_2" ||
+        event.relatedTarget.dataset.pos === "test_3"
     ) {
         variables = [];
-        current_test = e.relatedTarget.dataset.pos;
-        clearScene(e.relatedTarget.dataset.pos, "ChallengeLED");
+        current_test = event.relatedTarget.dataset.pos;
+        clearScene(event.relatedTarget.dataset.pos, "ChallengeLED");
     }
 });

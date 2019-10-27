@@ -2,8 +2,9 @@
 
 /**
  * @author Jorge Farfan Coaguila
- * @description Este módulo contiene los mensajes de todo Blokino.
+ * @description Este módulo contiene los mensajes usados en toda la plataforma.
  */
+
 let messageFunctions = {
     variable: variable => {
         return {
@@ -84,6 +85,26 @@ let messageFunctions = {
                 correct_validation: `<div><span>El programa se armó correctamente y se va a ejecutar en la placa Arduino que seleccionaste.</span></div>
                  <div class="mt-3"><span class="badge-alert p-2"><strong><i class="far fa-info-circle icon-link"></i></strong> Revisar que el circuito este correctamente armado.</span></div>`
             }
+        };
+    },
+    blocks: () => {
+        return {
+            led: { tooltip: `` },
+            led_rgb: { tooltip: `` },
+            button: { tooltip: `` },
+            bumper: { tooltip: `` },
+            switch: { tooltip: `` },
+            buzzer: { tooltip: `` },
+            function: { tooltip: `` },
+            joystick: { tooltip: `` },
+            key_pad: { tooltip: `` },
+            lcd: { tooltip: `` },
+            matrix: { tooltip: `` },
+            motion: { tooltip: `` },
+            motor: { tooltip: `` },
+            potentiometer: { tooltip: `` },
+            proximity: { tooltip: `` },
+            servomotor: { tooltip: `` }
         };
     },
     modals: param => {

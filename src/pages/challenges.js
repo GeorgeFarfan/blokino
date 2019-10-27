@@ -9,6 +9,7 @@ require("codemirror/mode/javascript/javascript.js");
 require("codemirror/mode/css/css.js");
 require("popper.js");
 require("bootstrap");
+
 const { clipboard } = require("electron"),
     $ = require("jquery"),
     { ipcRenderer } = require("electron"),
@@ -24,8 +25,7 @@ const { clipboard } = require("electron"),
     logs_msg = require("../../utils/logs/console"),
     observables = require("../../utils/observables");
 
-let show_code = false,
-    workspace = Blockly.inject("blokinoIDE", Config.blockly(Blockly, typeToolBar));
+let workspace = Blockly.inject("blokinoIDE", Config.blockly(Blockly, typeToolBar));
 
 observables.createObservable();
 Config.loadComponents(Blockly);
@@ -52,7 +52,7 @@ Config.cleanWorkspace(Blockly, workspace);
 Blockly.prompt = (message, defaultValue, callback) => {
     currentCallback = callback;
     $("#new-variable").val("");
-    $("#newVariableModal").modal();
+    $("#modal-new-variable").modal();
 };
 
 $("#open-doc").click(event => {
@@ -146,7 +146,7 @@ $("#devices").click(() => {
     childProcess.devices(createListDevices);
 });
 
-$("#btnCheckDevice").on("click", () => {
+$("#check-device").on("click", () => {
     let device = $("input:radio[name=radios]:checked").val();
     if (device && device != undefined) {
         localStorage.setItem("device", device);
@@ -161,7 +161,7 @@ $("#btnCheckDevice").on("click", () => {
     }
 });
 
-$("#setupDeviceExecuteCode").on("click", () => {
+$("#btn-setup-device").on("click", () => {
     let device = $("input:radio[name=radios]:checked").val();
     localStorage.setItem("device", device);
     if (device && device != undefined) {
@@ -175,7 +175,7 @@ $("#setupDeviceExecuteCode").on("click", () => {
     }
 });
 
-$("#cleanCodeBoard").on("click", () => {
+$("#reset-board").on("click", () => {
     let device = $("input:radio[name=radios]:checked").val();
     if (device && device !== undefined) {
         utils.openModalWaiting(messages.help(device).modal.reboot_device);
@@ -197,14 +197,10 @@ $("#cleanCodeBoard").on("click", () => {
 });
 
 $("#modal-devices-availables").on("hidden.bs.modal", () => {
-    utils.clearListDevices(document, "proList");
+    utils.clearListDevices(document, "devices");
 });
 $("#modal-list-device-execute").on("hidden.bs.modal", () => {
-    utils.clearListDevices(document, "devicesList");
-});
-
-$("#openModalResistenceCalculator").on("click", () => {
-    $("#ModalResistanceCalculator").modal();
+    utils.clearListDevices(document, "devices-setup");
 });
 
 $("#cancel-remove-variable").click(() => {
@@ -214,7 +210,7 @@ $("#accept-remove-variable").click(() => {
     currentCallback(true);
 });
 
-$("#successChallengesBtn").click(() => {
+$("#btn-success-challenges").click(() => {
     ipcRenderer.send("kill-instances", "");
     window.history.back();
 });
@@ -251,52 +247,52 @@ function modalChallenges(state, test, tests, condition) {
     utils.closeModalWaiting();
     switch (state) {
         case "Exito":
-            $("#stopProgram").prop("disabled", false);
+            $("#stop-program").prop("disabled", false);
             utils.validateModal(test, tests, condition);
             break;
         case "Error":
             ipcRenderer.send("kill-instances", "");
-            $("#stopProgram").prop("disabled", true);
+            $("#stop-program").prop("disabled", true);
             utils.openModalErrorExecuteProgram(messages.errors().modal.syntax);
             break;
         case "ErrorCallBack":
             ipcRenderer.send("kill-instances", "");
-            $("#stopProgram").prop("disabled", true);
+            $("#stop-program").prop("disabled", true);
             utils.openModalErrorExecuteProgram(messages.errors().modal.nested_functions);
             break;
         case "ErrorJ5":
             ipcRenderer.send("kill-instances", "");
-            $("#stopProgram").prop("disabled", true);
+            $("#stop-program").prop("disabled", true);
             utils.openModalErrorExecuteProgram(messages.errors().modal.johnny_five);
             break;
     }
 }
 
-$("#stopProgram").click(() => {
+$("#stop-program").click(() => {
     ipcRenderer.send("kill-instances", "");
-    $("#stopProgram").prop("disabled", true);
+    $("#stop-program").prop("disabled", true);
 });
 
 function modalExpert(state) {
     utils.closeModalWaiting();
     switch (state) {
         case "Exito":
-            $("#stopProgram").prop("disabled", false);
+            $("#stop-program").prop("disabled", false);
             utils.setModalSuccessAllTest(messages.success().modal.correct_validation);
             break;
         case "Error":
             ipcRenderer.send("kill-instances", "");
-            $("#stopProgram").prop("disabled", true);
+            $("#stop-program").prop("disabled", true);
             utils.openModalErrorExecuteProgram(messages.errors().modal.syntax);
             break;
         case "ErrorCallBack":
             ipcRenderer.send("kill-instances", "");
-            $("#stopProgram").prop("disabled", true);
+            $("#stop-program").prop("disabled", true);
             utils.openModalErrorExecuteProgram(messages.errors().modal.nested_functions);
             break;
         case "ErrorJ5":
             ipcRenderer.send("kill-instances", "");
-            $("#stopProgram").prop("disabled", true);
+            $("#stop-program").prop("disabled", true);
             utils.openModalErrorExecuteProgram(messages.errors().modal.johnny_five);
             break;
     }

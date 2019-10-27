@@ -49,7 +49,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                     this.setNextStatement(true, null);
                     this.setColour(315);
                     this.setTooltip(
-                        "Este bloque se usa para manejar el evento manteener apretado el Boton."
+                        "Este bloque se usa para manejar el evento mantener apretado el Boton."
                     );
                     this.setHelpUrl(url_documentation);
                 }

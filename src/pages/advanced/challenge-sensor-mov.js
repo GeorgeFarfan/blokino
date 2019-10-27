@@ -14,7 +14,7 @@ let validate_result_code = [[], [], []],
     currentCallback = null,
     validator = require("../../utils/validators/motion-validator");
 
-$("#newVariableModal").on("hidden.bs.modal", () => {
+$("#modal-new-variable").on("hidden.bs.modal", () => {
     let new_variable = $("#new-variable")
         .val()
         .replace(/\s/g, "");
@@ -65,7 +65,7 @@ Blockly.confirm = (object, callback) => {
     }
 };
 
-document.getElementById("executeCode").addEventListener("click", function(event) {
+document.getElementById("executeCode").addEventListener("click", event => {
     let code = utils.formatExecuteCode(Blockly.JavaScript.workspaceToCode(workspace));
     let device = $("input:radio[name=radios]:checked").val();
     if (device !== undefined) {
@@ -135,7 +135,7 @@ document.getElementById("executeCode").addEventListener("click", function(event)
     }
 });
 
-document.getElementById("openModalExecuteCode").addEventListener("click", function(event) {
+document.getElementById("btn-execute-code").addEventListener("click", event => {
     let code = utils.formatExecuteCode(Blockly.JavaScript.workspaceToCode(workspace));
     let result = utils.esprimaValidation(code);
     if (result !== "Error") {

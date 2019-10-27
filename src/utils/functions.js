@@ -182,24 +182,24 @@ let utilFunctions = {
     setModalError: (title, message, btn) => {
         $("#modal-error").modal();
         $("#modal-error-content-message").html(message);
-        $("#errorModalBtn").html(btn);
+        $("#modal-error-btn-text").html(btn);
     },
     createRowDevice: (devices, document) => {
         setTimeout(() => {
-            document.getElementById("renderList").innerHTML = "";
+            document.getElementById("device-list").innerHTML = "";
             let ul = document.createElement("ul");
-            ul.setAttribute("id", "proList");
-            document.getElementById("renderList").appendChild(ul);
+            ul.setAttribute("id", "devices");
+            document.getElementById("device-list").appendChild(ul);
             if (devices.length > 0) {
                 devices.forEach(renderProductList);
                 function renderProductList(element) {
                     let div_container = document.createElement("div");
-                    div_container.setAttribute("id", "device_item");
+                    div_container.setAttribute("id", "device");
                     let li = document.createElement("li");
                     li.setAttribute("class", "item");
                     div_container.innerHTML =
                         "<img src='../../images/devices/icon_device.png' class='avatar'>" +
-                        '<input class="device_bullet" type="radio" id="' +
+                        '<input class="bullet" type="radio" id="' +
                         element.name +
                         " : " +
                         element.port +
@@ -227,20 +227,20 @@ let utilFunctions = {
     },
     createSetupDevices: (devices, document) => {
         setTimeout(() => {
-            document.getElementById("listDevices").innerHTML = "";
+            document.getElementById("device-list-setup").innerHTML = "";
             let ul = document.createElement("ul");
-            ul.setAttribute("id", "devicesList");
-            document.getElementById("listDevices").appendChild(ul);
+            ul.setAttribute("id", "devices-setup");
+            document.getElementById("device-list-setup").appendChild(ul);
             if (devices.length > 0) {
                 devices.forEach(renderProductList);
                 function renderProductList(element) {
                     let li = document.createElement("li");
                     li.setAttribute("class", "item");
-                    li.setAttribute("id", "device_item");
+                    li.setAttribute("id", "device");
                     ul.appendChild(li);
                     li.innerHTML =
                         "<img src='../../images/devices/icon_device.png' class='avatar'>" +
-                        '<input class="device_bullet" type="radio" id="' +
+                        '<input class="bullet" type="radio" id="' +
                         element.name +
                         " : " +
                         element.port +
@@ -343,7 +343,7 @@ let utilFunctions = {
                     log(CHALK.gray.bgRed.bold(MESSAGES.modals().internet.errors.blokino_connected));
                 });
         } else {
-            utilFunctions.clearListDevices(document, "proList");
+            utilFunctions.clearListDevices(document, "devices");
         }
     },
 
@@ -370,7 +370,7 @@ let utilFunctions = {
                     log(CHALK.gray.bgRed.bold(MESSAGES.modals().internet.errors.blokino_connected));
                 });
         } else {
-            utilFunctions.clearListDevices(document, "devicesList");
+            utilFunctions.clearListDevices(document, "devices-setup");
         }
     },
     initMsgSetupDevice: () => {
