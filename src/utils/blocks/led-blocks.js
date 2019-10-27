@@ -30,7 +30,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 init: function() {
                     this.appendDummyInput()
                         .appendField("Parpadear")
-                        .appendField(new Blockly.FieldVariable("led"), "current_led")
+                        .appendField(new Blockly.FieldVariable("LED"), "current_led")
                         .appendField("Tiempo")
                         .appendField(new Blockly.FieldNumber(0, 1, 100, 1), "time")
                         .appendField(
@@ -53,7 +53,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 init: function() {
                     this.appendDummyInput()
                         .appendField("Apagar")
-                        .appendField(new Blockly.FieldVariable("led"), "current_led_off");
+                        .appendField(new Blockly.FieldVariable("LED"), "current_led_off");
                     this.setInputsInline(true);
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);
@@ -66,7 +66,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 init: function() {
                     this.appendDummyInput()
                         .appendField("Encender")
-                        .appendField(new Blockly.FieldVariable("led"), "current_led");
+                        .appendField(new Blockly.FieldVariable("LED"), "current_led");
                     this.setInputsInline(true);
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);
@@ -80,7 +80,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 init: function() {
                     this.appendDummyInput()
                         .appendField("Detener")
-                        .appendField(new Blockly.FieldVariable("led"), "current_led_stop");
+                        .appendField(new Blockly.FieldVariable("LED"), "current_led_stop");
                     this.setInputsInline(true);
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);
@@ -94,7 +94,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 init: function() {
                     this.appendDummyInput()
                         .appendField("Apagar lentamente")
-                        .appendField(new Blockly.FieldVariable("led"), "current_led");
+                        .appendField(new Blockly.FieldVariable("LED"), "current_led");
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);
                     this.setColour(45);
@@ -106,7 +106,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 init: function() {
                     this.appendDummyInput()
                         .appendField("Encender lentamente")
-                        .appendField(new Blockly.FieldVariable("led"), "current_led");
+                        .appendField(new Blockly.FieldVariable("LED"), "current_led");
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);
                     this.setColour(45);
@@ -118,7 +118,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 init: function() {
                     this.appendDummyInput()
                         .appendField("Parpadear por partes")
-                        .appendField(new Blockly.FieldVariable("led"), "current_led");
+                        .appendField(new Blockly.FieldVariable("LED"), "current_led");
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);
                     this.setColour(45);
@@ -130,7 +130,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 init: function() {
                     this.appendDummyInput()
                         .appendField("Parpadear por partes ")
-                        .appendField(new Blockly.FieldVariable("led"), "current_led");
+                        .appendField(new Blockly.FieldVariable("LED"), "current_led");
                     this.appendValueInput("current_time")
                         .setCheck("Number")
                         .appendField(" Tiempo");

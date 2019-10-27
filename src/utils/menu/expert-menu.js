@@ -9,7 +9,7 @@ let menuFunctions = {
     menu: () => {
         return {
             main: {
-                code: `<xml id="toolbox">
+                code: `<xml id="blokino-toolbox">
                                   <category name="Bloques" colour="270">
                                     <category name="Variables" custom="VARIABLE" colour="315">
                                     </category>
@@ -290,21 +290,21 @@ let menuFunctions = {
                                         <block type="potentiometer_blink_list">
                                             <value name="current_list_leds">
                                                 <block type="variables_get">
-                                                    <field name="VAR">Leds</field>
+                                                    <field name="VAR">LEDS</field>
                                                 </block>
                                             </value>
                                         </block>
                                         <block type="potentiometer_brightness_list">
                                             <value name="current_list_leds">
                                                 <block type="variables_get">
-                                                    <field name="VAR">Leds</field>
+                                                    <field name="VAR">LEDS</field>
                                                 </block>
                                             </value>
                                         </block>
                                         <block type="potentiometer_servo_list_mov">
                                             <value name="current_list_servos">
                                                 <block type="variables_get">
-                                                    <field name="VAR">Servomotores</field>
+                                                    <field name="VAR">SERVOMOTORES</field>
                                                 </block>
                                             </value>
                                         </block>
@@ -355,8 +355,6 @@ let menuFunctions = {
                                                 </value>
                                             </block>
                                         </category>
-
-                                        
                                         <sep gap="32"></sep>
                                         <category name="Mensajes" colour="15">
                                             <block type="message_screen">
@@ -397,7 +395,7 @@ let menuFunctions = {
                                         <block type="buzzer_play_with_notes">
                                             <value name="current_list_notes">
                                                 <block type="variables_get">
-                                                    <field name="VAR">Notas</field>
+                                                    <field name="VAR">NOTAS</field>
                                                 </block>
                                             </value>
                                         </block>
@@ -595,6 +593,7 @@ let menuFunctions = {
                                             <block type="lcd_clean"></block>
                                             <block type="lcd_off"></block>
                                             <block type="lcd_on"></block>
+                                            <block type="use_character"></block>
                                             <block type="lcd_character"></block>
                                             <block type="lcd_load_character"></block>
                                             <block type="lcd_composite_characters"></block>
@@ -614,6 +613,12 @@ let menuFunctions = {
                                         <block type="motor_stop"></block>
                                         <block type="motor_stop_code"></block>
                                         <block type="motor_spin_verify"></block>
+                                    </category>
+                                    <sep gap="32"></sep>
+                                    <category name="Microfono" colour="15">
+                                        <block type="microphone">
+                                        </block>
+                                        <block type="microphone_detect"></block>
                                     </category>
                                     <sep gap="32"></sep>
                                 </category>

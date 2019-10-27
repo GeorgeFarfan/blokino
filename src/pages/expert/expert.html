@@ -41,8 +41,8 @@
                             <div id="loader"></div>
                         </div>
                         <div id="block-editor">
-                            <div id="blokinoIDE" class="block-editor"></div>
-                            <xml id="toolbox">
+                            <div id="blokino-workspace" class="block-editor"></div>
+                            <xml id="blokino-toolbox">
                             </xml>
                         </div>
 
@@ -90,7 +90,7 @@
 
                 <!-- Botones -->
                 <div class="row  justify-content-md-center code-block mt-1 mb-1">
-                    <button type="button" class="btn btn-lg btn-light   btn-info-device  mr-1" id="devices">
+                    <button type="button" class="btn btn-lg btn-light btn-info-device  mr-1" id="btn-devices-setup">
                         <i class="far fa-tools icon-link"></i>
                         Configurar
                         dispositivos</button>
@@ -271,8 +271,6 @@
             </div>
         </div>
     </div>
-
-
 
     <!-- Modal Dialog - Eliminar variable -->
     <div class="modal fade" id="modal-variable-remove" tabindex="-1" role="dialog" aria-hidden="true"

@@ -33,11 +33,11 @@ let url_documentation = "http://167.99.3.232/documentation",
                     this.appendDummyInput()
                         .appendField("Girar")
                         .appendField(
-                            new Blockly.FieldVariable("potenciometro"),
+                            new Blockly.FieldVariable("POTENCIOMETRO"),
                             "current_potentiometer"
                         )
                         .appendField("ajustar velocidad de Parpadeo del Led")
-                        .appendField(new Blockly.FieldVariable("led"), "current_led");
+                        .appendField(new Blockly.FieldVariable("LED"), "current_led");
                     this.setInputsInline(false);
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);
@@ -51,12 +51,12 @@ let url_documentation = "http://167.99.3.232/documentation",
                     this.appendDummyInput()
                         .appendField("Girar ")
                         .appendField(
-                            new Blockly.FieldVariable("potenciometro"),
+                            new Blockly.FieldVariable("POTENCIOMETRO"),
                             "current_potentiometer"
                         );
                     this.appendDummyInput()
-                        .appendField(" Ajustar Brillodel Led")
-                        .appendField(new Blockly.FieldVariable("led"), "current_led");
+                        .appendField(" Ajustar Brillo del Led")
+                        .appendField(new Blockly.FieldVariable("LED"), "current_led");
                     this.setInputsInline(true);
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);
@@ -71,7 +71,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                         .setCheck("Array")
                         .appendField("Girar ")
                         .appendField(
-                            new Blockly.FieldVariable("potenciometro"),
+                            new Blockly.FieldVariable("POTENCIOMETRO"),
                             "current_potentiometer"
                         )
                         .appendField("ajustar brillo de los Leds");
@@ -89,7 +89,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                         .setCheck("Array")
                         .appendField("Girar ")
                         .appendField(
-                            new Blockly.FieldVariable("potenciometro"),
+                            new Blockly.FieldVariable("POTENCIOMETRO"),
                             "current_potentiometer"
                         )
                         .appendField("ajustar parpadeo de los Leds");
@@ -106,12 +106,12 @@ let url_documentation = "http://167.99.3.232/documentation",
                     this.appendDummyInput()
                         .appendField("Girar")
                         .appendField(
-                            new Blockly.FieldVariable("Potenciometro"),
+                            new Blockly.FieldVariable("POTENCIOMETRO"),
                             "current_potentiometer"
                         );
                     this.appendDummyInput()
                         .appendField(" Mover Servomotor ")
-                        .appendField(new Blockly.FieldVariable("servomotor"), "current_servo");
+                        .appendField(new Blockly.FieldVariable("SERVOMOTOR"), "current_servo");
                     this.setInputsInline(true);
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);
@@ -126,7 +126,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                         .setCheck("Array")
                         .appendField("Girar ")
                         .appendField(
-                            new Blockly.FieldVariable("potenciometro"),
+                            new Blockly.FieldVariable("POTENCIOMETRO"),
                             "current_potentiometer"
                         )
                         .appendField("servos");

@@ -28,7 +28,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                     this.appendStatementInput("code_switch_open")
                         .setCheck(null)
                         .appendField("Abrir Interruptor")
-                        .appendField(new Blockly.FieldVariable("switch"), "current_switch");
+                        .appendField(new Blockly.FieldVariable("INTERRUPTOR"), "current_switch");
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);
                     this.setColour(330);
@@ -42,7 +42,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                     this.appendStatementInput("code_switch_close")
                         .setCheck(null)
                         .appendField("Cerrar Interruptor")
-                        .appendField(new Blockly.FieldVariable("switch"), "current_switch");
+                        .appendField(new Blockly.FieldVariable("INTERRUPTOR"), "current_switch");
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);
                     this.setColour(330);
@@ -60,13 +60,13 @@ let url_documentation = "http://167.99.3.232/documentation",
                 );
                 let code = `
                         new five.Switch(
-                                {
-                                    pin:${pin},
-                                    custom:{
-                                        type:'SWITCH'
-                                    }
+                            {
+                                pin:${pin},
+                                custom:{
+                                    type:'SWITCH'
                                 }
-                            )`;
+                            }
+                        )`;
                 return [code, Blockly.JavaScript.ORDER_NONE];
             };
             Blockly.JavaScript["switch_open"] = block => {

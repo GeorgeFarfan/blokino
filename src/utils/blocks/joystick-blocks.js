@@ -33,7 +33,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                     this.appendStatementInput("code_movement")
                         .setCheck(null)
                         .appendField("Detectar movimientos")
-                        .appendField(new Blockly.FieldVariable("joystick"), "current_joystick");
+                        .appendField(new Blockly.FieldVariable("JOYSTICK"), "current_joystick");
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);
                     this.setInputsInline(false);

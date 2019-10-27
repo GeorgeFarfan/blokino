@@ -269,7 +269,7 @@ let utilFunctions = {
     },
     allLetters: text => {
         let reg_pattern = /^[a-zA-Z_$][0-9a-zA-Z_$]*$/;
-        return test.match(reg_pattern);
+        return text.match(reg_pattern);
     },
     openURL: type_url => {
         let url_path = "";

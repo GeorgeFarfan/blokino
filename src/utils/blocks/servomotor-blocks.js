@@ -69,7 +69,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 init: function() {
                     this.appendDummyInput()
                         .appendField("Mover Servo de un extremo al otro")
-                        .appendField(new Blockly.FieldVariable("servomotor"), "current_servomotor");
+                        .appendField(new Blockly.FieldVariable("SERVOMOTOR"), "current_servomotor");
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);
                     this.setColour(180);
@@ -81,7 +81,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 init: function() {
                     this.appendDummyInput()
                         .appendField("Mover Servo  ")
-                        .appendField(new Blockly.FieldVariable("servomotor"), "current_servo");
+                        .appendField(new Blockly.FieldVariable("SERVOMOTOR"), "current_servo");
                     this.appendDummyInput()
                         .appendField(" Desde")
                         .appendField(new Blockly.FieldNumber(0, 0, 180), "pos_init");
@@ -100,7 +100,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 init: function() {
                     this.appendDummyInput()
                         .appendField("Mover servomotor de un extremo al otro")
-                        .appendField(new Blockly.FieldVariable("servomotor"), "current_servomotor");
+                        .appendField(new Blockly.FieldVariable("SERVOMOTOR"), "current_servomotor");
                     this.appendDummyInput()
                         .appendField("con el grado de velocidad")
                         .appendField(
@@ -140,7 +140,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 init: function() {
                     this.appendDummyInput()
                         .appendField("Mover servomotor de un extremo al otro")
-                        .appendField(new Blockly.FieldVariable("servomotor"), "current_servomotor");
+                        .appendField(new Blockly.FieldVariable("SERVOMOTOR"), "current_servomotor");
                     this.appendDummyInput()
                         .appendField("desde")
                         .appendField(new Blockly.FieldNumber(0, 0, 180), "to");
@@ -186,7 +186,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 init: function() {
                     this.appendDummyInput()
                         .appendField("Detener Servo")
-                        .appendField(new Blockly.FieldVariable("servomotor"), "current_servo");
+                        .appendField(new Blockly.FieldVariable("SERVOMOTOR"), "current_servo");
                     this.setInputsInline(true);
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);
@@ -199,7 +199,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 init: function() {
                     this.appendDummyInput()
                         .appendField("Centrar Servo")
-                        .appendField(new Blockly.FieldVariable("servomotor"), "current_servo");
+                        .appendField(new Blockly.FieldVariable("SERVOMOTOR"), "current_servo");
                     this.setInputsInline(true);
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);
@@ -212,7 +212,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 init: function() {
                     this.appendDummyInput()
                         .appendField("Extremo minimo Servo")
-                        .appendField(new Blockly.FieldVariable("servomotor"), "current_servo");
+                        .appendField(new Blockly.FieldVariable("SERVOMOTOR"), "current_servo");
                     this.setInputsInline(true);
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);
@@ -225,7 +225,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 init: function() {
                     this.appendDummyInput()
                         .appendField("Extremo maximo Servo")
-                        .appendField(new Blockly.FieldVariable("servomotor"), "current_servo");
+                        .appendField(new Blockly.FieldVariable("SERVOMOTOR"), "current_servo");
                     this.setInputsInline(true);
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);
@@ -238,7 +238,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 init: function() {
                     this.appendDummyInput()
                         .appendField("Mover Servo")
-                        .appendField(new Blockly.FieldVariable("servomotor"), "current_servo");
+                        .appendField(new Blockly.FieldVariable("SERVOMOTOR"), "current_servo");
                     this.appendValueInput("value_grade")
                         .setCheck("Number")
                         .appendField(" Posición");
@@ -255,7 +255,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 init: function() {
                     this.appendDummyInput()
                         .appendField("Mover a la posición inicial Servo")
-                        .appendField(new Blockly.FieldVariable("servomotor"), "current_servo");
+                        .appendField(new Blockly.FieldVariable("SERVOMOTOR"), "current_servo");
                     this.setInputsInline(true);
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);
@@ -272,7 +272,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                     this.appendDummyInput()
                         .appendField("Girar para adelante")
                         .appendField(
-                            new Blockly.FieldVariable("ServomotorContinuo"),
+                            new Blockly.FieldVariable("SERVOMOTOR_CONTINUO"),
                             "current_servo_continuo"
                         )
                         .appendField("Velocidad")
@@ -305,7 +305,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                     this.appendDummyInput()
                         .appendField("Girar para atras")
                         .appendField(
-                            new Blockly.FieldVariable("ServomotorContinuo"),
+                            new Blockly.FieldVariable("SERVOMOTOR_CONTINUO"),
                             "current_servo_continuo"
                         )
                         .appendField("Velocidad")

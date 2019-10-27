@@ -25,7 +25,7 @@ const { clipboard } = require("electron"),
     logs_msg = require("../../utils/logs/console"),
     observables = require("../../utils/observables");
 
-let workspace = Blockly.inject("blokinoIDE", Config.blockly(Blockly, typeToolBar));
+let workspace = Blockly.inject("blokino-workspace", Config.blockly(Blockly, typeToolBar));
 
 observables.createObservable();
 Config.loadComponents(Blockly);
@@ -142,7 +142,7 @@ function createSetupDevices(devices) {
     utils.createSetupDevices(devices, document);
 }
 
-$("#devices").click(() => {
+$("#btn-devices-setup").click(() => {
     childProcess.devices(createListDevices);
 });
 
@@ -216,8 +216,11 @@ $("#btn-success-challenges").click(() => {
 });
 
 function clearScene(test, challenge_type) {
-    $("#blokinoIDE").empty();
-    workspace = Blockly.inject("blokinoIDE", Config.challenges(Blockly, test, challenge_type));
+    $("#blokino-workspace").empty();
+    workspace = Blockly.inject(
+        "blokino-workspace",
+        Config.challenges(Blockly, test, challenge_type)
+    );
     workspace.addChangeListener(changeCurrentCode);
     workspace.addChangeListener(Blockly.Events.disableOrphans);
     Config.cleanWorkspace(Blockly, workspace);

@@ -10,7 +10,7 @@ let menuFunctions = {
         return {
             test_1: {
                 code: `
-                        <xml id="toolbox">
+                        <xml id="blokino-toolbox">
                             <category name="Bloques" colour="270">
                                 <category name="Variables" custom="VARIABLE" colour="210">
                                 </category>
@@ -36,7 +36,7 @@ let menuFunctions = {
             },
             test_2: {
                 code: `
-                    <xml id="toolbox">
+                    <xml id="blokino-toolbox">
                         <category name="Bloques" colour="270"> 
                             <category name="Variables" custom="VARIABLE" colour="210">
                             </category>
@@ -63,7 +63,7 @@ let menuFunctions = {
             },
             test_3: {
                 code: `
-                    <xml id="toolbox">
+                    <xml id="blokino-toolbox">
                         <category name="Bloques" colour="270"> 
                             <sep gap="32"></sep> 
                             <category name="Variables" custom="VARIABLE" colour="210"></category>
