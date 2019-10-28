@@ -20,6 +20,7 @@ const programComponent = require("./blocks/app-blocks"),
     keypadComponent = require("./blocks/keypad-blocks"),
     switchComponent = require("./blocks/switch-blocks"),
     motionComponent = require("./blocks/motion-blocks"),
+    microfonoComponent = require("./blocks/microphone-blocks"),
     lcdComponent = require("./blocks/lcd-blocks"),
     motorComponent = require("./blocks/motor-blocks"),
     LedMenu = require("../utils/menu/led-menu"),
@@ -862,6 +863,8 @@ let settings = {
         lcdComponent.code(Blockly);
         motorComponent.block(Blockly);
         motorComponent.code(Blockly);
+        microfonoComponent.block(Blockly);
+        microfonoComponent.code(Blockly);
     }
 };
 module.exports = settings;

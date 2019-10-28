@@ -1,5 +1,5 @@
 /* eslint-disable */
-(function(root, factory) {
+(function (root, factory) {
     if (typeof define === "function" && define.amd) {
         // AMD
         define(["../core"], factory);
@@ -10,7 +10,7 @@
         // Browser
         root.Blockly.Msg = factory(root.Blockly);
     }
-})(this, function(Blockly) {
+})(this, function (Blockly) {
     var Blockly = {};
     Blockly.Msg = {}; // This file was automatically generated.  Do not modify.
 
@@ -389,7 +389,7 @@
     Blockly.Msg["PROCEDURES_DEFNORETURN_DO"] = ""; // untranslated
     Blockly.Msg["PROCEDURES_DEFNORETURN_HELPURL"] = "https://en.wikipedia.org/wiki/Subroutine"; // untranslated
     Blockly.Msg["PROCEDURES_DEFNORETURN_PROCEDURE"] = "hacer algo";
-    Blockly.Msg["PROCEDURES_DEFNORETURN_TITLE"] = "para";
+    Blockly.Msg["PROCEDURES_DEFNORETURN_TITLE"] = "Procedimiento";
     Blockly.Msg["PROCEDURES_DEFNORETURN_TOOLTIP"] = "Crea una función sin salida.";
     Blockly.Msg["PROCEDURES_DEFRETURN_HELPURL"] = "https://en.wikipedia.org/wiki/Subroutine"; // untranslated
     Blockly.Msg["PROCEDURES_DEFRETURN_RETURN"] = "devuelve";

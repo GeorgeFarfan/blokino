@@ -57,7 +57,7 @@ let url_documentation = "http://167.99.3.232/get_started",
                         .setCheck(null)
                         .appendField("Capturar distancia")
                         .appendField(
-                            new Blockly.FieldVariable("sensor_proximidad"),
+                            new Blockly.FieldVariable("SENSOR_PROXIMIDAD"),
                             "current_sensor_proximity"
                         );
                     this.setInputsInline(true);

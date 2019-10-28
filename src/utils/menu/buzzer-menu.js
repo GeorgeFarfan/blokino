@@ -9,7 +9,7 @@ let menuFunctions = {
         return {
             test_1: {
                 code: `
-                    <xml id="toolbox">
+                    <xml id="blokino-toolbox">
                         <category name="Bloques" colour="270">
                             <category name="Variables" custom="VARIABLE" colour="210">
                             </category>
@@ -20,8 +20,8 @@ let menuFunctions = {
                                 </block>
                             </category>
                             <sep gap="32"></sep>
-                            <category name="Procedimientos" colour="100">
-                                <category name="Crear Procedimiento" colour="100" custom="PROCEDURE"></category>
+                            <category name="Procedimientos" colour="270">
+                                <category name="Crear Procedimiento" colour="270" custom="PROCEDURE"></category>
                             </category>
                             <sep gap="32"></sep>
                             <category name="Zumbador" colour="345">
@@ -35,7 +35,7 @@ let menuFunctions = {
             },
             test_2: {
                 code: `
-                    <xml>
+                    <xml id="blokino-toolbox">
                         <category name="Bloques" colour="270"> 
                             <category name="Variables" custom="VARIABLE" colour="210"/>
                             <sep gap="32"></sep> 
@@ -46,9 +46,13 @@ let menuFunctions = {
                                     </block>
                                 </category>
                                 <sep gap="32"></sep>
+                                <category name="Lista" colour="255">
+                                    <block type="lists_create_with"></block>
+                                </category>
+                                <sep gap="32"></sep>
                             </category> 
-                            <category name="Procedimientos" colour="100">
-                                <category name="Crear Procedimiento" colour="100" custom="PROCEDURE">
+                            <category name="Procedimientos" colour="270">
+                                <category name="Crear Procedimiento" colour="270" custom="PROCEDURE">
                                 </category>
                             </category>
                             <sep gap="32"></sep> 

@@ -28,7 +28,7 @@ let url_documentation = "http://167.99.3.232/get_started",
                     this.appendStatementInput("button_press_code")
                         .setCheck(null)
                         .appendField("Pulsar")
-                        .appendField(new Blockly.FieldVariable("boton"), "button");
+                        .appendField(new Blockly.FieldVariable("BOTON"), "button");
                     this.setInputsInline(true);
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);
@@ -44,12 +44,12 @@ let url_documentation = "http://167.99.3.232/get_started",
                     this.appendStatementInput("code_hold_button")
                         .setCheck(null)
                         .appendField("Mantener presionado")
-                        .appendField(new Blockly.FieldVariable("boton"), "current_hold_button");
+                        .appendField(new Blockly.FieldVariable("BOTON"), "current_hold_button");
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);
                     this.setColour(315);
                     this.setTooltip(
-                        "Este bloque se usa para manejar el evento manteener apretado el Boton."
+                        "Este bloque se usa para manejar el evento mantener apretado el Boton."
                     );
                     this.setHelpUrl(url_documentation);
                 }
@@ -60,7 +60,7 @@ let url_documentation = "http://167.99.3.232/get_started",
                     this.appendStatementInput("code_up_button")
                         .setCheck(null)
                         .appendField("Soltar Boton")
-                        .appendField(new Blockly.FieldVariable("boton"), "current_up_button");
+                        .appendField(new Blockly.FieldVariable("BOTON"), "current_up_button");
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);
                     this.setColour(315);

@@ -34,7 +34,7 @@ let url_documentation = "http://167.99.3.232/get_started",
                         .setCheck(null)
                         .appendField("Se detecto movimiento")
                         .appendField(
-                            new Blockly.FieldVariable("sensor_movimiento"),
+                            new Blockly.FieldVariable("SENSOR_MOVIMIENTO"),
                             "current_motion"
                         );
                     this.setInputsInline(true);
@@ -51,7 +51,7 @@ let url_documentation = "http://167.99.3.232/get_started",
                         .setCheck(null)
                         .appendField("No se detecto movimiento")
                         .appendField(
-                            new Blockly.FieldVariable("sensor_movimiento"),
+                            new Blockly.FieldVariable("SENSOR_MOVIMIENTO"),
                             "current_motion"
                         );
                     this.setInputsInline(true);

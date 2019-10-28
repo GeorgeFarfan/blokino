@@ -28,7 +28,7 @@ let url_documentation = "http://167.99.3.232/get_started",
                 init: function() {
                     this.appendDummyInput()
                         .appendField("Detener Zumbador")
-                        .appendField(new Blockly.FieldVariable("zumbador"), "current_buzzer");
+                        .appendField(new Blockly.FieldVariable("ZUMBADOR"), "current_buzzer");
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);
                     this.setColour(345);
@@ -40,7 +40,7 @@ let url_documentation = "http://167.99.3.232/get_started",
                 init: function() {
                     this.appendDummyInput()
                         .appendField("Apagar Zumbador")
-                        .appendField(new Blockly.FieldVariable("zumbador"), "current_buzzer");
+                        .appendField(new Blockly.FieldVariable("ZUMBADOR"), "current_buzzer");
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);
                     this.setColour(345);
@@ -52,7 +52,7 @@ let url_documentation = "http://167.99.3.232/get_started",
                 init: function() {
                     this.appendDummyInput()
                         .appendField("Hacer sonar Zumbador")
-                        .appendField(new Blockly.FieldVariable("zumbador"), "current_buzzer")
+                        .appendField(new Blockly.FieldVariable("ZUMBADOR"), "current_buzzer")
                         .appendField("con Sonido")
                         .appendField(
                             new Blockly.FieldDropdown([
@@ -146,7 +146,7 @@ let url_documentation = "http://167.99.3.232/get_started",
                 init: function() {
                     this.appendDummyInput()
                         .appendField("Hacer sonar el ")
-                        .appendField(new Blockly.FieldVariable("zumbador"), "current_buzzer")
+                        .appendField(new Blockly.FieldVariable("ZUMBADOR"), "current_buzzer")
                         .appendField(" Velocidad")
                         .appendField(new Blockly.FieldNumber(0, 0, 30), "current_time");
                     this.appendValueInput("current_list_notes")
@@ -165,7 +165,7 @@ let url_documentation = "http://167.99.3.232/get_started",
                 init: function() {
                     this.appendDummyInput()
                         .appendField("esta sonando?")
-                        .appendField(new Blockly.FieldVariable("zumbador"), "current_buzzer");
+                        .appendField(new Blockly.FieldVariable("ZUMBADOR"), "current_buzzer");
                     this.setOutput(true, null);
                     this.setColour(345);
                     this.setTooltip("");

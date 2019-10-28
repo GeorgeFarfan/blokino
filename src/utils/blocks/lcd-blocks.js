@@ -5,7 +5,7 @@
  * @description Este módulo contiene la configuracion del bloque LCD.
  */
 
-let url_documentation = "http://167.99.3.232/documentation",
+let url_documentation = "http://167.99.3.232/get_started",
     lcdFunctions = {
         block: Blockly => {
             Blockly.Blocks["lcd_create_two_rows"] = {
@@ -51,7 +51,10 @@ let url_documentation = "http://167.99.3.232/documentation",
                     this.appendDummyInput().appendField("Escribir un mensaje");
                     this.appendDummyInput()
                         .appendField("En una consola de 2 Filas")
-                        .appendField(new Blockly.FieldVariable("consola"), "current_console");
+                        .appendField(
+                            new Blockly.FieldVariable("CONSOLA_DE_MENSAJES"),
+                            "current_console"
+                        );
                     this.appendValueInput("msg_first_row")
                         .setCheck("String")
                         .appendField("Mensaje de la primer fila");
@@ -71,7 +74,10 @@ let url_documentation = "http://167.99.3.232/documentation",
                     this.appendDummyInput().appendField("Escribir un Mensaje segun la fila");
                     this.appendDummyInput()
                         .appendField("En una consola de 2 filas")
-                        .appendField(new Blockly.FieldVariable("consola"), "current_lcd");
+                        .appendField(
+                            new Blockly.FieldVariable("CONSOLA_DE_MENSAJES"),
+                            "current_lcd"
+                        );
                     this.appendDummyInput()
                         .appendField("Posicion")
                         .appendField(
@@ -95,7 +101,10 @@ let url_documentation = "http://167.99.3.232/documentation",
                     this.appendDummyInput().appendField("Escribir un Mensaje segun la fila");
                     this.appendDummyInput()
                         .appendField("En una consola de 4 filas")
-                        .appendField(new Blockly.FieldVariable("consola"), "current_lcd");
+                        .appendField(
+                            new Blockly.FieldVariable("CONSOLA_DE_MENSAJES"),
+                            "current_lcd"
+                        );
                     this.appendDummyInput()
                         .appendField("Posicion")
                         .appendField(
@@ -123,7 +132,10 @@ let url_documentation = "http://167.99.3.232/documentation",
                     this.appendDummyInput().appendField("Escribir un Mensaje con Desplazamiento");
                     this.appendDummyInput()
                         .appendField("En una consola de 2 filas")
-                        .appendField(new Blockly.FieldVariable("consola"), "current_lcd");
+                        .appendField(
+                            new Blockly.FieldVariable("CONSOLA_DE_MENSAJES"),
+                            "current_lcd"
+                        );
                     this.appendDummyInput()
                         .appendField("Velocidad en la que se ven los mensajes")
                         .appendField(
@@ -153,7 +165,10 @@ let url_documentation = "http://167.99.3.232/documentation",
                     this.appendDummyInput().appendField("Escribir un Mensaje con Desplazamiento");
                     this.appendDummyInput()
                         .appendField("En una consola de 4 filas")
-                        .appendField(new Blockly.FieldVariable("consola"), "current_lcd");
+                        .appendField(
+                            new Blockly.FieldVariable("CONSOLA_DE_MENSAJES"),
+                            "current_lcd"
+                        );
                     this.appendDummyInput()
                         .appendField("Velocidad en la que se ven los mensajes")
                         .appendField(
@@ -189,7 +204,10 @@ let url_documentation = "http://167.99.3.232/documentation",
                     this.appendDummyInput().appendField("Escribir un mensaje");
                     this.appendDummyInput()
                         .appendField("En una consola de 4 filas")
-                        .appendField(new Blockly.FieldVariable("consola"), "current_display");
+                        .appendField(
+                            new Blockly.FieldVariable("CONSOLA_DE_MENSAJES"),
+                            "current_display"
+                        );
                     this.appendValueInput("first_message")
                         .setCheck(null)
                         .appendField("Mensaje de la primer fila");
@@ -214,7 +232,10 @@ let url_documentation = "http://167.99.3.232/documentation",
                 init: function() {
                     this.appendDummyInput()
                         .appendField("Limpiar Consola")
-                        .appendField(new Blockly.FieldVariable("consola"), "current_lcd");
+                        .appendField(
+                            new Blockly.FieldVariable("CONSOLA_DE_MENSAJES"),
+                            "current_lcd"
+                        );
                     this.setInputsInline(true);
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);
@@ -227,7 +248,10 @@ let url_documentation = "http://167.99.3.232/documentation",
                 init: function() {
                     this.appendDummyInput()
                         .appendField("Apagar consola")
-                        .appendField(new Blockly.FieldVariable("consola"), "current_lcd");
+                        .appendField(
+                            new Blockly.FieldVariable("CONSOLA_DE_MENSAJES"),
+                            "current_lcd"
+                        );
                     this.setInputsInline(true);
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);
@@ -240,7 +264,10 @@ let url_documentation = "http://167.99.3.232/documentation",
                 init: function() {
                     this.appendDummyInput()
                         .appendField("Encender Consola")
-                        .appendField(new Blockly.FieldVariable("consola"), "current_lcd");
+                        .appendField(
+                            new Blockly.FieldVariable("CONSOLA_DE_MENSAJES"),
+                            "current_lcd"
+                        );
                     this.setInputsInline(true);
                     this.setPreviousStatement(true, null);
                     this.setNextStatement(true, null);
@@ -330,11 +357,81 @@ let url_documentation = "http://167.99.3.232/documentation",
                     this.setHelpUrl("");
                 }
             };
+
+            Blockly.Blocks["use_character"] = {
+                init: function() {
+                    this.appendDummyInput()
+                        .appendField("Agregar el caracter ")
+                        .appendField(
+                            new Blockly.FieldDropdown([
+                                ["1", ":1:"],
+                                ["2", ":2:"],
+                                ["3", ":3:"],
+                                ["4", ":4:"],
+                                ["5", ":5:"],
+                                ["6", ":6:"],
+                                ["7", ":7:"],
+                                ["8", ":8:"],
+                                ["9", ":9:"],
+                                ["10", ":10:"],
+                                ["11", ":11:"],
+                                ["12", ":12:"],
+                                ["13", ":13:"],
+                                ["14", ":14:"],
+                                ["15", ":15:"],
+                                ["16", ":16:"],
+                                ["17", ":17:"],
+                                ["18", ":18:"],
+                                ["19", ":19:"],
+                                ["Circulo", ":circle:"],
+                                ["Circulo con un punto", ":cdot:"],
+                                ["Dona", ":donut:"],
+                                ["Pelota", ":ball:"],
+                                ["Cuadrado", ":square:"],
+                                ["Cuadrado con punto", ":sdot:"],
+                                ["Cuadrado lleno", ":fbox:"],
+                                ["Cuadrado chico", ":sbox:"],
+                                ["Cuadrado chico lleno", ":sfbox:"],
+                                ["Flecha derecha", ":arrowright:"],
+                                ["Flecha izquierda", ":arrowleft:"],
+                                ["Euro", ":euro:"],
+                                ["Centavo", ":cent:"],
+                                ["Altavoz", ":speaker:"],
+                                ["Sonido", ":sound:"],
+                                ["X", ":x:"],
+                                ["Objetivo", ":target:"],
+                                ["Puntero derecha", ":pointerright:"],
+                                ["Puntero arriba", ":pointerup:"],
+                                ["Puntero izquierda", ":pointerleft:"],
+                                ["Puntero abajo", ":pointerdown:"],
+                                ["Flecha arriba derecha", ":arrowne:"],
+                                ["Flecha arriba izquierda", ":arrownw:"],
+                                ["Flecha abajo izquierda", ":arrowsw:"],
+                                ["Flecha abajo derecha", ":arrowse:"],
+                                ["Campana", ":bell:"],
+                                ["Sonrisa", ":smile:"],
+                                ["Nota", ":note:"],
+                                ["Reloj", ":clock:"],
+                                ["Corazon", ":heart:"],
+                                ["Pato", ":duck:"],
+                                ["Checkeado", ":check:"],
+                                ["Hombre parado", ":runningb:"],
+                                ["Hombre corriendo", ":runninga:"]
+                            ]),
+                            "character"
+                        );
+                    this.setInputsInline(false);
+                    this.setOutput(true, null);
+                    this.setColour(60);
+                    this.setTooltip("");
+                    this.setHelpUrl("");
+                }
+            };
             Blockly.Blocks["lcd_load_character"] = {
                 init: function() {
                     this.appendDummyInput()
-                        .appendField("Asignar al ")
-                        .appendField(new Blockly.FieldVariable("LCD"), "lcd");
+                        .appendField("Asignar a la ")
+                        .appendField(new Blockly.FieldVariable("CONSOLA_DE_MENSAJES"), "lcd");
                     this.appendValueInput("character")
                         .setCheck(null)
                         .appendField("el caracter");
@@ -713,6 +810,11 @@ let url_documentation = "http://167.99.3.232/documentation",
                 return code;
             };
             Blockly.JavaScript["lcd_character"] = function(block) {
+                let character = block.getFieldValue("character");
+                let code = `"${character}"`;
+                return [code, Blockly.JavaScript.ORDER_NONE];
+            };
+            Blockly.JavaScript["use_character"] = function(block) {
                 let character = block.getFieldValue("character");
                 let code = `"${character}"`;
                 return [code, Blockly.JavaScript.ORDER_NONE];
