@@ -14,7 +14,7 @@ const serialportCommand = require("../../serial-port/serialport-commands"),
     exec = require("child_process").exec,
     path = require("path");
 
-let gortFunctions = {
+let gortFirmata = {
     linux: function() {
         return {
             nodeJS: {
@@ -331,4 +331,4 @@ let gortFunctions = {
     }
 };
 
-module.exports = gortFunctions;
+module.exports = gortFirmata;
