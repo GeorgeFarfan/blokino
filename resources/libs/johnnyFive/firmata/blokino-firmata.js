@@ -13,7 +13,7 @@ const path = require("path"),
     supportedBoards = Avrgirl.listKnownBoards(),
     supportedBoardsString = supportedBoards.join(", ");
 
-let firmataFunctions = {
+let blokinoFirmata = {
     showSupported: () => {
         log(chalk.black.bgYellow.bold("Dispositivos soportados: \n" + supportedBoardsString));
     },
@@ -25,7 +25,7 @@ let firmataFunctions = {
         };
         log(chalk.black.bgYellow.bold("Configurando placa: " + options.board));
         return new Promise((resolve, reject) => {
-            firmataFunctions.flash(options, error => {
+            blokinoFirmata.flash(options, error => {
                 if (error) {
                     return resolve("Error");
                 } else {
@@ -62,4 +62,4 @@ let firmataFunctions = {
     }
 };
 
-module.exports = firmataFunctions;
+module.exports = blokinoFirmata;
