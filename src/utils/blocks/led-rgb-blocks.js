@@ -77,16 +77,19 @@ let url_documentation = "http://167.99.3.232/documentation",
                     "pin_blue",
                     Blockly.JavaScript.ORDER_ATOMIC
                 );
-                let code = `new five.Led.RGB({
-                                    pins:{ 
-                                        red:${pin_red},
-                                        green:${pin_green},
-                                        blue:${pin_blue}
-                                    },custom:{
-                                        type:'LED-RGB',
-                                        blink:0,
-                                        color:''
-                                    }})`;
+                let code = `new five.Led.RGB(
+                    {
+                        pins:{ 
+                            red:${pin_red},
+                            green:${pin_green},
+                            blue:${pin_blue}
+                        },custom:{
+                            type:'LED-RGB',
+                            blink:0,
+                            color:''
+                        }
+                    }
+                )`;
                 return [code, Blockly.JavaScript.ORDER_NONE];
             };
 

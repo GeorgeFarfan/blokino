@@ -4,7 +4,7 @@
  * @author Jorge Farfan Coaguila
  * @description Este módulo contiene la configuracion del bloque KEYPAD.
  */
-
+const keypad = require("./resources/keypads");
 let url_documentation = "http://167.99.3.232/documentation",
     keypadFunctions = {
         block: Blockly => {
@@ -70,14 +70,7 @@ let url_documentation = "http://167.99.3.232/documentation",
         code: Blockly => {
             Blockly.JavaScript["keypad_block"] = block => {
                 let code = `
-                    new five.Touchpad(
-                        {
-                            controller:'MPR121_KEYPAD',
-                            keys: 
-                                [["*", "0", "#"], ["7", "8", "9"], ["4", "5", "6"], ["1", "2", "3"]],
-                            sensitivity:0.25,
-                            custom:{type:'KEYPAD'}
-                        })`;
+                    new five.Touchpad(${keypad.config()})`;
                 return [code, Blockly.JavaScript.ORDER_NONE];
             };
             Blockly.JavaScript["keypad_press"] = block => {
