@@ -5,153 +5,12 @@
  * @description Este módulo contiene la configuracion del bloque MATRIX-LED.
  */
 
-const gestures = {
-        house: [
-            '"00000000"',
-            '"01100000"',
-            '"01111000"',
-            '"01100100"',
-            '"01000010"',
-            '"01011010"',
-            '"01011010"',
-            '"01011010"'
-        ],
-        heart: [
-            '"01100110"',
-            '"10011001"',
-            '"10000001"',
-            '"10000001"',
-            '"01000010"',
-            '"00100100"',
-            '"00011000"',
-            '"00000000"'
-        ],
-        happy: [
-            '"00000000"',
-            '"01100110"',
-            '"01100110"',
-            '"00000000"',
-            '"00000000"',
-            '"00100100"',
-            '"00011000"',
-            '"00000000"'
-        ],
-        sad: [
-            '"00000000"',
-            '"01100110"',
-            '"01100110"',
-            '"00000000"',
-            '"00011000"',
-            '"00100100"',
-            '"00000000"',
-            '"00000000"'
-        ],
-        chino: [
-            '"00000000"',
-            '"00000000"',
-            '"01100110"',
-            '"00000000"',
-            '"00000000"',
-            '"00111100"',
-            '"00000000"',
-            '"00000000"'
-        ],
-        surprise: [
-            '"00000000"',
-            '"01100110"',
-            '"01100110"',
-            '"00000000"',
-            '"00111100"',
-            '"00100100"',
-            '"00111100"',
-            '"00000000"'
-        ],
-        jeje: [
-            '"00000000"',
-            '"01100110"',
-            '"00100010"',
-            '"00000000"',
-            '"00000100"',
-            '"00111100"',
-            '"00000000"',
-            '"00000000"'
-        ],
-        tongue: [
-            '"00000000"',
-            '"01100110"',
-            '"01100110"',
-            '"00000000"',
-            '"00111100"',
-            '"00011000"',
-            '"00011000"',
-            '"00000000"'
-        ],
-        interrogation: [
-            '"00000000"',
-            '"00111110"',
-            '"00100010"',
-            '"00100010"',
-            '"00001110"',
-            '"00001000"',
-            '"00000000"',
-            '"00001000"'
-        ],
-        exclamation: [
-            '"00000000"',
-            '"00011000"',
-            '"00011000"',
-            '"00011000"',
-            '"00011000"',
-            '"00000000"',
-            '"00011000"',
-            '"00011000"'
-        ],
-        glass_man: [
-            '"00000000"',
-            '"01100110"',
-            '"01111110"',
-            '"01100110"',
-            '"00000000"',
-            '"00111100"',
-            '"01000000"',
-            '"00000000"'
-        ],
-        error: [
-            '"00111100"',
-            '"01000010"',
-            '"10100101"',
-            '"10011001"',
-            '"10011001"',
-            '"10100101"',
-            '"01000010"',
-            '"00111100"'
-        ],
-        success: [
-            '"00111100"',
-            '"01000010"',
-            '"10000001"',
-            '"10000101"',
-            '"10101001"',
-            '"10010001"',
-            '"01000010"',
-            '"00111100"'
-        ],
-        all_red: [
-            '"11111111"',
-            '"11111111"',
-            '"11111111"',
-            '"11111111"',
-            '"11111111"',
-            '"11111111"',
-            '"11111111"',
-            '"11111111"'
-        ]
-    },
-    url_documentation = "http://167.99.3.232/get_started";
+const gestures = require("./resources/gestures"),
+    url_documentation = "http://167.99.3.232/documentation";
 let screenMarixFunctions = {
     block: Blockly => {
         Blockly.Blocks["matrix"] = {
-            init: function() {
+            init: function () {
                 this.appendValueInput("pin_cs")
                     .appendField(
                         new Blockly.FieldImage("../../images/blocks/matrix-leds.png", 40, 40, "*")
@@ -173,7 +32,7 @@ let screenMarixFunctions = {
             }
         };
         Blockly.Blocks["matrix_with_extensions"] = {
-            init: function() {
+            init: function () {
                 this.appendValueInput("pin_cs")
                     .appendField(
                         new Blockly.FieldImage("../../images/blocks/matrix-leds.png", 40, 40, "*")
@@ -198,7 +57,7 @@ let screenMarixFunctions = {
             }
         };
         Blockly.Blocks["print_screen"] = {
-            init: function() {
+            init: function () {
                 this.appendDummyInput()
                     .appendField("Dibujar ")
                     .appendField(new Blockly.FieldVariable("MATRIX_LEDS"), "current_led_matrix")
@@ -231,7 +90,7 @@ let screenMarixFunctions = {
             }
         };
         Blockly.Blocks["blink_screen"] = {
-            init: function() {
+            init: function () {
                 this.appendStatementInput("blink_screen_code")
                     .setCheck(null)
                     .appendField("Hacer parpadear ")
@@ -244,7 +103,7 @@ let screenMarixFunctions = {
             }
         };
         Blockly.Blocks["screen_on"] = {
-            init: function() {
+            init: function () {
                 this.appendDummyInput()
                     .appendField("Encender pantalla")
                     .appendField(new Blockly.FieldVariable("MATRIX_LEDS"), "currente_screen");
@@ -256,7 +115,7 @@ let screenMarixFunctions = {
             }
         };
         Blockly.Blocks["screen_off"] = {
-            init: function() {
+            init: function () {
                 this.appendDummyInput()
                     .appendField("Apagar pantalla")
                     .appendField(new Blockly.FieldVariable("MATRIX_LEDS"), "currente_screen");
@@ -268,7 +127,7 @@ let screenMarixFunctions = {
             }
         };
         Blockly.Blocks["screen_clear"] = {
-            init: function() {
+            init: function () {
                 this.appendDummyInput()
                     .appendField("Limpiar pantalla")
                     .appendField(new Blockly.FieldVariable("MATRIX_LEDS"), "currente_screen");
@@ -280,7 +139,7 @@ let screenMarixFunctions = {
             }
         };
         Blockly.Blocks["message_screen"] = {
-            init: function() {
+            init: function () {
                 this.appendDummyInput()
                     .appendField("Escribir en ")
                     .appendField(new Blockly.FieldVariable("MATRIX_LEDS"), "current_screen");
@@ -296,7 +155,7 @@ let screenMarixFunctions = {
             }
         };
         Blockly.Blocks["matrix_paint"] = {
-            init: function() {
+            init: function () {
                 this.appendDummyInput()
                     .appendField("Dibujar ")
                     .appendField(new Blockly.FieldVariable("matrix"), "current_matrix");
@@ -380,7 +239,7 @@ let screenMarixFunctions = {
             }
         };
         Blockly.Blocks["matrix_leds_paint"] = {
-            init: function() {
+            init: function () {
                 this.appendDummyInput()
                     .setAlign(Blockly.ALIGN_RIGHT)
                     .appendField("Dibujar en la matrix")
@@ -398,7 +257,7 @@ let screenMarixFunctions = {
             }
         };
         Blockly.Blocks["matrix_emoticon"] = {
-            init: function() {
+            init: function () {
                 this.appendDummyInput()
                     .appendField("Posición")
                     .appendField(new Blockly.FieldNumber(1, 1, 20, 1), "position");
@@ -483,7 +342,7 @@ let screenMarixFunctions = {
             }
         };
         Blockly.Blocks["matrix_caracter"] = {
-            init: function() {
+            init: function () {
                 this.appendDummyInput()
                     .appendField("Posicion")
                     .appendField(new Blockly.FieldNumber(1, 1, 20, 1), "position");
@@ -595,7 +454,7 @@ let screenMarixFunctions = {
             let gesture = block.getFieldValue("options");
             let code = `${matrix}.custom.code = "${gesture}";
                             ${matrix}.on();
-                            ${matrix}.draw([${gestures[gesture]}]);`;
+                            ${matrix}.draw([${gestures.figures()[gesture]}]);`;
             return code;
         };
         Blockly.JavaScript["screen_off"] = block => {
@@ -838,13 +697,13 @@ let screenMarixFunctions = {
             let code = `while(true){
                         ${matrix}.clear();
                         setTimeout(() => {
-                            ${matrix}.draw([${gestures[blink_screen_code]}]);
+                            ${matrix}.draw([${gestures.figures()[blink_screen_code]}]);
                         }, 3000);
                     };`;
 
             return code;
         };
-        Blockly.JavaScript["matrix_leds_paint"] = function(block) {
+        Blockly.JavaScript["matrix_leds_paint"] = function (block) {
             let matrix = Blockly.JavaScript.variableDB_.getName(
                 block.getFieldValue("matrix"),
                 Blockly.Variables.NAME_TYPE
@@ -863,7 +722,7 @@ let screenMarixFunctions = {
                     });\n`;
             return code;
         };
-        Blockly.JavaScript["matrix_emoticon"] = function(block) {
+        Blockly.JavaScript["matrix_emoticon"] = function (block) {
             let position = Number(block.getFieldValue("position")) - 1;
             let checkbox_led_1_1 = block.getFieldValue("led_1_1") == "TRUE" ? "1" : "0";
             let checkbox_led_1_2 = block.getFieldValue("led_1_2") == "TRUE" ? "1" : "0";
@@ -1000,7 +859,7 @@ let screenMarixFunctions = {
 
             return [code, Blockly.JavaScript.ORDER_NONE];
         };
-        Blockly.JavaScript["matrix_caracter"] = function(block) {
+        Blockly.JavaScript["matrix_caracter"] = function (block) {
             let position = block.getFieldValue("position") - 1;
             let caracter = Blockly.JavaScript.valueToCode(
                 block,

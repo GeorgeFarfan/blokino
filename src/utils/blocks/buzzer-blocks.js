@@ -5,11 +5,13 @@
  * @description Este módulo contiene la configuracion del bloque BUZZER.
  */
 
-let url_documentation = "http://167.99.3.232/get_started",
+const sounds = require("./resources/notes");
+
+let url_documentation = "http://167.99.3.232/documentation",
     buzzerFunction = {
         block: Blockly => {
             Blockly.Blocks["buzzer"] = {
-                init: function() {
+                init: function () {
                     this.appendValueInput("buzzer_pin")
                         .appendField(
                             new Blockly.FieldImage("../../images/blocks/buzzer.png", 30, 30, "*")
@@ -25,7 +27,7 @@ let url_documentation = "http://167.99.3.232/get_started",
             };
 
             Blockly.Blocks["buzzer_stop"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput()
                         .appendField("Detener Zumbador")
                         .appendField(new Blockly.FieldVariable("ZUMBADOR"), "current_buzzer");
@@ -37,7 +39,7 @@ let url_documentation = "http://167.99.3.232/get_started",
                 }
             };
             Blockly.Blocks["buzzer_off"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput()
                         .appendField("Apagar Zumbador")
                         .appendField(new Blockly.FieldVariable("ZUMBADOR"), "current_buzzer");
@@ -49,7 +51,7 @@ let url_documentation = "http://167.99.3.232/get_started",
                 }
             };
             Blockly.Blocks["buzzer_play_with_sound"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput()
                         .appendField("Hacer sonar Zumbador")
                         .appendField(new Blockly.FieldVariable("ZUMBADOR"), "current_buzzer")
@@ -74,7 +76,7 @@ let url_documentation = "http://167.99.3.232/get_started",
                 }
             };
             Blockly.Blocks["buzzer_new_note"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput()
                         .appendField("Crear Nota Musical")
                         .appendField("Tipo de Nota")
@@ -121,7 +123,7 @@ let url_documentation = "http://167.99.3.232/get_started",
                 }
             };
             Blockly.Blocks["buzzer_new_note_mute"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput()
                         .appendField("Crear Pausa")
                         .appendField("Tiempo de la pausa")
@@ -143,7 +145,7 @@ let url_documentation = "http://167.99.3.232/get_started",
                 }
             };
             Blockly.Blocks["buzzer_play_with_notes"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput()
                         .appendField("Hacer sonar el ")
                         .appendField(new Blockly.FieldVariable("ZUMBADOR"), "current_buzzer")
@@ -162,7 +164,7 @@ let url_documentation = "http://167.99.3.232/get_started",
             };
 
             Blockly.Blocks["buzzer_is_playing"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput()
                         .appendField("esta sonando?")
                         .appendField(new Blockly.FieldVariable("ZUMBADOR"), "current_buzzer");
@@ -275,239 +277,26 @@ let url_documentation = "http://167.99.3.232/get_started",
                         code = `
                                 ${buzzer}.custom.code.status = 'play with sound';
                                 ${buzzer}.custom.code.notes = 'claxon';
-                                ${buzzer}.play({
-                                    song:[
-                                        ['C4', 4],
-                                        [null, 4],
-                                        ['C4', 4],
-                                        [null, 4],
-                                        ['C4', 4],
-                                        [null, 8]
-                                    ],
-                                    tempo: 150
-                                });`;
+                                ${buzzer}.play(${sounds.notes().claxon}
+                                );`;
                         break;
                     case "mario_bros_1":
                         code = `
                                 ${buzzer}.custom.code.status = 'play with sound';
                                 ${buzzer}.custom.code.notes = 'mario-1';
-                                ${buzzer}.play({
-                                    song:[
-                                        ['E5', 1 / 4],
-                                        [null, 1 / 4],
-                                        ['E5', 1 / 4],
-                                        [null, 3 / 4],
-                                        ['E5', 1 / 4],
-                                        [null, 3 / 4],
-                                        ['C5', 1 / 4],
-                                        [null, 1 / 4],
-                                        ['E5', 1 / 4],
-                                        [null, 3 / 4],
-                                        ['G5', 1 / 4],
-                                        [null, 7 / 4],
-                                        ['G4', 1 / 4],
-                                        [null, 7 / 4]
-                                    ],
-                                    tempo: 200
-                                });`;
+                                ${buzzer}.play(${sounds.notes().mario_bross_1});`;
                         break;
                     case "mario_bros_2":
                         code = `
                                 ${buzzer}.custom.code.status = 'play with sound';
                                 ${buzzer}.custom.code.notes = 'mario-2';
-                                ${buzzer}.play(
-                                    { 
-                                        song:[  
-                                            ['C5', 1/4],
-                                            [null, 5 / 4],
-                                            ['G4', 1 / 4],
-                                            [null, 5 / 4],
-                                            ['E4', 1 / 4],
-                                            [null, 5 / 4],
-                                            ['E4', 1 / 4],
-                                            [null, 1 / 4],
-                                            ['B4', 1 / 4],
-                                            [null, 3 / 4],
-                                            ['A#4', 1 / 4],
-                                            [null, 1 / 4],
-                                            ['E4', 1 / 4],
-                                            [null, 3 / 4],
-                                            ['G4', 1 / 4],
-                                            [null, 1 / 4],
-                                            ['E5', 1 / 4],
-                                            [null, 3 / 4],
-                                            ['G5', 1 / 4],
-                                            [null, 1 / 4],
-                                            ['A5', 1 / 4],
-                                            [null, 3 / 4],
-                                            ['F5', 1 / 4],
-                                            [null, 1 / 4],
-                                            ['G5', 1 / 4],
-                                            [null, 3 / 4],
-                                            ['E5', 1 / 4],
-                                            [null, 3 / 4],
-                                            ['C5', 1 / 4],
-                                            [null, 1 / 4],
-                                            ['D5', 1 / 4],
-                                            [null, 1 / 4],
-                                            ['B4', 1 / 4],
-                                            [null, 3 / 4]
-                                        ],tempo:200
-                                    }
-                                );`;
+                                ${buzzer}.play(${sounds.notes().mario_bross_2});`;
                         break;
                     case "star_wars":
                         code = `
                                 ${buzzer}.custom.code.status = 'play with sound';
                                 ${buzzer}.custom.code.notes = 'star-wars';
-                                ${buzzer}.play({song:[
-                                    ['A', 500],
-                                    [null, 50],
-                                    ['A', 500],
-                                    [null, 50],
-                                    ['A', 500],
-                                    [null, 50],
-                                    ['F', 350],
-                                    [null, 50],
-                                    ['C5', 150],
-                                    [null, 50],
-                                    ['A', 500],
-                                    [null, 50],
-                                    ['F', 350],
-                                    [null, 50],
-                                    ['C5', 150],
-                                    [null, 50],
-                                    ['A', 650],
-                                    [null, 50],
-                                    [null, 500],
-                                    ['E5', 500],
-                                    [null, 50],
-                                    ['E5', 500],
-                                    [null, 50],
-                                    ['E5', 500],
-                                    [null, 50],
-                                    ['F5', 350],
-                                    [null, 50],
-                                    ['C5', 150],
-                                    [null, 50],
-                                    ['G4', 500],
-                                    [null, 50],
-                                    ['F', 350],
-                                    [null, 50],
-                                    ['C5', 150],
-                                    [null, 50],
-                                    ['A', 650],
-                                    [null, 50],
-                                    [null, 500],
-
-                                    ['A5', 500],
-                                    [null, 50],
-                                    ['A', 300],
-                                    [null, 50],
-                                    ['A', 150],
-                                    [null, 50],
-                                    ['A5', 500],
-                                    [null, 50],
-                                    ['G#5', 325],
-                                    [null, 50],
-                                    ['G5', 175],
-                                    [null, 50],
-                                    ['F#5', 125],
-                                    [null, 50],
-                                    ['F5', 125],
-                                    [null, 50],
-                                    ['F#5', 250],
-                                    [null, 50],
-                                    [null, 325],
-                                    ['A4', 250],
-                                    [null, 50],
-                                    ['D#5', 500],
-                                    [null, 50],
-                                    ['D5', 325],
-                                    [null, 50],
-                                    ['C#5', 175],
-                                    [null, 50],
-                                    ['C5', 125],
-                                    [null, 50],
-                                    ['B', 125],
-                                    [null, 50],
-                                    ['C5', 250],
-                                    [null, 50],
-                                    [null, 350],
-
-                                    ['F', 250],
-                                    [null, 50],
-                                    ['G4', 500],
-                                    [null, 50],
-                                    ['F', 350],
-                                    [null, 50],
-                                    ['A', 125],
-                                    [null, 50],
-                                    ['C5', 500],
-                                    [null, 50],
-                                    ['A', 375],
-                                    [null, 50],
-                                    ['C5', 125],
-                                    [null, 50],
-                                    ['E5', 650],
-                                    [null, 50],
-                                    [null, 500],
-
-                                    ['A5', 500],
-                                    [null, 50],
-                                    ['A', 300],
-                                    [null, 50],
-                                    ['A', 150],
-                                    [null, 50],
-                                    ['A5', 500],
-                                    [null, 50],
-                                    ['G#5', 325],
-                                    [null, 50],
-                                    ['G5', 175],
-                                    [null, 50],
-                                    ['F#5', 125],
-                                    [null, 50],
-                                    ['F5', 125],
-                                    [null, 50],
-                                    ['F#5', 250],
-                                    [null, 50],
-                                    [null, 325],
-                                    ['A4', 250],
-                                    [null, 50],
-                                    ['D#5', 500],
-                                    [null, 50],
-                                    ['D5', 325],
-                                    [null, 50],
-                                    ['C#5', 175],
-                                    [null, 50],
-                                    ['C5', 125],
-                                    [null, 50],
-                                    ['B', 125],
-                                    [null, 50],
-                                    ['C5', 250],
-                                    [null, 50],
-                                    [null, 350],
-
-                                    ['F', 250],
-                                    [null, 50],
-                                    ['G4', 500],
-                                    [null, 50],
-                                    ['F', 375],
-                                    [null, 50],
-                                    ['C5', 125],
-                                    [null, 50],
-                                    ['A', 500],
-                                    [null, 50],
-                                    ['F', 375],
-                                    [null, 50],
-                                    ['C5', 125],
-                                    [null, 50],
-                                    ['A', 650],
-                                    [null, 50],
-                                    [null, 650]
-                                ],tempo:100000 
-                            }
-                        );`;
+                                ${buzzer}.play(${sounds.notes().star_wars});`;
                         break;
                 }
 

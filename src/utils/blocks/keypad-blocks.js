@@ -4,12 +4,12 @@
  * @author Jorge Farfan Coaguila
  * @description Este módulo contiene la configuracion del bloque KEYPAD.
  */
-
-let url_documentation = "http://167.99.3.232/get_started",
+const keypad = require("./resources/keypads");
+let url_documentation = "http://167.99.3.232/documentation",
     keypadFunctions = {
         block: Blockly => {
             Blockly.Blocks["keypad_block"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput()
                         .appendField(
                             new Blockly.FieldImage("../../images/blocks/keypad.png", 40, 40, "*")
@@ -23,7 +23,7 @@ let url_documentation = "http://167.99.3.232/get_started",
                 }
             };
             Blockly.Blocks["keypad_press_key"] = {
-                init: function() {
+                init: function () {
                     this.appendStatementInput("code_keypad_key")
                         .setCheck(null)
                         .appendField("Tecla presionada")
@@ -53,7 +53,7 @@ let url_documentation = "http://167.99.3.232/get_started",
                 }
             };
             Blockly.Blocks["keypad_press"] = {
-                init: function() {
+                init: function () {
                     this.appendStatementInput("code_keypad_press")
                         .setCheck(null)
                         .appendField("Presionar tecla")
@@ -70,14 +70,7 @@ let url_documentation = "http://167.99.3.232/get_started",
         code: Blockly => {
             Blockly.JavaScript["keypad_block"] = block => {
                 let code = `
-                    new five.Touchpad(
-                        {
-                            controller:'MPR121_KEYPAD',
-                            keys: 
-                                [["*", "0", "#"], ["7", "8", "9"], ["4", "5", "6"], ["1", "2", "3"]],
-                            sensitivity:0.25,
-                            custom:{type:'KEYPAD'}
-                        })`;
+                    new five.Touchpad(${keypad.config()})`;
                 return [code, Blockly.JavaScript.ORDER_NONE];
             };
             Blockly.JavaScript["keypad_press"] = block => {
