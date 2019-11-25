@@ -15,44 +15,12 @@ const serialportCommand = require("../../serial-port/serialport-commands"),
     path = require("path");
 
 let gortFirmata = {
-    linux: function() {
-        return {
-            nodeJS: {
-                path: "apt-get install nodejs"
-            },
-            gort: {
-                x64: {
-                    path: "curl -sLO https://s3.amazonaws.com/gort-io/0.9.0/gort_0.9.0_amd64.deb",
-                    file: "dpkg -i gort_0.9.0_amd64.deb"
-                },
-                x86: {
-                    path: "curl -sLO https://s3.amazonaws.com/gort-io/0.9.0/gort_0.9.0_i386.deb",
-                    file: "dpkg -i gort_0.9.0_amd64.deb"
-                }
-            }
-        };
-    },
-    gort: function() {
-        let config_gort = this.linux().gort;
-        let info = platform.infoOS();
-        if (info.short_name_os === "Lin" || info.short_name_os === "mac") {
-            switch (info.arch) {
-                case "x86":
-                    return config_gort.x86;
-                    break;
-                case "x64":
-                    return config_gort.x64;
-                    break;
-                default:
-                    break;
-            }
-        }
-    },
     devices: async function(callback) {
         let devices = serialportCommand.listDevices();
         let os_arch = platform.arch();
         let devices_gort = [];
         let promise = null;
+        // En el casi de usar Linux, se crea listado personalizado de dispositivos.
         switch (os_arch) {
             case "Linx86":
             case "Linx64":
@@ -96,91 +64,6 @@ let gortFirmata = {
                 log(chalk.black.bgYellow.bold("Dispositivo respuesta: " + stdout));
                 if (stdout !== "") {
                     log(chalk.white.bgGreen.bold("Dispositivos ", stdout));
-                    resolve(
-                        stdout
-                            .replace("1. ", "separator")
-                            .replace("2. ", "separator")
-                            .replace("3. ", "separator")
-                            .split("separator")
-                            .filter(device => {
-                                return device.toString() != "";
-                            })
-                    );
-                }
-            });
-        });
-    },
-    deviceGortWindows: function(arch_gort) {
-        return new Promise(resolve => {
-            let options = {
-                    name: "Electron"
-                },
-                lib = "";
-            lib = path.join(
-                path.dirname(fs.realpathSync(__filename)),
-                "/gort_win_" + arch_gort + ".exe"
-            );
-            exec("" + lib + " scan serial", options, function(error, stdout, stderr) {
-                log(chalk.black.bgYellow.bold("Dispositivo respuesta: " + stdout));
-                if (stdout !== "") {
-                    log(chalk.black.bgYellow.bold("Dispositivos ", stdout));
-                    resolve(
-                        stdout
-                            .replace("1. ", "separator")
-                            .replace("2. ", "separator")
-                            .replace("3. ", "separator")
-                            .split("separator")
-                            .filter(device => {
-                                return device.toString() != "";
-                            })
-                    );
-                }
-            });
-        });
-    },
-
-    deviceGortLinux: function() {
-        return new Promise(resolve => {
-            let options = {
-                name: "Electron"
-            };
-            sudo.exec("" + path.resolve(__dirname) + "/gort_lin_x86 scan serial", options, function(
-                error,
-                stdout,
-                stderr
-            ) {
-                log(chalk.black.bgYellow.bold("Dispositivo respuesta: " + stdout));
-                if (error !== "") {
-                    log(chalk.white.bgGreen.bold("Dispositivos ", stdout));
-                    resolve(
-                        stdout
-                            .replace("1. ", "separator")
-                            .replace("2. ", "separator")
-                            .replace("3. ", "separator")
-                            .split("separator")
-                            .filter(device => {
-                                return device.toString() != "";
-                            })
-                    );
-                } else {
-                }
-            });
-        });
-    },
-    deviceGortWindows: function(arch_gort) {
-        return new Promise(resolve => {
-            let options = {
-                    name: "Electron"
-                },
-                lib = "";
-            lib = path.join(
-                path.dirname(fs.realpathSync(__filename)),
-                "/gort_win_" + arch_gort + ".exe"
-            );
-            exec("" + lib + " scan serial", options, function(error, stdout, stderr) {
-                log(chalk.black.bgYellow.bold("Dispositivo respuesta: " + stdout));
-                if (stdout !== "") {
-                    log(chalk.black.bgYellow.bold("Dispositivos ", stdout));
                     resolve(
                         stdout
                             .replace("1. ", "separator")
