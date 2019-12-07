@@ -5,7 +5,7 @@
  * @description Este módulo contiene la configuracion del bloque POTENCIOMETRO.
  */
 
-let url_documentation = "http://167.99.3.232/documentation",
+let url_documentation = "http://167.99.3.232/get_started",
     potentiometerFunctions = {
         block: Blockly => {
             Blockly.Blocks["potentiometer"] = {

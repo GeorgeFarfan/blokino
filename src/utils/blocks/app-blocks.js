@@ -5,7 +5,7 @@
  * @description Este módulo contiene la configuración de los bloques principales.
  */
 
-let url_documentation = "http://167.99.3.232/documentation",
+let url_documentation = "http://167.99.3.232/get_started",
     appFunctions = {
         block: Blockly => {
             Blockly.Blocks["program"] = {

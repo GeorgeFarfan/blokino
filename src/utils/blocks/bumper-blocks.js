@@ -5,7 +5,7 @@
  * @description Este módulo contiene la configuracion de los bloques del BUMPER.
  */
 
-let url_documentation = "http://167.99.3.232/documentation",
+let url_documentation = "http://167.99.3.232/get_started",
     bumperFunctions = {
         block: Blockly => {
             Blockly.Blocks["button_bumper"] = {

@@ -9,7 +9,7 @@ let url_documentation = "http://167.99.3.232/documentation",
     keypadFunctions = {
         block: Blockly => {
             Blockly.Blocks["keypad_block"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput()
                         .appendField(
                             new Blockly.FieldImage("../../images/blocks/keypad.png", 40, 40, "*")
@@ -23,7 +23,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 }
             };
             Blockly.Blocks["keypad_press_key"] = {
-                init: function() {
+                init: function () {
                     this.appendStatementInput("code_keypad_key")
                         .setCheck(null)
                         .appendField("Tecla presionada")
@@ -53,7 +53,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 }
             };
             Blockly.Blocks["keypad_press"] = {
-                init: function() {
+                init: function () {
                     this.appendStatementInput("code_keypad_press")
                         .setCheck(null)
                         .appendField("Presionar tecla")

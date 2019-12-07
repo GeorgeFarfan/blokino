@@ -10,7 +10,7 @@ const gestures = require("./resources/gestures"),
 let screenMarixFunctions = {
     block: Blockly => {
         Blockly.Blocks["matrix"] = {
-            init: function() {
+            init: function () {
                 this.appendValueInput("pin_cs")
                     .appendField(
                         new Blockly.FieldImage("../../images/blocks/matrix-leds.png", 40, 40, "*")
@@ -32,7 +32,7 @@ let screenMarixFunctions = {
             }
         };
         Blockly.Blocks["matrix_with_extensions"] = {
-            init: function() {
+            init: function () {
                 this.appendValueInput("pin_cs")
                     .appendField(
                         new Blockly.FieldImage("../../images/blocks/matrix-leds.png", 40, 40, "*")
@@ -57,7 +57,7 @@ let screenMarixFunctions = {
             }
         };
         Blockly.Blocks["print_screen"] = {
-            init: function() {
+            init: function () {
                 this.appendDummyInput()
                     .appendField("Dibujar ")
                     .appendField(new Blockly.FieldVariable("MATRIX_LEDS"), "current_led_matrix")
@@ -90,7 +90,7 @@ let screenMarixFunctions = {
             }
         };
         Blockly.Blocks["blink_screen"] = {
-            init: function() {
+            init: function () {
                 this.appendStatementInput("blink_screen_code")
                     .setCheck(null)
                     .appendField("Hacer parpadear ")
@@ -103,7 +103,7 @@ let screenMarixFunctions = {
             }
         };
         Blockly.Blocks["screen_on"] = {
-            init: function() {
+            init: function () {
                 this.appendDummyInput()
                     .appendField("Encender pantalla")
                     .appendField(new Blockly.FieldVariable("MATRIX_LEDS"), "currente_screen");
@@ -115,7 +115,7 @@ let screenMarixFunctions = {
             }
         };
         Blockly.Blocks["screen_off"] = {
-            init: function() {
+            init: function () {
                 this.appendDummyInput()
                     .appendField("Apagar pantalla")
                     .appendField(new Blockly.FieldVariable("MATRIX_LEDS"), "currente_screen");
@@ -127,7 +127,7 @@ let screenMarixFunctions = {
             }
         };
         Blockly.Blocks["screen_clear"] = {
-            init: function() {
+            init: function () {
                 this.appendDummyInput()
                     .appendField("Limpiar pantalla")
                     .appendField(new Blockly.FieldVariable("MATRIX_LEDS"), "currente_screen");
@@ -139,7 +139,7 @@ let screenMarixFunctions = {
             }
         };
         Blockly.Blocks["message_screen"] = {
-            init: function() {
+            init: function () {
                 this.appendDummyInput()
                     .appendField("Escribir en ")
                     .appendField(new Blockly.FieldVariable("MATRIX_LEDS"), "current_screen");
@@ -155,7 +155,7 @@ let screenMarixFunctions = {
             }
         };
         Blockly.Blocks["matrix_paint"] = {
-            init: function() {
+            init: function () {
                 this.appendDummyInput()
                     .appendField("Dibujar ")
                     .appendField(new Blockly.FieldVariable("matrix"), "current_matrix");
@@ -239,7 +239,7 @@ let screenMarixFunctions = {
             }
         };
         Blockly.Blocks["matrix_leds_paint"] = {
-            init: function() {
+            init: function () {
                 this.appendDummyInput()
                     .setAlign(Blockly.ALIGN_RIGHT)
                     .appendField("Dibujar en la matrix")
@@ -257,7 +257,7 @@ let screenMarixFunctions = {
             }
         };
         Blockly.Blocks["matrix_emoticon"] = {
-            init: function() {
+            init: function () {
                 this.appendDummyInput()
                     .appendField("Posición")
                     .appendField(new Blockly.FieldNumber(1, 1, 20, 1), "position");
@@ -342,7 +342,7 @@ let screenMarixFunctions = {
             }
         };
         Blockly.Blocks["matrix_caracter"] = {
-            init: function() {
+            init: function () {
                 this.appendDummyInput()
                     .appendField("Posicion")
                     .appendField(new Blockly.FieldNumber(1, 1, 20, 1), "position");
@@ -703,7 +703,7 @@ let screenMarixFunctions = {
 
             return code;
         };
-        Blockly.JavaScript["matrix_leds_paint"] = function(block) {
+        Blockly.JavaScript["matrix_leds_paint"] = function (block) {
             let matrix = Blockly.JavaScript.variableDB_.getName(
                 block.getFieldValue("matrix"),
                 Blockly.Variables.NAME_TYPE
@@ -722,7 +722,7 @@ let screenMarixFunctions = {
                     });\n`;
             return code;
         };
-        Blockly.JavaScript["matrix_emoticon"] = function(block) {
+        Blockly.JavaScript["matrix_emoticon"] = function (block) {
             let position = Number(block.getFieldValue("position")) - 1;
             let checkbox_led_1_1 = block.getFieldValue("led_1_1") == "TRUE" ? "1" : "0";
             let checkbox_led_1_2 = block.getFieldValue("led_1_2") == "TRUE" ? "1" : "0";
@@ -859,7 +859,7 @@ let screenMarixFunctions = {
 
             return [code, Blockly.JavaScript.ORDER_NONE];
         };
-        Blockly.JavaScript["matrix_caracter"] = function(block) {
+        Blockly.JavaScript["matrix_caracter"] = function (block) {
             let position = block.getFieldValue("position") - 1;
             let caracter = Blockly.JavaScript.valueToCode(
                 block,

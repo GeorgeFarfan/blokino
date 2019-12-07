@@ -11,7 +11,7 @@ let url_documentation = "http://167.99.3.232/documentation",
     buzzerFunction = {
         block: Blockly => {
             Blockly.Blocks["buzzer"] = {
-                init: function() {
+                init: function () {
                     this.appendValueInput("buzzer_pin")
                         .appendField(
                             new Blockly.FieldImage("../../images/blocks/buzzer.png", 30, 30, "*")
@@ -27,7 +27,7 @@ let url_documentation = "http://167.99.3.232/documentation",
             };
 
             Blockly.Blocks["buzzer_stop"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput()
                         .appendField("Detener Zumbador")
                         .appendField(new Blockly.FieldVariable("ZUMBADOR"), "current_buzzer");
@@ -39,7 +39,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 }
             };
             Blockly.Blocks["buzzer_off"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput()
                         .appendField("Apagar Zumbador")
                         .appendField(new Blockly.FieldVariable("ZUMBADOR"), "current_buzzer");
@@ -51,7 +51,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 }
             };
             Blockly.Blocks["buzzer_play_with_sound"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput()
                         .appendField("Hacer sonar Zumbador")
                         .appendField(new Blockly.FieldVariable("ZUMBADOR"), "current_buzzer")
@@ -76,7 +76,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 }
             };
             Blockly.Blocks["buzzer_new_note"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput()
                         .appendField("Crear Nota Musical")
                         .appendField("Tipo de Nota")
@@ -123,7 +123,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 }
             };
             Blockly.Blocks["buzzer_new_note_mute"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput()
                         .appendField("Crear Pausa")
                         .appendField("Tiempo de la pausa")
@@ -145,7 +145,7 @@ let url_documentation = "http://167.99.3.232/documentation",
                 }
             };
             Blockly.Blocks["buzzer_play_with_notes"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput()
                         .appendField("Hacer sonar el ")
                         .appendField(new Blockly.FieldVariable("ZUMBADOR"), "current_buzzer")
@@ -164,7 +164,7 @@ let url_documentation = "http://167.99.3.232/documentation",
             };
 
             Blockly.Blocks["buzzer_is_playing"] = {
-                init: function() {
+                init: function () {
                     this.appendDummyInput()
                         .appendField("esta sonando?")
                         .appendField(new Blockly.FieldVariable("ZUMBADOR"), "current_buzzer");
