@@ -277,7 +277,7 @@ function modalChallenges(state, test, tests, condition) {
 
 $("#stop-program").click(() => {
     ipcRenderer.send("kill-instances", "");
-    utils.addMessage("info", `Se detuvó la ejecución del programa`);
+    utils.addMessage("info", `Se detuvo la ejecución del programa`);
     $("#stop-program").prop("disabled", true);
 });
 

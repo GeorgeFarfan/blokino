@@ -81,7 +81,10 @@ let url_documentation = "http://167.99.3.232/get_started",
                     this.appendDummyInput()
                         .appendField("Posicion")
                         .appendField(
-                            new Blockly.FieldDropdown([["Arriba", "first"], ["Abajo", "second"]]),
+                            new Blockly.FieldDropdown([
+                                ["Arriba", "first"],
+                                ["Abajo", "second"]
+                            ]),
                             "current_row"
                         );
                     this.appendValueInput("message")
@@ -276,6 +279,7 @@ let url_documentation = "http://167.99.3.232/get_started",
                     this.setHelpUrl(url_documentation);
                 }
             };
+
             Blockly.Blocks["lcd_character"] = {
                 init: function() {
                     this.appendDummyInput()
@@ -427,6 +431,7 @@ let url_documentation = "http://167.99.3.232/get_started",
                     this.setHelpUrl("");
                 }
             };
+
             Blockly.Blocks["lcd_load_character"] = {
                 init: function() {
                     this.appendDummyInput()
@@ -443,6 +448,7 @@ let url_documentation = "http://167.99.3.232/get_started",
                     this.setHelpUrl("");
                 }
             };
+
             Blockly.Blocks["lcd_composite_characters"] = {
                 init: function() {
                     this.appendValueInput("characters")
