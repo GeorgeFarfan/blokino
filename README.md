@@ -8,7 +8,7 @@
 
 Las tareas de Blokino estan en el siguiente Trello: https://trello.com/b/4aRccbZj/blokino
 
-### **Composición**
+### **Librerías involucradas**
 
 Para el diseño de la plataforma se usaron las siguientes librerías y frameworks:
 
@@ -20,29 +20,44 @@ Para el diseño de la plataforma se usaron las siguientes librerías y framework
 ### **Requisitos**
 
 Entre las dependencias generales:
-
--   NodeJS 8 o superiores.
--   Yarn
--   Arduino IDE
+-   Windows:
+    -   Arduino IDE
+    -   WinAVR
 
 La versión 1.0 de **Blokino** tiene dependencias dependiendo de la plataforma:
 
 -   **Windows**: Desde el lado del hardware, la arquitectura soportada es **Windows 10 - 64bits**. Y desde el lado de software se debe instalar los siguientes programas: - [**Arduino IDE for Windows**](h![](https://www.arduino.cc/en/main/software) - **AVR installer ** - Esta incluido en el .zip, que se baja con la plataforma.
 -   **Linux**: Para linux se encuentra una sección, dentro la plataforma para instalar dependencias.
 
-### **Como usar localmente**
+### **Ejecutar local**
 
-Para poder configurar localemnte Blokino, se deben ejecutar los siguientes scripts:
+Para poder ejecutar localmente Blokino, se deben ejecutar los siguientes scripts:
 
 -   **git clone -b develop repo**
 -   Posicionarse en la carpeta root y ejecutar:
     **npm i** o **yarn install**
--   npm run start
+-   **npm run start** o **yarn start**
 -   Si se produce un conflicto de dependencias, ejecute el siguiente comando:
     **npm run electron-fix-dependencies**
     o
     **yarn run electron-fix-dependencies**
--   En el caso de que no se genere ningún conflicto se debería ver así.
+-   Volver a ejecutar: **sudo npm run start** o **sudo yarn start**
+
+### **Crear instaladores**
+
+Para poder crear instaladores, se deben ejecutar los siguientes comandos:
+-   Ejecutar => **npm i** o **yarn install**
+-   Solucionar conflicto de dependencias, ejecutar el siguiente comando:
+    **npm run electron-fix-dependencies**
+    o
+    **yarn run electron-fix-dependencies**
+-   Ejecutar => **npm run electron-create-installer** o **yarn run electron-create-installer**
+-   En el caso de que se presente algun error en Windows:
+    -   NodeJS 8.12
+    -   Tener Python2.7
+    -   npm config set python "c:\Python\27\python.exe"
+    -   npm install --global --production windows-build-tools 
+    -   Microsoft Visual C+++ 2019 Redistributable (x64)
 
 ![Encendamos un LED](./src/images/code-examples/app.png)
 
