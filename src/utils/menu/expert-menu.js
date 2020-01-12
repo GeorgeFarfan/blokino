@@ -6,10 +6,10 @@
  */
 
 let menuFunctions = {
-    menu: () => {
-        return {
-            main: {
-                code: `<xml id="blokino-toolbox">
+  menu: () => {
+    return {
+      main: {
+        code: `<xml id="blokino-toolbox">
                                   <category name="Bloques" colour="270">
                                     <category name="Variables" custom="VARIABLE" colour="315">
                                     </category>
@@ -89,6 +89,12 @@ let menuFunctions = {
                                             <block type="lists_length"></block>
                                             <block type="lists_isEmpty"></block>
                                         </category>
+                                        <sep gap="32"></sep>
+                                        <category name="Booleanos" colour="210">
+                                            <block type="logic_negate"></block>
+                                            <block type="logic_boolean"></block>
+                                        </category>
+
                                     </category>
                                     <sep gap="32"></sep>
                                     <category name="Estructuras de Control" colour="290">
@@ -623,9 +629,9 @@ let menuFunctions = {
                                     <sep gap="32"></sep>
                                 </category>
                         </xml>`
-            }
-        };
-    }
+      }
+    };
+  }
 };
 
 module.exports = menuFunctions;

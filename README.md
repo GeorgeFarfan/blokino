@@ -53,7 +53,11 @@ En el caso que se quiera generar instaladores locales, para ver si algún cambio
 o
 **yarn run eletron-create-installers**
 
-En el caso de que la consola interprete dispare un error elecutar el siguiente comando para arreglarlo: **npm run electron-fix-dependencies**
+En el caso de que la consola interprete dispare un error elecutar el siguiente comando para arreglarlo: **npm run electron-fix-dependencies**. Antes de volver a ejecutar el comando para crear instaladores, se debe hacer lo siguiente:
+
+    -   Remover la carpeta node_modules
+    -   Darle permisos 777 sobre la carpeta de Blokino, esto es necesario debido a que a medida que se genera el instalador se sobreescriben distintas carpetas.
+
 
 ### **Como crear programas con Blokino**
 
