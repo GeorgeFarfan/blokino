@@ -12,6 +12,8 @@
         "start": "electron .",
         "electron-rebuild": "electron-rebuild",
         "electron-create-installer": "electron-rebuild && build",
+        "electron-create-installer-win": "electron-packager ./ --platform=win32 --arch=x64 BlokinoWin",
+        "electron-create-msi": "node create-msi.js",
         "js-run-code": "node libs/johnnyFive/code/current-code.js",
         "electron-fix-dependencies": "yarn add electron-rebuild --dev && yarn add sharp && electron-rebuild"
     },
@@ -26,7 +28,8 @@
     "devDependencies": {
         "electron": "^4.2.10",
         "electron-builder": "^20.38.5",
-        "electron-rebuild": "^1.8.8"
+        "electron-rebuild": "^1.8.8",
+        "electron-wix-msi": "^2.2.0"
     },
     "dependencies": {
         "@webcomponents/webcomponentsjs": "^2.2.10",
