@@ -1,219 +1,339 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Blokino - Desafíos</title>
-    <link rel="stylesheet" href="../../style/app.css">
+    <link rel="stylesheet" href="../../style/app.css" />
     <script src="../../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
     <script src="../components/card.component.js"></script>
     <script src="../../resources/libs/font-awesome/js/fontawesome.min.js"></script>
+  </head>
 
-</head>
-
-<body class="body-main">
+  <body class="body-main">
     <div class="container pt-5 pb-5">
-
-        <div class="row">
-            <div class="col-md-12 pl-0">
-                <div id="back-button">
-                    <i class="far fa-home back_icon"></i>
-                </div>
-            </div>
+      <div class="row">
+        <div class="col-md-12 pl-0">
+          <div id="back-button">
+            <i class="far fa-home back_icon"></i>
+          </div>
         </div>
+      </div>
 
-        <!-- Panel del desafío -->
-        <div class="row mt-5">
-            <div class="panel-blocks justify-content-md-center code-block">
-                <div class="col mt-5 col-md-12">
-                    <h1 class="text-center mt-2 display-4"><strong class="badge-1"><u>Desafíos</u></strong></h1>
-                    <p class="text-justify mt-4 challenges">Para poder completar los desafíos , se deben cumplir
-                        todas las pruebas que se
-                        explican en las instrucciones de cada uno. Luego de completar todas las pruebas,
-                        se
-                        completará el desafío.
-                        Si necesitas ver la documentación oficial de como usar
-                        los bloques funciones de Blokino,
-                        podes descargarla desde <strong>descargar documentación</strong> o acceder a la web oficial
-                        desde <strong>ver documentación</strong>.</p>
-                    <button class="btn btn-lg btn-download-code-test" id="open-doc">
-                        <i class="far fa-book-open icon-link"></i>Ver
-                        documentación</button>
-                    <a href="../../resources/documentation/doc.pdf" class="btn btn-lg btn-documentation-local"
-                        download="Blokino - Documentación">
-                        <i class="far fa-file-download icon-link"></i>Descargar documentación</a>
+      <!-- Panel del desafío -->
+      <div class="row mt-5">
+        <div class="panel-blocks justify-content-md-center code-block">
+          <div class="col mt-5 col-md-12">
+            <h1 class="text-left mt-2 font-weight-bold display-4">
+              <u>Desafíos</u>
+            </h1>
+            <p class="text-justify mt-4 challenges">
+              Para poder completar los desafíos , se deben cumplir todas las
+              pruebas que se explican en las instrucciones de cada uno. Luego de
+              completar todas las pruebas, se completará el desafío. Si
+              necesitas ver la documentación oficial de como usar los bloques
+              funciones de Blokino, podes descargarla desde
+              <strong>descargar documentación</strong> o acceder a la web
+              oficial desde <strong>ver documentación</strong>.
+            </p>
+            <button class="btn btn-lg btn-download-code-test" id="open-doc">
+              <i class="far fa-book-open icon-link"></i>Ver documentación
+            </button>
+            <a
+              href="../../resources/documentation/doc.pdf"
+              class="btn btn-lg btn-documentation-local"
+              download="Blokino - Documentación"
+            >
+              <i class="far fa-file-download icon-link"></i>Descargar
+              documentación</a
+            >
 
-                    <div class="row pb-5 pt-4">
-                        <div class="col-md-12 text-center">
-                            <h1 class="font-weight-bold"><i class="far fa-tools icon-link"></i><u>Herramientas
-                                    útiles</u>
-                            </h1>
+            <div class="row pb-5 pt-4">
+              <div class="col-md-12 text-center">
+                <h1 class="font-weight-bold">
+                  <i class="far fa-tools icon-link"></i
+                  ><u>Herramientas útiles</u>
+                </h1>
 
-                            <p class="text-justify challenges">Para el armado de los circuitos, se puede usar
-                                la
-                                aplicación <strong>Frietzing</strong> que es el popular software para representar
-                                circuitos
-                                electrónicos.
-                            </p>
-                            <h4 class="font-weight-bold"><u>Descarga</u></h4>
-                            <button class="btn" id="open-frietzing"></button>
-                            <div class="mt-2">
-                                <h4 class="font-weight-bold"><u>Tutorial</u></h4>
-                                <iframe width="420" height="315" src="https://www.youtube.com/embed/SVlQw2t_FK4">
-                                </iframe>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <!-- Desafíos Iniciales-->
-        <div class="row">
-            <div class="col-sm-12">
-                <h1 class="display-4 mt-5"><span class="badge badge-light custom-badge">Inicial</span></h1>
-                <p class="section-content mt-4">En estos desafíos se van a dar los primeros pasos con los
-                    componentes que
-                    tiene
-                    <strong>Blokino</strong>. Se recomienda completar los desafíos en orden, para que la complejidad no
-                    genere
-                    confusión. Entre los bloques funcionales se encuentran: <strong class="badge-key">Leds</strong>,
-                    <strong class="badge-key">Leds-RGB</strong>, <strong class="badge-key">Botones</strong>,
-                    <strong class="badge-key">Interruptores</strong>, <strong class="badge-key">Pulsadores</strong> y
-                    <strong class="badge-key">Consola de mensajes</strong>.
+                <p class="text-justify challenges">
+                  Para el armado de los circuitos, se puede usar la aplicación
+                  <strong>Frietzing</strong> que es el popular software para
+                  representar circuitos electrónicos.
                 </p>
+                <h4 class="font-weight-bold"><u>Descarga</u></h4>
+                <button class="btn" id="open-frietzing"></button>
+                <div class="mt-2">
+                  <h4 class="font-weight-bold"><u>Tutorial</u></h4>
+                  <iframe
+                    width="420"
+                    height="315"
+                    src="https://www.youtube.com/embed/SVlQw2t_FK4"
+                  >
+                  </iframe>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Desafíos Iniciales-->
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 class="display-4 mt-5">
+            <span class="badge badge-light custom-badge">Inicial</span>
+          </h1>
+          <p class="section-content mt-4">
+            En estos desafíos se van a dar los primeros pasos con los
+            componentes que tiene <strong>Blokino</strong>. Se recomienda
+            completar los desafíos en orden, para que la complejidad no genere
+            confusión. Entre los bloques funcionales se encuentran:
+            <strong class="badge-key">Leds</strong>,
+            <strong class="badge-key">Leds-RGB</strong>,
+            <strong class="badge-key">Botones</strong>,
+            <strong class="badge-key">Interruptores</strong>,
+            <strong class="badge-key">Pulsadores</strong> y
+            <strong class="badge-key">Consola de mensajes</strong>.
+          </p>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div
+          class="col-sm-12 col-md-4 col-lg-4  mb-3 hvr-pulse-grow"
+          id="challenge-leds"
+        >
+          <card-block
+            type="beginner"
+            path_style="../../style/app.css"
+            title="LEDS"
+            description=" <p>En este desafío se aprenderá como usar el bloque funcional de los <strong>Leds</strong>.</p>"
+          >
+          </card-block>
         </div>
 
-        <div class="row mt-4">
-            <div class="col-sm-12 col-md-4 col-lg-4  mb-3 hvr-pulse-grow" id="challenge-leds">
-                <card-block type="beginner" path_style="../../style/app.css" title="LEDS"
-                    description=" <p>En este desafío se aprenderá como usar el bloque funcional de los <strong>Leds</strong>.</p>">
-                </card-block>
-            </div>
-
-
-            <div class="col-sm-12 col-md-4 col-lg-4  mb-3 hvr-pulse-grow" id="challenge-leds-rgb">
-                <card-block type="beginner" path_style="../../style/app.css" title="LEDS-RGB"
-                    description="<p>En este desafío se aprenderá como usar el bloque funcional de los <strong>Leds-RGB</strong>.</p>">
-                </card-block>
-            </div>
-            <div class="col-sm-12 col-md-4 col-lg-4  mb-3 hvr-pulse-grow" id="challenge-buttons">
-                <card-block type="beginner" path_style="../../style/app.css" title="Botones, Interruptores y Pulsadores"
-                    description="<p>En este desafío se aprenderá como usar el bloque funcional de los <strong>Botones,
-                                Interuptores y Pulsadores</strong>.</p>">
-                </card-block>
-            </div>
-
-            <div class="col-sm-12 col-md-4 col-lg-4  mb-3 hvr-pulse-grow" id="challenge-lcd">
-                <card-block type="beginner" path_style="../../style/app.css" title="Consola de mensajes"
-                    description="<p>En este desafío se aprenderá como usar el bloque funcional de <strong>Consola de Mensajes</strong>.</p>">
-                </card-block>
-            </div>
-            <div class="separator-blokino mt-5"></div>
+        <div
+          class="col-sm-12 col-md-4 col-lg-4  mb-3 hvr-pulse-grow"
+          id="challenge-leds-rgb"
+        >
+          <card-block
+            type="beginner"
+            path_style="../../style/app.css"
+            title="LEDS-RGB"
+            description="<p>En este desafío se aprenderá como usar el bloque funcional de los <strong>Leds-RGB</strong>.</p>"
+          >
+          </card-block>
+        </div>
+        <div
+          class="col-sm-12 col-md-4 col-lg-4  mb-3 hvr-pulse-grow"
+          id="challenge-buttons"
+        >
+          <card-block
+            type="beginner"
+            path_style="../../style/app.css"
+            title="Botones, Interruptores y Pulsadores"
+            description="<p>En este desafío se aprenderá como usar el bloque funcional de los <strong>Botones,
+                                Interuptores y Pulsadores</strong>.</p>"
+          >
+          </card-block>
         </div>
 
-        <div class="row mt-4">
-            <div class="col-sm-12">
-                <h1 class="display-4 mt-5"><span class="badge badge-light custom-badge">Intermedio</span></h1>
-                <p class="section-content mt-4">En estos desafíos se van a usar bloques funcionales un poco más
-                    complejos. Los bloques funcionales involucrados son: <strong
-                        class="badge-key">Potenciometro</strong>, <strong class="badge-key">Joystick</strong> y
-                    <strong class="badge-key">Zumbadores</strong>.</p>
+        <div
+          class="col-sm-12 col-md-4 col-lg-4  mb-3 hvr-pulse-grow"
+          id="challenge-lcd"
+        >
+          <card-block
+            type="beginner"
+            path_style="../../style/app.css"
+            title="Consola de mensajes"
+            description="<p>En este desafío se aprenderá como usar el bloque funcional de <strong>Consola de Mensajes</strong>.</p>"
+          >
+          </card-block>
+        </div>
+        <div class="separator-blokino mt-5"></div>
+      </div>
 
-            </div>
+      <div class="row mt-4">
+        <div class="col-sm-12">
+          <h1 class="display-4 mt-5">
+            <span class="badge badge-light custom-badge">Intermedio</span>
+          </h1>
+          <p class="section-content mt-4">
+            En estos desafíos se van a usar bloques funcionales un poco más
+            complejos. Los bloques funcionales involucrados son:
+            <strong class="badge-key">Potenciometro</strong>,
+            <strong class="badge-key">Joystick</strong> y
+            <strong class="badge-key">Zumbadores</strong>.
+          </p>
         </div>
-        <div class="row mt-4">
-            <div class="col-sm-12 col-md-4 col-lg-4  mb-3   hvr-pulse-grow" id="challenge-potentiometer">
-                <card-block type="intermediate" path_style="../../style/app.css" title="Potenciometro" description="<p>En este desafío se aprenderá como usar el bloque funcional de
-                            <strong>Potenciometro</strong>.</p>">
-                </card-block>
+      </div>
+      <div class="row mt-4">
+        <div
+          class="col-sm-12 col-md-4 col-lg-4  mb-3   hvr-pulse-grow"
+          id="challenge-potentiometer"
+        >
+          <card-block
+            type="intermediate"
+            path_style="../../style/app.css"
+            title="Potenciometro"
+            description="<p>En este desafío se aprenderá como usar el bloque funcional de
+                            <strong>Potenciometro</strong>.</p>"
+          >
+          </card-block>
+        </div>
+        <div
+          class="col-sm-12 col-md-4 col-lg-4  mb-3   hvr-pulse-grow"
+          id="challenge-joystick"
+        >
+          <card-block
+            type="intermediate"
+            path_style="../../style/app.css"
+            title="Joystick"
+            description="<p>En este desafío se aprenderá como usar el bloque funcional de <strong>Joystick</strong>.</p>"
+          >
+          </card-block>
+        </div>
+        <div
+          class="col-sm-12 col-md-4 col-lg-4  mb-3   hvr-pulse-grow"
+          id="challenge-buzzer"
+        >
+          <card-block
+            type="intermediate"
+            path_style="../../style/app.css"
+            title="Zumbadores"
+            description="<p>En este desafío se aprenderá como usar el bloque funcional de <strong>Zumbadores</strong>.</p>"
+          >
+          </card-block>
+        </div>
+        <div class="separator-blokino mt-5"></div>
+      </div>
 
-            </div>
-            <div class="col-sm-12 col-md-4 col-lg-4  mb-3   hvr-pulse-grow" id="challenge-joystick">
-                <card-block type="intermediate" path_style="../../style/app.css" title="Joystick"
-                    description="<p>En este desafío se aprenderá como usar el bloque funcional de <strong>Joystick</strong>.</p>">
-                </card-block>
-            </div>
-            <div class="col-sm-12 col-md-4 col-lg-4  mb-3   hvr-pulse-grow" id="challenge-buzzer">
-                <card-block type="intermediate" path_style="../../style/app.css" title="Zumbadores"
-                    description="<p>En este desafío se aprenderá como usar el bloque funcional de <strong>Zumbadores</strong>.</p>">
-                </card-block>
-            </div>
-            <div class="separator-blokino mt-5"></div>
+      <div class="row mt-4">
+        <div class="col-sm-12">
+          <h1 class="display-4 mt-5">
+            <span class="badge badge-light custom-badge">Avanzado</span>
+          </h1>
+          <p class="section-content mt-4">
+            En estos desafios se usaran bloques funcionales y de estructuras.
+            Entre estos bloques se encuentran:
+            <strong class="badge-key">Matrix-LEDS</strong>,
+            <strong class="badge-key">Servomotores</strong>,
+            <strong class="badge-key">Sensores de movimiento</strong>,
+            <strong class="badge-key">Sensores de proximidad</strong>,
+            <strong class="badge-key">Teclado</strong> y
+            <strong class="badge-key">Motores</strong>.
+          </p>
         </div>
-
-        <div class="row mt-4">
-            <div class="col-sm-12">
-                <h1 class="display-4 mt-5"><span class="badge badge-light custom-badge">Avanzado</span></h1>
-                <p class="section-content mt-4">En estos desafios se usaran bloques funcionales y de estructuras.
-                    Entre
-                    estos bloques se encuentran: <strong class="badge-key">Matrix-LEDS</strong>, <strong
-                        class="badge-key">Servomotores</strong>, <strong class="badge-key">Sensores de
-                        movimiento</strong>, <strong class="badge-key">Sensores de
-                        proximidad</strong>, <strong class="badge-key">Teclado</strong> y <strong
-                        class="badge-key">Motores</strong>.</p>
-            </div>
+      </div>
+      <div class="row mt-4">
+        <div
+          class="col-sm-12 col-md-4 col-lg-4  mb-3 hvr-pulse-grow"
+          id="challenge-screen-matrix"
+        >
+          <card-block
+            type="advanced"
+            path_style="../../style/app.css"
+            title="Matrix LEDS"
+            description="<p>En este desafío se aprenderá como usar el bloque funcional de <strong>Matrix-LEDs</strong>.</p>"
+          >
+          </card-block>
         </div>
-        <div class="row mt-4">
-            <div class="col-sm-12 col-md-4 col-lg-4  mb-3 hvr-pulse-grow" id="challenge-screen-matrix">
-                <card-block type="advanced" path_style="../../style/app.css" title="Matrix LEDS"
-                    description="<p>En este desafío se aprenderá como usar el bloque funcional de <strong>Matrix-LEDs</strong>.</p>">
-                </card-block>
-            </div>
-            <div class="col-sm-12 col-md-4 col-lg-4  mb-3 hvr-pulse-grow" id="challenge-servo">
-                <card-block type="advanced" path_style="../../style/app.css" title="Servomotores" description="<p>En este desafío se aprenderá como usar el bloque funcional de
-                            <strong>Servomotores</strong>.</p>">
-                </card-block>
-            </div>
-            <div class="col-sm-12 col-md-4 col-lg-4  mb-3 hvr-pulse-grow" id="challenge-sensor-movement">
-                <card-block type="advanced" path_style="../../style/app.css" title="Sensores de movimiento" description="<p>En este desafío se aprenderá como usar el bloque funcional de
-                            <strong>Sensores de movimiento</strong>.</p>">
-                </card-block>
-            </div>
+        <div
+          class="col-sm-12 col-md-4 col-lg-4  mb-3 hvr-pulse-grow"
+          id="challenge-servo"
+        >
+          <card-block
+            type="advanced"
+            path_style="../../style/app.css"
+            title="Servomotores"
+            description="<p>En este desafío se aprenderá como usar el bloque funcional de
+                            <strong>Servomotores</strong>.</p>"
+          >
+          </card-block>
         </div>
-        <div class="row mt-4">
-            <div class="col-sm-12 col-md-4 col-lg-4  mb-3 hvr-pulse-grow" id="challenge-sensor-prox">
-                <card-block type="advanced" path_style="../../style/app.css" title="Sensores de proximidad" description="<p>En este desafío se aprenderá como usar el bloque funcional de
-                            <strong>Sensor de aproximidad</strong>.</p>">
-                </card-block>
-            </div>
-            <div class="col-sm-12 col-md-4 col-lg-4  mb-3 hvr-pulse-grow" id="challenge-keypad">
-                <card-block type="advanced" path_style="../../style/app.css" title="Teclado"
-                    description="<p>En este desafío se aprenderá como usar el bloque funcional del <strong>Teclado</strong>.</p>">
-                </card-block>
-            </div>
-            <div class="col-sm-12 col-md-4 col-lg-4  mb-3 hvr-pulse-grow" id="challenge-motors">
-                <card-block type="advanced" path_style="../../style/app.css" title="Motores"
-                    description="<p>En este desafío se aprenderá como usar el bloque funcional de los <strong>Motores</strong>.</p>">
-                </card-block>
-            </div>
-            <div class="separator-blokino mt-5"></div>
+        <div
+          class="col-sm-12 col-md-4 col-lg-4  mb-3 hvr-pulse-grow"
+          id="challenge-sensor-movement"
+        >
+          <card-block
+            type="advanced"
+            path_style="../../style/app.css"
+            title="Sensores de movimiento"
+            description="<p>En este desafío se aprenderá como usar el bloque funcional de
+                            <strong>Sensores de movimiento</strong>.</p>"
+          >
+          </card-block>
         </div>
-        <div class="row mt-4">
-            <div class="col-sm-12">
-                <h1 class="display-4 mt-5"><span class="badge badge-light custom-badge">Experto</span></h1>
-                <p class="section-content mt-4">Si superaste todos los desafíos o sentís que ya tenés los conceptos
-                    claros,
-                    entra a la versión completa.</p>
-            </div>
+      </div>
+      <div class="row mt-4">
+        <div
+          class="col-sm-12 col-md-4 col-lg-4  mb-3 hvr-pulse-grow"
+          id="challenge-sensor-prox"
+        >
+          <card-block
+            type="advanced"
+            path_style="../../style/app.css"
+            title="Sensores de proximidad"
+            description="<p>En este desafío se aprenderá como usar el bloque funcional de
+                            <strong>Sensor de aproximidad</strong>.</p>"
+          >
+          </card-block>
         </div>
-        <div class="row mt-4 justify-content-md-center">
-            <div class="col-sm-12 col-md-4 col-lg-4  mb-3 hvr-pulse-grow" id="challenge-expert">
-                <card-block type="expert" path_style="../../style/app.css" title="Blokino completo"
-                    description="<p>Esta sección contiene todos los bloques funcionales de Blokino.</p>">
-                </card-block>
-            </div>
-            <div class="separator-blokino mt-5"></div>
+        <div
+          class="col-sm-12 col-md-4 col-lg-4  mb-3 hvr-pulse-grow"
+          id="challenge-keypad"
+        >
+          <card-block
+            type="advanced"
+            path_style="../../style/app.css"
+            title="Teclado"
+            description="<p>En este desafío se aprenderá como usar el bloque funcional del <strong>Teclado</strong>.</p>"
+          >
+          </card-block>
         </div>
+        <div
+          class="col-sm-12 col-md-4 col-lg-4  mb-3 hvr-pulse-grow"
+          id="challenge-motors"
+        >
+          <card-block
+            type="advanced"
+            path_style="../../style/app.css"
+            title="Motores"
+            description="<p>En este desafío se aprenderá como usar el bloque funcional de los <strong>Motores</strong>.</p>"
+          >
+          </card-block>
+        </div>
+        <div class="separator-blokino mt-5"></div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-sm-12">
+          <h1 class="display-4 mt-5">
+            <span class="badge badge-light custom-badge">Experto</span>
+          </h1>
+          <p class="section-content mt-4">
+            Si superaste todos los desafíos o sentís que ya tenés los conceptos
+            claros, entra a la versión completa.
+          </p>
+        </div>
+      </div>
+      <div class="row mt-4 justify-content-md-center">
+        <div
+          class="col-sm-12 col-md-4 col-lg-4  mb-3 hvr-pulse-grow"
+          id="challenge-expert"
+        >
+          <card-block
+            type="expert"
+            path_style="../../style/app.css"
+            title="Blokino completo"
+            description="<p>Esta sección contiene todos los bloques funcionales de Blokino.</p>"
+          >
+          </card-block>
+        </div>
+        <div class="separator-blokino mt-5"></div>
+      </div>
     </div>
     <script>
-        require('./routing.js');
+      require("./routing.js");
     </script>
-</body>
-
+  </body>
 </html>

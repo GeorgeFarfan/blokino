@@ -1,536 +1,536 @@
 #back-button {
-    width: 2.5em;
-    text-align: center;
-    color: #fbfbfb;
-    font-weight: bold;
-    font-size: 2em;
-    background-color: #4a6c78;
-    border: 2px solid #fbfbfb;
-    cursor: pointer;
+  width: 2.5em;
+  text-align: center;
+  color: #fbfbfb;
+  font-weight: bold;
+  font-size: 2em;
+  background-color: #4a6c78;
+  border: 2px solid #fbfbfb;
+  cursor: pointer;
 }
 
 #back-button p {
-    font-weight: bold;
-    font-size: 1.3em;
-    display: inline;
-    vertical-align: super;
+  font-weight: bold;
+  font-size: 1.3em;
+  display: inline;
+  vertical-align: super;
 }
 
 #back-button:hover {
-    width: 2.5em;
-    text-align: center;
-    color: #4a6c78;
-    font-weight: bold;
-    border: 2px solid #4a6c78;
-    font-size: 2em;
-    background-color: #fbfbfb;
-    cursor: pointer;
+  width: 2.5em;
+  text-align: center;
+  color: #4a6c78;
+  font-weight: bold;
+  border: 2px solid #4a6c78;
+  font-size: 2em;
+  background-color: #fbfbfb;
+  cursor: pointer;
 }
 
 #back-button-challenge {
-    width: 2.6em;
-    text-align: center;
-    color: #fbfbfb;
-    font-weight: bold;
-    font-size: 2em;
-    background-color: #4a6c78;
-    border: 2px solid #fbfbfb;
-    cursor: pointer;
+  width: 2.6em;
+  text-align: center;
+  color: #fbfbfb;
+  font-weight: bold;
+  font-size: 2em;
+  background-color: #4a6c78;
+  border: 2px solid #fbfbfb;
+  cursor: pointer;
 }
 
 #back-button-challenge p {
-    font-weight: bold;
-    font-size: 1.3em;
-    display: inline;
-    vertical-align: super;
+  font-weight: bold;
+  font-size: 1.3em;
+  display: inline;
+  vertical-align: super;
 }
 
 #back-button-challenge:hover {
-    text-align: center;
-    color: #4a6c78;
-    font-weight: bold;
-    border: 2px solid #4a6c78;
-    background-color: #fbfbfb;
-    cursor: pointer;
+  text-align: center;
+  color: #4a6c78;
+  font-weight: bold;
+  border: 2px solid #4a6c78;
+  background-color: #fbfbfb;
+  cursor: pointer;
 }
 
 .btn-execute-code {
-    font-weight: bold;
-    padding: 0.5em;
-    color: white;
-    border-color: #00d397;
-    background-color: #00d397;
-    border: 2px solid #00d397;
+  font-weight: bold;
+  padding: 0.5em;
+  color: white;
+  border-color: #00d397;
+  background-color: #00d397;
+  border: 2px solid #00d397;
 }
 
 .btn-execute-code:hover {
-    padding: 0.5em;
-    font-weight: bold;
-    color: #00d397;
-    border: 2px solid #00d397;
-    background-color: white;
+  padding: 0.5em;
+  font-weight: bold;
+  color: #00d397;
+  border: 2px solid #00d397;
+  background-color: white;
 }
 
 .btn-setting {
-    font-weight: bold;
-    padding: 0.5em;
-    color: white;
-    border-color: #105ed4;
-    background-color: #105ed4;
-    border: 2px solid #105ed4;
+  font-weight: bold;
+  padding: 0.5em;
+  color: white;
+  border-color: #105ed4;
+  background-color: #105ed4;
+  border: 2px solid #105ed4;
 }
 
 .btn-setting:hover {
-    padding: 0.5em;
-    font-weight: bold;
-    color: #105ed4;
-    border: 2px solid #105ed4;
-    background-color: white;
+  padding: 0.5em;
+  font-weight: bold;
+  color: #105ed4;
+  border: 2px solid #105ed4;
+  background-color: white;
 }
 
 .btn-circuits {
-    font-weight: bold;
-    padding: 0.5em;
-    color: white;
-    border-color: #155855;
-    background-color: #155855;
-    border: 2px solid #155855;
+  font-weight: bold;
+  padding: 0.5em;
+  color: white;
+  border-color: #155855;
+  background-color: #155855;
+  border: 2px solid #155855;
 }
 
 .btn-circuits:hover {
-    padding: 0.5em;
-    font-weight: bold;
-    color: #155855;
-    border: 2px solid #155855;
-    background-color: white;
+  padding: 0.5em;
+  font-weight: bold;
+  color: #155855;
+  border: 2px solid #155855;
+  background-color: white;
 }
 
 .btn-warning {
-    padding: 1em;
-    font-weight: bold;
-    color: rgb(56, 50, 50);
-    background-color: #ffc107;
-    border: 2px solid #ffc107;
+  padding: 1em;
+  font-weight: bold;
+  color: rgb(56, 50, 50);
+  background-color: #ffc107;
+  border: 2px solid #ffc107;
 }
 
 .btn-warning:hover {
-    padding: 1em;
-    color: rgb(56, 50, 50);
-    font-weight: bold;
-    background-color: #f1c746;
-    border: 2px solid #f1c746;
+  padding: 1em;
+  color: rgb(56, 50, 50);
+  font-weight: bold;
+  background-color: #f1c746;
+  border: 2px solid #f1c746;
 }
 
 .btn-error {
-    padding: 1em;
-    font-weight: bold;
-    color: #fff;
-    background-color: #c82333;
-    border: 2px solid #c82333;
+  padding: 1em;
+  font-weight: bold;
+  color: #fff;
+  background-color: #c82333;
+  border: 2px solid #c82333;
 }
 
 .btn-error:hover {
-    padding: 1em;
-    color: #c82333;
-    font-weight: bold;
-    background-color: #fff;
-    border: 2px solid #c82333;
+  padding: 1em;
+  color: #c82333;
+  font-weight: bold;
+  background-color: #fff;
+  border: 2px solid #c82333;
 }
 
 .btn-red {
-    padding: 1em;
-    font-weight: bold;
-    color: #fff;
-    background-color: #c82333;
-    border: 2px solid #c82333;
+  padding: 1em;
+  font-weight: bold;
+  color: #fff;
+  background-color: #c82333;
+  border: 2px solid #c82333;
 }
 
 .btn-red:hover {
-    padding: 1em;
-    color: #c82333;
-    font-weight: bold;
-    background-color: #fff;
-    border: 2px solid #c82333;
+  padding: 1em;
+  color: #c82333;
+  font-weight: bold;
+  background-color: #fff;
+  border: 2px solid #c82333;
 }
 
 .btn-red:disabled,
 .btn-red[disabled] {
-    border: 1px solid #999999;
-    background-color: #cccccc;
-    color: #666666;
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
 }
 
 .btn-info-setup-device {
-    padding: 1em;
-    color: #fff;
-    font-weight: bold;
-    background-color: #138496;
-    border-color: #117a8b;
+  padding: 1em;
+  color: #fff;
+  font-weight: bold;
+  background-color: #138496;
+  border-color: #117a8b;
 }
 
 .btn-info-setup-device:hover {
-    padding: 1em;
-    font-weight: bold;
-    color: #138496;
-    border: 2px solid #138496;
-    background-color: white;
+  padding: 1em;
+  font-weight: bold;
+  color: #138496;
+  border: 2px solid #138496;
+  background-color: white;
 }
 
 .btn-info-device {
-    padding: 1.1em;
-    font-weight: bold;
-    color: black;
-    border-color: #f3d179;
-    background-color: #f3d179;
-    border: 2px solid #a78736;
+  padding: 1.1em;
+  font-weight: bold;
+  color: black;
+  border-color: #f3d179;
+  background-color: #f3d179;
+  border: 2px solid #a78736;
 }
 
 .btn-info-device:hover {
-    padding: 1.1em;
-    font-weight: bold;
-    color: #a78736;
-    border: 2px solid #a78736;
-    background-color: white;
+  padding: 1.1em;
+  font-weight: bold;
+  color: #a78736;
+  border: 2px solid #a78736;
+  background-color: white;
 }
 
 .btn-download-code {
-    font-weight: bold;
-    color: white;
-    border-color: #54b796;
-    background-color: #54b796;
+  font-weight: bold;
+  color: white;
+  border-color: #54b796;
+  background-color: #54b796;
 }
 
 .btn-download-code:hover {
-    font-weight: bold;
-    border-color: #54b796;
-    color: #fbfbfb;
+  font-weight: bold;
+  border-color: #54b796;
+  color: #fbfbfb;
 }
 
 .btn-success {
-    padding: 1em;
+  padding: 1em;
 }
 
 .btn-success-custom {
-    font-weight: bold;
-    padding: 1em 1.5em 1em 1.5em;
-    background-color: #54b796;
-    color: #f3f3f3;
-    border: 2px solid #54b796;
+  font-weight: bold;
+  padding: 1em 1.5em 1em 1.5em;
+  background-color: #54b796;
+  color: #f3f3f3;
+  border: 2px solid #54b796;
 }
 
 .btn-success-custom:hover {
-    padding: 1em 1.5em 1em 1.5em;
-    background-color: white;
-    font-weight: bold;
-    color: #54b796;
-    border: 2px solid #54b796;
+  padding: 1em 1.5em 1em 1.5em;
+  background-color: white;
+  font-weight: bold;
+  color: #54b796;
+  border: 2px solid #54b796;
 }
 
 .custom-btn-tab {
-    background-color: #bdbdbd;
-    color: whitesmoke !important;
-    font-size: 2em;
-    font-weight: bold;
-    border: 1px solid whitesmoke;
-    text-align: center;
-    padding: 20px;
-    width: 7em;
+  background-color: #bdbdbd;
+  color: whitesmoke !important;
+  font-size: 1.5em;
+  font-weight: bold;
+  border: 1px solid whitesmoke;
+  text-align: center;
+  padding: 20px;
+  width: 7em;
 }
 
 .custom-btn-tab:visited:focus:hover:active {
-    color: whitesmoke !important;
-    font-weight: bold;
-    font-size: 2em;
-    border: 1px solid whitesmoke;
+  color: whitesmoke !important;
+  font-weight: bold;
+  font-size: 1.5em;
+  border: 1px solid whitesmoke;
 }
 
 .modal-body-title {
-    text-align: center;
+  text-align: center;
 }
 
 .modal-header-success-code {
-    background-color: #54b796;
+  background-color: #54b796;
 }
 
 .btn-documentation {
-    color: white;
-    background-color: steelblue;
-    padding: 1.1em;
-    margin-bottom: 1em;
-    border: 2px solid #a6a6a7;
-    font-weight: bold;
+  color: white;
+  background-color: steelblue;
+  padding: 1.1em;
+  margin-bottom: 1em;
+  border: 2px solid #a6a6a7;
+  font-weight: bold;
 }
 
 .btn-documentation:hover {
-    background-color: white;
-    font-weight: bold;
-    color: steelblue;
-    border: 2px solid steelblue;
+  background-color: white;
+  font-weight: bold;
+  color: steelblue;
+  border: 2px solid steelblue;
 }
 
 .btn-documentation-local {
-    color: white;
-    background-color: #37584f;
-    padding: 1.1em;
-    margin-bottom: 1em;
-    border: 2px solid #a6a6a7;
-    font-weight: bold;
+  color: white;
+  background-color: #37584f;
+  padding: 1.1em;
+  margin-bottom: 1em;
+  border: 2px solid #a6a6a7;
+  font-weight: bold;
 }
 
 .btn-documentation-local:active {
-    background-color: white;
-    padding: 1.1em;
-    font-weight: bold;
-    color: #37584f;
-    border: 2px solid #37584f;
+  background-color: white;
+  padding: 1.1em;
+  font-weight: bold;
+  color: #37584f;
+  border: 2px solid #37584f;
 }
 
 .btn-documentation-local:hover {
-    background-color: white;
-    padding: 1.1em;
-    font-weight: bold;
-    color: #37584f;
-    border: 2px solid #37584f;
+  background-color: white;
+  padding: 1.1em;
+  font-weight: bold;
+  color: #37584f;
+  border: 2px solid #37584f;
 }
 
 .btn-clean-code {
-    background-color: tomato;
-    padding: 1.1em;
-    margin-bottom: 1em;
-    font-weight: bold;
-    border: 2px solid tomato;
+  background-color: tomato;
+  padding: 1.1em;
+  margin-bottom: 1em;
+  font-weight: bold;
+  border: 2px solid tomato;
 }
 
 .btn-clean-code:hover {
-    background-color: white;
-    font-weight: bold;
-    color: tomato;
-    border: 2px solid tomato;
+  background-color: white;
+  font-weight: bold;
+  color: tomato;
+  border: 2px solid tomato;
 }
 
 .btn-show-code {
-    padding: 1.1em;
-    background-color: khaki;
-    margin-bottom: 1em;
-    font-weight: bold;
-    border: 2px solid rgb(184, 172, 71);
+  padding: 1.1em;
+  background-color: khaki;
+  margin-bottom: 1em;
+  font-weight: bold;
+  border: 2px solid rgb(184, 172, 71);
 }
 
 .btn-show-code:hover {
-    background-color: white;
-    font-weight: bold;
-    color: rgb(184, 172, 71);
-    border: 2px solid rgb(184, 172, 71);
+  background-color: white;
+  font-weight: bold;
+  color: rgb(184, 172, 71);
+  border: 2px solid rgb(184, 172, 71);
 }
 
 .btn-open-code {
-    padding: 1.1em;
-    background-color: mediumaquamarine;
-    margin-bottom: 1em;
-    font-weight: bold;
-    border: 2px solid rgb(64, 121, 102);
+  padding: 1.1em;
+  background-color: mediumaquamarine;
+  margin-bottom: 1em;
+  font-weight: bold;
+  border: 2px solid rgb(64, 121, 102);
 }
 
 .btn-open-code:hover {
-    background-color: white;
-    font-weight: bold;
-    color: rgb(64, 121, 102);
-    border: 2px solid rgb(64, 121, 102);
+  background-color: white;
+  font-weight: bold;
+  color: rgb(64, 121, 102);
+  border: 2px solid rgb(64, 121, 102);
 }
 
 .btn-download-code-app {
-    padding: 1.1em;
-    background-color: mediumturquoise;
-    margin-bottom: 1em;
-    font-weight: bold;
-    border: 2px solid rgb(59, 156, 153);
+  padding: 1.1em;
+  background-color: mediumturquoise;
+  margin-bottom: 1em;
+  font-weight: bold;
+  border: 2px solid rgb(59, 156, 153);
 }
 
 .btn-download-code-app:hover {
-    background-color: white;
-    font-weight: bold;
-    color: rgb(59, 156, 153);
-    border: 2px solid rgb(59, 156, 153);
+  background-color: white;
+  font-weight: bold;
+  color: rgb(59, 156, 153);
+  border: 2px solid rgb(59, 156, 153);
 }
 
 .btn-open-challenges {
-    padding: 1.1em;
-    color: white;
-    background-color: #61c0bf;
-    margin-bottom: 1em;
-    font-weight: bold;
-    border: 2px solid #61c0bf;
+  padding: 1.1em;
+  color: white;
+  background-color: #61c0bf;
+  margin-bottom: 1em;
+  font-weight: bold;
+  border: 2px solid #61c0bf;
 }
 
 .btn-open-challenges:active {
-    background-color: white;
-    font-weight: bold;
-    color: #61c0bf;
-    border: 2px solid #61c0bf;
+  background-color: white;
+  font-weight: bold;
+  color: #61c0bf;
+  border: 2px solid #61c0bf;
 }
 
 .btn-open-challenges:hover {
-    background-color: white;
-    font-weight: bold;
-    color: #61c0bf;
-    border: 2px solid #61c0bf;
+  background-color: white;
+  font-weight: bold;
+  color: #61c0bf;
+  border: 2px solid #61c0bf;
 }
 
 .btn-open-editor {
-    padding: 1.1em;
-    color: white;
-    background-color: #87a8d0;
-    margin-bottom: 1em;
-    font-weight: bold;
-    border: 2px solid #87a8d0;
+  padding: 1.1em;
+  color: white;
+  background-color: #87a8d0;
+  margin-bottom: 1em;
+  font-weight: bold;
+  border: 2px solid #87a8d0;
 }
 
 .btn-open-editor:active {
-    background-color: white;
-    font-weight: bold;
-    color: #87a8d0;
-    border: 2px solid #87a8d0;
+  background-color: white;
+  font-weight: bold;
+  color: #87a8d0;
+  border: 2px solid #87a8d0;
 }
 
 .btn-open-editor:hover {
-    background-color: white;
-    font-weight: bold;
-    color: #87a8d0;
-    border: 2px solid #87a8d0;
+  background-color: white;
+  font-weight: bold;
+  color: #87a8d0;
+  border: 2px solid #87a8d0;
 }
 
 .btn-open-web {
-    padding: 1.1em;
-    color: white;
-    background-color: #ea8a8a;
-    margin-bottom: 1em;
-    font-weight: bold;
-    border: 2px solid #ea8a8a;
+  padding: 1.1em;
+  color: white;
+  background-color: #ea8a8a;
+  margin-bottom: 1em;
+  font-weight: bold;
+  border: 2px solid #ea8a8a;
 }
 
 .btn-open-web:active {
-    background-color: white;
-    font-weight: bold;
-    color: #ea8a8a;
-    border: 2px solid #ea8a8a;
+  background-color: white;
+  font-weight: bold;
+  color: #ea8a8a;
+  border: 2px solid #ea8a8a;
 }
 
 .btn-open-web:hover {
-    background-color: white;
-    font-weight: bold;
-    color: #ea8a8a;
-    border: 2px solid #ea8a8a;
+  background-color: white;
+  font-weight: bold;
+  color: #ea8a8a;
+  border: 2px solid #ea8a8a;
 }
 
 .btn-open-robots {
-    padding: 1.1em;
-    color: white;
-    background-color: #944e5d;
-    margin-bottom: 1em;
-    font-weight: bold;
-    border: 2px solid #944e5d;
+  padding: 1.1em;
+  color: white;
+  background-color: #944e5d;
+  margin-bottom: 1em;
+  font-weight: bold;
+  border: 2px solid #944e5d;
 }
 
 .btn-open-robots:active {
-    background-color: white;
-    font-weight: bold;
-    color: #944e5d;
-    border: 2px solid #944e5d;
+  background-color: white;
+  font-weight: bold;
+  color: #944e5d;
+  border: 2px solid #944e5d;
 }
 
 .btn-open-robots:hover {
-    background-color: white;
-    font-weight: bold;
-    color: #944e5d;
-    border: 2px solid #944e5d;
+  background-color: white;
+  font-weight: bold;
+  color: #944e5d;
+  border: 2px solid #944e5d;
 }
 
 .btn-download-code-test {
-    padding: 1.1em;
-    color: white;
-    background-color: #5e1c33;
-    margin-bottom: 1em;
-    font-weight: bold;
-    border: 2px solid #5e1c33;
+  padding: 1.1em;
+  color: white;
+  background-color: #5e1c33;
+  margin-bottom: 1em;
+  font-weight: bold;
+  border: 2px solid #5e1c33;
 }
 
 .btn-download-code-test:active {
-    background-color: white;
-    font-weight: bold;
-    color: #5e1c33;
-    border: 2px solid #5e1c33;
+  background-color: white;
+  font-weight: bold;
+  color: #5e1c33;
+  border: 2px solid #5e1c33;
 }
 
 .btn-download-code-test:hover {
-    background-color: white;
-    font-weight: bold;
-    color: #5e1c33;
-    border: 2px solid #5e1c33;
+  background-color: white;
+  font-weight: bold;
+  color: #5e1c33;
+  border: 2px solid #5e1c33;
 }
 
 .btn-clean-board {
-    padding: 0.5em;
-    font-weight: bold;
-    color: white;
-    border: 2px solid #944e5d;
-    background-color: #944e5d;
+  padding: 0.5em;
+  font-weight: bold;
+  color: white;
+  border: 2px solid #944e5d;
+  background-color: #944e5d;
 }
 
 .btn-clean-board:hover {
-    padding: 0.5em;
-    font-weight: bold;
-    color: #944e5d;
-    border: 2px solid #944e5d;
-    background-color: white;
+  padding: 0.5em;
+  font-weight: bold;
+  color: #944e5d;
+  border: 2px solid #944e5d;
+  background-color: white;
 }
 
 .btn-execute-device {
-    padding: 0.5em;
-    font-weight: bold;
-    color: black;
-    border: 2px solid #f3d179;
-    background-color: #f3d179;
+  padding: 0.5em;
+  font-weight: bold;
+  color: black;
+  border: 2px solid #f3d179;
+  background-color: #f3d179;
 }
 
 .btn-execute-device:hover {
-    padding: 0.5em;
-    font-weight: bold;
-    color: #a78736;
-    border: 2px solid #f3d179;
-    background-color: white;
+  padding: 0.5em;
+  font-weight: bold;
+  color: #a78736;
+  border: 2px solid #f3d179;
+  background-color: white;
 }
 
 .btn-device {
-    padding: 1em;
-    font-weight: bold;
-    color: whitesmoke;
-    border-color: steelblue;
-    border: 2px solid whitesmoke;
-    background-color: steelblue;
+  padding: 1em;
+  font-weight: bold;
+  color: whitesmoke;
+  border-color: steelblue;
+  border: 2px solid whitesmoke;
+  background-color: steelblue;
 }
 
 .btn-device:hover {
-    padding: 1em;
-    font-weight: bold;
-    color: steelblue;
-    border: 2px solid steelblue;
-    background-color: whitesmoke;
+  padding: 1em;
+  font-weight: bold;
+  color: steelblue;
+  border: 2px solid steelblue;
+  background-color: whitesmoke;
 }
 
 #open-frietzing {
-    background-image: url("../src/images/logos/fritzing-logo.png");
-    background-size: 100%;
-    width: 10%;
-    background-repeat: no-repeat;
-    padding-bottom: 7em;
+  background-image: url("../src/images/logos/fritzing-logo.png");
+  background-size: 100%;
+  width: 10%;
+  background-repeat: no-repeat;
+  padding-bottom: 7em;
 }
 
 .btn-custom-lg {
-    padding-left: 1em;
-    padding-right: 1em;
-    padding: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding: 1em;
 }
 
 #cancel-remove-variable {
-    padding: 1em;
+  padding: 1em;
 }
