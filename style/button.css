@@ -1,11 +1,11 @@
 #back-button {
   width: 2.5em;
   text-align: center;
-  color: #fbfbfb;
+  color: #383838;
   font-weight: bold;
   font-size: 2em;
-  background-color: #4a6c78;
-  border: 2px solid #fbfbfb;
+  background-color: #c9c9c9;
+  border: 3px solid #383838;
   cursor: pointer;
 }
 
@@ -19,22 +19,22 @@
 #back-button:hover {
   width: 2.5em;
   text-align: center;
-  color: #4a6c78;
+  color: #fbfbfb;
   font-weight: bold;
-  border: 2px solid #4a6c78;
+  border: 3px solid #fbfbfb;
   font-size: 2em;
-  background-color: #fbfbfb;
+  background-color: #383838;
   cursor: pointer;
 }
 
 #back-button-challenge {
-  width: 2.6em;
+  width: 2.5em;
   text-align: center;
-  color: #fbfbfb;
+  color: #383838;
   font-weight: bold;
   font-size: 2em;
-  background-color: #4a6c78;
-  border: 2px solid #fbfbfb;
+  background-color: #c9c9c9;
+  border: 3px solid #383838;
   cursor: pointer;
 }
 
@@ -46,11 +46,13 @@
 }
 
 #back-button-challenge:hover {
+  width: 2.5em;
   text-align: center;
-  color: #4a6c78;
+  color: #fbfbfb;
   font-weight: bold;
-  border: 2px solid #4a6c78;
-  background-color: #fbfbfb;
+  border: 3px solid #fbfbfb;
+  font-size: 2em;
+  background-color: #383838;
   cursor: pointer;
 }
 

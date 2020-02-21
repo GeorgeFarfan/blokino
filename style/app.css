@@ -24,22 +24,20 @@
 @import url("./utils.css");
 
 body {
-    background: white;
-    font-display: monospace !important;
-    animation: fadeIn 0.4s linear;
+  background: white;
+  font-display: monospace !important;
+  animation: fadeIn 0.4s linear;
 }
 
 .body-main {
-    background: #282a36;
-    background: linear-gradient(to bottom, #282a36 0%, #552d55 100%);
-    animation: fadeIn 0.4s linear;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  animation: fadeIn 0.4s linear;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 @media (max-width: 1200px) {
-    .right-dots {
-        border-right: none;
-    }
+  .right-dots {
+    border-right: none;
+  }
 }

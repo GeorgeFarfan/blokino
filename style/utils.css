@@ -1,27 +1,27 @@
 .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .welcome {
-    background-color: #ffffff;
-    padding: 70px 50px 30px 50px;
+  background-color: #ffffff;
+  padding: 70px 50px 30px 50px;
 }
 
 .section-content {
-    color: white;
-    font-size: 25px;
+  color: #060606;
+  font-size: 25px;
 }
 
 .section-buttons-expert {
-    border: 3px solid #d2d2d2;
-    border-radius: 0.5em;
-    text-align: center;
-    background-color: #353535;
+  border: 3px solid #d2d2d2;
+  border-radius: 0.5em;
+  text-align: center;
+  background-color: #353535;
 }
 
 .list-header {
-    background-color: #944e5d !important;
-    color: #e1e1e1 !important;
+  background-color: #944e5d !important;
+  color: #e1e1e1 !important;
 }

@@ -1,198 +1,197 @@
 .body-challenges {
-    background: linear-gradient(to bottom, #282a36 0%, #552d55 100%);
-    animation: fadeIn 0.4s linear;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  background: linear-gradient(to bottom, #282a36 0%, #552d55 100%);
+  animation: fadeIn 0.4s linear;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .challenge-content {
-    background-color: whitesmoke;
-    border-radius: 15px;
-    border: 5px solid #907d92;
+  background-color: whitesmoke;
+  border-radius: 15px;
+  border: 5px solid #907d92;
 }
 
 .challenge-title {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .challenges {
-    background-color: whitesmoke;
-    font-size: 2em;
+  font-size: 25px;
 }
 
 .challenges p {
-    padding: 2em;
+  padding: 2em;
 }
 
 .challenge-description {
-    line-height: 2em;
-    background-color: #fbfbfb;
-    border: 4px solid white;
-    border-radius: 5px;
+  line-height: 2em;
+  background-color: #fbfbfb;
+  border: 4px solid white;
+  border-radius: 5px;
 }
 
 .challenge-description p {
-    padding: 1em;
+  padding: 1em;
 }
 
 .instructions {
-    padding: 0.3em;
-    list-style-type: none;
+  padding: 0.3em;
+  list-style-type: none;
 }
 
 .challenge {
-    border: 1px solid #bdbdbd;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    cursor: pointer;
+  border: 1px solid #bdbdbd;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  cursor: pointer;
 }
 
 .challenge_title_beginner {
-    font-weight: bold;
-    background-color: #61c0bf;
-    text-align: center;
-    padding: 20px;
-    font-size: 23px;
-    vertical-align: middle;
-    color: aliceblue;
-    font-weight: bold;
+  font-weight: bold;
+  background-color: #61c0bf;
+  text-align: center;
+  padding: 20px;
+  font-size: 23px;
+  vertical-align: middle;
+  color: aliceblue;
+  font-weight: bold;
 }
 
 .challenge_title_intermediate {
-    font-weight: bold;
-    background-color: #f3d179;
-    text-align: center;
-    padding: 20px;
-    font-size: 23px;
-    vertical-align: middle;
-    color: aliceblue;
+  font-weight: bold;
+  background-color: #f3d179;
+  text-align: center;
+  padding: 20px;
+  font-size: 23px;
+  vertical-align: middle;
+  color: aliceblue;
 }
 
 .challenge_title_advanced {
-    font-weight: bold;
-    background-color: #df6a6a;
-    text-align: center;
-    padding: 20px;
-    font-size: 23px;
-    vertical-align: middle;
-    color: aliceblue;
+  font-weight: bold;
+  background-color: #df6a6a;
+  text-align: center;
+  padding: 20px;
+  font-size: 23px;
+  vertical-align: middle;
+  color: aliceblue;
 }
 
 .challenge_title_expert {
-    font-weight: bold;
-    background-color: #552d55;
-    text-align: center;
-    padding: 20px;
-    font-size: 23px;
-    vertical-align: middle;
-    color: aliceblue;
+  font-weight: bold;
+  background-color: #552d55;
+  text-align: center;
+  padding: 20px;
+  font-size: 23px;
+  vertical-align: middle;
+  color: aliceblue;
 }
 
 .challenge_content {
-    padding: 20px;
-    color: #596e79;
-    background-color: #fbfbfb;
-    text-align: center;
+  padding: 20px;
+  color: #596e79;
+  background-color: #fbfbfb;
+  text-align: center;
 }
 
 .challenge_content p {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .challenge_enter {
-    font-size: 70px;
-    font-weight: bold;
+  font-size: 70px;
+  font-weight: bold;
 }
 
 .back_icon {
-    font-size: 35px;
-    font-weight: bold;
-    padding: 5px;
+  font-size: 50px;
+  font-weight: bold;
+  padding: 5px;
 }
 
 .challenge-badge-led {
-    color: white;
-    background-color: #61c0bf;
-    border-color: #8a8a8a;
+  color: white;
+  background-color: #61c0bf;
+  border-color: #8a8a8a;
 }
 
 .challenge-badge-complete {
-    color: white !important;
-    background-color: #61c0bf !important;
-    border-color: #8a8a8a !important;
+  color: white !important;
+  background-color: #61c0bf !important;
+  border-color: #8a8a8a !important;
 }
 
 .challenge-badge-incomplete {
-    color: #8a8a8a;
-    background-color: #e9ecef;
-    border-color: #8a8a8a;
+  color: #8a8a8a;
+  background-color: #e9ecef;
+  border-color: #8a8a8a;
 }
 
 .challenge-badge-middle {
-    color: white;
-    background-color: #f3d179;
-    border-color: #8a8a8a;
+  color: white;
+  background-color: #f3d179;
+  border-color: #8a8a8a;
 }
 
 .challenge-badge-middle-complete {
-    color: white;
-    background-color: #f3d179;
-    border-color: #8a8a8a;
+  color: white;
+  background-color: #f3d179;
+  border-color: #8a8a8a;
 }
 
 .challenge-badge-middle-incomplete {
-    color: #8a8a8a;
-    background-color: #e9ecef;
-    border-color: #8a8a8a;
+  color: #8a8a8a;
+  background-color: #e9ecef;
+  border-color: #8a8a8a;
 }
 
 .challenge-badge-advanced {
-    color: white;
-    background-color: #df6a6a;
-    border-color: #8a8a8a;
+  color: white;
+  background-color: #df6a6a;
+  border-color: #8a8a8a;
 }
 
 .challenge-badge-advanced-complete {
-    color: white;
-    background-color: #df6a6a;
-    border-color: #8a8a8a;
+  color: white;
+  background-color: #df6a6a;
+  border-color: #8a8a8a;
 }
 
 .challenge-badge-advanced-incomplete {
-    color: #8a8a8a;
-    background-color: #e9ecef;
-    border-color: #8a8a8a;
+  color: #8a8a8a;
+  background-color: #e9ecef;
+  border-color: #8a8a8a;
 }
 
 .challenge-badge-warning {
-    border-color: #8a8a8a;
+  border-color: #8a8a8a;
 }
 
 .badge-m14 {
-    color: #4b2c5fde;
-    border-bottom: 0.5px solid;
-    border-bottom-color: #4b2c5fde;
+  color: #4b2c5fde;
+  border-bottom: 0.5px solid;
+  border-bottom-color: #4b2c5fde;
 }
 
 .badge-gunter {
-    color: #31568dde;
-    border-bottom: 0.5px solid;
-    border-bottom-color: #31568dde;
+  color: #31568dde;
+  border-bottom: 0.5px solid;
+  border-bottom-color: #31568dde;
 }
 
 .separator-blokino {
-    color: whitesmoke;
-    border-bottom: 1.5px solid;
-    width: 80%;
-    margin: auto;
+  color: #5a5a5a;
+  border-bottom: 5px solid;
+  width: 80%;
+  margin: auto;
 }
 
 .challenge-m14 {
-    background-color: #fbfbfb;
+  background-color: #fbfbfb;
 }
 
 .challenge-m14 p {
-    color: #4c484c;
-    padding: 1em;
+  color: #4c484c;
+  padding: 1em;
 }

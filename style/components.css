@@ -1,146 +1,146 @@
 .custom-badge-app {
-    border: 3px solid black;
-    border-radius: 0.2em;
-    padding: 0.2em;
+  border: 3px solid black;
+  border-radius: 0.2em;
+  padding: 0.2em;
 }
 
 .custom-badge {
-    border: 3px solid black;
-    border-radius: 0.2em;
-    padding: 0.5em;
+  border: 3px solid black;
+  border-radius: 0.2em;
+  padding: 0.5em;
 }
 
 .badge-1 {
-    background-color: #c2d5dc;
-    padding: 0.2em;
-    font-weight: bold;
+  background-color: #c2d5dc;
+  padding: 0.2em;
+  font-weight: bold;
 }
 
 .badge-1 {
-    background-color: #c2d5dc;
-    padding: 0.2em;
-    font-weight: bold;
+  background-color: #c2d5dc;
+  padding: 0.2em;
+  font-weight: bold;
 }
 
 .badge-alert {
-    background-color: #cd3350;
-    border-radius: 5px;
-    line-height: 45px;
-    color: white;
-    font-weight: bold;
+  background-color: #cd3350;
+  border-radius: 5px;
+  line-height: 45px;
+  color: white;
+  font-weight: bold;
 }
 
 .badge-2 {
-    padding: 0.2em;
-    font-weight: bold;
-    background-color: #d1ece3;
+  padding: 0.2em;
+  font-weight: bold;
+  background-color: #d1ece3;
 }
 
 .badge-grey {
-    background-color: #4b4e50;
-    font-weight: bold;
-    padding: 0 0.3em 0 0.4em;
-    color: #ffffff;
-    border-radius: 5px;
+  background-color: #4b4e50;
+  font-weight: bold;
+  padding: 0 0.3em 0 0.4em;
+  color: #ffffff;
+  border-radius: 5px;
 }
 
 .image-tutorial {
-    width: 60%;
+  width: 60%;
 }
 
 ul#devices {
-    list-style-position: inside;
-    padding-left: 10px;
+  list-style-position: inside;
+  padding-left: 10px;
 }
 .avatar {
-    width: 5em;
+  width: 5em;
 }
 
 #devices-setup {
-    padding-left: 10px;
+  padding-left: 10px;
 }
 
 li.item {
-    list-style: none;
-    padding: 5px;
-    cursor: pointer;
+  list-style: none;
+  padding: 5px;
+  cursor: pointer;
 }
 li.item:hover {
-    background-color: #d7df95;
+  background-color: #d7df95;
 }
 
 .bullet {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .device_label {
-    margin-left: 10px;
-    font-size: 1.5em;
-    font-weight: bold;
+  margin-left: 10px;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 .panel-blocks {
-    background-color: whitesmoke;
+  background-color: white;
 }
 
 .panel-circuit {
-    background-color: white;
+  background-color: white;
 }
 
 .panel-code {
-    background-color: whitesmoke;
+  background-color: whitesmoke;
 }
 
 .lds-ring {
-    display: inline-block;
-    position: relative;
-    width: 64px;
-    height: 64px;
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
 }
 .lds-ring div {
-    box-sizing: border-box;
-    display: block;
-    position: absolute;
-    width: 51px;
-    height: 51px;
-    margin: 6px;
-    border: 6px solid #fff;
-    border-radius: 50%;
-    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: #fff transparent transparent transparent;
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 51px;
+  height: 51px;
+  margin: 6px;
+  border: 6px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
 }
 .lds-ring div:nth-child(1) {
-    animation-delay: -0.45s;
+  animation-delay: -0.45s;
 }
 .lds-ring div:nth-child(2) {
-    animation-delay: -0.3s;
+  animation-delay: -0.3s;
 }
 .lds-ring div:nth-child(3) {
-    animation-delay: -0.15s;
+  animation-delay: -0.15s;
 }
 @keyframes lds-ring {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .dropdown-menu li a {
-    font-size: 1.5em;
-    font-weight: bold;
-    text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
 }
 
 .right-dots {
-    border-right: 0.5px dashed #5e1c33;
+  border-right: 0.5px dashed #5e1c33;
 }
 
 .badge-key {
-    background-color: #8d6d79;
-    padding: 5px;
-    font-size: 1.4em;
-    color: #ffffff;
-    font-weight: bold;
+  background-color: #8d6d79;
+  padding: 5px;
+  font-size: 1.4em;
+  color: #ffffff;
+  font-weight: bold;
 }
