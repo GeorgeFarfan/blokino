@@ -1,145 +1,205 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Construye tu propio M-14</title>
-    <link rel="stylesheet" href="../../../style/app.css">
-</head>
+    <link rel="stylesheet" href="../../../style/app.css" />
+  </head>
 
-<body>
-
+  <body>
     <div class="container  p-5">
-        <div class="row">
-            <div class="col-md-12 col-sm-12">
-                <div class="row">
-                    <div class="col-8 col-sm-6">
-                        <div id="back-button-challenge">
-                            <i class="far fa-home back_icon"></i>
-                        </div>
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <div class="row">
+            <div class="col-8 col-sm-6">
+              <div id="back-button-challenge">
+                <i class="far fa-home back_icon"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mt-5 col-md-12 p-0">
+          <h1 class="alert badge-m14 text-center font-weight-bold ">
+            NodeBots
+          </h1>
+          <img
+            src="../../images/m-14.png"
+            class="rounded-circle center mt-5 mb-5"
+            alt="Cinque Terre"
+            width="300"
+            height="300"
+          />
+          <p class="ide-info h5 mt-4 text-center">
+            Este NodeBot lleva el nombre de <strong>M-14 (Morfyo-14)</strong>.
+            El M-14 fue diseñado para poder ser usado con
+            <strong>Blokino</strong>. Con el <strong>M-14</strong> se pueden
+            hacer las siguientes actividades:
+          </p>
+          <p class="ide-info h5 mt-4 text-center">
+            - Crear tus propias notas musicales, o usar las que ya tiene
+            <strong>Blokino</strong>. <br />
+            - Crear tus propios emoticones o mensajes, y mostrarlos en la cabeza
+            del
+            <strong>M-14</strong>.<br />
+            - Hacerlo mover como desees, sus piernas y brazos estan diseñadas de
+            tal manera que pueden hacer varios movimientos.<br />
+            - Detectar objetos a ciertas distancias, con esto poder hacer que el
+            <strong>M-14</strong> haga alguna acción cuando detecte un
+            movimiento.<br />
+          </p>
+          <p class="ide-info h5 mt-4 mb-3 text-center mt-3">
+            Diviertete armandolo, para esto se tiene una guia donde especifica
+            los componentes electronicos que se necesita como así tambien como
+            se debe armar. Por último se tiene una sección donde podes usar
+            algunas funcionalidades predeterminadas básicas de tu
+            <strong>M-14</strong>.
+          </p>
+
+          <div class="mt-2">
+            <ul class="list-group">
+              <li class="list-group-item disabled list-header">
+                <h3 class="font-weight-bold mt-1">Opciones de descarga</h3>
+              </li>
+              <li class="list-group-item">
+                <div class="row mt-2">
+                  <div class="col-md-4 mt-1 font-weight-bold ">
+                    <h4 class="mt-3 font-weight-lighter">
+                      <u>Módelo con fibrofacil</u>
+                    </h4>
+                  </div>
+                  <div class="col-md-8 text-right">
+                    <a
+                      href="../../../resources/documentation/m-14/m-14-piezas.pdf"
+                      class="btn btn-lg btn-show-code"
+                      download="M14-diagrama"
+                      >Piezas para imprimir</a
+                    >
+                    <a
+                      href="../../../resources/documentation/m-14/m14-guia.pdf"
+                      class="btn btn-lg btn-clean-code"
+                      download="M14-guia-de-ensamblaje"
+                      >Guía de armado</a
+                    >
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="row mt-2">
+                  <div class="col-md-4 mt-1 font-weight-bold">
+                    <h4 class="mt-2 font-weight-lighter">
+                      <u>Módelo para impresora 3D</u>
+                    </h4>
+                  </div>
+                  <div class="col-md-8 text-right">
+                    <a
+                      href="../../../resources/documentation/moldes-3D/M-14.zip"
+                      class="btn btn-lg btn-show-code"
+                      download="M14-moldes-3D"
+                      >Moldes 3D</a
+                    >
+                    <a
+                      href="../../../resources/documentation/m-14/m14-guia.pdf"
+                      class="btn btn-lg btn-clean-code"
+                      download="M14-guia-de-ensamblaje"
+                      >Guía de armado</a
+                    >
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="row mt-2">
+                  <div class="col-md-12 mt-1 font-weight-bold text-center">
+                    <h4 class="mt-2 font-weight-lighter">
+                      <u>Crea tu propio M-14</u>
+                    </h4>
+                    <p class="mt-1">
+                      Además de la versión estandar del <strong>M-14</strong>,
+                      también podes crear tu propia versión del M-14. Para que
+                      se tenga una base de los moldes 3D del M-14, podes acceder
+                      al perfil de Tinkercad.
+                    </p>
+                    <img
+                      src="../../images/logos/tinkercad.png"
+                      class="rounded-0 center mt-5 mb-5"
+                      alt="Cinque Terre"
+                      width="200"
+                      height="200"
+                    />
+
+                    <button
+                      class="btn btn-lg btn-show-code"
+                      onclick="openLinkTinkercad(event,'tinkercad-head')"
+                    >
+                      Cabeza
+                    </button>
+
+                    <button
+                      class="btn btn-lg btn-show-code"
+                      onclick="openLinkTinkercad(event,'tinkercad-body')"
+                    >
+                      Cuerpo
+                    </button>
+
+                    <button
+                      class="btn btn-lg btn-show-code"
+                      onclick="openLinkTinkercad(event,'tinkercad-connectors')"
+                    >
+                      Conectores
+                    </button>
+
+                    <button
+                      class="btn btn-lg btn-show-code"
+                      onclick="openLinkTinkercad(event,'tinkercad-hand-left')"
+                    >
+                      Mano izquierda
+                    </button>
+
+                    <button
+                      class="btn btn-lg btn-show-code"
+                      onclick="openLinkTinkercad(event,'tinkercad-hand-right')"
+                    >
+                      Mano derecha
+                    </button>
+
+                    <button
+                      class="btn btn-lg btn-show-code"
+                      onclick="openLinkTinkercad(event,'tinkercad-foot-left')"
+                    >
+                      Pie izquierdo
+                    </button>
+
+                    <button
+                      class="btn btn-lg btn-show-code"
+                      onclick="openLinkTinkercad(event,'tinkercad-foot-right')"
+                    >
+                      Pie derecho
+                    </button>
+
+                    <p class="font-weight-bold">
+                      Importante: para poder usar Tinkercad, hay que crearse una
+                      cuenta.
+                    </p>
+
+                    <h4 class="mt-2 font-weight-lighter"><u>Tutorial</u></h4>
+                    <div>
+                      <iframe
+                        width="420"
+                        height="315"
+                        src="https://www.youtube.com/embed/Oci7eRfyeJA"
+                      >
+                      </iframe>
                     </div>
+                  </div>
                 </div>
-            </div>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="row">
-            <div class="col mt-5 col-md-12 p-0">
-
-                <h1 class="alert badge-m14 text-center font-weight-bold "> M-14 (Morfyo-14)
-                </h1>
-                <img src="../../images/m-14.png" class="rounded-circle center mt-5 mb-5" alt="Cinque Terre" width="300"
-                    height="300">
-                <p class="ide-info h5 mt-4 text-center">
-                    Este NodeBot fue diseñado para poder ser usado con la plataforma <strong>Blokino</strong>. Con el
-                    <strong>M-14</strong> se pueden hacer las siguientes actividades:
-                </p>
-                <p class="ide-info h5 mt-4 text-center">
-                    - Crear tus propias notas musicales, o usar las que ya tiene <strong>Blokino</strong>. <br>
-                    - Crear tus propios emoticones o mensajes, y mostrarlos en la cabeza del
-                    <strong>M-14</strong>.<br>
-                    - Hacerlo mover como desees, sus piernas y brazos estan diseñadas de tal manera que pueden
-                    hacer varios movimientos.<br>
-                    - Detectar objetos a ciertas distancias, con esto poder hacer que el <strong>M-14</strong>
-                    haga alguna acción cuando detecte un movimiento.<br>
-                </p>
-                <p class="ide-info h5 mt-4 mb-3 text-center mt-3">
-                    Diviertete armandolo, para esto se tiene una guia donde especifica los componentes electronicos que
-                    se necesita como así tambien como se debe armar.
-                    Por último se tiene una sección donde podes usar algunas funcionalidades predeterminadas básicas de
-                    tu <strong>M-14</strong>.
-                </p>
-
-                <div class="mt-2">
-                    <ul class="list-group">
-                        <li class="list-group-item disabled list-header">
-                            <h3 class="font-weight-bold mt-1">Opciones de descarga</h3>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="row mt-2">
-                                <div class="col-md-4 mt-1 font-weight-bold ">
-                                    <h4 class="mt-3 font-weight-lighter"><u>Módelo con fibrofacil</u></h4>
-                                </div>
-                                <div class="col-md-8 text-right">
-                                    <a href="../../../resources/documentation/m-14/m-14-piezas.pdf"
-                                        class="btn btn-lg btn-show-code" download="M14-diagrama">Piezas para
-                                        imprimir</a>
-                                    <a href="../../../resources/documentation/m-14/m14-guia.pdf"
-                                        class="btn btn-lg btn-clean-code" download="M14-guia-de-ensamblaje">Guía de
-                                        armado</a>
-                                </div>
-                            </div>
-
-                        </li>
-                        <li class="list-group-item">
-
-                            <div class="row mt-2">
-                                <div class="col-md-4 mt-1 font-weight-bold">
-                                    <h4 class="mt-2 font-weight-lighter"><u>Módelo para impresora 3D</u></h4>
-                                </div>
-                                <div class="col-md-8 text-right">
-                                    <a href="../../../resources/documentation/moldes-3D/M-14.zip"
-                                        class="btn btn-lg btn-show-code" download="M14-moldes-3D">Moldes
-                                        3D</a>
-                                    <a href="../../../resources/documentation/m-14/m14-guia.pdf"
-                                        class="btn btn-lg btn-clean-code" download="M14-guia-de-ensamblaje">Guía de
-                                        armado</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="row mt-2">
-                                <div class="col-md-12 mt-1 font-weight-bold text-center">
-                                    <h4 class="mt-2 font-weight-lighter"><u>Crea tu propio M-14</u></h4>
-                                    <p class="mt-1">Además de la versión estandar del <strong>M-14</strong>, también
-                                        podes crear tu propia versión del M-14. Para que se tenga una base de los moldes
-                                        3D del M-14, podes acceder al perfil de Tinkercad. </p>
-                                    <img src="../../images/logos/tinkercad.png" class="rounded-0 center mt-5 mb-5"
-                                        alt="Cinque Terre" width="200" height="200">
-
-                                    <button class="btn btn-lg btn-show-code"
-                                        onclick="openLinkTinkercad(event,'tinkercad-head')">Cabeza</button>
-
-                                    <button class="btn btn-lg btn-show-code"
-                                        onclick="openLinkTinkercad(event,'tinkercad-body')">Cuerpo</button>
-
-                                    <button class="btn btn-lg btn-show-code"
-                                        onclick="openLinkTinkercad(event,'tinkercad-connectors')">Conectores</button>
-
-
-                                    <button class="btn btn-lg btn-show-code"
-                                        onclick="openLinkTinkercad(event,'tinkercad-hand-left')">Mano izquierda</button>
-
-
-                                    <button class="btn btn-lg btn-show-code"
-                                        onclick="openLinkTinkercad(event,'tinkercad-hand-right')">Mano derecha</button>
-
-                                    <button class="btn btn-lg btn-show-code"
-                                        onclick="openLinkTinkercad(event,'tinkercad-foot-left')">Pie izquierdo</button>
-
-                                    <button class="btn btn-lg btn-show-code"
-                                        onclick="openLinkTinkercad(event,'tinkercad-foot-right')">Pie derecho</button>
-
-                                    <p class="font-weight-bold">Importante: para poder usar Tinkercad, hay que crearse
-                                        una cuenta. </p>
-
-                                    <h4 class="mt-2 font-weight-lighter"><u>Tutorial</u></h4>
-                                    <div>
-                                        <iframe width="420" height="315"
-                                            src="https://www.youtube.com/embed/Oci7eRfyeJA">
-                                        </iframe>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
 
-    <script src="./projects.js">
-    </script>
-
-</body>
-
+    <script src="./projects.js"></script>
+  </body>
 </html>
