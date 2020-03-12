@@ -53,7 +53,7 @@ Para poder crear instaladores, se deben ejecutar los siguientes comandos:
     **yarn run electron-fix-dependencies**
 -   Ejecutar => **npm run electron-create-installer** o **yarn run electron-create-installer**
 -   En el caso de que se presente algun error en Windows:
-    -   NodeJS 8.12
+    -   NodeJS > 10
     -   Tener Python2.7
     -   npm config set python "c:\Python\27\python.exe"
     -   npm install --global --production windows-build-tools 
