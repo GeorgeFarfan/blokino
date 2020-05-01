@@ -49,7 +49,7 @@
         "popper.js": "^1.14.7",
         "rxjs": "^6.5.2",
         "serialport": "^7.1.5",
-        "sharp": "^0.25.1",
+        "sharp": "^0.25.2",
         "sudo-prompt": "^8.2.5",
         "xml-js": "^1.6.11"
     },
@@ -84,7 +84,7 @@
         },
         "win": {
             "target": "NSIS",
-            "icon": "installers/icons/icon.ico",
+            "icon": "src/images/logos/blokino.ico",
             "files": [
                 "!resources/circuits/diagrams/*",
                 "!resources/examples-code/*",

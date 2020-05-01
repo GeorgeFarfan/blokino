@@ -18,7 +18,7 @@ function createWindow() {
     mainWindow = new BrowserWindow({
         width: 1360,
         height: 960,
-        icon: path.join(__dirname, "src/images/blokino-logo-2.png")
+        icon: path.join(__dirname, "src/images/blokino.png")
     });
     // and load the index.html of the app.
     mainWindow.loadFile("index.html");
