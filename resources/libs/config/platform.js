@@ -8,7 +8,7 @@
 const os = require("os"),
     os_name = require("os-name");
 
-let configUtils = {
+const configUtils = {
     infoOS: () => {
         return {
             arch: os.arch(),

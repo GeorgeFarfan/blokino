@@ -14,10 +14,10 @@ const serialportCommand = require("../../serial-port/serialport-commands"),
     exec = require("child_process").exec,
     path = require("path");
 
-let gortFirmata = {
+const gortFirmata = {
     devices: async function(callback) {
         let devices = serialportCommand.listDevices();
-        let os_arch = platform.arch();
+        const os_arch = platform.arch();
         let devices_gort = [];
         let promise = null;
         // En el casi de usar Linux, se crea listado personalizado de dispositivos.
