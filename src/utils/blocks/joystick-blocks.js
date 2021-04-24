@@ -5,7 +5,7 @@
  * @description Este módulo contiene la configuracion del bloque JOYSTICK.
  */
 
-let url_documentation = "http://blokino-platform.com/get_started",
+const url_documentation = "http://blokino-platform.com/get_started",
   joystickFunctions = {
     block: (Blockly) => {
       Blockly.Blocks["joystick"] = {

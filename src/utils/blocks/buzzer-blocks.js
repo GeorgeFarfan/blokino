@@ -7,7 +7,7 @@
 
 const sounds = require("./resources/notes");
 
-let url_documentation = "http://blokino-platform.com/get_started",
+const url_documentation = "http://blokino-platform.com/get_started",
   buzzerFunction = {
     block: (Blockly) => {
       Blockly.Blocks["buzzer"] = {

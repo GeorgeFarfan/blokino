@@ -7,7 +7,8 @@
 
 const gestures = require("./resources/gestures"),
   url_documentation = "http://blokino-platform.com/documentation";
-let screenMarixFunctions = {
+
+  const screenMarixFunctions = {
   block: (Blockly) => {
     Blockly.Blocks["matrix"] = {
       init: function () {

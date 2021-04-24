@@ -13,7 +13,7 @@ const path = require("path"),
     supportedBoards = Avrgirl.listKnownBoards(),
     supportedBoardsString = supportedBoards.join(", ");
 
-let blokinoFirmata = {
+const blokinoFirmata = {
     showSupported: () => {
         log(chalk.black.bgYellow.bold("Dispositivos soportados: \n" + supportedBoardsString));
     },

@@ -5,7 +5,7 @@
  * @description Este módulo contiene la configuracion del bloque LED-RGB.
  */
 
-let url_documentation = "http://blokino-platform.com/get_started",
+const url_documentation = "http://blokino-platform.com/get_started",
   ledRgbFunctions = {
     block: (Blockly) => {
       Blockly.Blocks["led_rgb"] = {

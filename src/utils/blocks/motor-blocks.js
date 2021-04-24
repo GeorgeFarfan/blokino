@@ -5,7 +5,7 @@
  * @description Este módulo contiene la configuracion del bloque MOTOR.
  */
 
-let url_documentation = "http://blokino-platform.com/get_started",
+const url_documentation = "http://blokino-platform.com/get_started",
   motorFunctions = {
     block: (Blockly) => {
       Blockly.Blocks["motor_new"] = {

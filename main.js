@@ -14,10 +14,9 @@ let mainWindow;
 function createWindow() {
     let menu = Menu.buildFromTemplate(config.createPageHelp());
     Menu.setApplicationMenu(menu);
-    // Create the browser window.
     mainWindow = new BrowserWindow({
-        width: 1360,
-        height: 960,
+        width: 1200,
+        height: 800,
         icon: path.join(__dirname, "src/images/blokino.png")
     });
     // and load the index.html of the app.

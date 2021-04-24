@@ -5,7 +5,7 @@
  * @description Este módulo contiene la configuración de los bloques principales.
  */
 
-let url_documentation = "http://blokino-platform.com/get_started",
+const url_documentation = "http://blokino-platform.com/get_started",
   appFunctions = {
     block: (Blockly) => {
       Blockly.Blocks["program"] = {

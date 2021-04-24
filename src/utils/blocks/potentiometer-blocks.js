@@ -5,7 +5,7 @@
  * @description Este módulo contiene la configuracion del bloque POTENCIOMETRO.
  */
 
-let url_documentation = "http://blokino-platform.com/get_started",
+const url_documentation = "http://blokino-platform.com/get_started",
   potentiometerFunctions = {
     block: (Blockly) => {
       Blockly.Blocks["potentiometer"] = {

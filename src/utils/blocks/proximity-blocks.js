@@ -5,7 +5,7 @@
  * @description Este módulo contiene la configuracion del bloque SENSOR-PROXIMIDAD.
  */
 
-let url_documentation = "http://blokino-platform.com/get_started",
+const url_documentation = "http://blokino-platform.com/get_started",
   proximityFunctions = {
     block: (Blockly) => {
       Blockly.Blocks["proximity_block"] = {

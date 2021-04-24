@@ -5,7 +5,7 @@
  * @description Este módulo contiene la configuracion del bloque MOTION.
  */
 
-let url_documentation = "http://blokino-platform.com/get_started",
+const url_documentation = "http://blokino-platform.com/get_started",
   motionFunctions = {
     block: (Blockly) => {
       Blockly.Blocks["motion_sensor_block"] = {

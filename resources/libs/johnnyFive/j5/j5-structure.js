@@ -5,7 +5,7 @@
  * @description Este módulo contiene la estructura del programa en J5.
  */
 
-let structureUtils = {
+const structureUtils = {
     configBoard: device => {
         return (
             "'use strict';" +

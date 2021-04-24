@@ -5,7 +5,7 @@
  * @description Este módulo contiene la configuracion del bloque SWITCH.
  */
 
-let url_documentation = "http://blokino-platform.com/get_started",
+const url_documentation = "http://blokino-platform.com/get_started",
   switchFunctions = {
     block: (Blockly) => {
       Blockly.Blocks["switch_new_block"] = {

@@ -7,7 +7,7 @@
 
 "use strict";
 
-let url_documentation = "http://blokino-platform.com/get_started",
+const url_documentation = "http://blokino-platform.com/get_started",
   ledFunctions = {
     block: (Blockly) => {
       Blockly.Blocks["led"] = {

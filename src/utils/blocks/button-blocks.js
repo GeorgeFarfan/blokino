@@ -5,7 +5,7 @@
  * @description Este módulo contiene la configuracion del bloque del BOTON.
  */
 
-let url_documentation = "http://blokino-platform.com/get_started",
+const url_documentation = "http://blokino-platform.com/get_started",
   buttonFunctions = {
     block: (Blockly) => {
       Blockly.Blocks["button"] = {

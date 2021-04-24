@@ -5,7 +5,7 @@
  * @description Este módulo contiene la configuracion de los bloques del MICROFONO.
  */
 
-let url_documentation = "http://blokino-platform.com/documentation",
+const url_documentation = "http://blokino-platform.com/documentation",
   microphoneFunctions = {
     block: (Blockly) => {
       Blockly.Blocks["microphone"] = {

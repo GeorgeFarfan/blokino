@@ -5,7 +5,7 @@
  * @description Este módulo contiene la configuracion del bloque KEYPAD.
  */
 const keypad = require("./resources/keypads");
-let url_documentation = "http://blokino-platform.com/documentation",
+const url_documentation = "http://blokino-platform.com/documentation",
   keypadFunctions = {
     block: (Blockly) => {
       Blockly.Blocks["keypad_block"] = {

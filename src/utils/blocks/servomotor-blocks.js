@@ -5,7 +5,7 @@
  * @description Este módulo contiene la configuracion del bloque SERVOMOTOR.
  */
 
-let url_documentation = "http://blokino-platform.com/get_started",
+const url_documentation = "http://blokino-platform.com/get_started",
   servomotorFunctions = {
     block: (Blockly) => {
       Blockly.Blocks["servo_motor"] = {

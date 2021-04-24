@@ -8,7 +8,7 @@
 const moment = require("moment");
 moment.locale("es");
 
-let url_documentation = "http://blokino-platform.com/get_started",
+const url_documentation = "http://blokino-platform.com/get_started",
   functionUtils = {
     block: (Blockly) => {
       Blockly.Blocks["timer"] = {
