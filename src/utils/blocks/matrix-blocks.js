@@ -1,406 +1,421 @@
-"use strict";
+'use strict';
 
 /**
  * @author Jorge Farfan Coaguila
  * @description Este módulo contiene la configuracion del bloque MATRIX-LED.
  */
 
-const gestures = require("./resources/gestures"),
-  url_documentation = "http://blokino-platform.com/documentation";
+const gestures = require('./resources/gestures'),
+  url_documentation = 'http://blokino-platform.com/documentation';
 
-  const screenMarixFunctions = {
+const screenMarixFunctions = {
   block: (Blockly) => {
-    Blockly.Blocks["matrix"] = {
+    Blockly.Blocks['matrix'] = {
       init: function () {
-        this.appendValueInput("pin_cs")
+        this.appendValueInput('pin_cs')
           .appendField(
             new Blockly.FieldImage(
-              "../../images/blocks/matrix-leds.png",
+              '../../images/blocks/matrix-leds.png',
               40,
               40,
-              "*"
-            )
+              '*',
+            ),
           )
-          .setCheck("Number")
-          .appendField("Crear MATRIX-LEDS")
-          .appendField("Entrada_CS");
-        this.appendValueInput("pin_din")
-          .setCheck("Number")
-          .appendField("Entrada_DIN");
-        this.appendValueInput("pin_clk")
-          .setCheck("Number")
-          .appendField("Entrada_CLK");
+          .setCheck('Number')
+          .appendField('Crear MATRIX-LEDS')
+          .appendField('Entrada_CS');
+        this.appendValueInput('pin_din')
+          .setCheck('Number')
+          .appendField('Entrada_DIN');
+        this.appendValueInput('pin_clk')
+          .setCheck('Number')
+          .appendField('Entrada_CLK');
         this.setInputsInline(true);
         this.setOutput(true, null);
         this.setColour(15);
-        this.setTooltip("");
+        this.setTooltip('');
         this.setHelpUrl(url_documentation);
       },
     };
-    Blockly.Blocks["matrix_with_extensions"] = {
+    Blockly.Blocks['matrix_with_extensions'] = {
       init: function () {
-        this.appendValueInput("pin_cs")
+        this.appendValueInput('pin_cs')
           .appendField(
             new Blockly.FieldImage(
-              "../../images/blocks/matrix-leds.png",
+              '../../images/blocks/matrix-leds.png',
               40,
               40,
-              "*"
-            )
+              '*',
+            ),
           )
-          .setCheck("Number")
-          .appendField("Crear MATRIX-LEDS")
-          .appendField("Entrada_CS");
-        this.appendValueInput("pin_din")
-          .setCheck("Number")
-          .appendField("Entrada_DIN");
-        this.appendValueInput("pin_clk")
-          .setCheck("Number")
-          .appendField("Entrada_CLK");
-        this.appendValueInput("extensions")
-          .setCheck("Number")
-          .appendField("Extensiones");
+          .setCheck('Number')
+          .appendField('Crear MATRIX-LEDS')
+          .appendField('Entrada_CS');
+        this.appendValueInput('pin_din')
+          .setCheck('Number')
+          .appendField('Entrada_DIN');
+        this.appendValueInput('pin_clk')
+          .setCheck('Number')
+          .appendField('Entrada_CLK');
+        this.appendValueInput('extensions')
+          .setCheck('Number')
+          .appendField('Extensiones');
         this.setInputsInline(true);
         this.setOutput(true, null);
         this.setColour(15);
-        this.setTooltip("");
+        this.setTooltip('');
         this.setHelpUrl(url_documentation);
       },
     };
-    Blockly.Blocks["print_screen"] = {
+    Blockly.Blocks['print_screen'] = {
       init: function () {
         this.appendDummyInput()
-          .appendField("Dibujar ")
+          .appendField('Dibujar ')
           .appendField(
-            new Blockly.FieldVariable("MATRIX_LEDS"),
-            "current_led_matrix"
+            new Blockly.FieldVariable('MATRIX_LEDS'),
+            'current_led_matrix',
           )
-          .appendField(" figura")
+          .appendField(' figura')
           .appendField(
             new Blockly.FieldDropdown([
-              ["feliz", "happy"],
-              ["triste", "sad"],
-              ["mmm", "chino"],
-              ["sorpresa", "surprise"],
-              ["risa", "jeje"],
-              ["lengua afuera", "tongue"],
-              ["corazon", "heart"],
-              ["casa", "house"],
-              ["interrogacion", "interrogation"],
-              ["exclamacion", "exclamation"],
-              ["lentes", "glass_man"],
-              ["Error", "error"],
-              ["Exito", "success"],
-              ["Todas los leds prendidos", "all_red"],
+              ['feliz', 'happy'],
+              ['triste', 'sad'],
+              ['mmm', 'chino'],
+              ['sorpresa', 'surprise'],
+              ['risa', 'jeje'],
+              ['lengua afuera', 'tongue'],
+              ['corazon', 'heart'],
+              ['casa', 'house'],
+              ['interrogacion', 'interrogation'],
+              ['exclamacion', 'exclamation'],
+              ['lentes', 'glass_man'],
+              ['Error', 'error'],
+              ['Exito', 'success'],
+              ['Todas los leds prendidos', 'all_red'],
             ]),
-            "options"
+            'options',
           );
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(15);
-        this.setTooltip("Asigna un figura a la matrix de leds.");
+        this.setTooltip('Asigna un figura a la matrix de leds.');
         this.setHelpUrl(url_documentation);
       },
     };
-    Blockly.Blocks["blink_screen"] = {
+    Blockly.Blocks['blink_screen'] = {
       init: function () {
-        this.appendStatementInput("blink_screen_code")
+        this.appendStatementInput('blink_screen_code')
           .setCheck(null)
-          .appendField("Hacer parpadear ")
+          .appendField('Hacer parpadear ')
           .appendField(
-            new Blockly.FieldVariable("MATRIX_LEDS"),
-            "current_display"
+            new Blockly.FieldVariable('MATRIX_LEDS'),
+            'current_display',
           );
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(15);
-        this.setTooltip("");
+        this.setTooltip('');
         this.setHelpUrl(url_documentation);
       },
     };
-    Blockly.Blocks["screen_on"] = {
+    Blockly.Blocks['screen_on'] = {
       init: function () {
         this.appendDummyInput()
-          .appendField("Encender pantalla")
+          .appendField('Encender pantalla')
           .appendField(
-            new Blockly.FieldVariable("MATRIX_LEDS"),
-            "currente_screen"
+            new Blockly.FieldVariable('MATRIX_LEDS'),
+            'currente_screen',
           );
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(15);
-        this.setTooltip("Enciende la matrix de leds.");
+        this.setTooltip('Enciende la matrix de leds.');
         this.setHelpUrl(url_documentation);
       },
     };
-    Blockly.Blocks["screen_off"] = {
+    Blockly.Blocks['screen_off'] = {
       init: function () {
         this.appendDummyInput()
-          .appendField("Apagar pantalla")
+          .appendField('Apagar pantalla')
           .appendField(
-            new Blockly.FieldVariable("MATRIX_LEDS"),
-            "currente_screen"
+            new Blockly.FieldVariable('MATRIX_LEDS'),
+            'currente_screen',
           );
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(15);
-        this.setTooltip("Apaga la matrix de leds.");
+        this.setTooltip('Apaga la matrix de leds.');
         this.setHelpUrl(url_documentation);
       },
     };
-    Blockly.Blocks["screen_clear"] = {
+    Blockly.Blocks['screen_clear'] = {
       init: function () {
         this.appendDummyInput()
-          .appendField("Limpiar pantalla")
+          .appendField('Limpiar pantalla')
           .appendField(
-            new Blockly.FieldVariable("MATRIX_LEDS"),
-            "currente_screen"
+            new Blockly.FieldVariable('MATRIX_LEDS'),
+            'currente_screen',
           );
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(15);
-        this.setTooltip("Limpia la matrix de leds.");
+        this.setTooltip('Limpia la matrix de leds.');
         this.setHelpUrl(url_documentation);
       },
     };
-    Blockly.Blocks["message_screen"] = {
+    Blockly.Blocks['message_screen'] = {
       init: function () {
         this.appendDummyInput()
-          .appendField("Escribir en ")
+          .appendField('Escribir en ')
           .appendField(
-            new Blockly.FieldVariable("MATRIX_LEDS"),
-            "current_screen"
+            new Blockly.FieldVariable('MATRIX_LEDS'),
+            'current_screen',
           );
-        this.appendValueInput("current_screen_message")
-          .setCheck("String")
-          .appendField(" mensaje");
+        this.appendValueInput('current_screen_message')
+          .setCheck('String')
+          .appendField(' mensaje');
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(15);
-        this.setTooltip("Asigna un mensaje a la matrix de leds.");
+        this.setTooltip('Asigna un mensaje a la matrix de leds.');
         this.setHelpUrl(url_documentation);
       },
     };
-    Blockly.Blocks["matrix_paint"] = {
+    Blockly.Blocks['matrix_paint'] = {
       init: function () {
         this.appendDummyInput()
-          .appendField("Dibujar ")
-          .appendField(new Blockly.FieldVariable("matrix"), "current_matrix");
+          .appendField('Dibujar ')
+          .appendField(
+            new Blockly.FieldVariable('matrix'),
+            'current_matrix',
+          );
         this.appendDummyInput()
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_1_1")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_1_2")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_1_3")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_1_4")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_1_5")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_1_6")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_1_7")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_1_8");
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_1_1')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_1_2')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_1_3')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_1_4')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_1_5')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_1_6')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_1_7')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_1_8');
         this.appendDummyInput()
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_2_1")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_2_2")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_2_3")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_2_4")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_2_5")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_2_6")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_2_7")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_2_8");
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_2_1')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_2_2')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_2_3')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_2_4')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_2_5')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_2_6')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_2_7')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_2_8');
         this.appendDummyInput()
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_3_1")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_3_2")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_3_3")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_3_4")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_3_5")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_3_6")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_3_7")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_3_8");
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_3_1')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_3_2')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_3_3')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_3_4')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_3_5')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_3_6')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_3_7')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_3_8');
         this.appendDummyInput()
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_4_1")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_4_2")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_4_3")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_4_4")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_4_5")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_4_6")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_4_7")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_4_8");
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_4_1')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_4_2')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_4_3')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_4_4')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_4_5')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_4_6')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_4_7')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_4_8');
         this.appendDummyInput()
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_5_1")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_5_2")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_5_3")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_5_4")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_5_5")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_5_6")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_5_7")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_5_8");
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_5_1')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_5_2')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_5_3')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_5_4')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_5_5')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_5_6')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_5_7')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_5_8');
         this.appendDummyInput()
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_6_1")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_6_2")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_6_3")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_6_4")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_6_5")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_6_6")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_6_7")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_6_8");
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_6_1')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_6_2')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_6_3')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_6_4')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_6_5')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_6_6')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_6_7')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_6_8');
         this.appendDummyInput()
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_7_1")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_7_2")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_7_3")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_7_4")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_7_5")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_7_6")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_7_7")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_7_8");
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_7_1')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_7_2')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_7_3')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_7_4')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_7_5')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_7_6')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_7_7')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_7_8');
         this.appendDummyInput()
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_8_1")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_8_2")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_8_3")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_8_4")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_8_5")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_8_6")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_8_7")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_8_8");
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_8_1')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_8_2')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_8_3')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_8_4')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_8_5')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_8_6')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_8_7')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_8_8');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(15);
-        this.setTooltip("");
+        this.setTooltip('');
         this.setHelpUrl(url_documentation);
       },
     };
-    Blockly.Blocks["matrix_leds_paint"] = {
+    Blockly.Blocks['matrix_leds_paint'] = {
       init: function () {
         this.appendDummyInput()
           .setAlign(Blockly.ALIGN_RIGHT)
-          .appendField("Dibujar en la matrix")
-          .appendField(new Blockly.FieldVariable("MATRIX_LEDS"), "matrix");
+          .appendField('Dibujar en la matrix')
+          .appendField(
+            new Blockly.FieldVariable('MATRIX_LEDS'),
+            'matrix',
+          );
         this.appendDummyInput()
           .setAlign(Blockly.ALIGN_RIGHT)
-          .appendField("con tantas pantallas unida")
-          .appendField(new Blockly.FieldNumber(1, 0, 20, 1), "cant-matrix");
-        this.appendValueInput("matrix_leds").setCheck("Array");
+          .appendField('con tantas pantallas unida')
+          .appendField(
+            new Blockly.FieldNumber(1, 0, 20, 1),
+            'cant-matrix',
+          );
+        this.appendValueInput('matrix_leds').setCheck('Array');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(15);
-        this.setTooltip("");
-        this.setHelpUrl("");
+        this.setTooltip('');
+        this.setHelpUrl('');
       },
     };
-    Blockly.Blocks["matrix_emoticon"] = {
+    Blockly.Blocks['matrix_emoticon'] = {
       init: function () {
         this.appendDummyInput()
-          .appendField("Posición")
-          .appendField(new Blockly.FieldNumber(1, 1, 20, 1), "position");
+          .appendField('Posición')
+          .appendField(
+            new Blockly.FieldNumber(1, 1, 20, 1),
+            'position',
+          );
         this.appendDummyInput()
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_1_1")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_1_2")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_1_3")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_1_4")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_1_5")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_1_6")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_1_7")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_1_8");
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_1_1')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_1_2')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_1_3')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_1_4')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_1_5')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_1_6')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_1_7')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_1_8');
         this.appendDummyInput()
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_2_1")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_2_2")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_2_3")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_2_4")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_2_5")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_2_6")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_2_7")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_2_8");
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_2_1')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_2_2')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_2_3')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_2_4')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_2_5')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_2_6')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_2_7')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_2_8');
         this.appendDummyInput()
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_3_1")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_3_2")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_3_3")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_3_4")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_3_5")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_3_6")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_3_7")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_3_8");
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_3_1')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_3_2')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_3_3')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_3_4')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_3_5')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_3_6')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_3_7')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_3_8');
         this.appendDummyInput()
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_4_1")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_4_2")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_4_3")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_4_4")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_4_5")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_4_6")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_4_7")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_4_8");
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_4_1')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_4_2')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_4_3')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_4_4')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_4_5')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_4_6')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_4_7')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_4_8');
         this.appendDummyInput()
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_5_1")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_5_2")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_5_3")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_5_4")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_5_5")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_5_6")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_5_7")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_5_8");
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_5_1')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_5_2')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_5_3')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_5_4')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_5_5')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_5_6')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_5_7')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_5_8');
         this.appendDummyInput()
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_6_1")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_6_2")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_6_3")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_6_4")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_6_5")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_6_6")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_6_7")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_6_8");
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_6_1')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_6_2')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_6_3')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_6_4')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_6_5')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_6_6')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_6_7')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_6_8');
         this.appendDummyInput()
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_7_1")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_7_2")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_7_3")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_7_4")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_7_5")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_7_6")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_7_7")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_7_8");
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_7_1')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_7_2')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_7_3')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_7_4')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_7_5')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_7_6')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_7_7')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_7_8');
         this.appendDummyInput()
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_8_1")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_8_2")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_8_3")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_8_4")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_8_5")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_8_6")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_8_7")
-          .appendField(new Blockly.FieldCheckbox("FALSE"), "led_8_8");
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_8_1')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_8_2')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_8_3')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_8_4')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_8_5')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_8_6')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_8_7')
+          .appendField(new Blockly.FieldCheckbox('FALSE'), 'led_8_8');
 
         this.setInputsInline(false);
         this.setOutput(true, null);
         this.setColour(15);
-        this.setTooltip("");
-        this.setHelpUrl("");
+        this.setTooltip('');
+        this.setHelpUrl('');
       },
     };
-    Blockly.Blocks["matrix_caracter"] = {
+    Blockly.Blocks['matrix_caracter'] = {
       init: function () {
         this.appendDummyInput()
-          .appendField("Posicion")
-          .appendField(new Blockly.FieldNumber(1, 1, 20, 1), "position");
-        this.appendValueInput("caracter")
-          .setCheck("String")
-          .appendField("Caracter");
+          .appendField('Posicion')
+          .appendField(
+            new Blockly.FieldNumber(1, 1, 20, 1),
+            'position',
+          );
+        this.appendValueInput('caracter')
+          .setCheck('String')
+          .appendField('Caracter');
         this.setOutput(true, null);
         this.setColour(15);
-        this.setTooltip("");
-        this.setHelpUrl("");
+        this.setTooltip('');
+        this.setHelpUrl('');
       },
     };
   },
   code: (Blockly) => {
-    Blockly.JavaScript["matrix"] = (block) => {
+    Blockly.JavaScript['matrix'] = (block) => {
       let pin_cs = Blockly.JavaScript.valueToCode(
         block,
-        "pin_cs",
-        Blockly.JavaScript.ORDER_ATOMIC
+        'pin_cs',
+        Blockly.JavaScript.ORDER_ATOMIC,
       );
       let pin_din = Blockly.JavaScript.valueToCode(
         block,
-        "pin_din",
-        Blockly.JavaScript.ORDER_ATOMIC
+        'pin_din',
+        Blockly.JavaScript.ORDER_ATOMIC,
       );
       let pin_clk = Blockly.JavaScript.valueToCode(
         block,
-        "pin_clk",
-        Blockly.JavaScript.ORDER_ATOMIC
+        'pin_clk',
+        Blockly.JavaScript.ORDER_ATOMIC,
       );
       let code = `
                 new five.Led.Matrix({
@@ -416,26 +431,26 @@ const gestures = require("./resources/gestures"),
                 })`;
       return [code, Blockly.JavaScript.ORDER_NONE];
     };
-    Blockly.JavaScript["matrix_with_extensions"] = (block) => {
+    Blockly.JavaScript['matrix_with_extensions'] = (block) => {
       let pin_cs = Blockly.JavaScript.valueToCode(
         block,
-        "pin_cs",
-        Blockly.JavaScript.ORDER_ATOMIC
+        'pin_cs',
+        Blockly.JavaScript.ORDER_ATOMIC,
       );
       let pin_din = Blockly.JavaScript.valueToCode(
         block,
-        "pin_din",
-        Blockly.JavaScript.ORDER_ATOMIC
+        'pin_din',
+        Blockly.JavaScript.ORDER_ATOMIC,
       );
       let pin_clk = Blockly.JavaScript.valueToCode(
         block,
-        "pin_clk",
-        Blockly.JavaScript.ORDER_ATOMIC
+        'pin_clk',
+        Blockly.JavaScript.ORDER_ATOMIC,
       );
       let extensions = Blockly.JavaScript.valueToCode(
         block,
-        "extensions",
-        Blockly.JavaScript.ORDER_ATOMIC
+        'extensions',
+        Blockly.JavaScript.ORDER_ATOMIC,
       );
       let code = `
                 new five.Led.Matrix({
@@ -452,15 +467,15 @@ const gestures = require("./resources/gestures"),
                 })`;
       return [code, Blockly.JavaScript.ORDER_NONE];
     };
-    Blockly.JavaScript["message_screen"] = (block) => {
+    Blockly.JavaScript['message_screen'] = (block) => {
       let matrix = Blockly.JavaScript.variableDB_.getName(
-        block.getFieldValue("current_screen"),
-        Blockly.Variables.NAME_TYPE
+        block.getFieldValue('current_screen'),
+        Blockly.Variables.NAME_TYPE,
       );
       let message = Blockly.JavaScript.valueToCode(
         block,
-        "current_screen_message",
-        Blockly.JavaScript.ORDER_ATOMIC
+        'current_screen_message',
+        Blockly.JavaScript.ORDER_ATOMIC,
       );
       let code = `
                     ${matrix}.custom.code = ${message};
@@ -475,174 +490,176 @@ const gestures = require("./resources/gestures"),
                     next();`;
       return code;
     };
-    Blockly.JavaScript["print_screen"] = (block) => {
+    Blockly.JavaScript['print_screen'] = (block) => {
       let matrix = Blockly.JavaScript.variableDB_.getName(
-        block.getFieldValue("current_led_matrix"),
-        Blockly.Variables.NAME_TYPE
+        block.getFieldValue('current_led_matrix'),
+        Blockly.Variables.NAME_TYPE,
       );
-      let gesture = block.getFieldValue("options");
+      let gesture = block.getFieldValue('options');
       let code = `${matrix}.custom.code = "${gesture}";
                             ${matrix}.on();
-                            ${matrix}.draw([${gestures.figures()[gesture]}]);`;
+                            ${matrix}.draw([${
+        gestures.figures()[gesture]
+      }]);`;
       return code;
     };
-    Blockly.JavaScript["screen_off"] = (block) => {
+    Blockly.JavaScript['screen_off'] = (block) => {
       let matrix = Blockly.JavaScript.variableDB_.getName(
-        block.getFieldValue("currente_screen"),
-        Blockly.Variables.NAME_TYPE
+        block.getFieldValue('currente_screen'),
+        Blockly.Variables.NAME_TYPE,
       );
       let code = `${matrix}.off();`;
       return code;
     };
-    Blockly.JavaScript["screen_on"] = (block) => {
+    Blockly.JavaScript['screen_on'] = (block) => {
       let matrix = Blockly.JavaScript.variableDB_.getName(
-        block.getFieldValue("currente_screen"),
-        Blockly.Variables.NAME_TYPE
+        block.getFieldValue('currente_screen'),
+        Blockly.Variables.NAME_TYPE,
       );
       let code = `${matrix}.on();`;
       return code;
     };
-    Blockly.JavaScript["screen_clear"] = (block) => {
+    Blockly.JavaScript['screen_clear'] = (block) => {
       let matrix = Blockly.JavaScript.variableDB_.getName(
-        block.getFieldValue("currente_screen"),
-        Blockly.Variables.NAME_TYPE
+        block.getFieldValue('currente_screen'),
+        Blockly.Variables.NAME_TYPE,
       );
       let code = `${matrix}.clear();`;
       return code;
     };
-    Blockly.JavaScript["matrix_paint"] = (block) => {
+    Blockly.JavaScript['matrix_paint'] = (block) => {
       let matrix = Blockly.JavaScript.variableDB_.getName(
-        block.getFieldValue("current_matrix"),
-        Blockly.Variables.NAME_TYPE
+        block.getFieldValue('current_matrix'),
+        Blockly.Variables.NAME_TYPE,
       );
       let checkbox_led_1_1 =
-        block.getFieldValue("led_1_1") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_1_1') == 'TRUE' ? '1' : '0';
       let checkbox_led_1_2 =
-        block.getFieldValue("led_1_2") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_1_2') == 'TRUE' ? '1' : '0';
       let checkbox_led_1_3 =
-        block.getFieldValue("led_1_3") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_1_3') == 'TRUE' ? '1' : '0';
       let checkbox_led_1_4 =
-        block.getFieldValue("led_1_4") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_1_4') == 'TRUE' ? '1' : '0';
       let checkbox_led_1_5 =
-        block.getFieldValue("led_1_5") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_1_5') == 'TRUE' ? '1' : '0';
       let checkbox_led_1_6 =
-        block.getFieldValue("led_1_6") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_1_6') == 'TRUE' ? '1' : '0';
       let checkbox_led_1_7 =
-        block.getFieldValue("led_1_7") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_1_7') == 'TRUE' ? '1' : '0';
       let checkbox_led_1_8 =
-        block.getFieldValue("led_1_8") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_1_8') == 'TRUE' ? '1' : '0';
       let checkbox_led_2_1 =
-        block.getFieldValue("led_2_1") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_2_1') == 'TRUE' ? '1' : '0';
       let checkbox_led_2_2 =
-        block.getFieldValue("led_2_2") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_2_2') == 'TRUE' ? '1' : '0';
       let checkbox_led_2_3 =
-        block.getFieldValue("led_2_3") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_2_3') == 'TRUE' ? '1' : '0';
       let checkbox_led_2_4 =
-        block.getFieldValue("led_2_4") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_2_4') == 'TRUE' ? '1' : '0';
       let checkbox_led_2_5 =
-        block.getFieldValue("led_2_5") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_2_5') == 'TRUE' ? '1' : '0';
       let checkbox_led_2_6 =
-        block.getFieldValue("led_2_6") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_2_6') == 'TRUE' ? '1' : '0';
       let checkbox_led_2_7 =
-        block.getFieldValue("led_2_7") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_2_7') == 'TRUE' ? '1' : '0';
       let checkbox_led_2_8 =
-        block.getFieldValue("led_2_8") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_2_8') == 'TRUE' ? '1' : '0';
       let checkbox_led_3_1 =
-        block.getFieldValue("led_3_1") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_3_1') == 'TRUE' ? '1' : '0';
       let checkbox_led_3_2 =
-        block.getFieldValue("led_3_2") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_3_2') == 'TRUE' ? '1' : '0';
       let checkbox_led_3_3 =
-        block.getFieldValue("led_3_3") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_3_3') == 'TRUE' ? '1' : '0';
       let checkbox_led_3_4 =
-        block.getFieldValue("led_3_4") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_3_4') == 'TRUE' ? '1' : '0';
       let checkbox_led_3_5 =
-        block.getFieldValue("led_3_5") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_3_5') == 'TRUE' ? '1' : '0';
       let checkbox_led_3_6 =
-        block.getFieldValue("led_3_6") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_3_6') == 'TRUE' ? '1' : '0';
       let checkbox_led_3_7 =
-        block.getFieldValue("led_3_7") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_3_7') == 'TRUE' ? '1' : '0';
       let checkbox_led_3_8 =
-        block.getFieldValue("led_3_8") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_3_8') == 'TRUE' ? '1' : '0';
       let checkbox_led_4_1 =
-        block.getFieldValue("led_4_1") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_4_1') == 'TRUE' ? '1' : '0';
       let checkbox_led_4_2 =
-        block.getFieldValue("led_4_2") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_4_2') == 'TRUE' ? '1' : '0';
       let checkbox_led_4_3 =
-        block.getFieldValue("led_4_3") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_4_3') == 'TRUE' ? '1' : '0';
       let checkbox_led_4_4 =
-        block.getFieldValue("led_4_4") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_4_4') == 'TRUE' ? '1' : '0';
       let checkbox_led_4_5 =
-        block.getFieldValue("led_4_5") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_4_5') == 'TRUE' ? '1' : '0';
       let checkbox_led_4_6 =
-        block.getFieldValue("led_4_6") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_4_6') == 'TRUE' ? '1' : '0';
       let checkbox_led_4_7 =
-        block.getFieldValue("led_4_7") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_4_7') == 'TRUE' ? '1' : '0';
       let checkbox_led_4_8 =
-        block.getFieldValue("led_4_8") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_4_8') == 'TRUE' ? '1' : '0';
       let checkbox_led_5_1 =
-        block.getFieldValue("led_5_1") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_5_1') == 'TRUE' ? '1' : '0';
       let checkbox_led_5_2 =
-        block.getFieldValue("led_5_2") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_5_2') == 'TRUE' ? '1' : '0';
       let checkbox_led_5_3 =
-        block.getFieldValue("led_5_3") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_5_3') == 'TRUE' ? '1' : '0';
       let checkbox_led_5_4 =
-        block.getFieldValue("led_5_4") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_5_4') == 'TRUE' ? '1' : '0';
       let checkbox_led_5_5 =
-        block.getFieldValue("led_5_5") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_5_5') == 'TRUE' ? '1' : '0';
       let checkbox_led_5_6 =
-        block.getFieldValue("led_5_6") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_5_6') == 'TRUE' ? '1' : '0';
       let checkbox_led_5_7 =
-        block.getFieldValue("led_5_7") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_5_7') == 'TRUE' ? '1' : '0';
       let checkbox_led_5_8 =
-        block.getFieldValue("led_5_8") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_5_8') == 'TRUE' ? '1' : '0';
       let checkbox_led_6_1 =
-        block.getFieldValue("led_6_1") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_6_1') == 'TRUE' ? '1' : '0';
       let checkbox_led_6_2 =
-        block.getFieldValue("led_6_2") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_6_2') == 'TRUE' ? '1' : '0';
       let checkbox_led_6_3 =
-        block.getFieldValue("led_6_3") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_6_3') == 'TRUE' ? '1' : '0';
       let checkbox_led_6_4 =
-        block.getFieldValue("led_6_4") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_6_4') == 'TRUE' ? '1' : '0';
       let checkbox_led_6_5 =
-        block.getFieldValue("led_6_5") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_6_5') == 'TRUE' ? '1' : '0';
       let checkbox_led_6_6 =
-        block.getFieldValue("led_6_6") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_6_6') == 'TRUE' ? '1' : '0';
       let checkbox_led_6_7 =
-        block.getFieldValue("led_6_7") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_6_7') == 'TRUE' ? '1' : '0';
       let checkbox_led_6_8 =
-        block.getFieldValue("led_6_8") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_6_8') == 'TRUE' ? '1' : '0';
       let checkbox_led_7_1 =
-        block.getFieldValue("led_7_1") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_7_1') == 'TRUE' ? '1' : '0';
       let checkbox_led_7_2 =
-        block.getFieldValue("led_7_2") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_7_2') == 'TRUE' ? '1' : '0';
       let checkbox_led_7_3 =
-        block.getFieldValue("led_7_3") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_7_3') == 'TRUE' ? '1' : '0';
       let checkbox_led_7_4 =
-        block.getFieldValue("led_7_4") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_7_4') == 'TRUE' ? '1' : '0';
       let checkbox_led_7_5 =
-        block.getFieldValue("led_7_5") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_7_5') == 'TRUE' ? '1' : '0';
       let checkbox_led_7_6 =
-        block.getFieldValue("led_7_6") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_7_6') == 'TRUE' ? '1' : '0';
       let checkbox_led_7_7 =
-        block.getFieldValue("led_7_7") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_7_7') == 'TRUE' ? '1' : '0';
       let checkbox_led_7_8 =
-        block.getFieldValue("led_7_8") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_7_8') == 'TRUE' ? '1' : '0';
       let checkbox_led_8_1 =
-        block.getFieldValue("led_8_1") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_8_1') == 'TRUE' ? '1' : '0';
       let checkbox_led_8_2 =
-        block.getFieldValue("led_8_2") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_8_2') == 'TRUE' ? '1' : '0';
       let checkbox_led_8_3 =
-        block.getFieldValue("led_8_3") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_8_3') == 'TRUE' ? '1' : '0';
       let checkbox_led_8_4 =
-        block.getFieldValue("led_8_4") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_8_4') == 'TRUE' ? '1' : '0';
       let checkbox_led_8_5 =
-        block.getFieldValue("led_8_5") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_8_5') == 'TRUE' ? '1' : '0';
       let checkbox_led_8_6 =
-        block.getFieldValue("led_8_6") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_8_6') == 'TRUE' ? '1' : '0';
       let checkbox_led_8_7 =
-        block.getFieldValue("led_8_7") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_8_7') == 'TRUE' ? '1' : '0';
       let checkbox_led_8_8 =
-        block.getFieldValue("led_8_8") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_8_8') == 'TRUE' ? '1' : '0';
 
       let code = `
                     ${matrix}.custom.code =  [${[
@@ -813,14 +830,14 @@ const gestures = require("./resources/gestures"),
 
       return code;
     };
-    Blockly.JavaScript["blink_screen"] = (block) => {
+    Blockly.JavaScript['blink_screen'] = (block) => {
       let matrix = Blockly.JavaScript.variableDB_.getName(
-        block.getFieldValue("current_display"),
-        Blockly.Variables.NAME_TYPE
+        block.getFieldValue('current_display'),
+        Blockly.Variables.NAME_TYPE,
       );
       let blink_screen_code = Blockly.JavaScript.statementToCode(
         block,
-        "blink_screen_code"
+        'blink_screen_code',
       );
       let code = `while(true){
                         ${matrix}.clear();
@@ -833,15 +850,15 @@ const gestures = require("./resources/gestures"),
 
       return code;
     };
-    Blockly.JavaScript["matrix_leds_paint"] = function (block) {
+    Blockly.JavaScript['matrix_leds_paint'] = function (block) {
       let matrix = Blockly.JavaScript.variableDB_.getName(
-        block.getFieldValue("matrix"),
-        Blockly.Variables.NAME_TYPE
+        block.getFieldValue('matrix'),
+        Blockly.Variables.NAME_TYPE,
       );
       let matrix_leds = Blockly.JavaScript.valueToCode(
         block,
-        "matrix_leds",
-        Blockly.JavaScript.ORDER_ATOMIC
+        'matrix_leds',
+        Blockly.JavaScript.ORDER_ATOMIC,
       );
       let code_matrix = ``;
 
@@ -852,136 +869,136 @@ const gestures = require("./resources/gestures"),
                     });\n`;
       return code;
     };
-    Blockly.JavaScript["matrix_emoticon"] = function (block) {
-      let position = Number(block.getFieldValue("position")) - 1;
+    Blockly.JavaScript['matrix_emoticon'] = function (block) {
+      let position = Number(block.getFieldValue('position')) - 1;
       let checkbox_led_1_1 =
-        block.getFieldValue("led_1_1") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_1_1') == 'TRUE' ? '1' : '0';
       let checkbox_led_1_2 =
-        block.getFieldValue("led_1_2") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_1_2') == 'TRUE' ? '1' : '0';
       let checkbox_led_1_3 =
-        block.getFieldValue("led_1_3") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_1_3') == 'TRUE' ? '1' : '0';
       let checkbox_led_1_4 =
-        block.getFieldValue("led_1_4") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_1_4') == 'TRUE' ? '1' : '0';
       let checkbox_led_1_5 =
-        block.getFieldValue("led_1_5") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_1_5') == 'TRUE' ? '1' : '0';
       let checkbox_led_1_6 =
-        block.getFieldValue("led_1_6") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_1_6') == 'TRUE' ? '1' : '0';
       let checkbox_led_1_7 =
-        block.getFieldValue("led_1_7") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_1_7') == 'TRUE' ? '1' : '0';
       let checkbox_led_1_8 =
-        block.getFieldValue("led_1_8") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_1_8') == 'TRUE' ? '1' : '0';
       let checkbox_led_2_1 =
-        block.getFieldValue("led_2_1") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_2_1') == 'TRUE' ? '1' : '0';
       let checkbox_led_2_2 =
-        block.getFieldValue("led_2_2") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_2_2') == 'TRUE' ? '1' : '0';
       let checkbox_led_2_3 =
-        block.getFieldValue("led_2_3") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_2_3') == 'TRUE' ? '1' : '0';
       let checkbox_led_2_4 =
-        block.getFieldValue("led_2_4") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_2_4') == 'TRUE' ? '1' : '0';
       let checkbox_led_2_5 =
-        block.getFieldValue("led_2_5") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_2_5') == 'TRUE' ? '1' : '0';
       let checkbox_led_2_6 =
-        block.getFieldValue("led_2_6") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_2_6') == 'TRUE' ? '1' : '0';
       let checkbox_led_2_7 =
-        block.getFieldValue("led_2_7") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_2_7') == 'TRUE' ? '1' : '0';
       let checkbox_led_2_8 =
-        block.getFieldValue("led_2_8") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_2_8') == 'TRUE' ? '1' : '0';
       let checkbox_led_3_1 =
-        block.getFieldValue("led_3_1") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_3_1') == 'TRUE' ? '1' : '0';
       let checkbox_led_3_2 =
-        block.getFieldValue("led_3_2") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_3_2') == 'TRUE' ? '1' : '0';
       let checkbox_led_3_3 =
-        block.getFieldValue("led_3_3") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_3_3') == 'TRUE' ? '1' : '0';
       let checkbox_led_3_4 =
-        block.getFieldValue("led_3_4") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_3_4') == 'TRUE' ? '1' : '0';
       let checkbox_led_3_5 =
-        block.getFieldValue("led_3_5") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_3_5') == 'TRUE' ? '1' : '0';
       let checkbox_led_3_6 =
-        block.getFieldValue("led_3_6") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_3_6') == 'TRUE' ? '1' : '0';
       let checkbox_led_3_7 =
-        block.getFieldValue("led_3_7") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_3_7') == 'TRUE' ? '1' : '0';
       let checkbox_led_3_8 =
-        block.getFieldValue("led_3_8") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_3_8') == 'TRUE' ? '1' : '0';
       let checkbox_led_4_1 =
-        block.getFieldValue("led_4_1") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_4_1') == 'TRUE' ? '1' : '0';
       let checkbox_led_4_2 =
-        block.getFieldValue("led_4_2") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_4_2') == 'TRUE' ? '1' : '0';
       let checkbox_led_4_3 =
-        block.getFieldValue("led_4_3") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_4_3') == 'TRUE' ? '1' : '0';
       let checkbox_led_4_4 =
-        block.getFieldValue("led_4_4") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_4_4') == 'TRUE' ? '1' : '0';
       let checkbox_led_4_5 =
-        block.getFieldValue("led_4_5") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_4_5') == 'TRUE' ? '1' : '0';
       let checkbox_led_4_6 =
-        block.getFieldValue("led_4_6") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_4_6') == 'TRUE' ? '1' : '0';
       let checkbox_led_4_7 =
-        block.getFieldValue("led_4_7") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_4_7') == 'TRUE' ? '1' : '0';
       let checkbox_led_4_8 =
-        block.getFieldValue("led_4_8") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_4_8') == 'TRUE' ? '1' : '0';
       let checkbox_led_5_1 =
-        block.getFieldValue("led_5_1") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_5_1') == 'TRUE' ? '1' : '0';
       let checkbox_led_5_2 =
-        block.getFieldValue("led_5_2") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_5_2') == 'TRUE' ? '1' : '0';
       let checkbox_led_5_3 =
-        block.getFieldValue("led_5_3") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_5_3') == 'TRUE' ? '1' : '0';
       let checkbox_led_5_4 =
-        block.getFieldValue("led_5_4") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_5_4') == 'TRUE' ? '1' : '0';
       let checkbox_led_5_5 =
-        block.getFieldValue("led_5_5") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_5_5') == 'TRUE' ? '1' : '0';
       let checkbox_led_5_6 =
-        block.getFieldValue("led_5_6") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_5_6') == 'TRUE' ? '1' : '0';
       let checkbox_led_5_7 =
-        block.getFieldValue("led_5_7") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_5_7') == 'TRUE' ? '1' : '0';
       let checkbox_led_5_8 =
-        block.getFieldValue("led_5_8") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_5_8') == 'TRUE' ? '1' : '0';
       let checkbox_led_6_1 =
-        block.getFieldValue("led_6_1") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_6_1') == 'TRUE' ? '1' : '0';
       let checkbox_led_6_2 =
-        block.getFieldValue("led_6_2") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_6_2') == 'TRUE' ? '1' : '0';
       let checkbox_led_6_3 =
-        block.getFieldValue("led_6_3") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_6_3') == 'TRUE' ? '1' : '0';
       let checkbox_led_6_4 =
-        block.getFieldValue("led_6_4") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_6_4') == 'TRUE' ? '1' : '0';
       let checkbox_led_6_5 =
-        block.getFieldValue("led_6_5") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_6_5') == 'TRUE' ? '1' : '0';
       let checkbox_led_6_6 =
-        block.getFieldValue("led_6_6") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_6_6') == 'TRUE' ? '1' : '0';
       let checkbox_led_6_7 =
-        block.getFieldValue("led_6_7") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_6_7') == 'TRUE' ? '1' : '0';
       let checkbox_led_6_8 =
-        block.getFieldValue("led_6_8") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_6_8') == 'TRUE' ? '1' : '0';
       let checkbox_led_7_1 =
-        block.getFieldValue("led_7_1") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_7_1') == 'TRUE' ? '1' : '0';
       let checkbox_led_7_2 =
-        block.getFieldValue("led_7_2") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_7_2') == 'TRUE' ? '1' : '0';
       let checkbox_led_7_3 =
-        block.getFieldValue("led_7_3") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_7_3') == 'TRUE' ? '1' : '0';
       let checkbox_led_7_4 =
-        block.getFieldValue("led_7_4") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_7_4') == 'TRUE' ? '1' : '0';
       let checkbox_led_7_5 =
-        block.getFieldValue("led_7_5") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_7_5') == 'TRUE' ? '1' : '0';
       let checkbox_led_7_6 =
-        block.getFieldValue("led_7_6") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_7_6') == 'TRUE' ? '1' : '0';
       let checkbox_led_7_7 =
-        block.getFieldValue("led_7_7") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_7_7') == 'TRUE' ? '1' : '0';
       let checkbox_led_7_8 =
-        block.getFieldValue("led_7_8") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_7_8') == 'TRUE' ? '1' : '0';
       let checkbox_led_8_1 =
-        block.getFieldValue("led_8_1") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_8_1') == 'TRUE' ? '1' : '0';
       let checkbox_led_8_2 =
-        block.getFieldValue("led_8_2") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_8_2') == 'TRUE' ? '1' : '0';
       let checkbox_led_8_3 =
-        block.getFieldValue("led_8_3") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_8_3') == 'TRUE' ? '1' : '0';
       let checkbox_led_8_4 =
-        block.getFieldValue("led_8_4") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_8_4') == 'TRUE' ? '1' : '0';
       let checkbox_led_8_5 =
-        block.getFieldValue("led_8_5") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_8_5') == 'TRUE' ? '1' : '0';
       let checkbox_led_8_6 =
-        block.getFieldValue("led_8_6") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_8_6') == 'TRUE' ? '1' : '0';
       let checkbox_led_8_7 =
-        block.getFieldValue("led_8_7") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_8_7') == 'TRUE' ? '1' : '0';
       let checkbox_led_8_8 =
-        block.getFieldValue("led_8_8") == "TRUE" ? "1" : "0";
+        block.getFieldValue('led_8_8') == 'TRUE' ? '1' : '0';
 
       let code = `{position:${position},
                  matrix_code:[${[
@@ -1069,12 +1086,12 @@ const gestures = require("./resources/gestures"),
 
       return [code, Blockly.JavaScript.ORDER_NONE];
     };
-    Blockly.JavaScript["matrix_caracter"] = function (block) {
-      let position = block.getFieldValue("position") - 1;
+    Blockly.JavaScript['matrix_caracter'] = function (block) {
+      let position = block.getFieldValue('position') - 1;
       let caracter = Blockly.JavaScript.valueToCode(
         block,
-        "caracter",
-        Blockly.JavaScript.ORDER_ATOMIC
+        'caracter',
+        Blockly.JavaScript.ORDER_ATOMIC,
       );
 
       let code = `{position:${position},matrix_code:${caracter}}`;

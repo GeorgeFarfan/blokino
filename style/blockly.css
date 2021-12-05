@@ -1,40 +1,40 @@
 .blocklyWorkspace {
-    font-weight: bold !important;
-    font-family: monospace !important;
+  font-weight: bold !important;
+  font-family: monospace !important;
 }
 
 .blocklyBlockCanvas {
-    font-weight: bold !important;
-    font-family: monospace !important;
+  font-weight: bold !important;
+  font-family: monospace !important;
 }
 
 .blocklyTreeLabel {
-    cursor: pointer;
-    font-family: monospace;
-    padding: 0 3px;
-    font-size: 1.5em;
-    vertical-align: middle;
+  cursor: pointer;
+  font-family: monospace;
+  padding: 0 3px;
+  font-size: 1.5em;
+  vertical-align: middle;
 }
 
 .blocklyToolboxDiv {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .blocklySvg {
-    background-color: #ffffff00 !important;
+  background-color: #ffffff00 !important;
 }
 
 .blocklyTrash {
-    opacity: 1 !important;
+  opacity: 1 !important;
 }
 
 .blocklyZoom > image,
 .blocklyZoom > svg > image {
-    opacity: 1 !important;
-    cursor: pointer;
+  opacity: 1 !important;
+  cursor: pointer;
 }
 
 .blocklyCommentTextarea {
-    background-color: #e9ecef !important;
-    font-weight: bold !important;
+  background-color: #e9ecef !important;
+  font-weight: bold !important;
 }

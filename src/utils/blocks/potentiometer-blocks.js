@@ -1,153 +1,159 @@
-"use strict";
+'use strict';
 
 /**
  * @author Jorge Farfan Coaguila
  * @description Este módulo contiene la configuracion del bloque POTENCIOMETRO.
  */
 
-const url_documentation = "http://blokino-platform.com/get_started",
+const url_documentation = 'http://blokino-platform.com/get_started',
   potentiometerFunctions = {
     block: (Blockly) => {
-      Blockly.Blocks["potentiometer"] = {
+      Blockly.Blocks['potentiometer'] = {
         init: function () {
-          this.appendValueInput("potentiometer_pin")
+          this.appendValueInput('potentiometer_pin')
             .appendField(
               new Blockly.FieldImage(
-                "../../images/blocks/potentiometer.png",
+                '../../images/blocks/potentiometer.png',
                 40,
                 40,
-                "*"
-              )
+                '*',
+              ),
             )
-            .setCheck("String")
-            .appendField("Crear Potenciometro");
+            .setCheck('String')
+            .appendField('Crear Potenciometro');
           this.setInputsInline(true);
           this.setOutput(true, null);
           this.setColour(240);
-          this.setTooltip("");
+          this.setTooltip('');
           this.setHelpUrl(url_documentation);
         },
       };
-      Blockly.Blocks["potentiometer_blink"] = {
+      Blockly.Blocks['potentiometer_blink'] = {
         init: function () {
           this.appendDummyInput()
-            .appendField("Girar")
+            .appendField('Girar')
             .appendField(
-              new Blockly.FieldVariable("POTENCIOMETRO"),
-              "current_potentiometer"
+              new Blockly.FieldVariable('POTENCIOMETRO'),
+              'current_potentiometer',
             )
-            .appendField("ajustar velocidad de Parpadeo del Led")
-            .appendField(new Blockly.FieldVariable("LED"), "current_led");
+            .appendField('ajustar velocidad de Parpadeo del Led')
+            .appendField(
+              new Blockly.FieldVariable('LED'),
+              'current_led',
+            );
           this.setInputsInline(false);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
           this.setColour(240);
-          this.setTooltip("");
+          this.setTooltip('');
           this.setHelpUrl(url_documentation);
         },
       };
-      Blockly.Blocks["potentiometer_brightness"] = {
+      Blockly.Blocks['potentiometer_brightness'] = {
         init: function () {
           this.appendDummyInput()
-            .appendField("Girar ")
+            .appendField('Girar ')
             .appendField(
-              new Blockly.FieldVariable("POTENCIOMETRO"),
-              "current_potentiometer"
+              new Blockly.FieldVariable('POTENCIOMETRO'),
+              'current_potentiometer',
             );
           this.appendDummyInput()
-            .appendField(" Ajustar Brillo del Led")
-            .appendField(new Blockly.FieldVariable("LED"), "current_led");
+            .appendField(' Ajustar Brillo del Led')
+            .appendField(
+              new Blockly.FieldVariable('LED'),
+              'current_led',
+            );
           this.setInputsInline(true);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
           this.setColour(230);
-          this.setTooltip("");
+          this.setTooltip('');
           this.setHelpUrl(url_documentation);
         },
       };
-      Blockly.Blocks["potentiometer_brightness_list"] = {
+      Blockly.Blocks['potentiometer_brightness_list'] = {
         init: function () {
-          this.appendValueInput("current_list_leds")
-            .setCheck("Array")
-            .appendField("Girar ")
+          this.appendValueInput('current_list_leds')
+            .setCheck('Array')
+            .appendField('Girar ')
             .appendField(
-              new Blockly.FieldVariable("POTENCIOMETRO"),
-              "current_potentiometer"
+              new Blockly.FieldVariable('POTENCIOMETRO'),
+              'current_potentiometer',
             )
-            .appendField("ajustar brillo de los Leds");
+            .appendField('ajustar brillo de los Leds');
           this.setInputsInline(true);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
           this.setColour(210);
-          this.setTooltip("");
+          this.setTooltip('');
           this.setHelpUrl(url_documentation);
         },
       };
-      Blockly.Blocks["potentiometer_blink_list"] = {
+      Blockly.Blocks['potentiometer_blink_list'] = {
         init: function () {
-          this.appendValueInput("current_list_leds")
-            .setCheck("Array")
-            .appendField("Girar ")
+          this.appendValueInput('current_list_leds')
+            .setCheck('Array')
+            .appendField('Girar ')
             .appendField(
-              new Blockly.FieldVariable("POTENCIOMETRO"),
-              "current_potentiometer"
+              new Blockly.FieldVariable('POTENCIOMETRO'),
+              'current_potentiometer',
             )
-            .appendField("ajustar parpadeo de los Leds");
+            .appendField('ajustar parpadeo de los Leds');
           this.setInputsInline(true);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
           this.setColour(210);
-          this.setTooltip("");
+          this.setTooltip('');
           this.setHelpUrl(url_documentation);
         },
       };
-      Blockly.Blocks["potentiometer_servo_movement"] = {
+      Blockly.Blocks['potentiometer_servo_movement'] = {
         init: function () {
           this.appendDummyInput()
-            .appendField("Girar")
+            .appendField('Girar')
             .appendField(
-              new Blockly.FieldVariable("POTENCIOMETRO"),
-              "current_potentiometer"
+              new Blockly.FieldVariable('POTENCIOMETRO'),
+              'current_potentiometer',
             );
           this.appendDummyInput()
-            .appendField(" Mover Servomotor ")
+            .appendField(' Mover Servomotor ')
             .appendField(
-              new Blockly.FieldVariable("SERVOMOTOR"),
-              "current_servo"
+              new Blockly.FieldVariable('SERVOMOTOR'),
+              'current_servo',
             );
           this.setInputsInline(true);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
           this.setColour(210);
-          this.setTooltip("");
+          this.setTooltip('');
           this.setHelpUrl(url_documentation);
         },
       };
-      Blockly.Blocks["potentiometer_servo_list_mov"] = {
+      Blockly.Blocks['potentiometer_servo_list_mov'] = {
         init: function () {
-          this.appendValueInput("current_list_servos")
-            .setCheck("Array")
-            .appendField("Girar ")
+          this.appendValueInput('current_list_servos')
+            .setCheck('Array')
+            .appendField('Girar ')
             .appendField(
-              new Blockly.FieldVariable("POTENCIOMETRO"),
-              "current_potentiometer"
+              new Blockly.FieldVariable('POTENCIOMETRO'),
+              'current_potentiometer',
             )
-            .appendField("servos");
+            .appendField('servos');
           this.setInputsInline(true);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
           this.setColour(210);
-          this.setTooltip("");
+          this.setTooltip('');
           this.setHelpUrl(url_documentation);
         },
       };
     },
     code: (Blockly) => {
-      Blockly.JavaScript["potentiometer"] = (block) => {
+      Blockly.JavaScript['potentiometer'] = (block) => {
         let pin = Blockly.JavaScript.valueToCode(
           block,
-          "potentiometer_pin",
-          Blockly.JavaScript.ORDER_ATOMIC
+          'potentiometer_pin',
+          Blockly.JavaScript.ORDER_ATOMIC,
         );
         let code = `
                         new five.Sensor({
@@ -162,14 +168,14 @@ const url_documentation = "http://blokino-platform.com/get_started",
         return [code, Blockly.JavaScript.ORDER_NONE];
       };
 
-      Blockly.JavaScript["potentiometer_blink"] = (block) => {
+      Blockly.JavaScript['potentiometer_blink'] = (block) => {
         let potentiometer = Blockly.JavaScript.variableDB_.getName(
-          block.getFieldValue("current_potentiometer"),
-          Blockly.Variables.NAME_TYPE
+          block.getFieldValue('current_potentiometer'),
+          Blockly.Variables.NAME_TYPE,
         );
         let led = Blockly.JavaScript.variableDB_.getName(
-          block.getFieldValue("current_led"),
-          Blockly.Variables.NAME_TYPE
+          block.getFieldValue('current_led'),
+          Blockly.Variables.NAME_TYPE,
         );
         let code = `
                     spinBlink(${led}); 
@@ -185,14 +191,14 @@ const url_documentation = "http://blokino-platform.com/get_started",
                     `;
         return code;
       };
-      Blockly.JavaScript["potentiometer_brightness"] = (block) => {
+      Blockly.JavaScript['potentiometer_brightness'] = (block) => {
         let potentiometer = Blockly.JavaScript.variableDB_.getName(
-          block.getFieldValue("current_potentiometer"),
-          Blockly.Variables.NAME_TYPE
+          block.getFieldValue('current_potentiometer'),
+          Blockly.Variables.NAME_TYPE,
         );
         let led = Blockly.JavaScript.variableDB_.getName(
-          block.getFieldValue("current_led"),
-          Blockly.Variables.NAME_TYPE
+          block.getFieldValue('current_led'),
+          Blockly.Variables.NAME_TYPE,
         );
         let code = `
                     let old_data;
@@ -205,15 +211,17 @@ const url_documentation = "http://blokino-platform.com/get_started",
                 `;
         return code;
       };
-      Blockly.JavaScript["potentiometer_brightness_list"] = (block) => {
+      Blockly.JavaScript['potentiometer_brightness_list'] = (
+        block,
+      ) => {
         let potentiometer = Blockly.JavaScript.variableDB_.getName(
-          block.getFieldValue("current_potentiometer"),
-          Blockly.Variables.NAME_TYPE
+          block.getFieldValue('current_potentiometer'),
+          Blockly.Variables.NAME_TYPE,
         );
         let leds = Blockly.JavaScript.valueToCode(
           block,
-          "current_list_leds",
-          Blockly.JavaScript.ORDER_ATOMIC
+          'current_list_leds',
+          Blockly.JavaScript.ORDER_ATOMIC,
         );
         let code = `
                         let old_data;
@@ -228,15 +236,15 @@ const url_documentation = "http://blokino-platform.com/get_started",
                     `;
         return code;
       };
-      Blockly.JavaScript["potentiometer_blink_list"] = (block) => {
+      Blockly.JavaScript['potentiometer_blink_list'] = (block) => {
         let potentiometer = Blockly.JavaScript.variableDB_.getName(
-          block.getFieldValue("current_potentiometer"),
-          Blockly.Variables.NAME_TYPE
+          block.getFieldValue('current_potentiometer'),
+          Blockly.Variables.NAME_TYPE,
         );
         let leds = Blockly.JavaScript.valueToCode(
           block,
-          "current_list_leds",
-          Blockly.JavaScript.ORDER_ATOMIC
+          'current_list_leds',
+          Blockly.JavaScript.ORDER_ATOMIC,
         );
         let code = `
                 let old_data;
@@ -257,14 +265,16 @@ const url_documentation = "http://blokino-platform.com/get_started",
                 })`;
         return code;
       };
-      Blockly.JavaScript["potentiometer_servo_movement"] = (block) => {
+      Blockly.JavaScript['potentiometer_servo_movement'] = (
+        block,
+      ) => {
         let potentiometer = Blockly.JavaScript.variableDB_.getName(
-          block.getFieldValue("current_potentiometer"),
-          Blockly.Variables.NAME_TYPE
+          block.getFieldValue('current_potentiometer'),
+          Blockly.Variables.NAME_TYPE,
         );
         let servo = Blockly.JavaScript.variableDB_.getName(
-          block.getFieldValue("current_servo"),
-          Blockly.Variables.NAME_TYPE
+          block.getFieldValue('current_servo'),
+          Blockly.Variables.NAME_TYPE,
         );
         let code = `
                     ${servo}.to(0);
@@ -273,15 +283,17 @@ const url_documentation = "http://blokino-platform.com/get_started",
                     })`;
         return code;
       };
-      Blockly.JavaScript["potentiometer_servo_list_mov"] = (block) => {
+      Blockly.JavaScript['potentiometer_servo_list_mov'] = (
+        block,
+      ) => {
         let potentiometer = Blockly.JavaScript.variableDB_.getName(
-          block.getFieldValue("current_potentiometer"),
-          Blockly.Variables.NAME_TYPE
+          block.getFieldValue('current_potentiometer'),
+          Blockly.Variables.NAME_TYPE,
         );
         let servos = Blockly.JavaScript.valueToCode(
           block,
-          "current_list_servos",
-          Blockly.JavaScript.ORDER_ATOMIC
+          'current_list_servos',
+          Blockly.JavaScript.ORDER_ATOMIC,
         );
         let code = `
                    ${servos}.forEach(currentServo =>{

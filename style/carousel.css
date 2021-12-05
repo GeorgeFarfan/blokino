@@ -1,56 +1,56 @@
 .carousel-control-prev-custom {
-    background-color: #6c5070;
-    height: 5em;
-    width: 2.5em;
+  background-color: #6c5070;
+  height: 5em;
+  width: 2.5em;
 }
 
 .carousel-control-next-custom {
-    background-color: #6c5070;
-    height: 5em;
-    width: 2.5em;
+  background-color: #6c5070;
+  height: 5em;
+  width: 2.5em;
 }
 
 .carousel-control-next-icon,
 .carousel-control-prev-icon {
-    width: 70px !important;
-    height: 70px !important;
+  width: 70px !important;
+  height: 70px !important;
 }
 
 .carousel-control-prev-main {
-    margin: auto;
-    background-color: rgb(32, 32, 32);
-    height: 5em;
-    width: 6em;
+  margin: auto;
+  background-color: rgb(32, 32, 32);
+  height: 5em;
+  width: 6em;
 }
 
 .carousel-control-next-main {
-    margin: auto;
-    background-color: rgb(32, 32, 32);
-    height: 5em;
-    width: 6em;
+  margin: auto;
+  background-color: rgb(32, 32, 32);
+  height: 5em;
+  width: 6em;
 }
 
 #carousel-test p {
-    word-wrap: break-word;
-    font-size: 17px !important;
+  word-wrap: break-word;
+  font-size: 17px !important;
 }
 
 .carousel-description {
-    z-index: 1;
-    background-color: coral;
-    padding: 1.5em;
-    border: 3px solid #000000;
+  z-index: 1;
+  background-color: coral;
+  padding: 1.5em;
+  border: 3px solid #000000;
 }
 
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-    color: #fff;
-    padding: 20px;
-    width: 7em;
-    background-color: #4098cc;
-    text-align: center;
+  color: #fff;
+  padding: 20px;
+  width: 7em;
+  background-color: #4098cc;
+  text-align: center;
 }
 
 .carousel-image {
-    height: 50% !important;
+  height: 50% !important;
 }

@@ -1,128 +1,128 @@
-"use strict";
+'use strict';
 
 /**
  * @author Jorge Farfan Coaguila
  * @description Este módulo contiene la configuracion del bloque SENSOR-PROXIMIDAD.
  */
 
-const url_documentation = "http://blokino-platform.com/get_started",
+const url_documentation = 'http://blokino-platform.com/get_started',
   proximityFunctions = {
     block: (Blockly) => {
-      Blockly.Blocks["proximity_block"] = {
+      Blockly.Blocks['proximity_block'] = {
         init: function () {
-          this.appendValueInput("sensor_prox_pin")
+          this.appendValueInput('sensor_prox_pin')
             .appendField(
               new Blockly.FieldImage(
-                "../../images/blocks/sensor-proximity.png",
+                '../../images/blocks/sensor-proximity.png',
                 40,
                 40,
-                "*"
-              )
+                '*',
+              ),
             )
-            .setCheck("String")
-            .appendField("Crear Sensor de Proximidad");
+            .setCheck('String')
+            .appendField('Crear Sensor de Proximidad');
           this.setInputsInline(true);
           this.setOutput(true, null);
           this.setColour(150);
-          this.setTooltip("");
+          this.setTooltip('');
           this.setHelpUrl(url_documentation);
         },
       };
-      Blockly.Blocks["proximity_block_with_freq"] = {
+      Blockly.Blocks['proximity_block_with_freq'] = {
         init: function () {
-          this.appendValueInput("sensor_prox_pin")
-            .setCheck("String")
-            .appendField("Crear Sensor de proximidad");
-          this.appendValueInput("frecuency")
-            .setCheck("Number")
-            .appendField("Tiempo")
+          this.appendValueInput('sensor_prox_pin')
+            .setCheck('String')
+            .appendField('Crear Sensor de proximidad');
+          this.appendValueInput('frecuency')
+            .setCheck('Number')
+            .appendField('Tiempo')
             .appendField(
               new Blockly.FieldDropdown([
-                ["milisegundos", "miliseconds"],
-                ["segundos", "seconds"],
+                ['milisegundos', 'miliseconds'],
+                ['segundos', 'seconds'],
               ]),
-              "current_time"
+              'current_time',
             )
-            .appendField("Frecuencia");
+            .appendField('Frecuencia');
           this.setInputsInline(true);
           this.setOutput(true);
           this.setColour(150);
-          this.setTooltip("");
+          this.setTooltip('');
           this.setHelpUrl(url_documentation);
         },
       };
-      Blockly.Blocks["proximity_capture_distances"] = {
+      Blockly.Blocks['proximity_capture_distances'] = {
         init: function () {
-          this.appendStatementInput("code_capture_distances")
+          this.appendStatementInput('code_capture_distances')
             .setCheck(null)
-            .appendField("Capturar distancia")
+            .appendField('Capturar distancia')
             .appendField(
-              new Blockly.FieldVariable("SENSOR_PROXIMIDAD"),
-              "current_sensor_proximity"
+              new Blockly.FieldVariable('SENSOR_PROXIMIDAD'),
+              'current_sensor_proximity',
             );
           this.setInputsInline(true);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
           this.setColour(150);
-          this.setTooltip("");
+          this.setTooltip('');
           this.setHelpUrl(url_documentation);
         },
       };
-      Blockly.Blocks["proximity_capture_very_close"] = {
+      Blockly.Blocks['proximity_capture_very_close'] = {
         init: function () {
-          this.appendStatementInput("code_capture_very_close")
+          this.appendStatementInput('code_capture_very_close')
             .setCheck(null)
-            .appendField("Muy Cerca");
+            .appendField('Muy Cerca');
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
           this.setColour(150);
-          this.setTooltip("");
+          this.setTooltip('');
           this.setHelpUrl(url_documentation);
         },
       };
-      Blockly.Blocks["proximity_capture_near"] = {
+      Blockly.Blocks['proximity_capture_near'] = {
         init: function () {
-          this.appendStatementInput("code_capture_near")
+          this.appendStatementInput('code_capture_near')
             .setCheck(null)
-            .appendField("Cerca");
+            .appendField('Cerca');
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
           this.setColour(150);
-          this.setTooltip("");
+          this.setTooltip('');
           this.setHelpUrl(url_documentation);
         },
       };
-      Blockly.Blocks["proximity_capture_far"] = {
+      Blockly.Blocks['proximity_capture_far'] = {
         init: function () {
-          this.appendStatementInput("code_capture_far")
+          this.appendStatementInput('code_capture_far')
             .setCheck(null)
-            .appendField("Lejos");
+            .appendField('Lejos');
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
           this.setColour(150);
-          this.setTooltip("");
+          this.setTooltip('');
           this.setHelpUrl(url_documentation);
         },
       };
-      Blockly.Blocks["proximity_capture_far_away"] = {
+      Blockly.Blocks['proximity_capture_far_away'] = {
         init: function () {
-          this.appendStatementInput("code_capture_far_away")
+          this.appendStatementInput('code_capture_far_away')
             .setCheck(null)
-            .appendField("Muy Lejos");
+            .appendField('Muy Lejos');
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
           this.setColour(150);
-          this.setTooltip("");
+          this.setTooltip('');
           this.setHelpUrl(url_documentation);
         },
       };
     },
     code: (Blockly) => {
-      Blockly.JavaScript["proximity_block"] = (block) => {
+      Blockly.JavaScript['proximity_block'] = (block) => {
         let pin = Blockly.JavaScript.valueToCode(
           block,
-          "sensor_prox_pin",
-          Blockly.JavaScript.ORDER_ATOMIC
+          'sensor_prox_pin',
+          Blockly.JavaScript.ORDER_ATOMIC,
         );
         let code = `
                         new five.Proximity(
@@ -138,27 +138,28 @@ const url_documentation = "http://blokino-platform.com/get_started",
         return [code, Blockly.JavaScript.ORDER_NONE];
       };
 
-      Blockly.JavaScript["proximity_block_with_freq"] = (block) => {
+      Blockly.JavaScript['proximity_block_with_freq'] = (block) => {
         let pin = Blockly.JavaScript.valueToCode(
           block,
-          "sensor_prox_pin",
-          Blockly.JavaScript.ORDER_ATOMIC
+          'sensor_prox_pin',
+          Blockly.JavaScript.ORDER_ATOMIC,
         );
         let time = 0;
-        let dropdown_time_period = block.getFieldValue("current_time");
+        let dropdown_time_period =
+          block.getFieldValue('current_time');
         let number_time = Blockly.JavaScript.valueToCode(
           block,
-          "frecuency",
-          Blockly.JavaScript.ORDER_ATOMIC
+          'frecuency',
+          Blockly.JavaScript.ORDER_ATOMIC,
         );
         switch (dropdown_time_period) {
-          case "miliseconds":
+          case 'miliseconds':
             time = number_time * 100;
             break;
-          case "seconds":
+          case 'seconds':
             time = number_time * 1000;
             break;
-          case "minutes":
+          case 'minutes':
             time = number_time * 60000;
             break;
         }
@@ -171,14 +172,14 @@ const url_documentation = "http://blokino-platform.com/get_started",
         return [code, Blockly.JavaScript.ORDER_NONE];
       };
 
-      Blockly.JavaScript["proximity_capture_distances"] = (block) => {
+      Blockly.JavaScript['proximity_capture_distances'] = (block) => {
         let sensor_proximity = Blockly.JavaScript.variableDB_.getName(
-          block.getFieldValue("current_sensor_proximity"),
-          Blockly.Variables.NAME_TYPE
+          block.getFieldValue('current_sensor_proximity'),
+          Blockly.Variables.NAME_TYPE,
         );
         let proximity_code = Blockly.JavaScript.statementToCode(
           block,
-          "code_capture_distances"
+          'code_capture_distances',
         );
         let code =
           `${sensor_proximity}.on('data',function(){ 
@@ -187,10 +188,12 @@ const url_documentation = "http://blokino-platform.com/get_started",
                 })`;
         return code;
       };
-      Blockly.JavaScript["proximity_capture_very_close"] = (block) => {
+      Blockly.JavaScript['proximity_capture_very_close'] = (
+        block,
+      ) => {
         let proximity_code = Blockly.JavaScript.statementToCode(
           block,
-          "code_capture_very_close"
+          'code_capture_very_close',
         );
         let code = `if(cm > 0 && cm < 12){
                     ${proximity_code}
@@ -198,30 +201,30 @@ const url_documentation = "http://blokino-platform.com/get_started",
         return code;
       };
 
-      Blockly.JavaScript["proximity_capture_near"] = (block) => {
+      Blockly.JavaScript['proximity_capture_near'] = (block) => {
         let proximity_code = Blockly.JavaScript.statementToCode(
           block,
-          "code_capture_near"
+          'code_capture_near',
         );
         let code = `if(cm > 12 && cm < 20){
                     ${proximity_code}
                 }`;
         return code;
       };
-      Blockly.JavaScript["proximity_capture_far"] = (block) => {
+      Blockly.JavaScript['proximity_capture_far'] = (block) => {
         let proximity_code = Blockly.JavaScript.statementToCode(
           block,
-          "code_capture_far"
+          'code_capture_far',
         );
         let code = `if(cm > 20 && cm < 35){
                     ${proximity_code}
                 }`;
         return code;
       };
-      Blockly.JavaScript["proximity_capture_far_away"] = (block) => {
+      Blockly.JavaScript['proximity_capture_far_away'] = (block) => {
         let proximity_code = Blockly.JavaScript.statementToCode(
           block,
-          "code_capture_far_away"
+          'code_capture_far_away',
         );
         let code = `if(cm > 35 && cm < 70){
                     ${proximity_code}

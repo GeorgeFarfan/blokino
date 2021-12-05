@@ -1,23 +1,23 @@
-"use strict";
+'use strict';
 
 /**
  * @author Jorge Farfan Coaguila
  * @description Este módulo contiene los menus para el tutorial de Variables y tipo de datos
  */
 let menuFunctions = {
-    menu: () => {
-        return {
-            test_1: {
-                code: `
+  menu: () => {
+    return {
+      test_1: {
+        code: `
                     <xml> 
                         <category name="Bloques" colour="270"> 
                             <category name="Variables" custom="VARIABLE" colour="210"/>
                             <sep gap="32"></sep> 
                         </category>
-                    </xml>`
-            },
-            test_2: {
-                code: `
+                    </xml>`,
+      },
+      test_2: {
+        code: `
                     <xml>
                         <category name="Bloques" colour="270"> 
                             <category name="Variables" custom="VARIABLE" colour="210"/>
@@ -55,10 +55,10 @@ let menuFunctions = {
                             </category>
                             <sep gap="32"></sep> 
                         </category>
-                    </xml>`
-            },
-            test_3: {
-                code: `
+                    </xml>`,
+      },
+      test_3: {
+        code: `
                     <xml>
                         <category name="Bloques" colour="270"> 
                             <category name="Variables" custom="VARIABLE" colour="210"/>
@@ -84,10 +84,10 @@ let menuFunctions = {
                             </category>
                             <sep gap="32"></sep> 
                         </category>
-                    </xml>`
-            },
-            test_4: {
-                code: `
+                    </xml>`,
+      },
+      test_4: {
+        code: `
                     <xml>
                         <category name="Bloques" colour="270"> 
                             <category name="Variables" custom="VARIABLE" colour="210"/>
@@ -147,10 +147,10 @@ let menuFunctions = {
                                 <sep gap="32"></sep> 
                             </category> 
                         </category>
-                    </xml>`
-            }
-        };
-    }
+                    </xml>`,
+      },
+    };
+  },
 };
 
 module.exports = menuFunctions;

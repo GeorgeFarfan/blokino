@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * @author Jorge Farfan Coaguila
@@ -6,119 +6,146 @@
  */
 
 let variables = [],
-    currentCallback = null;
-$("#modal-new-variable").on("hidden.bs.modal", () => {
-    let new_variable = $("#new-variable")
-        .val()
-        .replace(/\s/g, "");
-    if (!variables.includes(new_variable)) {
-        if (utils.allLetters(new_variable)) {
-            currentCallback(new_variable);
-            variables.push(new_variable);
-            $("#new-variable").val("");
-        } else {
-            if (variables.length == 0) {
-                utils.setModalError(
-                    "",
-                    messages.variable(new_variable).empty.msg,
-                    messages.variable(new_variable).empty.btn
-                );
-            } else {
-                utils.setModalError(
-                    "",
-                    messages.variable(new_variable).error_expert.msg,
-                    messages.variable(new_variable).error_expert.btn
-                );
-            }
-        }
+  currentCallback = null;
+$('#modal-new-variable').on('hidden.bs.modal', () => {
+  let new_variable = $('#new-variable').val().replace(/\s/g, '');
+  if (!variables.includes(new_variable)) {
+    if (utils.allLetters(new_variable)) {
+      currentCallback(new_variable);
+      variables.push(new_variable);
+      $('#new-variable').val('');
     } else {
+      if (variables.length == 0) {
         utils.setModalError(
-            "",
-            messages.variable(new_variable).duplicate.msg,
-            messages.variable(new_variable).duplicate.btn
+          '',
+          messages.variable(new_variable).empty.msg,
+          messages.variable(new_variable).empty.btn,
         );
+      } else {
+        utils.setModalError(
+          '',
+          messages.variable(new_variable).error_expert.msg,
+          messages.variable(new_variable).error_expert.btn,
+        );
+      }
     }
+  } else {
+    utils.setModalError(
+      '',
+      messages.variable(new_variable).duplicate.msg,
+      messages.variable(new_variable).duplicate.btn,
+    );
+  }
 });
 
 // Modal para eliminar variables.
 Blockly.confirm = (object, callback) => {
-    currentCallback = callback;
-    if (object.type === "delete_variable") {
-        variables = variables.filter(var_blocks => var_blocks !== object.variable);
-        $("#modal-variable-remove").modal();
-        $("#removeVariableTitle").html(`<h2>${object.message}</h2>`);
-    }
+  currentCallback = callback;
+  if (object.type === 'delete_variable') {
+    variables = variables.filter(
+      (var_blocks) => var_blocks !== object.variable,
+    );
+    $('#modal-variable-remove').modal();
+    $('#removeVariableTitle').html(`<h2>${object.message}</h2>`);
+  }
 };
 
-document.getElementById("executeCode").addEventListener("click", function(event) {
+document
+  .getElementById('executeCode')
+  .addEventListener('click', function (event) {
     let code = getCode(Blockly.JavaScript.workspaceToCode(workspace));
-    let device = $("input:radio[name=radios]:checked").val();
+    let device = $('input:radio[name=radios]:checked').val();
     if (device !== undefined) {
-        ipcRenderer.removeAllListeners("channel_messages");
-        utils.openModalWaiting("Verificando el programa ...");
-        ipcRenderer.send("execute", {
-            code: code,
-            device: device,
-            validate_code: {
-                variable: [``]
-            },
-            channel: "channel_expert",
-            channel_message: "channel_messages"
-        });
-        localStorage.setItem("device", device);
-        ipcRenderer.on("channel_messages", (event, result) => {
-            let data = JSON.parse(result);
-            if (data.type && data.type == "message") {
-                utils.addMessage(data.message_type, data.message);
-            }
-        });
-        ipcRenderer.on("channel_expert", (event, result) => {
-            if (result == "ErrorCallBack" || result == "Error" || result == "ErrorJ5") {
-                modalExpert(result);
-            } else {
-                let data = JSON.parse(result);
-                modalExpert(data.status);
-                localStorage.setItem("code", data.code);
-            }
-        });
-    } else {
-        log(chalk.black.bgRed.bold(logs_msg.devices().dont_selected));
-        utils.setModalError("", messages.devices().not_found.msg, messages.devices().not_found.btn);
-    }
-});
-
-document.getElementById("copy-code-preview").addEventListener("click", function(event) {
-    let code = removeCustomElements(beautify(localStorage.getItem("code")), Config.beautify());
-    clipboard.writeText(code);
-});
-
-document.getElementById("open-modal-code-preview").addEventListener("click", function(event) {
-    let code = removeCustomElements(beautify(localStorage.getItem("code")), Config.beautify());
-    localStorage.setItem("code", code);
-    setTimeout(() => {
-        $("#modal-code-preview").modal();
-        $("#modal-body-code-preview").text("");
-        setTimeout(() => {
-            CodeMirror($("#modal-body-code-preview")[0], Config.codeMirror(code));
-        }, 300);
-    }, 300);
-});
-
-document.getElementById("btn-execute-code").addEventListener("click", function(event) {
-    let code = utils.formatExecuteCode(Blockly.JavaScript.workspaceToCode(workspace));
-    let result = utils.esprimaValidation(code);
-    if (result !== "Error") {
-        if (result.body.length == 0) {
-            log(chalk.black.bgRed.bold(logs_msg.code().empty));
-            utils.setModalError(
-                "",
-                messages.code().empty_execute.msg,
-                messages.code().empty_execute.btn
-            );
-        } else {
-            childProcess.devices(createSetupDevices);
+      ipcRenderer.removeAllListeners('channel_messages');
+      utils.openModalWaiting('Verificando el programa ...');
+      ipcRenderer.send('execute', {
+        code: code,
+        device: device,
+        validate_code: {
+          variable: [``],
+        },
+        channel: 'channel_expert',
+        channel_message: 'channel_messages',
+      });
+      localStorage.setItem('device', device);
+      ipcRenderer.on('channel_messages', (event, result) => {
+        let data = JSON.parse(result);
+        if (data.type && data.type == 'message') {
+          utils.addMessage(data.message_type, data.message);
         }
+      });
+      ipcRenderer.on('channel_expert', (event, result) => {
+        if (
+          result == 'ErrorCallBack' ||
+          result == 'Error' ||
+          result == 'ErrorJ5'
+        ) {
+          modalExpert(result);
+        } else {
+          let data = JSON.parse(result);
+          modalExpert(data.status);
+          localStorage.setItem('code', data.code);
+        }
+      });
     } else {
-        modalErrorSyntax("Error", "", 1, false);
+      log(chalk.black.bgRed.bold(logs_msg.devices().dont_selected));
+      utils.setModalError(
+        '',
+        messages.devices().not_found.msg,
+        messages.devices().not_found.btn,
+      );
     }
-});
+  });
+
+document
+  .getElementById('copy-code-preview')
+  .addEventListener('click', function (event) {
+    let code = removeCustomElements(
+      beautify(localStorage.getItem('code')),
+      Config.beautify(),
+    );
+    clipboard.writeText(code);
+  });
+
+document
+  .getElementById('open-modal-code-preview')
+  .addEventListener('click', function (event) {
+    let code = removeCustomElements(
+      beautify(localStorage.getItem('code')),
+      Config.beautify(),
+    );
+    localStorage.setItem('code', code);
+    setTimeout(() => {
+      $('#modal-code-preview').modal();
+      $('#modal-body-code-preview').text('');
+      setTimeout(() => {
+        CodeMirror(
+          $('#modal-body-code-preview')[0],
+          Config.codeMirror(code),
+        );
+      }, 300);
+    }, 300);
+  });
+
+document
+  .getElementById('btn-execute-code')
+  .addEventListener('click', function (event) {
+    let code = utils.formatExecuteCode(
+      Blockly.JavaScript.workspaceToCode(workspace),
+    );
+    let result = utils.esprimaValidation(code);
+    if (result !== 'Error') {
+      if (result.body.length == 0) {
+        log(chalk.black.bgRed.bold(logs_msg.code().empty));
+        utils.setModalError(
+          '',
+          messages.code().empty_execute.msg,
+          messages.code().empty_execute.btn,
+        );
+      } else {
+        childProcess.devices(createSetupDevices);
+      }
+    } else {
+      modalErrorSyntax('Error', '', 1, false);
+    }
+  });

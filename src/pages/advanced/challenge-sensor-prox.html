@@ -1,595 +1,933 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Blokino - Tutorial con SENSORES DE PROXIMIDAD</title>
     <script src="../../../resources/libs/blockly/blockly.min.js"></script>
     <script src="../../../resources/libs/blockly/msg/es.js"></script>
     <script src="../../../resources/libs/blockly/javascript.js"></script>
-    <link rel="stylesheet" href="../../../style/app.css">
-</head>
+    <link rel="stylesheet" href="../../../style/app.css" />
+  </head>
 
-<body class="body-challenges">
+  <body class="body-challenges">
     <div class="container container-ide pt-5 pb-5" id="page">
-
-        <div class="row">
-            <div class="col-md-12 col-sm-12">
-                <div class="row">
-                    <div class="col-8 col-sm-6">
-                        <div id="back-button-challenge"> <i class="far fa-arrow-left back_icon"></i>
-                        </div>
-                    </div>
-                </div>
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <div class="row">
+            <div class="col-8 col-sm-6">
+              <div id="back-button-challenge">
+                <i class="far fa-arrow-left back_icon"></i>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
 
+      <div class="row justify-content-md-center">
+        <ul class="nav nav-pills m-3" id="pills-tab" role="tablist">
+          <li class="nav-item">
+            <a
+              class="nav-link active custom-btn-tab"
+              id="pills-home-tab"
+              data-toggle="pill"
+              href="#pills-home"
+              role="tab"
+              aria-controls="pills-home"
+              aria-selected="false"
+            >
+              <i class="far fa-th-large icon-large"></i>
+              <span>Bloques</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link custom-btn-tab"
+              id="panel-circuit-tab"
+              data-toggle="pill"
+              href="#panel-circuit"
+              role="tab"
+              aria-controls="panel-circuit"
+              aria-selected="true"
+            >
+              <i class="far fa-microchip icon-large"></i>
+              Circuito</a
+            >
+          </li>
+        </ul>
+      </div>
 
-        <div class="row justify-content-md-center">
-            <ul class="nav nav-pills m-3" id="pills-tab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active custom-btn-tab" id="pills-home-tab" data-toggle="pill" href="#pills-home"
-                        role="tab" aria-controls="pills-home" aria-selected="false">
-                        <i class="far fa-th-large icon-large"></i>
-                        <span>Bloques</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link  custom-btn-tab" id="panel-circuit-tab" data-toggle="pill" href="#panel-circuit"
-                        role="tab" aria-controls="panel-circuit" aria-selected="true">
-                        <i class="far fa-microchip icon-large"></i>
-                        Circuito</a>
-                </li>
-            </ul>
-        </div>
+      <div class="tab-content" id="pills-tabContent">
+        <div
+          class="tab-pane fade show active"
+          id="pills-home"
+          role="tabpanel"
+          aria-labelledby="pills-home-tab"
+        >
+          <div class="challenge-description mb-3">
+            <h4
+              class="alert challenge-badge-advanced text-center font-weight-bold p-4"
+            >
+              SENSORES DE PROXIMIDAD - Preparación
+            </h4>
+            <p class="text-center mt-2">
+              Antes de iniciar el desafío se debe crear un sensor de
+              proximidad y un led. El nombre del sensor debe ser
+              <strong>SENSOR_PROXIMIDAD</strong> con el número de
+              entrada <strong>A0</strong>. El nombre del led debe ser
+              <strong>LED</strong> con el número de entrada 13.
+            </p>
+          </div>
 
-        <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-
-                <div class="challenge-description mb-3">
-                    <h4 class="alert challenge-badge-advanced text-center font-weight-bold p-4">SENSORES DE PROXIMIDAD -
-                        Preparación
-                    </h4>
-                    <p class=" text-center mt-2">Antes de iniciar el desafío se debe crear un sensor de proximidad y un
-                        led. El nombre del sensor debe ser <strong>SENSOR_PROXIMIDAD</strong> con el número de entrada
-                        <strong>A0</strong>. El nombre del led debe ser <strong>LED</strong> con el número de entrada
-                        13.</p>
-                </div>
-
-                <div class="row ide-block mt-3 ml-0">
-                    <div class="col col-lg-3 col-md-12 col-sm-12 col-sx-12 challenge-content mb-2 ">
-                        <h3 class="challenge-title mt-3 text-center">Instrucciones</h3>
-                        <hr>
-                        <div id="carousel-test" class="carousel slide mt-3" data-ride="carousel" data-interval="false">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active" data-pos="test_1">
-                                    <h5 class="alert challenge-badge-advanced-incomplete text-center font-weight-bold mt-3"
-                                        id="test1_title">
-                                        Prueba 1
-                                    </h5>
-                                    <ul class="mr-3 instructions">
-                                        <li>
-                                            <p> <strong>Consigna</strong>: <i class="far fa-quote-left icon-link"></i>
-                                                Animate a capturar las distancias con el
-                                                <strong>SENSOR_PROXIMIDAD</strong>. Se debe crear un procedimiento con
-                                                el
-                                                nombre <strong>DetectarMovimientos</strong> que haga lo siguiente.
-                                                Cuando el <strong>SENSOR_PROXIMIDAD</strong>
-                                                detecte
-                                                un objeto <strong>muy cerca</strong> el <strong>LED</strong> debe dejar
-                                                de parpadear, pero cuando se detecte un objeto
-                                                <strong>Lejos</strong> el <strong>LED</strong> debe parpadear con un
-                                                tiempo de 1 segundo.<i class="far fa-quote-right icon-link"></i>
-                                            </p>
-                                        </li>
-                                    </ul>
-                                    <div class="alert alert-info mt-1" role="alert">
-                                        <p class="mt-1"> <i class="far fa-info-circle icon-link"></i><u>Pista</u>: Para
-                                            capturar las distancias, se puede
-                                            usar el bloque funcional
-                                            <strong>Capturar distancia</strong>.</p>
-                                    </div>
-                                    <div class="alert alert-info mt-1" role="alert">
-                                        <p class="mt-1"> <i class="far fa-info-circle icon-link"></i><u>Pista</u>: Se
-                                            pueden crear nuevas acciones en
-                                            Procedimientos definiendo nuevos bloques que incluyan
-                                            otras acciones. Para crear procedimientos, puedes usar el bloque
-                                            <strong>Crear Procedimiento</strong>.</p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col col-lg-9 col-md-12 col-sm-12 col-sx-12  mb-2 ">
-                        <div id="loader"></div>
-                        <div id="block-editor">
-                            <div id="blokino-workspace" class="block-editor"></div>
-                            <xml id="blokino-toolbox">
-                            </xml>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="row  justify-content-md-center  mt-3">
-                    <div class="section-buttons-expert p-3">
-                        <button type="button" id="show-modal-code-preview"
-                            class="btn btn-lg btn-light mr-1 btn-show-code" data-toggle="tooltip" data-placement="right"
-                            title="Haz click acá, para cargar un programa de Blokino."><i
-                                class="far fa-file-code icon-link"></i>Ver
-                            código</button>
-                        <button type="button" id="clean-code" class="btn btn-lg btn-light mr-1 btn-clean-code"
-                            data-toggle="tooltip" data-placement="right"
-                            title="Haz click acá, para limpiar el espacio de trabajo.">
-                            <i class="far fa-trash icon-link"></i>Borrar
-                            proyecto</button>
-                        <button type="button" id="download-code" class="btn btn-lg btn-light ml-1 btn-download-code-app"
-                            data-toggle="tooltip" data-placement="right"
-                            title="Haz click acá, para descargar el código de Blokino."><i
-                                class="far fa-download icon-link"></i>Descargar
-                            proyecto</button>
-                        <button type="button" id="open-code" class="btn btn-lg btn-light mr-1 btn-open-code"
-                            data-toggle="tooltip" data-placement="right"
-                            title="Haz click acá, para cargar un programa de Blokino."><i
-                                class="far fa-folder-open icon-link"></i>Abrir
-                            proyecto</button>
-                    </div>
-                </div>
-
-                <div class="row  justify-content-md-center code-block mt-3">
-                    <div class="col col-md-8">
-                        <div class="alert alert-warning alert-dismissible" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                                    aria-hidden="true">&times;</span></button>
-                            <h5>
-                                <strong>Aviso:</strong> Si tienes muchos dispositivos conectados. No te olvides de
-                                configurarlos, para poder ejecutar los programas de <strong>Blokino</strong>.
-                            </h5>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- Botones -->
-                <div class="row  justify-content-md-center code-block mt-1 mb-1">
-                    <button type="button" class="btn btn-lg btn-light   btn-info-device  mr-1" id="btn-devices-setup">
-                        <i class="far fa-tools icon-link"></i>
-                        Configurar
-                        dispositivos</button>
-                    <button disabled type="button" class="btn btn-lg btn-danger  btn-red ml-1" id="stop-program">
-                        <i class="far fa-stop-circle icon-link"></i>
-                        Detener programa</button>
-                    <button type="button" class="btn btn-lg btn-light  btn-execute-code   ml-1" id="btn-execute-code">
-                        <i class="far fa-running icon-link"></i>
-                        Ejecutar</button>
-                </div>
-            </div>
-            <!-- Esta sección contiene como se debe armar el circuito -->
-            <div class="tab-pane fade panel-circuit mt-3" id="panel-circuit" role="tabpanel"
-                aria-labelledby="panel-circuit-tab">
-                <div class="col p-5">
-                    <h1 class="text-center "><strong class="badge-1">¿Cómo armo mi circuito?</strong></h1>
-                    <p class="text-justify pt-4">Para poder completar el desafío de los SENSORES DE
-                        PROXIMIDAD, se debe
-                        tener
-                        un circuito bien armado. Hay varias manera de armar estos circuitos validos, como se ven en
-                        las siguientes imágenes:
-                    </p>
-                    <h2 class="mt-2"><strong class="badge-2">Circuito - Primera manera</strong></h2>
-                    <p class="text-justify mt-2">En la siguiente imagen se puede ver como se debe armar el circuito
-                        usando solamente la placa Ardunio UNO. Como se ve en la siguiente imagen:
-                    </p>
-                    <div class="text-center">
-                        <img class="image-tutorial"
-                            src="../../../resources/circuits/imagenes/tutoriales/proximity/proximity_1.png" alt="">
-                    </div>
-                    <p class="text-justify mt-2">En la imagen se definen las entradas que necesita el Sensor de
-                        proximidad, una de
-                        las entradas se usa para la energia GND, otra para la entrada de los 5V y una entrada para los
-                        datos de distancia.
-                    </p>
-
-                    <h2 class="mt-2"><strong class="badge-2">Circuito - Segunda manera</strong></h2>
-                    <p class="text-justify mt-2">En la siguiente imagen se puede ver como se debe armar el circuito
-                        usando una protoboard y placa Ardunio UNO. Como se ve en la siguiente imagen:
-                    </p>
-                    <div class="text-center">
-                        <img class="image-tutorial"
-                            src="../../../resources/circuits/imagenes/tutoriales/proximity/proximity_2.png" alt="">
-                    </div>
-                    <p class="text-justify mt-2">En la imagen se definen las entradas que necesita el Sensor de
-                        proximidad, una de
-                        las entradas se usa para la energia GND, otra para la entrada de los 5V y una entrada para los
-                        datos de distancia. La diferencia con la primer captura, es que en esta imagen se usa la
-                        protoboard.
-                    </p>
-                </div>
-            </div>
-            <!-- Esta sección contiene como se va armando el código.-->
-            <div class="tab-pane fade panel-code mt-3" id="panel-code" role="tabpanel">
-                <div class="row  justify-content-md-center code-block mt-5">
-                    <div class="col mt-5 col-md-11">
-                        <h1 class="text-center mt-2"><strong class="badge-1">¿Cómo se ve el código?</strong></h1>
-                        <p class="text-justify mt-4">Si quieres saber como se esta armando el código de tu
-                            aplicación
-                            <strong>Blokino</strong>, en esta sección podras ver como esta actualmente. El código va
-                            a ir cambiando a medida que la aplicación sigue creciendo. Esta es otra manera de aprender a
-                            programar con Blokino.
+          <div class="row ide-block mt-3 ml-0">
+            <div
+              class="col col-lg-3 col-md-12 col-sm-12 col-sx-12 challenge-content mb-2"
+            >
+              <h3 class="challenge-title mt-3 text-center">
+                Instrucciones
+              </h3>
+              <hr />
+              <div
+                id="carousel-test"
+                class="carousel slide mt-3"
+                data-ride="carousel"
+                data-interval="false"
+              >
+                <div class="carousel-inner">
+                  <div class="carousel-item active" data-pos="test_1">
+                    <h5
+                      class="alert challenge-badge-advanced-incomplete text-center font-weight-bold mt-3"
+                      id="test1_title"
+                    >
+                      Prueba 1
+                    </h5>
+                    <ul class="mr-3 instructions">
+                      <li>
+                        <p>
+                          <strong>Consigna</strong>:
+                          <i class="far fa-quote-left icon-link"></i>
+                          Animate a capturar las distancias con el
+                          <strong>SENSOR_PROXIMIDAD</strong>. Se debe
+                          crear un procedimiento con el nombre
+                          <strong>DetectarMovimientos</strong> que
+                          haga lo siguiente. Cuando el
+                          <strong>SENSOR_PROXIMIDAD</strong> detecte
+                          un objeto <strong>muy cerca</strong> el
+                          <strong>LED</strong> debe dejar de
+                          parpadear, pero cuando se detecte un objeto
+                          <strong>Lejos</strong> el
+                          <strong>LED</strong> debe parpadear con un
+                          tiempo de 1 segundo.<i
+                            class="far fa-quote-right icon-link"
+                          ></i>
                         </p>
+                      </li>
+                    </ul>
+                    <div class="alert alert-info mt-1" role="alert">
+                      <p class="mt-1">
+                        <i class="far fa-info-circle icon-link"></i
+                        ><u>Pista</u>: Para capturar las distancias,
+                        se puede usar el bloque funcional
+                        <strong>Capturar distancia</strong>.
+                      </p>
                     </div>
-                    <div class="col col-md-8 mb-5">
-                        <div class="mt-4">
-                            <div id="current-code" class="current-code">
-                            </div>
-                        </div>
+                    <div class="alert alert-info mt-1" role="alert">
+                      <p class="mt-1">
+                        <i class="far fa-info-circle icon-link"></i
+                        ><u>Pista</u>: Se pueden crear nuevas acciones
+                        en Procedimientos definiendo nuevos bloques
+                        que incluyan otras acciones. Para crear
+                        procedimientos, puedes usar el bloque
+                        <strong>Crear Procedimiento</strong>.
+                      </p>
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
+            <div
+              class="col col-lg-9 col-md-12 col-sm-12 col-sx-12 mb-2"
+            >
+              <div id="loader"></div>
+              <div id="block-editor">
+                <div
+                  id="blokino-workspace"
+                  class="block-editor"
+                ></div>
+                <xml id="blokino-toolbox"> </xml>
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-md-center mt-3">
+            <div class="section-buttons-expert p-3">
+              <button
+                type="button"
+                id="show-modal-code-preview"
+                class="btn btn-lg btn-light mr-1 btn-show-code"
+                data-toggle="tooltip"
+                data-placement="right"
+                title="Haz click acá, para cargar un programa de Blokino."
+              >
+                <i class="far fa-file-code icon-link"></i>Ver código
+              </button>
+              <button
+                type="button"
+                id="clean-code"
+                class="btn btn-lg btn-light mr-1 btn-clean-code"
+                data-toggle="tooltip"
+                data-placement="right"
+                title="Haz click acá, para limpiar el espacio de trabajo."
+              >
+                <i class="far fa-trash icon-link"></i>Borrar proyecto
+              </button>
+              <button
+                type="button"
+                id="download-code"
+                class="btn btn-lg btn-light ml-1 btn-download-code-app"
+                data-toggle="tooltip"
+                data-placement="right"
+                title="Haz click acá, para descargar el código de Blokino."
+              >
+                <i class="far fa-download icon-link"></i>Descargar
+                proyecto
+              </button>
+              <button
+                type="button"
+                id="open-code"
+                class="btn btn-lg btn-light mr-1 btn-open-code"
+                data-toggle="tooltip"
+                data-placement="right"
+                title="Haz click acá, para cargar un programa de Blokino."
+              >
+                <i class="far fa-folder-open icon-link"></i>Abrir
+                proyecto
+              </button>
+            </div>
+          </div>
+
+          <div class="row justify-content-md-center code-block mt-3">
+            <div class="col col-md-8">
+              <div
+                class="alert alert-warning alert-dismissible"
+                role="alert"
+              >
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="alert"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h5>
+                  <strong>Aviso:</strong> Si tienes muchos
+                  dispositivos conectados. No te olvides de
+                  configurarlos, para poder ejecutar los programas de
+                  <strong>Blokino</strong>.
+                </h5>
+              </div>
+            </div>
+          </div>
+          <!-- Botones -->
+          <div
+            class="row justify-content-md-center code-block mt-1 mb-1"
+          >
+            <button
+              type="button"
+              class="btn btn-lg btn-light btn-info-device mr-1"
+              id="btn-devices-setup"
+            >
+              <i class="far fa-tools icon-link"></i>
+              Configurar dispositivos
+            </button>
+            <button
+              disabled
+              type="button"
+              class="btn btn-lg btn-danger btn-red ml-1"
+              id="stop-program"
+            >
+              <i class="far fa-stop-circle icon-link"></i>
+              Detener programa
+            </button>
+            <button
+              type="button"
+              class="btn btn-lg btn-light btn-execute-code ml-1"
+              id="btn-execute-code"
+            >
+              <i class="far fa-running icon-link"></i>
+              Ejecutar
+            </button>
+          </div>
         </div>
+        <!-- Esta sección contiene como se debe armar el circuito -->
+        <div
+          class="tab-pane fade panel-circuit mt-3"
+          id="panel-circuit"
+          role="tabpanel"
+          aria-labelledby="panel-circuit-tab"
+        >
+          <div class="col p-5">
+            <h1 class="text-center">
+              <strong class="badge-1">¿Cómo armo mi circuito?</strong>
+            </h1>
+            <p class="text-justify pt-4">
+              Para poder completar el desafío de los SENSORES DE
+              PROXIMIDAD, se debe tener un circuito bien armado. Hay
+              varias manera de armar estos circuitos validos, como se
+              ven en las siguientes imágenes:
+            </p>
+            <h2 class="mt-2">
+              <strong class="badge-2"
+                >Circuito - Primera manera</strong
+              >
+            </h2>
+            <p class="text-justify mt-2">
+              En la siguiente imagen se puede ver como se debe armar
+              el circuito usando solamente la placa Ardunio UNO. Como
+              se ve en la siguiente imagen:
+            </p>
+            <div class="text-center">
+              <img
+                class="image-tutorial"
+                src="../../../resources/circuits/imagenes/tutoriales/proximity/proximity_1.png"
+                alt=""
+              />
+            </div>
+            <p class="text-justify mt-2">
+              En la imagen se definen las entradas que necesita el
+              Sensor de proximidad, una de las entradas se usa para la
+              energia GND, otra para la entrada de los 5V y una
+              entrada para los datos de distancia.
+            </p>
+
+            <h2 class="mt-2">
+              <strong class="badge-2"
+                >Circuito - Segunda manera</strong
+              >
+            </h2>
+            <p class="text-justify mt-2">
+              En la siguiente imagen se puede ver como se debe armar
+              el circuito usando una protoboard y placa Ardunio UNO.
+              Como se ve en la siguiente imagen:
+            </p>
+            <div class="text-center">
+              <img
+                class="image-tutorial"
+                src="../../../resources/circuits/imagenes/tutoriales/proximity/proximity_2.png"
+                alt=""
+              />
+            </div>
+            <p class="text-justify mt-2">
+              En la imagen se definen las entradas que necesita el
+              Sensor de proximidad, una de las entradas se usa para la
+              energia GND, otra para la entrada de los 5V y una
+              entrada para los datos de distancia. La diferencia con
+              la primer captura, es que en esta imagen se usa la
+              protoboard.
+            </p>
+          </div>
+        </div>
+        <!-- Esta sección contiene como se va armando el código.-->
+        <div
+          class="tab-pane fade panel-code mt-3"
+          id="panel-code"
+          role="tabpanel"
+        >
+          <div class="row justify-content-md-center code-block mt-5">
+            <div class="col mt-5 col-md-11">
+              <h1 class="text-center mt-2">
+                <strong class="badge-1"
+                  >¿Cómo se ve el código?</strong
+                >
+              </h1>
+              <p class="text-justify mt-4">
+                Si quieres saber como se esta armando el código de tu
+                aplicación <strong>Blokino</strong>, en esta sección
+                podras ver como esta actualmente. El código va a ir
+                cambiando a medida que la aplicación sigue creciendo.
+                Esta es otra manera de aprender a programar con
+                Blokino.
+              </p>
+            </div>
+            <div class="col col-md-8 mb-5">
+              <div class="mt-4">
+                <div id="current-code" class="current-code"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Modal - Para buscar los devices -->
-    <div id="modal-devices-availables" class="modal fade" tabindex="-1" role="dialog" data-keyboard="false"
-        data-backdrop="static">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Dispositivos conectados</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div id="device-list"></div>
-                </div>
-                <div class="modal-footer">
-                    <button id="check-device" type="button" class="btn btn-lg btn-light btn-device"
-                        data-dismiss="modal">
-                        <i class="far fa-play-circle icon-link"></i>Preparar
-                        dispositivo</button>
-                </div>
-            </div>
+    <div
+      id="modal-devices-availables"
+      class="modal fade"
+      tabindex="-1"
+      role="dialog"
+      data-keyboard="false"
+      data-backdrop="static"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Dispositivos conectados</h4>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="device-list"></div>
+          </div>
+          <div class="modal-footer">
+            <button
+              id="check-device"
+              type="button"
+              class="btn btn-lg btn-light btn-device"
+              data-dismiss="modal"
+            >
+              <i class="far fa-play-circle icon-link"></i>Preparar
+              dispositivo
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Modal - Para seleccionar el dispositivo que se quiere usar para ejecutar el programa -->
-    <div id="modal-list-device-execute" class="modal fade" tabindex="-1" role="dialog" data-keyboard="false"
-        data-backdrop="static">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Dispositivos conectados</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div id="device-list-setup"></div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-lg btn-light   btn-execute-device  mr-1" id="btn-setup-device">
-                        <i class="far fa-tools icon-link"></i>Configurar
-                        dispositivos</button>
-                    <button type="button" class="btn btn-lg btn-light   btn-clean-board  mr-1" id="reset-board">
-                        <i class="far fa-trash-restore icon-link"></i>Reiniciar
-                        dispositivo</button>
-                    <button id="executeCode" type="button" class="btn btn-lg btn-light btn-execute-code"
-                        data-dismiss="modal">
-                        <i class="far fa-play-circle icon-link"></i>Ejecutar
-                        programa</button>
-                </div>
-            </div>
+    <div
+      id="modal-list-device-execute"
+      class="modal fade"
+      tabindex="-1"
+      role="dialog"
+      data-keyboard="false"
+      data-backdrop="static"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Dispositivos conectados</h4>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="device-list-setup"></div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-lg btn-light btn-execute-device mr-1"
+              id="btn-setup-device"
+            >
+              <i class="far fa-tools icon-link"></i>Configurar
+              dispositivos
+            </button>
+            <button
+              type="button"
+              class="btn btn-lg btn-light btn-clean-board mr-1"
+              id="reset-board"
+            >
+              <i class="far fa-trash-restore icon-link"></i>Reiniciar
+              dispositivo
+            </button>
+            <button
+              id="executeCode"
+              type="button"
+              class="btn btn-lg btn-light btn-execute-code"
+              data-dismiss="modal"
+            >
+              <i class="far fa-play-circle icon-link"></i>Ejecutar
+              programa
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Modal - Configurar dispositivo -->
-    <div class="modal fade" id="modal-waiting-setup-device" tabindex="-1" role="dialog" aria-hidden="true"
-        data-keyboard="false" data-backdrop="static">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div id="modal-header-device">
-                    <h2 id="modal-title-device">
-                        Configurando el dispositivo ...</h2>
+    <div
+      class="modal fade"
+      id="modal-waiting-setup-device"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+      data-keyboard="false"
+      data-backdrop="static"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div id="modal-header-device">
+            <h2 id="modal-title-device">
+              Configurando el dispositivo ...
+            </h2>
+          </div>
+          <div id="modal-body-device">
+            <div id="loader-setup-device"></div>
+            <div class="container" id="container-waiting-device">
+              <div class="row justify-content-md-center">
+                <div class="col col-md-4">
+                  <button
+                    type="button"
+                    class="btn btn-lg btn-light btn-success-custom text-center font-weight-bold"
+                    data-dismiss="modal"
+                    style="margin-bottom: 1em"
+                  >
+                    Cerrar
+                  </button>
                 </div>
-                <div id="modal-body-device">
-                    <div id="loader-setup-device"></div>
-                    <div class="container" id="container-waiting-device">
-                        <div class="row justify-content-md-center">
-                            <div class="col col-md-4">
-                                <button type="button"
-                                    class="btn btn-lg btn-light btn-success-custom text-center font-weight-bold"
-                                    data-dismiss="modal" style="margin-bottom: 1em;">Cerrar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Modal - Verificando programa -->
-    <div class="modal fade" id="modal-waiting" tabindex="-1" role="dialog" aria-hidden="true" data-keyboard="false"
-        data-backdrop="static">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div id="modal-header-device" class="mb-0">
-                    <div style="text-align: center">
-                        <i class="far fa-robot icon-modal"></i>
-                    </div>
-                    <p class="modal-title-header" id="modal-waiting-message">
-                    </p>
-                </div>
-                <div id="modal-body-device">
-                    <div id="loader-modal"></div>
-                </div>
+    <div
+      class="modal fade"
+      id="modal-waiting"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+      data-keyboard="false"
+      data-backdrop="static"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div id="modal-header-device" class="mb-0">
+            <div style="text-align: center">
+              <i class="far fa-robot icon-modal"></i>
             </div>
+            <p
+              class="modal-title-header"
+              id="modal-waiting-message"
+            ></p>
+          </div>
+          <div id="modal-body-device">
+            <div id="loader-modal"></div>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Modal - Para crear una variable -->
-    <div class="modal fade" id="modal-new-variable" tabindex="-1" role="dialog" aria-hidden="true" data-keyboard="false"
-        data-backdrop="static">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <h3 class="modal-title mt-4 mb-4" id="exampleModalLabel">Nombre de la variable:</h3>
-                        <input type="text" placeholder="..." class="form-control" id="new-variable"
-                            class="new_variable">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <div class="row">
-                        <div class="col text-center">
-                            <button type="button" class="btn  btn-lg btn-success" data-dismiss="modal">Aceptar</button>
-                        </div>
-                    </div>
-                </div>
+    <div
+      class="modal fade"
+      id="modal-new-variable"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+      data-keyboard="false"
+      data-backdrop="static"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="form-group">
+              <h3
+                class="modal-title mt-4 mb-4"
+                id="exampleModalLabel"
+              >
+                Nombre de la variable:
+              </h3>
+              <input
+                type="text"
+                placeholder="..."
+                class="form-control"
+                id="new-variable"
+                class="new_variable"
+              />
             </div>
+          </div>
+          <div class="modal-footer">
+            <div class="row">
+              <div class="col text-center">
+                <button
+                  type="button"
+                  class="btn btn-lg btn-success"
+                  data-dismiss="modal"
+                >
+                  Aceptar
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Modal - Este modal de exito se ve cuando es valido el codigo. -->
-    <div class="modal fade" id="modal-success" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-
-                <div class="modal-header modal-header-success-code">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col text-center">
-                                <i class="far far fa-check-circle modal-header-success-icon"></i>
-                            </div>
-                        </div>
-                    </div>
+    <div
+      class="modal fade"
+      id="modal-success"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header modal-header-success-code">
+            <div class="container">
+              <div class="row">
+                <div class="col text-center">
+                  <i
+                    class="far far fa-check-circle modal-header-success-icon"
+                  ></i>
                 </div>
-                <div class="modal-body">
-                    <div class="row  justify-content-md-center m-2">
-                        <div class="col col-md-11">
-                            <h5 class="display-4 modal-body-title font-weight-bold" id="successTestModalTitle">Lo
-                                lograste</h5>
-                            <p class="text-center h3 mt-3" id="modal-success-content-message">
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <div class="container">
-                        <div class="row justify-content-md-center">
-                            <div class="col col-md-6 text-center ">
-                                <button type="button"
-                                    class="btn btn-lg btn-success btn-success-custom  font-weight-bold"
-                                    data-dismiss="modal">Cerrar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
+          <div class="modal-body">
+            <div class="row justify-content-md-center m-2">
+              <div class="col col-md-11">
+                <h5
+                  class="display-4 modal-body-title font-weight-bold"
+                  id="successTestModalTitle"
+                >
+                  Lo lograste
+                </h5>
+                <p
+                  class="text-center h3 mt-3"
+                  id="modal-success-content-message"
+                ></p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="container">
+              <div class="row justify-content-md-center">
+                <div class="col col-md-6 text-center">
+                  <button
+                    type="button"
+                    class="btn btn-lg btn-success btn-success-custom font-weight-bold"
+                    data-dismiss="modal"
+                  >
+                    Cerrar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Modal - Desafío completo. -->
-    <div class="modal fade" id="modal-success-all-tests" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content">
-
-                <div class="modal-header modal-header-success-challenges">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col text-center">
-                                <i class="far far fa-check-circle modal-header-success-icon"></i>
-                            </div>
-                        </div>
-                    </div>
+    <div
+      class="modal fade"
+      id="modal-success-all-tests"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-lg modal-dialog-centered"
+        role="document"
+      >
+        <div class="modal-content">
+          <div class="modal-header modal-header-success-challenges">
+            <div class="container">
+              <div class="row">
+                <div class="col text-center">
+                  <i
+                    class="far far fa-check-circle modal-header-success-icon"
+                  ></i>
                 </div>
-
-                <div class="modal-body">
-                    <div class="row  justify-content-md-center m-2">
-                        <div class="col col-md-11">
-                            <h5 class="display-4 modal-body-title font-weight-bold" id="successTestModalTitle">Lo
-                                lograste</h5>
-                            <div class="text-center h3 mt-3" id="modal-success-all-tests-message">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <div class="container">
-                        <div class="row justify-content-md-center">
-                            <div class="col col-6 text-right">
-                                <button type="button" class="btn btn-lg btn-success   text-center font-weight-bold"
-                                    data-dismiss="modal">Ejecutar otro
-                                    programa</button>
-                            </div>
-                            <div class="col col-6 text-left">
-                                <button type="button" class="btn btn-lg btn-warning   text-center font-weight-bold"
-                                    data-dismiss="modal" id="btn-success-challenges">Volver a los desafíos</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
+
+          <div class="modal-body">
+            <div class="row justify-content-md-center m-2">
+              <div class="col col-md-11">
+                <h5
+                  class="display-4 modal-body-title font-weight-bold"
+                  id="successTestModalTitle"
+                >
+                  Lo lograste
+                </h5>
+                <div
+                  class="text-center h3 mt-3"
+                  id="modal-success-all-tests-message"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="container">
+              <div class="row justify-content-md-center">
+                <div class="col col-6 text-right">
+                  <button
+                    type="button"
+                    class="btn btn-lg btn-success text-center font-weight-bold"
+                    data-dismiss="modal"
+                  >
+                    Ejecutar otro programa
+                  </button>
+                </div>
+                <div class="col col-6 text-left">
+                  <button
+                    type="button"
+                    class="btn btn-lg btn-warning text-center font-weight-bold"
+                    data-dismiss="modal"
+                    id="btn-success-challenges"
+                  >
+                    Volver a los desafíos
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="modal-error" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header modal-header-error-code">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col text-center">
-                                <i class="far far fa-surprise modal-header-error-icon"></i>
-                            </div>
-                        </div>
-                    </div>
+    <div
+      class="modal fade"
+      id="modal-error"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header modal-header-error-code">
+            <div class="container">
+              <div class="row">
+                <div class="col text-center">
+                  <i
+                    class="far far fa-surprise modal-header-error-icon"
+                  ></i>
                 </div>
-                <div class="modal-body">
-                    <div class="row  justify-content-md-center">
-                        <div class="col col-md-12">
-                            <h3 class="display-4 modal-body-title mt-2" id="errorModalTitle">Algo salió mal</h3>
-                            <p class="text-center h3 mt-3" id="modal-error-content-message">
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <div class="container">
-                        <div class="row justify-content-md-center">
-                            <div class="col col-md-6 text-center ">
-                                <button type="button" class="btn btn-lg btn-error font-weight-bold" data-dismiss="modal"
-                                    id="modal-error-btn-text">Volvelo a
-                                    intentar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
+          <div class="modal-body">
+            <div class="row justify-content-md-center">
+              <div class="col col-md-12">
+                <h3
+                  class="display-4 modal-body-title mt-2"
+                  id="errorModalTitle"
+                >
+                  Algo salió mal
+                </h3>
+                <p
+                  class="text-center h3 mt-3"
+                  id="modal-error-content-message"
+                ></p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="container">
+              <div class="row justify-content-md-center">
+                <div class="col col-md-6 text-center">
+                  <button
+                    type="button"
+                    class="btn btn-lg btn-error font-weight-bold"
+                    data-dismiss="modal"
+                    id="modal-error-btn-text"
+                  >
+                    Volvelo a intentar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Modal Dialog - Eliminar variable -->
-    <div class="modal fade" id="modal-variable-remove" tabindex="-1" role="dialog" aria-hidden="true"
-        data-keyboard="false" data-backdrop="static">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header modal-header-warning">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col text-center">
-                                <i class="far far fa-check-circle modal-header-question-icon"></i>
-                            </div>
-                        </div>
-                    </div>
+    <div
+      class="modal fade"
+      id="modal-variable-remove"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+      data-keyboard="false"
+      data-backdrop="static"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header modal-header-warning">
+            <div class="container">
+              <div class="row">
+                <div class="col text-center">
+                  <i
+                    class="far far fa-check-circle modal-header-question-icon"
+                  ></i>
                 </div>
-                <div class="modal-body pb-0 pt-0">
-                    <div class="form-group">
-                        <div id="removeVariableTitle" class="mt-4 mb-4 text-center"></div>
-                    </div>
-                </div>
-                <div class="modal-footer pt-0">
-                    <div class="container">
-                        <div class="row justify-content-md-center">
-                            <div class="col col-6 text-right">
-                                <button type="button"
-                                    class="btn btn-lg btn-error btn-custom-lg font-weight-bold pl-4 pr-4"
-                                    data-dismiss="modal" id="cancel-remove-variable">NO</button>
-                            </div>
-                            <div class="col col-6 text-left">
-                                <button type="button" id="accept-remove-variable"
-                                    class="btn btn-lg btn-success btn-custom-lg font-weight-bold pl-4 pr-4"
-                                    data-dismiss="modal">SI</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
+          <div class="modal-body pb-0 pt-0">
+            <div class="form-group">
+              <div
+                id="removeVariableTitle"
+                class="mt-4 mb-4 text-center"
+              ></div>
+            </div>
+          </div>
+          <div class="modal-footer pt-0">
+            <div class="container">
+              <div class="row justify-content-md-center">
+                <div class="col col-6 text-right">
+                  <button
+                    type="button"
+                    class="btn btn-lg btn-error btn-custom-lg font-weight-bold pl-4 pr-4"
+                    data-dismiss="modal"
+                    id="cancel-remove-variable"
+                  >
+                    NO
+                  </button>
+                </div>
+                <div class="col col-6 text-left">
+                  <button
+                    type="button"
+                    id="accept-remove-variable"
+                    class="btn btn-lg btn-success btn-custom-lg font-weight-bold pl-4 pr-4"
+                    data-dismiss="modal"
+                  >
+                    SI
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Modal - Ver el código -->
-    <div class="modal fade" id="modal-code-preview" tabindex="-1" role="dialog" aria-hidden="true" data-keyboard="false"
-        data-backdrop="static">
-        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
-            <div class="modal-content modal-content-code-preview">
-                <div class="modal-header">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col text-left">
-                                <button type="button" class="close close-rounded" data-dismiss="modal"
-                                    aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+    <div
+      class="modal fade"
+      id="modal-code-preview"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+      data-keyboard="false"
+      data-backdrop="static"
+    >
+      <div
+        class="modal-dialog modal-xl modal-dialog-centered"
+        role="document"
+      >
+        <div class="modal-content modal-content-code-preview">
+          <div class="modal-header">
+            <div class="container">
+              <div class="row">
+                <div class="col text-left">
+                  <button
+                    type="button"
+                    class="close close-rounded"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
                 </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row mb-2">
-                            <div class="col-xs-6">
-                                <h1 class="modal-header-code-preview  "><strong><u>Javascript</u></strong></h1>
-                            </div>
-                            <div class="col-xs-6">
-                                <button type="button" id="copy-code-preview" class="btn btn-lg btn-light p-1 ml-3"
-                                    title="Copia el código."><i class="far fa-copy icon-link"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="modal-body-code-preview"></div>
-
-                </div>
+              </div>
             </div>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <div class="row mb-2">
+                <div class="col-xs-6">
+                  <h1 class="modal-header-code-preview">
+                    <strong><u>Javascript</u></strong>
+                  </h1>
+                </div>
+                <div class="col-xs-6">
+                  <button
+                    type="button"
+                    id="copy-code-preview"
+                    class="btn btn-lg btn-light p-1 ml-3"
+                    title="Copia el código."
+                  >
+                    <i class="far fa-copy icon-link"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div id="modal-body-code-preview"></div>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Modal warning - No hay codigo para mostrar -->
-    <div class="modal fade" id="modal-warning" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header modal-header-warning-code">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col text-center">
-                                <i class="far far fa-surprise modal-header-warning-icon"></i>
-                            </div>
-                        </div>
-                    </div>
+    <div
+      class="modal fade"
+      id="modal-warning"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header modal-header-warning-code">
+            <div class="container">
+              <div class="row">
+                <div class="col text-center">
+                  <i
+                    class="far far fa-surprise modal-header-warning-icon"
+                  ></i>
                 </div>
-                <div class="modal-body">
-                    <div class="row  justify-content-md-center">
-                        <div class="col col-md-12">
-                            <h3 class="display-4 modal-body-title mt-2">Algo salió mal</h3>
-                            <p class="text-center h3 mt-3" id="modal-warning-content-message">No hay bloques
-                                funcionales en tu programa. Agrega bloques funcionales y volvelo a intentar.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <div class="container">
-                        <div class="row justify-content-md-center">
-                            <div class="col col-md-6 text-center ">
-                                <button type="button" class="btn btn-lg btn-warning font-weight-bold"
-                                    data-dismiss="modal" id="modal-warning-btn">Volvelo a
-                                    intentar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
+          <div class="modal-body">
+            <div class="row justify-content-md-center">
+              <div class="col col-md-12">
+                <h3 class="display-4 modal-body-title mt-2">
+                  Algo salió mal
+                </h3>
+                <p
+                  class="text-center h3 mt-3"
+                  id="modal-warning-content-message"
+                >
+                  No hay bloques funcionales en tu programa. Agrega
+                  bloques funcionales y volvelo a intentar.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="container">
+              <div class="row justify-content-md-center">
+                <div class="col col-md-6 text-center">
+                  <button
+                    type="button"
+                    class="btn btn-lg btn-warning font-weight-bold"
+                    data-dismiss="modal"
+                    id="modal-warning-btn"
+                  >
+                    Volvelo a intentar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 
-    <script type='text/javascript'>
-        let typeToolBar = "SensorProx"
+    <script type="text/javascript">
+      let typeToolBar = 'SensorProx';
     </script>
-    <script src="../challenges.js">
-    </script>
-    <script src="./challenge-sensor-prox.js">
-    </script>
-
-</body>
-
+    <script src="../challenges.js"></script>
+    <script src="./challenge-sensor-prox.js"></script>
+  </body>
 </html>

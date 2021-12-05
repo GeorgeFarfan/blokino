@@ -520,7 +520,7 @@
 }
 
 #open-frietzing {
-  background-image: url("../src/images/logos/fritzing-logo.png");
+  background-image: url('../src/images/logos/fritzing-logo.png');
   background-size: 100%;
   width: 10%;
   background-repeat: no-repeat;

@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * @author Jorge Farfan Coaguila
@@ -628,10 +628,10 @@ let menuFunctions = {
                                     </category>
                                     <sep gap="32"></sep>
                                 </category>
-                        </xml>`
-      }
+                        </xml>`,
+      },
     };
-  }
+  },
 };
 
 module.exports = menuFunctions;

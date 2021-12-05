@@ -9,8 +9,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run prettier-staged",
-      "pre-push": "npm run test-ci && npm run build"
+      "pre-commit": "npm run prettier-staged"
     }
   },
   "scripts": {
@@ -18,6 +17,7 @@
     "start": "electron .",
     "electron-rebuild": "electron-rebuild",
     "lint": "prettier --check .",
+    "format": "prettier --write .",
     "prettier-staged": "pretty-quick --staged ",
     "electron-create-installer": "electron-rebuild && build",
     "js-run-code": "node libs/johnnyFive/code/current-code.js",

@@ -1,0 +1,6 @@
+resources/libs/blockly
+resources/libs/bootstrap
+resources/libs/font-awesome
+resources/libs/hoverCss
+node_modules
+dist

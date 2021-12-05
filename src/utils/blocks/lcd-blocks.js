@@ -1,479 +1,479 @@
-"use strict";
+'use strict';
 
 /**
  * @author Jorge Farfan Coaguila
  * @description Este módulo contiene la configuracion del bloque LCD.
  */
 
-const url_documentation = "http://blokino-platform.com/get_started",
+const url_documentation = 'http://blokino-platform.com/get_started',
   lcdFunctions = {
     block: (Blockly) => {
-      Blockly.Blocks["lcd_create_two_rows"] = {
+      Blockly.Blocks['lcd_create_two_rows'] = {
         init: function () {
           this.appendDummyInput()
             .appendField(
               new Blockly.FieldImage(
-                "../../images/blocks/display-lcd.png",
+                '../../images/blocks/display-lcd.png',
                 40,
                 40,
-                "*"
-              )
+                '*',
+              ),
             )
-            .appendField("Crear Consola de Mensajes de 2 filas");
+            .appendField('Crear Consola de Mensajes de 2 filas');
           this.setInputsInline(true);
           this.setOutput(true);
           this.setColour(75);
-          this.setTooltip("");
+          this.setTooltip('');
           this.setHelpUrl(url_documentation);
         },
       };
-      Blockly.Blocks["lcd_create_four_rows"] = {
+      Blockly.Blocks['lcd_create_four_rows'] = {
         init: function () {
           this.appendDummyInput()
             .appendField(
               new Blockly.FieldImage(
-                "../../images/blocks/display-lcd.png",
+                '../../images/blocks/display-lcd.png',
                 40,
                 40,
-                "*"
-              )
+                '*',
+              ),
             )
-            .appendField("Crear Consola de Mensajes de 4 filas");
+            .appendField('Crear Consola de Mensajes de 4 filas');
           this.setInputsInline(true);
           this.setOutput(true);
           this.setColour(90);
-          this.setTooltip("");
+          this.setTooltip('');
           this.setHelpUrl(url_documentation);
         },
       };
-      Blockly.Blocks["lcd_two_rows_no_scroll"] = {
+      Blockly.Blocks['lcd_two_rows_no_scroll'] = {
         init: function () {
-          this.appendDummyInput().appendField("Escribir un mensaje");
+          this.appendDummyInput().appendField('Escribir un mensaje');
           this.appendDummyInput()
-            .appendField("En una consola de 2 Filas")
+            .appendField('En una consola de 2 Filas')
             .appendField(
-              new Blockly.FieldVariable("CONSOLA_DE_MENSAJES"),
-              "current_console"
+              new Blockly.FieldVariable('CONSOLA_DE_MENSAJES'),
+              'current_console',
             );
-          this.appendValueInput("msg_first_row")
-            .setCheck("String")
-            .appendField("Mensaje de la primer fila");
-          this.appendValueInput("msg_second_row")
-            .setCheck("String")
-            .appendField("Mensaje de la segunda fila");
+          this.appendValueInput('msg_first_row')
+            .setCheck('String')
+            .appendField('Mensaje de la primer fila');
+          this.appendValueInput('msg_second_row')
+            .setCheck('String')
+            .appendField('Mensaje de la segunda fila');
           this.setInputsInline(false);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
           this.setColour(75);
-          this.setTooltip("");
+          this.setTooltip('');
           this.setHelpUrl(url_documentation);
         },
       };
-      Blockly.Blocks["lcd_two_rows_switch"] = {
+      Blockly.Blocks['lcd_two_rows_switch'] = {
         init: function () {
           this.appendDummyInput().appendField(
-            "Escribir un Mensaje segun la fila"
+            'Escribir un Mensaje segun la fila',
           );
           this.appendDummyInput()
-            .appendField("En una consola de 2 filas")
+            .appendField('En una consola de 2 filas')
             .appendField(
-              new Blockly.FieldVariable("CONSOLA_DE_MENSAJES"),
-              "current_lcd"
+              new Blockly.FieldVariable('CONSOLA_DE_MENSAJES'),
+              'current_lcd',
             );
           this.appendDummyInput()
-            .appendField("Posicion")
+            .appendField('Posicion')
             .appendField(
               new Blockly.FieldDropdown([
-                ["Arriba", "first"],
-                ["Abajo", "second"],
+                ['Arriba', 'first'],
+                ['Abajo', 'second'],
               ]),
-              "current_row"
+              'current_row',
             );
-          this.appendValueInput("message")
-            .setCheck("String")
-            .appendField("Mensaje a mostrarse en la consola");
+          this.appendValueInput('message')
+            .setCheck('String')
+            .appendField('Mensaje a mostrarse en la consola');
           this.setInputsInline(false);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
           this.setColour(75);
-          this.setTooltip("");
+          this.setTooltip('');
           this.setHelpUrl(url_documentation);
         },
       };
 
-      Blockly.Blocks["lcd_four_rows_switch"] = {
+      Blockly.Blocks['lcd_four_rows_switch'] = {
         init: function () {
           this.appendDummyInput().appendField(
-            "Escribir un Mensaje segun la fila"
+            'Escribir un Mensaje segun la fila',
           );
           this.appendDummyInput()
-            .appendField("En una consola de 4 filas")
+            .appendField('En una consola de 4 filas')
             .appendField(
-              new Blockly.FieldVariable("CONSOLA_DE_MENSAJES"),
-              "current_lcd"
+              new Blockly.FieldVariable('CONSOLA_DE_MENSAJES'),
+              'current_lcd',
             );
           this.appendDummyInput()
-            .appendField("Posicion")
+            .appendField('Posicion')
             .appendField(
               new Blockly.FieldDropdown([
-                ["Primer fila", "first"],
-                ["Segunda fila", "second"],
-                ["Tercer fila", "third"],
-                ["Cuarta fila", "fourth"],
+                ['Primer fila', 'first'],
+                ['Segunda fila', 'second'],
+                ['Tercer fila', 'third'],
+                ['Cuarta fila', 'fourth'],
               ]),
-              "current_row"
+              'current_row',
             );
-          this.appendValueInput("message")
-            .setCheck("String")
-            .appendField("Mensaje a mostrarse en la consola");
+          this.appendValueInput('message')
+            .setCheck('String')
+            .appendField('Mensaje a mostrarse en la consola');
           this.setInputsInline(false);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
           this.setColour(90);
-          this.setTooltip("");
+          this.setTooltip('');
           this.setHelpUrl(url_documentation);
         },
       };
-      Blockly.Blocks["lcd_two_rows_scroll"] = {
+      Blockly.Blocks['lcd_two_rows_scroll'] = {
         init: function () {
           this.appendDummyInput().appendField(
-            "Escribir un Mensaje con Desplazamiento"
+            'Escribir un Mensaje con Desplazamiento',
           );
           this.appendDummyInput()
-            .appendField("En una consola de 2 filas")
+            .appendField('En una consola de 2 filas')
             .appendField(
-              new Blockly.FieldVariable("CONSOLA_DE_MENSAJES"),
-              "current_lcd"
+              new Blockly.FieldVariable('CONSOLA_DE_MENSAJES'),
+              'current_lcd',
             );
           this.appendDummyInput()
-            .appendField("Velocidad en la que se ven los mensajes")
+            .appendField('Velocidad en la que se ven los mensajes')
             .appendField(
               new Blockly.FieldDropdown([
-                ["Lento", "low"],
-                ["Despacio", "medium"],
-                ["Rapido", "fast"],
+                ['Lento', 'low'],
+                ['Despacio', 'medium'],
+                ['Rapido', 'fast'],
               ]),
-              "current_velocity"
+              'current_velocity',
             );
-          this.appendValueInput("first_message")
-            .setCheck("String")
-            .appendField("Mensaje de la primer fila");
-          this.appendValueInput("second_message")
-            .setCheck("String")
-            .appendField("Mensaje de la segunda fila");
+          this.appendValueInput('first_message')
+            .setCheck('String')
+            .appendField('Mensaje de la primer fila');
+          this.appendValueInput('second_message')
+            .setCheck('String')
+            .appendField('Mensaje de la segunda fila');
           this.setInputsInline(false);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
           this.setColour(75);
-          this.setTooltip("");
+          this.setTooltip('');
           this.setHelpUrl(url_documentation);
         },
       };
-      Blockly.Blocks["lcd_four_rows_scroll"] = {
+      Blockly.Blocks['lcd_four_rows_scroll'] = {
         init: function () {
           this.appendDummyInput().appendField(
-            "Escribir un Mensaje con Desplazamiento"
+            'Escribir un Mensaje con Desplazamiento',
           );
           this.appendDummyInput()
-            .appendField("En una consola de 4 filas")
+            .appendField('En una consola de 4 filas')
             .appendField(
-              new Blockly.FieldVariable("CONSOLA_DE_MENSAJES"),
-              "current_lcd"
+              new Blockly.FieldVariable('CONSOLA_DE_MENSAJES'),
+              'current_lcd',
             );
           this.appendDummyInput()
-            .appendField("Velocidad en la que se ven los mensajes")
+            .appendField('Velocidad en la que se ven los mensajes')
             .appendField(
               new Blockly.FieldDropdown([
-                ["Lento", "low"],
-                ["Despacio", "medium"],
-                ["Rapido", "fast"],
+                ['Lento', 'low'],
+                ['Despacio', 'medium'],
+                ['Rapido', 'fast'],
               ]),
-              "current_velocity"
+              'current_velocity',
             );
-          this.appendValueInput("first_message")
-            .setCheck("String")
-            .appendField("Mensaje de la primer fila");
-          this.appendValueInput("second_message")
-            .setCheck("String")
-            .appendField("Mensaje de la segunda fila");
-          this.appendValueInput("third_message")
-            .setCheck("String")
-            .appendField("Mensaje de la tercer fila");
-          this.appendValueInput("fourth_message")
-            .setCheck("String")
-            .appendField("Mensaje de la cuarta fila");
+          this.appendValueInput('first_message')
+            .setCheck('String')
+            .appendField('Mensaje de la primer fila');
+          this.appendValueInput('second_message')
+            .setCheck('String')
+            .appendField('Mensaje de la segunda fila');
+          this.appendValueInput('third_message')
+            .setCheck('String')
+            .appendField('Mensaje de la tercer fila');
+          this.appendValueInput('fourth_message')
+            .setCheck('String')
+            .appendField('Mensaje de la cuarta fila');
           this.setInputsInline(false);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
           this.setColour(90);
-          this.setTooltip("");
+          this.setTooltip('');
           this.setHelpUrl(url_documentation);
         },
       };
-      Blockly.Blocks["lcd_four_rows_no_scroll"] = {
+      Blockly.Blocks['lcd_four_rows_no_scroll'] = {
         init: function () {
-          this.appendDummyInput().appendField("Escribir un mensaje");
+          this.appendDummyInput().appendField('Escribir un mensaje');
           this.appendDummyInput()
-            .appendField("En una consola de 4 filas")
+            .appendField('En una consola de 4 filas')
             .appendField(
-              new Blockly.FieldVariable("CONSOLA_DE_MENSAJES"),
-              "current_display"
+              new Blockly.FieldVariable('CONSOLA_DE_MENSAJES'),
+              'current_display',
             );
-          this.appendValueInput("first_message")
+          this.appendValueInput('first_message')
             .setCheck(null)
-            .appendField("Mensaje de la primer fila");
-          this.appendValueInput("second_message")
+            .appendField('Mensaje de la primer fila');
+          this.appendValueInput('second_message')
             .setCheck(null)
-            .appendField("Mensaje de la segunda fila");
-          this.appendValueInput("third_message")
+            .appendField('Mensaje de la segunda fila');
+          this.appendValueInput('third_message')
             .setCheck(null)
-            .appendField("Mensaje de la tercer fila");
-          this.appendValueInput("fourth_message")
+            .appendField('Mensaje de la tercer fila');
+          this.appendValueInput('fourth_message')
             .setCheck(null)
-            .appendField("Mensaje de la cuarta fila");
+            .appendField('Mensaje de la cuarta fila');
           this.setInputsInline(false);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
           this.setColour(90);
-          this.setTooltip("");
+          this.setTooltip('');
           this.setHelpUrl(url_documentation);
         },
       };
-      Blockly.Blocks["lcd_clean"] = {
+      Blockly.Blocks['lcd_clean'] = {
         init: function () {
           this.appendDummyInput()
-            .appendField("Limpiar Consola")
+            .appendField('Limpiar Consola')
             .appendField(
-              new Blockly.FieldVariable("CONSOLA_DE_MENSAJES"),
-              "current_lcd"
+              new Blockly.FieldVariable('CONSOLA_DE_MENSAJES'),
+              'current_lcd',
             );
           this.setInputsInline(true);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
           this.setColour(60);
-          this.setTooltip("");
+          this.setTooltip('');
           this.setHelpUrl(url_documentation);
         },
       };
-      Blockly.Blocks["lcd_off"] = {
+      Blockly.Blocks['lcd_off'] = {
         init: function () {
           this.appendDummyInput()
-            .appendField("Apagar consola")
+            .appendField('Apagar consola')
             .appendField(
-              new Blockly.FieldVariable("CONSOLA_DE_MENSAJES"),
-              "current_lcd"
+              new Blockly.FieldVariable('CONSOLA_DE_MENSAJES'),
+              'current_lcd',
             );
           this.setInputsInline(true);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
           this.setColour(60);
-          this.setTooltip("");
+          this.setTooltip('');
           this.setHelpUrl(url_documentation);
         },
       };
-      Blockly.Blocks["lcd_on"] = {
+      Blockly.Blocks['lcd_on'] = {
         init: function () {
           this.appendDummyInput()
-            .appendField("Encender Consola")
+            .appendField('Encender Consola')
             .appendField(
-              new Blockly.FieldVariable("CONSOLA_DE_MENSAJES"),
-              "current_lcd"
+              new Blockly.FieldVariable('CONSOLA_DE_MENSAJES'),
+              'current_lcd',
             );
           this.setInputsInline(true);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
           this.setColour(60);
-          this.setTooltip("");
+          this.setTooltip('');
           this.setHelpUrl(url_documentation);
         },
       };
 
-      Blockly.Blocks["lcd_character"] = {
+      Blockly.Blocks['lcd_character'] = {
         init: function () {
           this.appendDummyInput()
-            .appendField("Caracter")
+            .appendField('Caracter')
             .appendField(
               new Blockly.FieldDropdown([
-                ["1", "1"],
-                ["2", "2"],
-                ["3", "3"],
-                ["4", "4"],
-                ["5", "5"],
-                ["6", "6"],
-                ["7", "7"],
-                ["8", "8"],
-                ["9", "9"],
-                ["10", "10"],
-                ["11", "11"],
-                ["12", "12"],
-                ["13", "13"],
-                ["14", "14"],
-                ["15", "15"],
-                ["16", "16"],
-                ["17", "17"],
-                ["18", "18"],
-                ["19", "19"],
+                ['1', '1'],
+                ['2', '2'],
+                ['3', '3'],
+                ['4', '4'],
+                ['5', '5'],
+                ['6', '6'],
+                ['7', '7'],
+                ['8', '8'],
+                ['9', '9'],
+                ['10', '10'],
+                ['11', '11'],
+                ['12', '12'],
+                ['13', '13'],
+                ['14', '14'],
+                ['15', '15'],
+                ['16', '16'],
+                ['17', '17'],
+                ['18', '18'],
+                ['19', '19'],
 
-                ["Circulo", "circle"],
-                ["Circulo con un punto", "cdot"],
-                ["Dona", "donut"],
+                ['Circulo', 'circle'],
+                ['Circulo con un punto', 'cdot'],
+                ['Dona', 'donut'],
 
-                ["Pelota", "ball"],
-                ["Cuadrado", "square"],
-                ["Cuadrado con punto", "sdot"],
+                ['Pelota', 'ball'],
+                ['Cuadrado', 'square'],
+                ['Cuadrado con punto', 'sdot'],
 
-                ["Cuadrado lleno", "fbox"],
-                ["Cuadrado chico", "sbox"],
-                ["Cuadrado chico lleno", "sfbox"],
+                ['Cuadrado lleno', 'fbox'],
+                ['Cuadrado chico', 'sbox'],
+                ['Cuadrado chico lleno', 'sfbox'],
 
-                ["Flecha derecha", "arrowright"],
-                ["Flecha izquierda", "arrowleft"],
+                ['Flecha derecha', 'arrowright'],
+                ['Flecha izquierda', 'arrowleft'],
 
-                ["Euro", "euro"],
-                ["Centavo", "cent"],
+                ['Euro', 'euro'],
+                ['Centavo', 'cent'],
 
-                ["Altavoz", "speaker"],
-                ["Sonido", "sound"],
+                ['Altavoz', 'speaker'],
+                ['Sonido', 'sound'],
 
-                ["X", "x"],
-                ["Objetivo", "target"],
+                ['X', 'x'],
+                ['Objetivo', 'target'],
 
-                ["Puntero derecha", "pointerright"],
-                ["Puntero arriba", "pointerup"],
-                ["Puntero izquierda", "pointerleft"],
-                ["Puntero abajo", "pointerdown"],
+                ['Puntero derecha', 'pointerright'],
+                ['Puntero arriba', 'pointerup'],
+                ['Puntero izquierda', 'pointerleft'],
+                ['Puntero abajo', 'pointerdown'],
 
-                ["Flecha arriba derecha", "arrowne"],
-                ["Flecha arriba izquierda", "arrownw"],
-                ["Flecha abajo izquierda", "arrowsw"],
-                ["Flecha abajo derecha", "arrowse"],
+                ['Flecha arriba derecha', 'arrowne'],
+                ['Flecha arriba izquierda', 'arrownw'],
+                ['Flecha abajo izquierda', 'arrowsw'],
+                ['Flecha abajo derecha', 'arrowse'],
 
-                ["Campana", "bell"],
-                ["Sonrisa", "smile"],
-                ["Nota", "note"],
-                ["Reloj", "clock"],
+                ['Campana', 'bell'],
+                ['Sonrisa', 'smile'],
+                ['Nota', 'note'],
+                ['Reloj', 'clock'],
 
-                ["Corazon", "heart"],
-                ["Pato", "duck"],
-                ["Checkeado", "check"],
-                ["Hombre parado", "runningb"],
+                ['Corazon', 'heart'],
+                ['Pato', 'duck'],
+                ['Checkeado', 'check'],
+                ['Hombre parado', 'runningb'],
 
-                ["Hombre corriendo", "runninga"],
+                ['Hombre corriendo', 'runninga'],
               ]),
-              "character"
+              'character',
             );
           this.setInputsInline(false);
           this.setOutput(true, null);
           this.setColour(60);
-          this.setTooltip("");
-          this.setHelpUrl("");
+          this.setTooltip('');
+          this.setHelpUrl('');
         },
       };
 
-      Blockly.Blocks["use_character"] = {
+      Blockly.Blocks['use_character'] = {
         init: function () {
           this.appendDummyInput()
-            .appendField("Agregar el caracter ")
+            .appendField('Agregar el caracter ')
             .appendField(
               new Blockly.FieldDropdown([
-                ["1", ":1:"],
-                ["2", ":2:"],
-                ["3", ":3:"],
-                ["4", ":4:"],
-                ["5", ":5:"],
-                ["6", ":6:"],
-                ["7", ":7:"],
-                ["8", ":8:"],
-                ["9", ":9:"],
-                ["10", ":10:"],
-                ["11", ":11:"],
-                ["12", ":12:"],
-                ["13", ":13:"],
-                ["14", ":14:"],
-                ["15", ":15:"],
-                ["16", ":16:"],
-                ["17", ":17:"],
-                ["18", ":18:"],
-                ["19", ":19:"],
-                ["Circulo", ":circle:"],
-                ["Circulo con un punto", ":cdot:"],
-                ["Dona", ":donut:"],
-                ["Pelota", ":ball:"],
-                ["Cuadrado", ":square:"],
-                ["Cuadrado con punto", ":sdot:"],
-                ["Cuadrado lleno", ":fbox:"],
-                ["Cuadrado chico", ":sbox:"],
-                ["Cuadrado chico lleno", ":sfbox:"],
-                ["Flecha derecha", ":arrowright:"],
-                ["Flecha izquierda", ":arrowleft:"],
-                ["Euro", ":euro:"],
-                ["Centavo", ":cent:"],
-                ["Altavoz", ":speaker:"],
-                ["Sonido", ":sound:"],
-                ["X", ":x:"],
-                ["Objetivo", ":target:"],
-                ["Puntero derecha", ":pointerright:"],
-                ["Puntero arriba", ":pointerup:"],
-                ["Puntero izquierda", ":pointerleft:"],
-                ["Puntero abajo", ":pointerdown:"],
-                ["Flecha arriba derecha", ":arrowne:"],
-                ["Flecha arriba izquierda", ":arrownw:"],
-                ["Flecha abajo izquierda", ":arrowsw:"],
-                ["Flecha abajo derecha", ":arrowse:"],
-                ["Campana", ":bell:"],
-                ["Sonrisa", ":smile:"],
-                ["Nota", ":note:"],
-                ["Reloj", ":clock:"],
-                ["Corazon", ":heart:"],
-                ["Pato", ":duck:"],
-                ["Checkeado", ":check:"],
-                ["Hombre parado", ":runningb:"],
-                ["Hombre corriendo", ":runninga:"],
+                ['1', ':1:'],
+                ['2', ':2:'],
+                ['3', ':3:'],
+                ['4', ':4:'],
+                ['5', ':5:'],
+                ['6', ':6:'],
+                ['7', ':7:'],
+                ['8', ':8:'],
+                ['9', ':9:'],
+                ['10', ':10:'],
+                ['11', ':11:'],
+                ['12', ':12:'],
+                ['13', ':13:'],
+                ['14', ':14:'],
+                ['15', ':15:'],
+                ['16', ':16:'],
+                ['17', ':17:'],
+                ['18', ':18:'],
+                ['19', ':19:'],
+                ['Circulo', ':circle:'],
+                ['Circulo con un punto', ':cdot:'],
+                ['Dona', ':donut:'],
+                ['Pelota', ':ball:'],
+                ['Cuadrado', ':square:'],
+                ['Cuadrado con punto', ':sdot:'],
+                ['Cuadrado lleno', ':fbox:'],
+                ['Cuadrado chico', ':sbox:'],
+                ['Cuadrado chico lleno', ':sfbox:'],
+                ['Flecha derecha', ':arrowright:'],
+                ['Flecha izquierda', ':arrowleft:'],
+                ['Euro', ':euro:'],
+                ['Centavo', ':cent:'],
+                ['Altavoz', ':speaker:'],
+                ['Sonido', ':sound:'],
+                ['X', ':x:'],
+                ['Objetivo', ':target:'],
+                ['Puntero derecha', ':pointerright:'],
+                ['Puntero arriba', ':pointerup:'],
+                ['Puntero izquierda', ':pointerleft:'],
+                ['Puntero abajo', ':pointerdown:'],
+                ['Flecha arriba derecha', ':arrowne:'],
+                ['Flecha arriba izquierda', ':arrownw:'],
+                ['Flecha abajo izquierda', ':arrowsw:'],
+                ['Flecha abajo derecha', ':arrowse:'],
+                ['Campana', ':bell:'],
+                ['Sonrisa', ':smile:'],
+                ['Nota', ':note:'],
+                ['Reloj', ':clock:'],
+                ['Corazon', ':heart:'],
+                ['Pato', ':duck:'],
+                ['Checkeado', ':check:'],
+                ['Hombre parado', ':runningb:'],
+                ['Hombre corriendo', ':runninga:'],
               ]),
-              "character"
+              'character',
             );
           this.setInputsInline(false);
           this.setOutput(true, null);
           this.setColour(60);
-          this.setTooltip("");
-          this.setHelpUrl("");
+          this.setTooltip('');
+          this.setHelpUrl('');
         },
       };
 
-      Blockly.Blocks["lcd_load_character"] = {
+      Blockly.Blocks['lcd_load_character'] = {
         init: function () {
           this.appendDummyInput()
-            .appendField("Asignar a la ")
+            .appendField('Asignar a la ')
             .appendField(
-              new Blockly.FieldVariable("CONSOLA_DE_MENSAJES"),
-              "lcd"
+              new Blockly.FieldVariable('CONSOLA_DE_MENSAJES'),
+              'lcd',
             );
-          this.appendValueInput("character")
+          this.appendValueInput('character')
             .setCheck(null)
-            .appendField("el caracter");
+            .appendField('el caracter');
           this.setInputsInline(true);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
           this.setColour(60);
-          this.setTooltip("");
-          this.setHelpUrl("");
+          this.setTooltip('');
+          this.setHelpUrl('');
         },
       };
 
-      Blockly.Blocks["lcd_composite_characters"] = {
+      Blockly.Blocks['lcd_composite_characters'] = {
         init: function () {
-          this.appendValueInput("characters")
-            .setCheck("Array")
-            .appendField("Conjunto de caracteres");
+          this.appendValueInput('characters')
+            .setCheck('Array')
+            .appendField('Conjunto de caracteres');
           this.setOutput(true, null);
           this.setColour(30);
-          this.setTooltip("");
-          this.setHelpUrl("");
+          this.setTooltip('');
+          this.setHelpUrl('');
         },
       };
     },
     code: (Blockly) => {
-      Blockly.JavaScript["lcd_create_two_rows"] = (block) => {
+      Blockly.JavaScript['lcd_create_two_rows'] = (block) => {
         let code = `new five.LCD(
                     { controller:'PCF8574A',
                       custom:{
@@ -487,7 +487,7 @@ const url_documentation = "http://blokino-platform.com/get_started",
                 })`;
         return [code, Blockly.JavaScript.ORDER_NONE];
       };
-      Blockly.JavaScript["lcd_create_four_rows"] = (block) => {
+      Blockly.JavaScript['lcd_create_four_rows'] = (block) => {
         let code = `new five.LCD(
                                 { controller:'PCF8574',
                                   custom:{ 
@@ -501,16 +501,16 @@ const url_documentation = "http://blokino-platform.com/get_started",
                                 })`;
         return [code, Blockly.JavaScript.ORDER_NONE];
       };
-      Blockly.JavaScript["lcd_two_rows_switch"] = (block) => {
+      Blockly.JavaScript['lcd_two_rows_switch'] = (block) => {
         let lcd = Blockly.JavaScript.variableDB_.getName(
-          block.getFieldValue("current_lcd"),
-          Blockly.Variables.NAME_TYPE
+          block.getFieldValue('current_lcd'),
+          Blockly.Variables.NAME_TYPE,
         );
-        let row = block.getFieldValue("current_row");
+        let row = block.getFieldValue('current_row');
         let message = Blockly.JavaScript.valueToCode(
           block,
-          "message",
-          Blockly.JavaScript.ORDER_ATOMIC
+          'message',
+          Blockly.JavaScript.ORDER_ATOMIC,
         );
         let code = `
                     switch('${row}'){
@@ -525,16 +525,16 @@ const url_documentation = "http://blokino-platform.com/get_started",
         return code;
       };
 
-      Blockly.JavaScript["lcd_four_rows_switch"] = (block) => {
+      Blockly.JavaScript['lcd_four_rows_switch'] = (block) => {
         let lcd = Blockly.JavaScript.variableDB_.getName(
-          block.getFieldValue("current_lcd"),
-          Blockly.Variables.NAME_TYPE
+          block.getFieldValue('current_lcd'),
+          Blockly.Variables.NAME_TYPE,
         );
-        let row = block.getFieldValue("current_row");
+        let row = block.getFieldValue('current_row');
         let message = Blockly.JavaScript.valueToCode(
           block,
-          "message",
-          Blockly.JavaScript.ORDER_ATOMIC
+          'message',
+          Blockly.JavaScript.ORDER_ATOMIC,
         );
         let code = `
                     switch('${row}'){
@@ -555,60 +555,62 @@ const url_documentation = "http://blokino-platform.com/get_started",
         return code;
       };
 
-      Blockly.JavaScript["lcd_clean"] = (block) => {
+      Blockly.JavaScript['lcd_clean'] = (block) => {
         let lcd = Blockly.JavaScript.variableDB_.getName(
-          block.getFieldValue("current_lcd"),
-          Blockly.Variables.NAME_TYPE
+          block.getFieldValue('current_lcd'),
+          Blockly.Variables.NAME_TYPE,
         );
         let code = `${lcd}.clear();`;
         return code;
       };
 
-      Blockly.JavaScript["lcd_off"] = (block) => {
+      Blockly.JavaScript['lcd_off'] = (block) => {
         let lcd = Blockly.JavaScript.variableDB_.getName(
-          block.getFieldValue("current_lcd"),
-          Blockly.Variables.NAME_TYPE
+          block.getFieldValue('current_lcd'),
+          Blockly.Variables.NAME_TYPE,
         );
         let code = `${lcd}.off();`;
         return code;
       };
 
-      Blockly.JavaScript["lcd_on"] = (block) => {
+      Blockly.JavaScript['lcd_on'] = (block) => {
         let lcd = Blockly.JavaScript.variableDB_.getName(
-          block.getFieldValue("current_lcd"),
-          Blockly.Variables.NAME_TYPE
+          block.getFieldValue('current_lcd'),
+          Blockly.Variables.NAME_TYPE,
         );
         let code = `${lcd}.on();`;
         return code;
       };
 
-      Blockly.JavaScript["lcd_two_rows_scroll"] = (block) => {
-        let current_velocity = block.getFieldValue("current_velocity");
+      Blockly.JavaScript['lcd_two_rows_scroll'] = (block) => {
+        let current_velocity = block.getFieldValue(
+          'current_velocity',
+        );
         let time = 0;
         switch (current_velocity) {
-          case "low":
+          case 'low':
             time = 2000;
             break;
-          case "medium":
+          case 'medium':
             time = 1500;
             break;
-          case "fast":
+          case 'fast':
             time = 1000;
             break;
         }
         let lcd = Blockly.JavaScript.variableDB_.getName(
-          block.getFieldValue("current_lcd"),
-          Blockly.Variables.NAME_TYPE
+          block.getFieldValue('current_lcd'),
+          Blockly.Variables.NAME_TYPE,
         );
         let first_message = Blockly.JavaScript.valueToCode(
           block,
-          "first_message",
-          Blockly.JavaScript.ORDER_ATOMIC
+          'first_message',
+          Blockly.JavaScript.ORDER_ATOMIC,
         );
         let second_message = Blockly.JavaScript.valueToCode(
           block,
-          "second_message",
-          Blockly.JavaScript.ORDER_ATOMIC
+          'second_message',
+          Blockly.JavaScript.ORDER_ATOMIC,
         );
 
         let code =
@@ -659,43 +661,43 @@ const url_documentation = "http://blokino-platform.com/get_started",
         return code;
       };
 
-      Blockly.JavaScript["lcd_four_rows_scroll"] = (block) => {
-        let velocity_type = block.getFieldValue("current_velocity");
+      Blockly.JavaScript['lcd_four_rows_scroll'] = (block) => {
+        let velocity_type = block.getFieldValue('current_velocity');
         let velocity = 0;
         switch (velocity_type) {
-          case "low":
+          case 'low':
             velocity = 2000;
             break;
-          case "medium":
+          case 'medium':
             velocity = 1500;
             break;
-          case "fast":
+          case 'fast':
             velocity = 1000;
             break;
         }
         let lcd = Blockly.JavaScript.variableDB_.getName(
-          block.getFieldValue("current_lcd"),
-          Blockly.Variables.NAME_TYPE
+          block.getFieldValue('current_lcd'),
+          Blockly.Variables.NAME_TYPE,
         );
         let first_message = Blockly.JavaScript.valueToCode(
           block,
-          "first_message",
-          Blockly.JavaScript.ORDER_ATOMIC
+          'first_message',
+          Blockly.JavaScript.ORDER_ATOMIC,
         );
         let second_message = Blockly.JavaScript.valueToCode(
           block,
-          "second_message",
-          Blockly.JavaScript.ORDER_ATOMIC
+          'second_message',
+          Blockly.JavaScript.ORDER_ATOMIC,
         );
         let third_message = Blockly.JavaScript.valueToCode(
           block,
-          "third_message",
-          Blockly.JavaScript.ORDER_ATOMIC
+          'third_message',
+          Blockly.JavaScript.ORDER_ATOMIC,
         );
         let fourth_message = Blockly.JavaScript.valueToCode(
           block,
-          "fourth_message",
-          Blockly.JavaScript.ORDER_ATOMIC
+          'fourth_message',
+          Blockly.JavaScript.ORDER_ATOMIC,
         );
 
         let code = `
@@ -769,20 +771,20 @@ const url_documentation = "http://blokino-platform.com/get_started",
         return code;
       };
 
-      Blockly.JavaScript["lcd_two_rows_no_scroll"] = (block) => {
+      Blockly.JavaScript['lcd_two_rows_no_scroll'] = (block) => {
         let lcd = Blockly.JavaScript.variableDB_.getName(
-          block.getFieldValue("current_console"),
-          Blockly.Variables.NAME_TYPE
+          block.getFieldValue('current_console'),
+          Blockly.Variables.NAME_TYPE,
         );
         let first_message = Blockly.JavaScript.valueToCode(
           block,
-          "msg_first_row",
-          Blockly.JavaScript.ORDER_ATOMIC
+          'msg_first_row',
+          Blockly.JavaScript.ORDER_ATOMIC,
         );
         let second_message = Blockly.JavaScript.valueToCode(
           block,
-          "msg_second_row",
-          Blockly.JavaScript.ORDER_ATOMIC
+          'msg_second_row',
+          Blockly.JavaScript.ORDER_ATOMIC,
         );
         let code = `
                         ${lcd}.cursor(0,0).print(${first_message});
@@ -793,30 +795,30 @@ const url_documentation = "http://blokino-platform.com/get_started",
         return code;
       };
 
-      Blockly.JavaScript["lcd_four_rows_no_scroll"] = (block) => {
+      Blockly.JavaScript['lcd_four_rows_no_scroll'] = (block) => {
         let lcd = Blockly.JavaScript.variableDB_.getName(
-          block.getFieldValue("current_display"),
-          Blockly.Variables.NAME_TYPE
+          block.getFieldValue('current_display'),
+          Blockly.Variables.NAME_TYPE,
         );
         let first_message = Blockly.JavaScript.valueToCode(
           block,
-          "first_message",
-          Blockly.JavaScript.ORDER_ATOMIC
+          'first_message',
+          Blockly.JavaScript.ORDER_ATOMIC,
         );
         let second_message = Blockly.JavaScript.valueToCode(
           block,
-          "second_message",
-          Blockly.JavaScript.ORDER_ATOMIC
+          'second_message',
+          Blockly.JavaScript.ORDER_ATOMIC,
         );
         let third_message = Blockly.JavaScript.valueToCode(
           block,
-          "third_message",
-          Blockly.JavaScript.ORDER_ATOMIC
+          'third_message',
+          Blockly.JavaScript.ORDER_ATOMIC,
         );
         let fourth_message = Blockly.JavaScript.valueToCode(
           block,
-          "fourth_message",
-          Blockly.JavaScript.ORDER_ATOMIC
+          'fourth_message',
+          Blockly.JavaScript.ORDER_ATOMIC,
         );
         let code = `
                     ${lcd}.cursor(0,0).print(${first_message}.substr(0,20));
@@ -826,34 +828,36 @@ const url_documentation = "http://blokino-platform.com/get_started",
                     `;
         return code;
       };
-      Blockly.JavaScript["lcd_character"] = function (block) {
-        let character = block.getFieldValue("character");
+      Blockly.JavaScript['lcd_character'] = function (block) {
+        let character = block.getFieldValue('character');
         let code = `"${character}"`;
         return [code, Blockly.JavaScript.ORDER_NONE];
       };
-      Blockly.JavaScript["use_character"] = function (block) {
-        let character = block.getFieldValue("character");
+      Blockly.JavaScript['use_character'] = function (block) {
+        let character = block.getFieldValue('character');
         let code = `"${character}"`;
         return [code, Blockly.JavaScript.ORDER_NONE];
       };
-      Blockly.JavaScript["lcd_load_character"] = function (block) {
+      Blockly.JavaScript['lcd_load_character'] = function (block) {
         let LCD = Blockly.JavaScript.variableDB_.getName(
-          block.getFieldValue("lcd"),
-          Blockly.Variables.NAME_TYPE
+          block.getFieldValue('lcd'),
+          Blockly.Variables.NAME_TYPE,
         );
         let character = Blockly.JavaScript.valueToCode(
           block,
-          "character",
-          Blockly.JavaScript.ORDER_ATOMIC
+          'character',
+          Blockly.JavaScript.ORDER_ATOMIC,
         );
         let code = `${LCD}.useChar${character};\n`;
         return code;
       };
-      Blockly.JavaScript["lcd_composite_characters"] = function (block) {
+      Blockly.JavaScript['lcd_composite_characters'] = function (
+        block,
+      ) {
         let characters = Blockly.JavaScript.valueToCode(
           block,
-          "characters",
-          Blockly.JavaScript.ORDER_ATOMIC
+          'characters',
+          Blockly.JavaScript.ORDER_ATOMIC,
         );
         let code = `${characters}.toString().replace(/\,/g, " ")`;
         return [code, Blockly.JavaScript.ORDER_NONE];

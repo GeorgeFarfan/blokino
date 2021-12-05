@@ -1,36 +1,36 @@
-"use strict";
+'use strict';
 
 /**
  * @author jorge Farfan
  * @description Componente para los CARDS animados de los desafíos.
  */
 
-window.addEventListener("WebComponentsReady", () => {
+window.addEventListener('WebComponentsReady', () => {
   class CardComponent extends HTMLElement {
     constructor() {
       super();
-      let path_style = this.getAttribute("path_style");
-      let title = this.getAttribute("title");
-      let classs_challenge = "";
-      let description = this.getAttribute("description");
+      let path_style = this.getAttribute('path_style');
+      let title = this.getAttribute('title');
+      let classs_challenge = '';
+      let description = this.getAttribute('description');
 
-      let type = this.getAttribute("type");
+      let type = this.getAttribute('type');
       switch (type) {
-        case "beginner":
-          classs_challenge = "challenge_title_beginner";
+        case 'beginner':
+          classs_challenge = 'challenge_title_beginner';
           break;
-        case "intermediate":
-          classs_challenge = "challenge_title_intermediate";
+        case 'intermediate':
+          classs_challenge = 'challenge_title_intermediate';
           break;
-        case "advanced":
-          classs_challenge = "challenge_title_advanced";
+        case 'advanced':
+          classs_challenge = 'challenge_title_advanced';
           break;
-        case "expert":
-          classs_challenge = "challenge_title_expert";
+        case 'expert':
+          classs_challenge = 'challenge_title_expert';
           break;
       }
       this.attachShadow({
-        mode: "open"
+        mode: 'open',
       }).innerHTML =
         `   <style>
                 @import url(` +
@@ -60,5 +60,5 @@ window.addEventListener("WebComponentsReady", () => {
             `;
     }
   }
-  window.customElements.define("card-block", CardComponent);
+  window.customElements.define('card-block', CardComponent);
 });

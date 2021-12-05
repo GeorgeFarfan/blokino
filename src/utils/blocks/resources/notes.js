@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * @author Jorge Farfan Coaguila
@@ -6,9 +6,9 @@
  */
 
 let notesFunctions = {
-    notes: () => {
-        return {
-            claxon: `
+  notes: () => {
+    return {
+      claxon: `
             {
                 song:[
                     ['C4', 4],
@@ -21,7 +21,7 @@ let notesFunctions = {
                 tempo: 150
             }
             `,
-            mario_bross_1: `
+      mario_bross_1: `
             {
                 song:[
                     ['E5', 1 / 4],
@@ -42,7 +42,7 @@ let notesFunctions = {
                 tempo: 200
             }
             `,
-            mario_bross_2: `
+      mario_bross_2: `
             { 
                 song:[  
                     ['C5', 1/4],
@@ -82,7 +82,7 @@ let notesFunctions = {
                 ],tempo:200
             }
         `,
-            star_wars: `
+      star_wars: `
         {
             song:[
                 ['A', 500],
@@ -231,9 +231,9 @@ let notesFunctions = {
                 [null, 650]
             ],tempo:100000 
         }
-        `
-        };
-    }
+        `,
+    };
+  },
 };
 
 module.exports = notesFunctions;

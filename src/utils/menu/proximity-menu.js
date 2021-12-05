@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * @author Jorge Farfan Coaguila
@@ -6,10 +6,10 @@
  */
 
 let menuFunctions = {
-    menu: () => {
-        return {
-            test_1: {
-                code: ` 
+  menu: () => {
+    return {
+      test_1: {
+        code: ` 
                     <xml id="blokino-toolbox">
                         <category name="Bloques" colour="270">
                             <sep gap="32"></sep>
@@ -40,10 +40,10 @@ let menuFunctions = {
                             <sep gap="32"></sep>
                         </category>
                     </xml>
-                `
-            }
-        };
-    }
+                `,
+      },
+    };
+  },
 };
 
 module.exports = menuFunctions;

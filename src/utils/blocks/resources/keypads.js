@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * @author Jorge Farfan Coaguila
@@ -6,8 +6,8 @@
  */
 
 let keypadFunctions = {
-    config: () => {
-        return `
+  config: () => {
+    return `
             {
                 controller:'MPR121_KEYPAD',
                 keys: 
@@ -16,7 +16,7 @@ let keypadFunctions = {
                 custom:{type:'KEYPAD'}
             }
         `;
-    }
+  },
 };
 
 module.exports = keypadFunctions;

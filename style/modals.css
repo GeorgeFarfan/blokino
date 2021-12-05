@@ -1,155 +1,155 @@
 #modal-body-code-preview {
-    border-bottom: 5px solid grey;
+  border-bottom: 5px solid grey;
 }
 
 .modal-header-success-challenges {
-    background-color: #6c5070;
+  background-color: #6c5070;
 }
 
 .modal-header-settings {
-    background-color: #466da9;
+  background-color: #466da9;
 }
 
 .modal-header-settings-icon {
-    font-size: 100px;
-    color: #f3f3f3;
+  font-size: 100px;
+  color: #f3f3f3;
 }
 
 .modal-header-success-icon {
-    font-size: 100px;
-    color: #f3f3f3;
-    padding: 10px;
+  font-size: 100px;
+  color: #f3f3f3;
+  padding: 10px;
 }
 
 .modal-title {
-    font-weight: bold;
-    text-decoration: underline;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 .modal-body-title {
-    text-align: center;
+  text-align: center;
 }
 
 .modal-header-error-code {
-    background-color: #f46060;
+  background-color: #f46060;
 }
 
 .modal-header-warning-code {
-    background-color: #ffc107;
+  background-color: #ffc107;
 }
 
 .modal-header-warning {
-    background-color: #17a2b8;
+  background-color: #17a2b8;
 }
 
 .modal-header-question {
-    background-color: #b8972c;
+  background-color: #b8972c;
 }
 
 .modal-header-error-icon {
-    font-size: 100px;
-    color: #f3f3f3;
-    padding: 10px;
+  font-size: 100px;
+  color: #f3f3f3;
+  padding: 10px;
 }
 
 .modal-header-warning-icon {
-    font-size: 100px;
-    color: #4c4444;
-    padding: 10px;
+  font-size: 100px;
+  color: #4c4444;
+  padding: 10px;
 }
 
 .modal-header-question-icon {
-    font-size: 100px;
-    color: #f3f3f3;
-    padding: 10px;
+  font-size: 100px;
+  color: #f3f3f3;
+  padding: 10px;
 }
 
 .modal-footer {
-    border-top: none;
+  border-top: none;
 }
 
 .modal-custom-footer {
-    display: none;
+  display: none;
 }
 
 .modal-header {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .modal-header .close {
-    margin-right: -5px;
-    margin-bottom: -3em;
-    margin-top: -0.2em;
-    margin-left: 1.7em;
-    background-color: black;
-    color: white;
-    padding: 0.4em 0.6em 0.4em 0.6em;
+  margin-right: -5px;
+  margin-bottom: -3em;
+  margin-top: -0.2em;
+  margin-left: 1.7em;
+  background-color: black;
+  color: white;
+  padding: 0.4em 0.6em 0.4em 0.6em;
 }
 
 .modal-header .close:hover {
-    margin-right: -5px;
-    margin-bottom: -3em;
-    margin-top: -0.2em;
-    margin-left: 1.7em;
-    background-color: red;
-    color: white;
-    padding: 0.4em 0.6em 0.4em 0.6em;
+  margin-right: -5px;
+  margin-bottom: -3em;
+  margin-top: -0.2em;
+  margin-left: 1.7em;
+  background-color: red;
+  color: white;
+  padding: 0.4em 0.6em 0.4em 0.6em;
 }
 
 .modal-header .close-rounded {
-    margin-right: -5px;
-    margin-bottom: -3em;
-    margin-top: -0.2em;
-    background-color: black;
-    color: white;
-    border-radius: 50%;
-    padding: 0.4em 0.6em 0.4em 0.6em;
+  margin-right: -5px;
+  margin-bottom: -3em;
+  margin-top: -0.2em;
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  padding: 0.4em 0.6em 0.4em 0.6em;
 }
 
 .modal-header .close-rounded:hover {
-    margin-right: -5px;
-    margin-bottom: -3em;
-    margin-top: -0.2em;
-    background-color: red;
-    border-radius: 50%;
-    color: white;
-    padding: 0.4em 0.6em 0.4em 0.6em;
+  margin-right: -5px;
+  margin-bottom: -3em;
+  margin-top: -0.2em;
+  background-color: red;
+  border-radius: 50%;
+  color: white;
+  padding: 0.4em 0.6em 0.4em 0.6em;
 }
 
 #modal-header-device {
-    margin-bottom: 5em;
+  margin-bottom: 5em;
 }
 
 #modal-title-device {
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 4em;
-    margin-top: 1em;
-    margin-left: 5px;
-    margin-right: 5px;
-    height: 0em;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 4em;
+  margin-top: 1em;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 0em;
 }
 
 .modal-title-header {
-    font-size: 3em;
-    line-height: 45px;
-    text-align: center;
-    font-weight: bold;
+  font-size: 3em;
+  line-height: 45px;
+  text-align: center;
+  font-weight: bold;
 }
 
 #modal-footer-device {
-    display: none;
+  display: none;
 }
 
 #modal-body-device {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .modal-content-code-preview {
-    background-color: #282a36;
-    font-family: monospace;
+  background-color: #282a36;
+  font-family: monospace;
 }
 
 .modal-header-code-preview {
-    color: #f3f3f3;
+  color: #f3f3f3;
 }

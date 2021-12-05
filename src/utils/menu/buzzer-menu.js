@@ -1,14 +1,14 @@
-"use strict";
+'use strict';
 
 /**
  * @author Jorge Farfan Coaguila
  * @description Este módulo contiene los menus para el desafío de los Zumbadores
  */
 let menuFunctions = {
-    menu: () => {
-        return {
-            test_1: {
-                code: `
+  menu: () => {
+    return {
+      test_1: {
+        code: `
                     <xml id="blokino-toolbox">
                         <category name="Bloques" colour="270">
                             <category name="Variables" custom="VARIABLE" colour="210">
@@ -31,10 +31,10 @@ let menuFunctions = {
                             <sep gap="32"></sep>
                         </category>
                     </xml>
-                    `
-            },
-            test_2: {
-                code: `
+                    `,
+      },
+      test_2: {
+        code: `
                     <xml id="blokino-toolbox">
                         <category name="Bloques" colour="270"> 
                             <category name="Variables" custom="VARIABLE" colour="210"/>
@@ -63,10 +63,10 @@ let menuFunctions = {
                                 <block type="buzzer_play_with_notes"/>
                             </category> 
                         </category>
-                    </xml>`
-            }
-        };
-    }
+                    </xml>`,
+      },
+    };
+  },
 };
 
 module.exports = menuFunctions;
