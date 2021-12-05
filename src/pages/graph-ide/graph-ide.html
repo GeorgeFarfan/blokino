@@ -1,140 +1,213 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="UTF-8">
-    <title> Blokino </title>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Blokino</title>
     <script src="../../../resources/libs/blockly/blockly.min.js"></script>
     <script src="../../../resources/libs/blockly/msg/es.js"></script>
     <script src="../../../resources/libs/blockly/javascript.js"></script>
     <script src="../../../resources/libs/font-awesome/js/fontawesome.min.js"></script>
-    <link rel="stylesheet" href="../../../style/app.css">
-</head>
+    <link rel="stylesheet" href="../../../style/app.css" />
+  </head>
 
-<body class="body-challenges">
-
+  <body class="body-challenges">
     <div class="container container-ide pt-5 pb-5" id="page">
-        <div class="row">
-            <div class="col-md-12 col-sm-12">
-                <div class="row">
-                    <div class="col-8 col-sm-6">
-                        <div id="back-button-challenge">
-                            <i class="far fa-arrow-left back_icon"></i>
-                        </div>
-                    </div>
-
-                </div>
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <div class="row">
+            <div class="col-8 col-sm-6">
+              <div id="back-button-challenge">
+                <i class="far fa-arrow-left back_icon"></i>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
 
-        <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                <div class="row">
-                    <div class="col text-center">
-                        <img class="rounded mx-auto d-block" data-src="../../images/blokino-logo.svg"
-                            src="../../images/blokino-logo.svg" alt="Blokino ..." width="200" height="200">
-                    </div>
-                </div>
-                <div class="row ide-block mt-3">
-                    <div class="col col-md-12 col-sm-12 col-lg-12 col-xs-12">
-                        <div class="container-loader">
-                            <div id="loader"></div>
-                        </div>
-                        <div id="block-editor">
-                            <div id="blokino-workspace" class="block-editor"></div>
-                            <xml id="blokino-toolbox">
-                            </xml>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="row  justify-content-md-center  mt-3">
-                    <div class="section-buttons-expert p-3">
-                        <button type="button" id="show-modal-code-preview"
-                            class="btn btn-lg btn-light mr-1 btn-show-code" data-toggle="tooltip" data-placement="right"
-                            title="Haz click acá, para cargar un programa de Blokino."><i
-                                class="far fa-code icon-link"></i>Ver
-                            código</button>
-                        <button type="button" id="clean-code" class="btn btn-lg btn-light mr-1 btn-clean-code"
-                            data-toggle="tooltip" data-placement="right"
-                            title="Haz click acá, para limpiar el espacio de trabajo.">
-                            <i class="far fa-trash icon-link"></i>Borrar
-                            proyecto</button>
-                        <button type="button" id="download-code" class="btn btn-lg btn-light ml-1 btn-download-code-app"
-                            data-toggle="tooltip" data-placement="right"
-                            title="Haz click acá, para descargar el código de Blokino."><i
-                                class="far fa-file-download icon-link"></i>Descargar
-                            proyecto</button>
-                        <button type="button" id="open-code" class="btn btn-lg btn-light mr-1 btn-open-code"
-                            data-toggle="tooltip" data-placement="right"
-                            title="Haz click acá, para cargar un programa de Blokino."><i
-                                class="far fa-file-upload icon-link"></i>Abrir
-                            proyecto</button>
-                    </div>
-                </div>
-
-                <div class="row justify-content-md-center code-block mt-3 mb-3">
-                    <div id="blokino-console">
-                        <h3 class="font-weight-bold" id="blokino-console-title">CONSOLA</h3>
-                        <div class="col-12 mt-2" id="blokino-console-body">
-                            <div id="blokino-messages" class="mt-2 mb-2">
-                                <p class="initial-message m-0"><strong>>> Blokino => esperando mensajes ...</strong>
-                                </p>
-                            </div>
-                        </div>
-                        <button type="button" id="clean-console"
-                            class="btn btn-lg btn-light mr-1 btn-open-code float-right mt-2">
-                            Limpiar consola
-                        </button>
-
-                    </div>
-                </div>
-
-                <!-- Mensaje de advertencia -->
-                <div class="row justify-content-md-center code-block mt-2">
-                    <div class="col col-md-8">
-                        <div class="alert alert-warning alert-dismissible" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                                    aria-hidden="true">&times;</span></button>
-                            <h5>
-                                <strong>Aviso</strong> Si tienes muchos dispositivos conectados. No te olvides de
-                                configurarlos, para poder ejecutar los programas de <strong>Blokino</strong>.
-                            </h5>
-                        </div>
-                        <div class="alert alert-warning alert-dismissible" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                                    aria-hidden="true">&times;</span></button>
-                            <h5>
-                                <strong>Aviso</strong> Con la consola de <strong>Blokino</strong> se pueden agregar
-                                mensajes para indicar que se esta haciendo en el programa.
-                            </h5>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- Botones -->
-                <div class="row  justify-content-md-center code-block mt-1 mb-1">
-                    <button type="button" class="btn btn-lg btn-light btn-info-device  mr-1" id="btn-devices-setup">
-                        <i class="far fa-tools icon-link"></i>
-                        Configurar
-                        dispositivos</button>
-                    <button disabled type="button" class="btn btn-lg btn-danger  btn-red ml-1" id="stop-program">
-                        <i class="far fa-stop-circle icon-link"></i>
-                        Detener programa</button>
-                    <button type="button" class="btn btn-lg btn-light  btn-execute-code   ml-1" id="btn-execute-code">
-                        <i class="far fa-play-circle icon-link"></i>
-                        Ejecutar programa</button>
-                </div>
-
+      <div class="tab-content" id="pills-tabContent">
+        <div
+          class="tab-pane fade show active"
+          id="pills-home"
+          role="tabpanel"
+          aria-labelledby="pills-home-tab"
+        >
+          <div class="row">
+            <div class="col text-center">
+              <img
+                class="rounded mx-auto d-block"
+                data-src="../../images/blokino-logo.svg"
+                src="../../images/blokino-logo.svg"
+                alt="Blokino ..."
+                width="200"
+                height="200"
+              />
             </div>
+          </div>
+          <div class="row ide-block mt-3">
+            <div class="col col-md-12 col-sm-12 col-lg-12 col-xs-12">
+              <div class="container-loader">
+                <div id="loader"></div>
+              </div>
+              <div id="block-editor">
+                <div
+                  id="blokino-workspace"
+                  class="block-editor"
+                ></div>
+                <xml id="blokino-toolbox"> </xml>
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-md-center mt-3">
+            <div class="section-buttons-expert p-3">
+              <button
+                type="button"
+                id="show-modal-code-preview"
+                class="btn btn-lg btn-light mr-1 btn-show-code"
+                data-toggle="tooltip"
+                data-placement="right"
+                title="Haz click acá, para cargar un programa de Blokino."
+              >
+                <i class="far fa-code icon-link"></i>Ver código
+              </button>
+              <button
+                type="button"
+                id="clean-code"
+                class="btn btn-lg btn-light mr-1 btn-clean-code"
+                data-toggle="tooltip"
+                data-placement="right"
+                title="Haz click acá, para limpiar el espacio de trabajo."
+              >
+                <i class="far fa-trash icon-link"></i>Borrar proyecto
+              </button>
+              <button
+                type="button"
+                id="download-code"
+                class="btn btn-lg btn-light ml-1 btn-download-code-app"
+                data-toggle="tooltip"
+                data-placement="right"
+                title="Haz click acá, para descargar el código de Blokino."
+              >
+                <i class="far fa-file-download icon-link"></i
+                >Descargar proyecto
+              </button>
+              <button
+                type="button"
+                id="open-code"
+                class="btn btn-lg btn-light mr-1 btn-open-code"
+                data-toggle="tooltip"
+                data-placement="right"
+                title="Haz click acá, para cargar un programa de Blokino."
+              >
+                <i class="far fa-file-upload icon-link"></i>Abrir
+                proyecto
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="row justify-content-md-center code-block mt-3 mb-3"
+          >
+            <div id="blokino-console">
+              <h3 class="font-weight-bold" id="blokino-console-title">
+                CONSOLA
+              </h3>
+              <div class="col-12 mt-2" id="blokino-console-body">
+                <div id="blokino-messages" class="mt-2 mb-2">
+                  <p class="initial-message m-0">
+                    <strong
+                      >>> Blokino => esperando mensajes ...</strong
+                    >
+                  </p>
+                </div>
+              </div>
+              <button
+                type="button"
+                id="clean-console"
+                class="btn btn-lg btn-light mr-1 btn-open-code float-right mt-2"
+              >
+                Limpiar consola
+              </button>
+            </div>
+          </div>
+
+          <!-- Mensaje de advertencia -->
+          <div class="row justify-content-md-center code-block mt-2">
+            <div class="col col-md-8">
+              <div
+                class="alert alert-warning alert-dismissible"
+                role="alert"
+              >
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="alert"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h5>
+                  <strong>Aviso</strong> Si tienes muchos dispositivos
+                  conectados. No te olvides de configurarlos, para
+                  poder ejecutar los programas de
+                  <strong>Blokino</strong>.
+                </h5>
+              </div>
+              <div
+                class="alert alert-warning alert-dismissible"
+                role="alert"
+              >
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="alert"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h5>
+                  <strong>Aviso</strong> Con la consola de
+                  <strong>Blokino</strong> se pueden agregar mensajes
+                  para indicar que se esta haciendo en el programa.
+                </h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- Botones -->
+          <div
+            class="row justify-content-md-center code-block mt-1 mb-1"
+          >
+            <button
+              type="button"
+              class="btn btn-lg btn-light btn-info-device mr-1"
+              id="btn-devices-setup"
+            >
+              <i class="far fa-tools icon-link"></i>
+              Configurar dispositivos
+            </button>
+            <button
+              disabled
+              type="button"
+              class="btn btn-lg btn-danger btn-red ml-1"
+              id="stop-program"
+            >
+              <i class="far fa-stop-circle icon-link"></i>
+              Detener programa
+            </button>
+            <button
+              type="button"
+              class="btn btn-lg btn-light btn-execute-code ml-1"
+              id="btn-execute-code"
+            >
+              <i class="far fa-play-circle icon-link"></i>
+              Ejecutar programa
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <script src="./graph.js">
-    </script> 
-
-</body>
-
+    <script src="./graph.js"></script>
+  </body>
 </html>
