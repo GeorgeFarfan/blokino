@@ -8,36 +8,26 @@
     </title>
     <link rel="stylesheet" href="./style/app.css" />
     <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
-    <script src="./src/components/section.component.js"></script>
     <script src="./resources/libs/font-awesome/js/fontawesome.min.js"></script>
-    <script src="./src/components/button-blokino/button-blokino.js"></script>
+    <script src="./resources/blo/index.js"></script>
   </head>
 
   <body>
     <div class="welcome">
       <div class="container">
         <div class="row" id="blokino-welcome">
-          <!-- 
-
-         <option-blokino page="expert"></option-blokino>
-        <option-blokino page="challenges"></option-blokino>
-        <option-blokino page="projects"></option-blokino>
-   -->
-
           <div class="col col-lg-5 col-sm-12 col-md-12 right-dots">
-            <img
-              class="rounded mx-auto d-block"
-              data-src="./src/images/blokino-logo.svg"
-              src="./src/images/blokino-logo.svg"
-              alt="Blokino ..."
-              width="400"
-              height="400"
-            />
-            <h1
-              class="display-4 font-weight-bold mt-3 mb-1 text-center blink"
-            >
-              Aprende a programar hardware con Blokino
-            </h1>
+            <div class="d-flex flex-column align-items-center">
+              <blo-image
+                src="./src/images/blokino-logo.svg"
+                size="medium"
+              ></blo-image>
+              <h1
+                class="display-4 font-weight-bold mt-3 mb-1 text-center blink"
+              >
+                Aprende a programar hardware con Blokino
+              </h1>
+            </div>
           </div>
 
           <div class="col-lg-7 col-sm-12 col-md-12 pt-5">
@@ -68,39 +58,11 @@
             </section-block>
 
             <div class="pb-1">
-              <button
-                class="btn btn-lg btn-open-editor"
-                onclick="openEditor()"
-              >
-                <i class="far fa-code icon-link"></i>Programemos
-              </button>
-              <button
-                class="btn btn-lg btn-open-editor"
-                onclick="openGraphIDE()"
-              >
-                <i class="far fa-code icon-link"></i>Editor gráfico
-              </button>
-              <button
-                class="btn btn-lg btn-open-challenges"
-                onclick="openChallenges()"
-              >
-                <i class="far fa-envelope-open icon-link"></i>
-                Desafíos
-              </button>
-              <button
-                class="btn btn-lg btn-open-robots"
-                onclick="openProjects()"
-              >
-                <i class="far fa-robot icon-link"></i>
-                NodeBots
-              </button>
-              <button
-                class="btn btn-lg btn-open-web"
-                onclick="openWebPage()"
-              >
-                <i class="far fa-ethernet icon-link"></i>
-                Web
-              </button>
+              <blo-option page="expert"></blo-option>
+              <blo-option page="editor"></blo-option>
+              <blo-option page="challenges"></blo-option>
+              <blo-option page="nodeBot"></blo-option>
+              <blo-option page="expert"></blo-option>
             </div>
 
             <div>
@@ -110,8 +72,7 @@
               <i
                 class="devicons devicons-windows icon-blokino-medium"
               ></i>
-            </div>
-            <div>
+
               <i
                 class="devicons devicons-html5 icon-blokino-medium"
               ></i>
@@ -128,29 +89,22 @@
     </div>
     <script>
       let utils = require('./src/utils/functions');
-
-      function openEditor() {
+      const openEditor = () => {
         window.location.href = './src/pages/expert/expert.html';
-      }
-
-      function openChallenges() {
+      };
+      const openChallenges = () => {
         window.location.href = './src/pages/challenges.html';
-      }
-
-      function openWebPage() {
+      };
+      const openWebPage = () => {
         event.preventDefault();
         utils.openURL('projects');
-      }
-
-      function openProjects() {
+      };
+      const openProjects = () => {
         window.location.href = './src/pages/projects/projects.html';
-      }
-
-      function openGraphIDE() {
+      };
+      const openGraphIDE = () => {
         window.location.href = './src/pages/graph-ide/graph-ide.html';
-      }
-
-      customElements.define('option-blokino', OptionBlokino);
+      };
     </script>
   </body>
 </html>
