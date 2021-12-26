@@ -6,7 +6,8 @@
  */
 
 const os = require('os'),
-  os_name = require('os-name');
+  os_name = require('os-name'),
+  KEYS = require('../messages');
 
 const configUtils = {
   infoOS: () => {
@@ -18,8 +19,8 @@ const configUtils = {
   },
   arch: () => {
     if (
-      process.platform === 'win32' ||
-      process.platform === 'win64'
+      process.platform === KEYS.WINDOWS.win32 ||
+      process.platform === KEYS.WINDOWS.win64
     ) {
       return process.platform;
     } else {

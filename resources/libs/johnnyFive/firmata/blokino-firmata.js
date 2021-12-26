@@ -10,6 +10,7 @@ const path = require('path'),
   chalk = require('chalk'),
   log = console.log,
   fs = require('fs'),
+  FIRMATA_LABELS = require('./firmata-labels'),
   supportedBoards = Avrgirl.listKnownBoards(),
   supportedBoardsString = supportedBoards.join(', ');
 
@@ -17,7 +18,7 @@ const blokinoFirmata = {
   showSupported: () => {
     log(
       chalk.black.bgYellow.bold(
-        'Dispositivos soportados: \n' + supportedBoardsString,
+        `${FIRMATA_LABELS.KEYS.SUPPORT_DEVICES}${supportedBoardsString}`,
       ),
     );
   },
@@ -29,45 +30,48 @@ const blokinoFirmata = {
     };
     log(
       chalk.black.bgYellow.bold(
-        'Configurando placa: ' + options.board,
+        FIRMATA_LABELS.SETUP.SETUP_BOARD + options.board,
       ),
     );
     return new Promise((resolve, reject) => {
       blokinoFirmata.flash(options, (error) => {
         if (error) {
-          return resolve('Error');
+          return resolve(FIRMATA_LABELS.KEYS.ERROR);
         } else {
-          return resolve('Exito');
+          return resolve(FIRMATA_LABELS.KEYS.SUCCESS);
         }
       });
     });
   },
   flash: (options, callback) => {
     let avrgirl = new Avrgirl(options);
-    let avrgirlDir = path.dirname(require.resolve('avrgirl-arduino'));
-    let firmataDir = path.resolve(
-      avrgirlDir,
+    const DIR = path.dirname(
+      require.resolve(FIRMATA_LABELS.KEYS.AVR_ARDUINO),
+    );
+    const FIRMATA_DIRECTORY = path.resolve(
+      DIR,
       'junk',
       'hex',
       options.board,
     );
     let firmataPath;
-    fs.readdir(firmataDir, (err, files) => {
+    fs.readdir(FIRMATA_DIRECTORY, (err, files) => {
       if (err) {
         return log(chalk.white.bgRed.bold('Error: \n' + err));
       }
       for (let i = 0, len = files.length; i < len; i++) {
         let filename = files[i];
-        if (filename.indexOf('StandardFirmata') > -1) {
-          firmataPath = path.join(firmataDir, filename);
+        if (
+          filename.indexOf(FIRMATA_LABELS.KEYS.STANDARD_FIRMATA) > -1
+        ) {
+          firmataPath = path.join(FIRMATA_DIRECTORY, filename);
           break;
         }
       }
       if (typeof firmataPath === 'undefined') {
         return log(
           chalk.white.bgRed.bold(
-            'Error: No se esncontró el Standard Firmata para la placa: ' +
-              options.board,
+            `${FIRMATA_LABELS.KEYS.FIRMATA_NOT_FOUND}${options.board}`,
           ),
         );
       }

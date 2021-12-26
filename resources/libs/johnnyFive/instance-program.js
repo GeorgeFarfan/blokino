@@ -32,7 +32,6 @@ let instance_utils = {
         nodes.push(child);
         child.on('message', (message) => {
           let validation = JSON.parse(message);
-          console.log('Validacion => ', validation);
           switch (validation.type) {
             case 'ErrorJ5':
               emitMessage.sender.send(channel, 'ErrorJ5');

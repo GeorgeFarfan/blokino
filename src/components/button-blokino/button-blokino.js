@@ -26,7 +26,6 @@ class OptionBlokino extends HTMLElement {
 
     // Events
     this.addEventListener('click', (event) => {
-      console.log(this.getAttribute('page'));
       let page = this.getAttribute('page');
       window.location.href = PAGES[page].path;
     });

@@ -17,12 +17,10 @@ const SerialPort = require('serialport'),
 let serialportFunctions = {
   listDevices: function () {
     let usb_connected = [];
-    const os_arch = platform.arch();
+    const OS_ARCH = platform.arch();
     SerialPort.list()
       .then((ports) => {
-        console.log('PORTS => ', ports);
-        console.log('OS => ', os_arch);
-        if (os_arch.includes(macOS)) {
+        if (OS_ARCH.includes(macOS)) {
           ports.forEach((port) => {
             if (
               port.path.includes(deviceType) ||
@@ -30,7 +28,7 @@ let serialportFunctions = {
             ) {
               usb_connected.push({
                 type: deviceType,
-                name: 'Arduino',
+                name: deviceType,
                 port: port.path,
               });
             }
@@ -46,7 +44,7 @@ let serialportFunctions = {
             ) {
               usb_connected.push({
                 type: deviceType,
-                name: 'Arduino',
+                name: deviceType,
                 port: port.comName ? port.comName : port.path,
               });
             }
