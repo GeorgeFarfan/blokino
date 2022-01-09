@@ -7,9 +7,6 @@
       escuelas
     </title>
     <link rel="stylesheet" href="./style/app.css" />
-    <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
-    <script src="./resources/libs/font-awesome/js/fontawesome.min.js"></script>
-    <script src="./resources/blo/index.js"></script>
   </head>
 
   <body>
@@ -23,7 +20,7 @@
                 size="medium"
               ></blo-image>
               <h1
-                class="display-4 font-weight-bold mt-3 mb-1 text-center blink"
+                class="font-50 font-weight-bold mt-3 mb-1 text-center blink"
               >
                 Aprende a programar hardware con Blokino
               </h1>
@@ -58,53 +55,28 @@
             </section-block>
 
             <div class="pb-1">
-              <blo-option page="expert"></blo-option>
-              <blo-option page="editor"></blo-option>
               <blo-option page="challenges"></blo-option>
               <blo-option page="nodeBot"></blo-option>
               <blo-option page="expert"></blo-option>
             </div>
 
-            <div>
+            <div class="dashboard__footer">
               <i
                 class="devicons devicons-debian icon-blokino-medium"
               ></i>
               <i
                 class="devicons devicons-windows icon-blokino-medium"
               ></i>
-
-              <i
-                class="devicons devicons-html5 icon-blokino-medium"
-              ></i>
               <i
                 class="devicons devicons-javascript_badge icon-blokino-medium"
-              ></i>
-              <i
-                class="devicons devicons-css3 icon-blokino-medium"
               ></i>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <script>
-      let utils = require('./src/utils/functions');
-      const openEditor = () => {
-        window.location.href = './src/pages/expert/expert.html';
-      };
-      const openChallenges = () => {
-        window.location.href = './src/pages/challenges.html';
-      };
-      const openWebPage = () => {
-        event.preventDefault();
-        utils.openURL('projects');
-      };
-      const openProjects = () => {
-        window.location.href = './src/pages/projects/projects.html';
-      };
-      const openGraphIDE = () => {
-        window.location.href = './src/pages/graph-ide/graph-ide.html';
-      };
-    </script>
+    <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+    <script src="./resources/libs/font-awesome/js/fontawesome.min.js"></script>
+    <script src="./resources/blo/index.js"></script>
   </body>
 </html>

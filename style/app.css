@@ -24,7 +24,7 @@
 @import url('./utils.css');
 
 body {
-  background: white;
+  background: #02080e;
   font-display: monospace !important;
   animation: fadeIn 0.4s linear;
 }
@@ -40,4 +40,11 @@ body {
   .right-dots {
     border-right: none;
   }
+}
+
+.dashboard__footer {
+  font-size: 10px;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
 }
